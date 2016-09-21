@@ -1,4 +1,6 @@
-﻿<div id="headerBar" class="bigBox">
+﻿
+<link rel="stylesheet" type="text/css" href="/css/public.css" />
+<div id="headerBar" class="bigBox">
 <div class="box">
 欢迎访问 @WorkContext.MallConfig.MallName
 <div  class="headerLink">
@@ -37,7 +39,29 @@
      }
 
 <div id="header" class="bigBox">
-<div class="box" id="header1">
+    <div class="center-x">
+        <div class="logopart">
+            <a href="###" class="logo"></a>
+            <h2>云绣<span>采购站</span></h2>
+        </div>
+
+        <div class="search-part">
+            <input id="search-key" class="search-text" type="text" autocomplete="off" />
+            <button type="button" class="searchbtn">搜索</button>
+            <div class="hotwords">
+                <a href="###" target="_blank" class="hot">绣花机</a>
+                <a href="###" target="_blank">绣针</a>
+                <a href="###" target="_blank">机夹</a>
+                <a href="###" target="_blank">机架</a>
+                <a href="###" target="_blank">零配件</a>
+            </div>
+        </div>
+
+        <div class="cart-part">
+            <h2><a href="###" target="_blank">我的购物车<b>3</b></a></h2>
+        </div>
+    </div>
+@*<div class="box" id="header1">
 <a href="/" class="logo left"><img src="@{@WorkContext.ImageCDN}/images/logo.jpg" /></a>
 <div class="search left">
 <div class="searchCon">
@@ -66,10 +90,10 @@
     $("#cartSnapBox").mouseleave(function () {
         closeCartSnap();
     })
-</script>
+</script>*@
 
-<div class="clear"></div>
-</div>
+@*<div class="clear"></div>
+</div>*@
 </div>
 
 <div id="nav" class="bigBox">
@@ -131,3 +155,6 @@
 </ul>
 </div>
 </div>
+
+<script type="text/javascript" src="/scripts/common.js"></script>
+<script type="text/javascript" src="/scripts/home.js"></script>

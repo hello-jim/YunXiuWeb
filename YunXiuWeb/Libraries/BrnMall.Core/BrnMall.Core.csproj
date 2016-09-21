@@ -35,6 +35,12 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
+    <Reference Include="YunXiu.Commom">
+      <HintPath>..\..\..\..\YunXiu\YunXiu\YunXiu.Commom\bin\Debug\YunXiu.Commom.dll</HintPath>
+    </Reference>
+    <Reference Include="YunXiu.Model">
+      <HintPath>..\..\..\..\YunXiu\YunXiu\YunXiu.Model\bin\Debug\YunXiu.Model.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asyn\BMAAsyn.cs" />

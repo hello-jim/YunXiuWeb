@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
-
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
+using YunXiu.Model;
 
 namespace BrnMall.Web.Models
 {
@@ -282,14 +282,19 @@ namespace BrnMall.Web.Models
         /// 品牌列表
         /// </summary>
         public List<BrandInfo> BrandList { get; set; }
+        ///// <summary>
+        ///// 分页对象
+        ///// </summary>
+        //public PageModel PageModel { get; set; }
+        ///// <summary>
+        ///// 商品列表
+        ///// </summary>
+        //public List<StoreProductInfo> ProductList { get; set; }
+
         /// <summary>
-        /// 分页对象
+        /// 分页结果
         /// </summary>
-        public PageModel PageModel { get; set; }
-        /// <summary>
-        /// 商品列表
-        /// </summary>
-        public List<StoreProductInfo> ProductList { get; set; }
+        public PageResult<Product> PageResult { get; set; }
         /// <summary>
         /// 用户浏览历史
         /// </summary>

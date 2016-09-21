@@ -4,11 +4,13 @@ using System.Data;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Collections.Generic;
-
+using Newtonsoft.Json;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.Models;
+using YunXiu.Commom;
+using YunXiu.Model;
 
 namespace BrnMall.Web.Controllers
 {
@@ -53,7 +55,7 @@ namespace BrnMall.Web.Controllers
             //店长信息
             model.StoreKeeperInfo = Stores.GetStoreKeeperById(storeInfo.StoreId);
             //店铺区域
-            model.StoreRegion = Regions.GetRegionById(storeInfo.RegionId);
+            model.StoreRegion = BrnMall.Services.Regions.GetRegionById(storeInfo.RegionId);
             //店铺等级信息
             model.StoreRankInfo = StoreRanks.GetStoreRankById(storeInfo.StoreRid);
             //商品图片列表
@@ -96,7 +98,7 @@ namespace BrnMall.Web.Controllers
             model.UserBrowseHistory = BrowseHistories.GetUserBrowseHistory(WorkContext.Uid, pid);
 
             //商品咨询类型列表
-            model.ProductConsultTypeList = ProductConsults.GetProductConsultTypeList();
+            model.ProductConsultTypeList = BrnMall.Services.ProductConsults.GetProductConsultTypeList();
 
             //更新浏览历史
             if (WorkContext.Uid > 0)
@@ -135,7 +137,7 @@ namespace BrnMall.Web.Controllers
             model.SuitProductList = extSuitProductList;
             model.StoreInfo = storeInfo;
             model.StoreKeeperInfo = Stores.GetStoreKeeperById(storeInfo.StoreId);
-            model.StoreRegion = Regions.GetRegionById(storeInfo.RegionId);
+            model.StoreRegion = BrnMall.Services.Regions.GetRegionById(storeInfo.RegionId);
             model.StoreRankInfo = StoreRanks.GetStoreRankById(storeInfo.StoreRid);
 
             foreach (ExtSuitProductInfo extSuitProductInfo in extSuitProductList)
@@ -306,10 +308,12 @@ namespace BrnMall.Web.Controllers
             //商品列表
             List<StoreProductInfo> productList = null;
             //搜索
-            Searches.SearchMallProducts(20, page, word, cateId, brandId, filterPrice, attrValueIdList, onlyStock, sortColumn, sortDirection, ref categoryInfo, ref catePriceRangeList, ref cateAAndVList, ref categoryList, ref brandInfo, ref brandList, ref totalCount, ref productList);
-
-            if (productList == null)
-                return PromptView(WorkContext.UrlReferrer, "您搜索的商品不存在");
+            //Searches.SearchMallProducts(20, page, word, cateId, brandId, filterPrice, attrValueIdList, onlyStock, sortColumn, sortDirection, ref categoryInfo, ref catePriceRangeList, ref cateAAndVList, ref categoryList, ref brandInfo, ref brandList, ref totalCount, ref productList);
+            string[] arr = new string[] { word, page.ToString(), "20" };
+            var data = CommomClass.HttpPost("http://localhost:58654/Product/SearchProduct", JsonConvert.SerializeObject(arr));
+            PageResult<Product> pageResult = JsonConvert.DeserializeObject<PageResult<Product>>(data);
+            //if (productList == null)
+            //    return PromptView(WorkContext.UrlReferrer, "您搜索的商品不存在");
 
             //当筛选属性和分类的筛选属性数目不对应时，重置筛选属性
             if (cateAAndVList == null)
@@ -336,10 +340,10 @@ namespace BrnMall.Web.Controllers
             }
 
             //用户浏览历史
-            List<PartProductInfo> userBrowseHistory = BrowseHistories.GetUserBrowseHistory(WorkContext.Uid, 0);
+            //List<PartProductInfo> userBrowseHistory = BrowseHistories.GetUserBrowseHistory(WorkContext.Uid, 0);
 
             //分页对象
-            PageModel pageModel = new PageModel(20, page, totalCount);
+            // PageModel pageModel = new PageModel(20, page, totalCount);
             //视图对象
             MallSearchModel model = new MallSearchModel()
             {
@@ -358,9 +362,10 @@ namespace BrnMall.Web.Controllers
                 CategoryList = categoryList,
                 BrandInfo = brandInfo,
                 BrandList = brandList,
-                PageModel = pageModel,
-                ProductList = productList,
-                UserBrowseHistory = userBrowseHistory
+                //PageModel = pageModel,
+                //ProductList = productList,
+                //  UserBrowseHistory = userBrowseHistory
+                PageResult = pageResult
             };
 
             //异步保存搜索历史
@@ -379,7 +384,7 @@ namespace BrnMall.Web.Controllers
             if (topicId == 0)
                 topicId = WebHelper.GetQueryInt("topicId");
 
-            TopicInfo topicInfo = Topics.GetTopicById(topicId);
+            TopicInfo topicInfo = BrnMall.Services.Topics.GetTopicById(topicId);
             if (topicInfo == null)
                 return PromptView("此活动专题不存在");
 
@@ -415,7 +420,7 @@ namespace BrnMall.Web.Controllers
                 BrandInfo = Brands.GetBrandById(productInfo.BrandId),
                 StoreInfo = storeInfo,
                 StoreKeeperInfo = Stores.GetStoreKeeperById(storeInfo.StoreId),
-                StoreRegion = Regions.GetRegionById(storeInfo.RegionId),
+                StoreRegion = BrnMall.Services.Regions.GetRegionById(storeInfo.RegionId),
                 StoreRankInfo = StoreRanks.GetStoreRankById(storeInfo.StoreRid),
                 ReviewType = reviewType,
                 PageModel = pageModel,
@@ -468,7 +473,7 @@ namespace BrnMall.Web.Controllers
             if (storeInfo.State != (int)StoreState.Open)
                 return PromptView("/", "你访问的商品不存在");
 
-            PageModel pageModel = new PageModel(10, page, ProductConsults.GetProductConsultCount(pid, consultTypeId, consultMessage));
+            PageModel pageModel = new PageModel(10, page, BrnMall.Services.ProductConsults.GetProductConsultCount(pid, consultTypeId, consultMessage));
             ProductConsultListModel model = new ProductConsultListModel()
             {
                 ProductInfo = productInfo,
@@ -476,13 +481,13 @@ namespace BrnMall.Web.Controllers
                 BrandInfo = Brands.GetBrandById(productInfo.BrandId),
                 StoreInfo = storeInfo,
                 StoreKeeperInfo = Stores.GetStoreKeeperById(storeInfo.StoreId),
-                StoreRegion = Regions.GetRegionById(storeInfo.RegionId),
+                StoreRegion = BrnMall.Services.Regions.GetRegionById(storeInfo.RegionId),
                 StoreRankInfo = StoreRanks.GetStoreRankById(storeInfo.StoreRid),
                 ConsultTypeId = consultTypeId,
                 ConsultMessage = consultMessage,
                 PageModel = pageModel,
-                ProductConsultList = ProductConsults.GetProductConsultList(pageModel.PageSize, pageModel.PageNumber, pid, consultTypeId, consultMessage),
-                ProductConsultTypeList = ProductConsults.GetProductConsultTypeList(),
+                ProductConsultList = BrnMall.Services.ProductConsults.GetProductConsultList(pageModel.PageSize, pageModel.PageNumber, pid, consultTypeId, consultMessage),
+                ProductConsultTypeList = BrnMall.Services.ProductConsults.GetProductConsultTypeList(),
                 IsVerifyCode = CommonHelper.IsInArray(WorkContext.PageKey, WorkContext.MallConfig.VerifyPages)
             };
 
@@ -499,15 +504,15 @@ namespace BrnMall.Web.Controllers
             string consultMessage = WebHelper.GetQueryString("consultMessage");
             int page = WebHelper.GetQueryInt("page");
 
-            PageModel pageModel = new PageModel(10, page, ProductConsults.GetProductConsultCount(pid, consultTypeId, consultMessage));
+            PageModel pageModel = new PageModel(10, page, BrnMall.Services.ProductConsults.GetProductConsultCount(pid, consultTypeId, consultMessage));
             AjaxProductConsultListModel model = new AjaxProductConsultListModel()
             {
                 Pid = pid,
                 ConsultTypeId = consultTypeId,
                 ConsultMessage = consultMessage,
                 PageModel = pageModel,
-                ProductConsultList = ProductConsults.GetProductConsultList(pageModel.PageSize, pageModel.PageNumber, pid, consultTypeId, consultMessage),
-                ProductConsultTypeList = ProductConsults.GetProductConsultTypeList(),
+                ProductConsultList = BrnMall.Services.ProductConsults.GetProductConsultList(pageModel.PageSize, pageModel.PageNumber, pid, consultTypeId, consultMessage),
+                ProductConsultTypeList = BrnMall.Services.ProductConsults.GetProductConsultTypeList(),
                 IsVerifyCode = CommonHelper.IsInArray(WorkContext.PageKey, WorkContext.MallConfig.VerifyPages)
             };
 
@@ -549,7 +554,7 @@ namespace BrnMall.Web.Controllers
             if (storeInfo.State != (int)StoreState.Open)
                 return AjaxResult("noproduct", "请选择商品");
 
-            if (consultTypeId < 1 || ProductConsults.GetProductConsultTypeById(consultTypeId) == null)
+            if (consultTypeId < 1 || BrnMall.Services.ProductConsults.GetProductConsultTypeById(consultTypeId) == null)
                 return AjaxResult("noproductconsulttype", "请选择咨询类型"); ;
 
             if (string.IsNullOrWhiteSpace(consultMessage))
@@ -557,8 +562,61 @@ namespace BrnMall.Web.Controllers
             if (consultMessage.Length > 100)
                 return AjaxResult("muchconsultmessage", "咨询内容内容太长"); ;
 
-            ProductConsults.ConsultProduct(pid, consultTypeId, WorkContext.Uid, partProductInfo.StoreId, DateTime.Now, WebHelper.HtmlEncode(consultMessage), WorkContext.NickName, partProductInfo.Name, partProductInfo.ShowImg, WorkContext.IP);
+            BrnMall.Services.ProductConsults.ConsultProduct(pid, consultTypeId, WorkContext.Uid, partProductInfo.StoreId, DateTime.Now, WebHelper.HtmlEncode(consultMessage), WorkContext.NickName, partProductInfo.Name, partProductInfo.ShowImg, WorkContext.IP);
             return AjaxResult("success", Url.Action("product", new RouteValueDictionary { { "pid", pid } })); ;
+        }
+
+        /// <summary>
+        /// 添加收藏商品
+        /// </summary>
+        /// <returns></returns>
+        public string AddFavoriteProduct()
+        {
+            var result = "0";//0为失败
+            var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID
+            var uID = 0;//用户ID
+            //检查是否登录
+            if (uID != 0)//登录之后才能收藏 
+            {
+                FavoriteProduct fp = new FavoriteProduct();
+                fp.FProduct = new Product
+                {
+                    PID = pID
+                };
+                fp.FUser = new User
+                {
+                    UID = uID
+                };
+                var data = CommomClass.HttpPost("http://localhost:58654/Product/AddFavoriteProduct", JsonConvert.SerializeObject(fp));
+                if (JsonConvert.DeserializeObject<bool>(data))
+                {
+                    result = "1";//1为添加成功
+                }
+            }
+            return result;
+        }
+
+        public string AddToShoppingCart()
+        {
+            var result = "";
+            var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID
+            var uID = 0;//用户ID
+            var number = 0;//数量
+            ShoppingCart cart = new ShoppingCart
+            {
+                Product = new Product
+                {
+                    PID = pID
+                },
+                User = new User
+                {
+                    UID = uID
+                },
+                Number = number
+            };
+            var data = CommomClass.HttpPost("http://localhost:58654/Product/AddProductToShoppingCart", JsonConvert.SerializeObject(cart));
+
+            return result;
         }
     }
 }
