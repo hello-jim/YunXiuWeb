@@ -11,6 +11,7 @@ using BrnMall.Web.Framework;
 using BrnMall.Web.Models;
 using YunXiu.Commom;
 using YunXiu.Model;
+using System.Configuration;
 
 namespace BrnMall.Web.Controllers
 {
@@ -19,6 +20,8 @@ namespace BrnMall.Web.Controllers
     /// </summary>
     public partial class CatalogController : BaseWebController
     {
+        string productApi = ConfigurationManager.AppSettings["productApi"].ToString();
+        string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
         /// <summary>
         /// 商品
         /// </summary>
@@ -31,80 +34,84 @@ namespace BrnMall.Web.Controllers
                 pid = WebHelper.GetQueryInt("pid");
 
             //判断商品是否存在
-            ProductInfo productInfo = Products.GetProductById(pid);
-            if (productInfo == null)
-                return PromptView("/", "你访问的商品不存在");
+            //   ProductInfo productInfo = Products.GetProductById(pid);
 
-            //店铺信息
-            StoreInfo storeInfo = Stores.GetStoreById(productInfo.StoreId);
-            if (storeInfo.State != (int)StoreState.Open)
-                return PromptView("/", "你访问的商品不存在");
+            //if (productInfo == null)
+            //    return PromptView("/", "你访问的商品不存在");
+
+            var productJson = CommomClass.HttpPost(string.Format("{0}/Product/GetProductByID", productApi), pid.ToString());
+            var product = JsonConvert.DeserializeObject<Product>(productJson);
+
+            //获取商品库存
+            var stockNumber = Convert.ToInt32(CommomClass.HttpPost(string.Format("{0}/Product/GetProductStock", productApi), pid.ToString()));
 
             //商品存在时
             ProductModel model = new ProductModel();
-            //商品id
-            model.Pid = pid;
-            //商品信息
-            model.ProductInfo = productInfo;
-            //商品分类
-            model.CategoryInfo = Categories.GetCategoryById(productInfo.CateId);
-            //商品品牌
-            model.BrandInfo = Brands.GetBrandById(productInfo.BrandId);
-            //店铺信息
-            model.StoreInfo = storeInfo;
-            //店长信息
-            model.StoreKeeperInfo = Stores.GetStoreKeeperById(storeInfo.StoreId);
-            //店铺区域
-            model.StoreRegion = BrnMall.Services.Regions.GetRegionById(storeInfo.RegionId);
-            //店铺等级信息
-            model.StoreRankInfo = StoreRanks.GetStoreRankById(storeInfo.StoreRid);
-            //商品图片列表
-            model.ProductImageList = Products.GetProductImageList(pid);
-            //扩展商品属性列表
-            model.ExtProductAttributeList = Products.GetExtProductAttributeList(pid);
-            //商品SKU列表
-            model.ProductSKUList = Products.GetProductSKUListBySKUGid(productInfo.SKUGid);
-            //商品库存数量
-            model.StockNumber = Products.GetProductStockNumberByPid(pid);
+            model.ProductInfo = product;
+            model.StockNumber = stockNumber;
+            //   //商品id
+            //   model.Pid = pid;
+            //   //商品信息
+            ////   model.ProductInfo = productInfo;
+            //   //商品分类
+            //   model.CategoryInfo = Categories.GetCategoryById(productInfo.CateId);
+            //   //商品品牌
+            //   model.BrandInfo = Brands.GetBrandById(productInfo.BrandId);
+            //   //店铺信息
+            //   model.StoreInfo = storeInfo;
+            //   //店长信息
+            //   model.StoreKeeperInfo = Stores.GetStoreKeeperById(storeInfo.StoreId);
+            //   //店铺区域
+            //   model.StoreRegion = BrnMall.Services.Regions.GetRegionById(storeInfo.RegionId);
+            //   //店铺等级信息
+            //   model.StoreRankInfo = StoreRanks.GetStoreRankById(storeInfo.StoreRid);
+            //   //商品图片列表
+            //   model.ProductImageList = Products.GetProductImageList(pid);
+            //   //扩展商品属性列表
+            //   model.ExtProductAttributeList = Products.GetExtProductAttributeList(pid);
+            //   //商品SKU列表
+            //   model.ProductSKUList = Products.GetProductSKUListBySKUGid(productInfo.SKUGid);
+            //   //商品库存数量
+            //   model.StockNumber = Products.GetProductStockNumberByPid(pid);
 
 
             //单品促销
-            model.SinglePromotionInfo = Promotions.GetSinglePromotionByPidAndTime(pid, DateTime.Now);
-            //买送促销活动列表
-            model.BuySendPromotionList = Promotions.GetBuySendPromotionList(productInfo.StoreId, pid, DateTime.Now);
-            //赠品促销活动
-            model.GiftPromotionInfo = Promotions.GetGiftPromotionByPidAndTime(pid, DateTime.Now);
-            //赠品列表
-            if (model.GiftPromotionInfo != null)
-                model.ExtGiftList = Promotions.GetExtGiftList(model.GiftPromotionInfo.PmId);
-            //套装商品列表
-            model.SuitProductList = Promotions.GetProductAllSuitPromotion(pid, DateTime.Now);
-            //满赠促销活动
-            model.FullSendPromotionInfo = Promotions.GetFullSendPromotionByStoreIdAndPidAndTime(productInfo.StoreId, pid, DateTime.Now);
-            //满减促销活动
-            model.FullCutPromotionInfo = Promotions.GetFullCutPromotionByStoreIdAndPidAndTime(productInfo.StoreId, pid, DateTime.Now);
+            //model.SinglePromotionInfo = Promotions.GetSinglePromotionByPidAndTime(pid, DateTime.Now);
+            ////买送促销活动列表
+            //model.BuySendPromotionList = Promotions.GetBuySendPromotionList(productInfo.StoreId, pid, DateTime.Now);
+            ////赠品促销活动
+            //model.GiftPromotionInfo = Promotions.GetGiftPromotionByPidAndTime(pid, DateTime.Now);
+            ////赠品列表
+            //if (model.GiftPromotionInfo != null)
+            //    model.ExtGiftList = Promotions.GetExtGiftList(model.GiftPromotionInfo.PmId);
+            ////套装商品列表
+            //model.SuitProductList = Promotions.GetProductAllSuitPromotion(pid, DateTime.Now);
+            ////满赠促销活动
+            //model.FullSendPromotionInfo = Promotions.GetFullSendPromotionByStoreIdAndPidAndTime(productInfo.StoreId, pid, DateTime.Now);
+            ////满减促销活动
+            //model.FullCutPromotionInfo = Promotions.GetFullCutPromotionByStoreIdAndPidAndTime(productInfo.StoreId, pid, DateTime.Now);
 
-            //广告语
-            model.Slogan = model.SinglePromotionInfo == null ? "" : model.SinglePromotionInfo.Slogan;
-            //商品促销信息
-            model.PromotionMsg = Promotions.GeneratePromotionMsg(model.SinglePromotionInfo, model.BuySendPromotionList, model.FullSendPromotionInfo, model.FullCutPromotionInfo);
-            //商品折扣价格
-            model.DiscountPrice = Promotions.ComputeDiscountPrice(model.ProductInfo.ShopPrice, model.SinglePromotionInfo);
+            ////广告语
+            //model.Slogan = model.SinglePromotionInfo == null ? "" : model.SinglePromotionInfo.Slogan;
+            ////商品促销信息
+            //model.PromotionMsg = Promotions.GeneratePromotionMsg(model.SinglePromotionInfo, model.BuySendPromotionList, model.FullSendPromotionInfo, model.FullCutPromotionInfo);
+            ////商品折扣价格
+            //model.DiscountPrice = Promotions.ComputeDiscountPrice(model.ProductInfo.ShopPrice, model.SinglePromotionInfo);
 
-            //关联商品列表
-            model.RelateProductList = Products.GetRelateProductList(pid);
+            ////关联商品列表
+            //model.RelateProductList = Products.GetRelateProductList(pid);
 
-            //用户浏览历史
-            model.UserBrowseHistory = BrowseHistories.GetUserBrowseHistory(WorkContext.Uid, pid);
+            ////用户浏览历史
+            //model.UserBrowseHistory = BrowseHistories.GetUserBrowseHistory(WorkContext.Uid, pid);
 
-            //商品咨询类型列表
-            model.ProductConsultTypeList = BrnMall.Services.ProductConsults.GetProductConsultTypeList();
+            ////商品咨询类型列表
+            //model.ProductConsultTypeList = BrnMall.Services.ProductConsults.GetProductConsultTypeList();
 
-            //更新浏览历史
-            if (WorkContext.Uid > 0)
-                Asyn.UpdateBrowseHistory(WorkContext.Uid, pid);
-            //更新商品统计
-            Asyn.UpdateProductStat(pid, WorkContext.RegionId);
+            ////更新浏览历史
+            //if (WorkContext.Uid > 0)
+            //    Asyn.UpdateBrowseHistory(WorkContext.Uid, pid);
+            ////更新商品统计
+            //Asyn.UpdateProductStat(pid, WorkContext.RegionId);
 
             return View(model);
         }
@@ -593,29 +600,86 @@ namespace BrnMall.Web.Controllers
                     result = "1";//1为添加成功
                 }
             }
+            else
+            {
+                result = "-1";
+            }
             return result;
         }
 
+        /// <summary>
+        /// 添加产品到购物车
+        /// </summary>
+        /// <returns></returns>
         public string AddToShoppingCart()
         {
-            var result = "";
+            var result = "0";
             var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID
             var uID = 0;//用户ID
-            var number = 0;//数量
-            ShoppingCart cart = new ShoppingCart
+            var number = 1;//数量
+            if (uID != 0)
             {
-                Product = new Product
+                ShoppingCart cart = new ShoppingCart
                 {
-                    PID = pID
-                },
-                User = new User
-                {
-                    UID = uID
-                },
-                Number = number
-            };
-            var data = CommomClass.HttpPost("http://localhost:58654/Product/AddProductToShoppingCart", JsonConvert.SerializeObject(cart));
+                    Product = new Product
+                    {
+                        PID = pID
+                    },
+                    User = new User
+                    {
+                        UID = uID
+                    },
+                    Number = number
+                };
 
+                var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Product/AddProductToShoppingCart", productApi), JsonConvert.SerializeObject(cart)));
+                if (isAdd)
+                {
+                    result = "1";
+                }
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 添加收藏店铺
+        /// </summary>
+        /// <returns></returns>
+        public string AddFavoriteStore()
+        {
+            var result = "";
+            try
+            {
+                var storeID = Convert.ToInt32(Request.Form["storeID"]);//店铺ID
+                var uID = 0;//用户ID
+                if (uID != 0)
+                {
+                    FavoriteStore fStore = new FavoriteStore
+                    {
+                        User = new User
+                        {
+                            UID = uID
+                        },
+                        Store = new Store
+                        {
+                            StoreID = storeID
+                        }
+                    };
+                    var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Store/AddFavoriteStore", accountApi), JsonConvert.SerializeObject(fStore)));
+                }
+                else
+                {
+                    result = "-1";
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
             return result;
         }
     }

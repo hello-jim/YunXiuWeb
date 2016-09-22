@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{background:#f4f4f4;}
+<!--brand-->
+.center-x .brand {margin-top:30px;height:180px; display:block;}
+.brand ul {margin:25px 0;min-height:90px;}
+.brand ul li.btg {border-top:3px solid #2fa278;}
+.brand ul li.btr {border-top:3px solid #ff4f58;}
+.brand ul li.bty {border-top:3px solid #f1b136;}
+.brand ul li.btb {border-top:3px solid #469bd4;}
+.brand ul li{
+	width:298px;
+	display:inline-block;
+	float:left;
+	height:90px;
+	line-height:90px;
+	font-size:30px;
+	background:#fff;
+	}
+.brand ul li img {
+	height:88px;
+	max-width:120px;
+	display:table-cell;
+	vertical-align:middle;
+	float:left;
+}
+.brand ul li a {
+	height:90px;
+	line-height:90px;
+	font-size:30px;
+	vertical-align:middle;
+	}
+<!--end brand-->
+
+<!--cloth floor--->
+.cloth-floor,.hat-floor,.house-floor {height:520px;}
+.floorT {/*border-bottom:3px solid #000;*/height:45px;line-height:45px;margin:5px 0;}
+.floorT h2 {float:left;color:#333; font-weight:normal;}
+.keywords { float:right;line-height:50px;}
+.floorCon{ position:relative;height:300px;}
+.a_con {width:200px;height:286px;float:left; overflow:hidden;}
+.a_con img{margin:0 auto;width:200px;height:286px;}
+.b_con {width:996px;float:right;}
+.b_con ul li {
+	width:228px;
+	float:left;
+	height:286px; 
+	display:inline-block;
+	margin-left:20px;
+	background:#fff;
+	text-align:center;
+	}
+.b_con ul li h1 {display:table;width:228px;height:195px;margin-bottom:10px;}
+.b_con ul li h1 a{ display:table-cell;width:228px;height:195px;vertical-align:middle; text-align:center;}
+.b_con ul li h1 a img {max-width:228px; max-height:195px;}
+.b_con ul li p {padding:0 12px;}
+.b_con ul li b{min-width:30px; display:inline-block; font-size:18px; font-weight:normal;color:#e61919;padding:0 10px;line-height:35px;}
+.b_con ul li s {color:#666;}
+/****2016-03-24 new***/
+.b_con ul li dl {padding:12px 25px;}
+.b_con ul li dl dt {font-size:18px; font-weight:bold; color:#000; text-align:left;height:45px;line-height:45px;padding-left:10px;} 
+.b_con ul li dl dd {text-align:left;line-height:25px;height:25px;}
+.booking {
+	position:absolute;
+	top:80%;
+	left:170px;
+	width:150px;
+	height:40px;
+	line-height:40px;
+	border:0;
+	color:#fff;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	text-align:center;
+	}
+.updating {
+	position:absolute;
+	top:250px;
+	left:38%;
+	width:150px;
+	height:40px;
+	line-height:40px;
+	border:0;
+	color:#fff;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	text-align:center;
+	}
+	a.updating:hover,a.booking:hover {filter:Alpha(opacity=80);opacity:0.8;color:#fff;}
+/***end floor***/

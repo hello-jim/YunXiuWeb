@@ -1,4 +1,22 @@
-﻿//增加商品数量
+﻿$(document).ready(function () {
+    $(".btn-shopfav").on("click", function () {
+        var storeID = $("#storeID").val();
+        $.post("",
+            {
+                storeID:storeID
+            },
+            function (data) {
+                if (data == "1") {
+                    alert("添加成功");
+                }
+            });
+    });
+    
+});
+
+
+
+//增加商品数量
 function addProuctCount() {
     var buyCountInput = $("#buyCount");
     var buyCount = buyCountInput.val();

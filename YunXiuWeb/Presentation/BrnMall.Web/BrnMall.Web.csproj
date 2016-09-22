@@ -43,6 +43,7 @@
       <HintPath>..\..\RefDLL\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -185,6 +186,19 @@
     <Content Include="css\base.css" />
     <Content Include="css\buy.css" />
     <Content Include="css\content.css" />
+    <Content Include="css\Css_Purchase\detail.css" />
+    <Content Include="css\Css_Purchase\detail2.css" />
+    <Content Include="css\Css_Purchase\home.css" />
+    <Content Include="css\Css_Purchase\list.css" />
+    <Content Include="css\Css_Purchase\mycart.css" />
+    <Content Include="css\Css_Purchase\myfile-fav.css" />
+    <Content Include="css\Css_Purchase\myfile.css" />
+    <Content Include="css\Css_Purchase\percenter.css" />
+    <Content Include="css\Css_Purchase\public.css" />
+    <Content Include="css\Css_Purchase\qiyeruzhu.css" />
+    <Content Include="css\Css_Purchase\shopruzhu.css" />
+    <Content Include="css\Css_Purchase\upload.css" />
+    <Content Include="css\Css_Purchase\uploadidea.css" />
     <Content Include="css\help.css" />
     <Content Include="css\home.css" />
     <Content Include="css\list.css" />
@@ -412,6 +426,19 @@
     <Content Include="scripts\jquery.soChange.js" />
     <Content Include="scripts\jquery.jqzoom.js" />
     <Content Include="scripts\jquery.jqzoom.css" />
+    <Content Include="scripts\js_Purchase\base.js" />
+    <Content Include="scripts\js_Purchase\helpCenter.js" />
+    <Content Include="scripts\js_Purchase\jquery-1.10.2.min.js" />
+    <Content Include="scripts\js_Purchase\jquery.imagezoom.min.js" />
+    <Content Include="scripts\js_Purchase\jquery.jqzoom.js" />
+    <Content Include="scripts\js_Purchase\jquery.kinMaxShow-1.0.min.js" />
+    <Content Include="scripts\js_Purchase\jquery.kinMaxShow-1.0.src.js" />
+    <Content Include="scripts\js_Purchase\jquery.lightbox-0.5.js" />
+    <Content Include="scripts\js_Purchase\jquery.min.js" />
+    <Content Include="scripts\js_Purchase\jquery.tagbox.js" />
+    <Content Include="scripts\js_Purchase\pingjia.js" />
+    <Content Include="scripts\js_Purchase\tabControl.js" />
+    <Content Include="scripts\js_Purchase\ui-choose.js" />
     <Content Include="scripts\mall\search.js" />
     <Content Include="scripts\order.js" />
     <Content Include="scripts\product.js" />

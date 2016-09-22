@@ -26,3 +26,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.AsynStrateg
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.AsynStrategy.ThreadPool\obj\Debug\BrnMall.AsynStrategy.ThreadPool.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.AsynStrategy.ThreadPool\obj\Debug\BrnMall.AsynStrategy.ThreadPool.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.AsynStrategy.ThreadPool\obj\Debug\BrnMall.AsynStrategy.ThreadPool.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.AsynStrategy.ThreadPool.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.AsynStrategy.ThreadPool.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.AsynStrategy.ThreadPool\obj\Debug\BrnMall.AsynStrategy.ThreadPool.csprojResolveAssemblyReference.cache
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.AsynStrategy.ThreadPool\obj\Debug\BrnMall.AsynStrategy.ThreadPool.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.AsynStrategy.ThreadPool\obj\Debug\BrnMall.AsynStrategy.ThreadPool.pdb

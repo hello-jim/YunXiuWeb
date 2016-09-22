@@ -22,3 +22,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.SearchStrat
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.SearchStrategy.SqlServer\obj\Debug\BrnMall.SearchStrategy.SqlServer.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.SearchStrategy.SqlServer\obj\Debug\BrnMall.SearchStrategy.SqlServer.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.SearchStrategy.SqlServer\obj\Debug\BrnMall.SearchStrategy.SqlServer.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.SearchStrategy.SqlServer.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.SearchStrategy.SqlServer.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.SearchStrategy.SqlServer\obj\Debug\BrnMall.SearchStrategy.SqlServer.csprojResolveAssemblyReference.cache
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.SearchStrategy.SqlServer\obj\Debug\BrnMall.SearchStrategy.SqlServer.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.SearchStrategy.SqlServer\obj\Debug\BrnMall.SearchStrategy.SqlServer.pdb

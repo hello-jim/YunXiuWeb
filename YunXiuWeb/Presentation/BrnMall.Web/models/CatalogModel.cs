@@ -20,23 +20,9 @@ namespace BrnMall.Web.Models
         /// <summary>
         /// 商品信息
         /// </summary>
-        public ProductInfo ProductInfo { get; set; }
-        /// <summary>
-        /// 商品分类
-        /// </summary>
-        public CategoryInfo CategoryInfo { get; set; }
-        /// <summary>
-        /// 商品品牌
-        /// </summary>
-        public BrandInfo BrandInfo { get; set; }
-        /// <summary>
-        /// 店铺信息
-        /// </summary>
-        public StoreInfo StoreInfo { get; set; }
-        /// <summary>
-        /// 店长信息
-        /// </summary>
-        public StoreKeeperInfo StoreKeeperInfo { get; set; }
+        //  public ProductInfo ProductInfo { get; set; }
+        public Product ProductInfo { get; set; }
+   
         /// <summary>
         /// 店铺区域
         /// </summary>

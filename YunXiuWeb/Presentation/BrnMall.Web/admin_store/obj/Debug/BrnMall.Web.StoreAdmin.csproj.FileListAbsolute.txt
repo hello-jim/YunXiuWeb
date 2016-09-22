@@ -17,3 +17,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAd
 C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAdmin.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAdmin.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.csprojResolveAssemblyReference.cache
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.pdb
