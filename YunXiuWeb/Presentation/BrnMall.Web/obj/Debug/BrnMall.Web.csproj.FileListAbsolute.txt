@@ -103,6 +103,7 @@ D:\迅雷下载\BrnMall4.1.113\BrnMall\Presentation\BrnMall.Web\bin\zh-Hans\Syst
 D:\迅雷下载\BrnMall4.1.113\BrnMall\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.csprojResolveAssemblyReference.cache
 D:\迅雷下载\BrnMall4.1.113\BrnMall\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.dll
 D:\迅雷下载\BrnMall4.1.113\BrnMall\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.dll.config
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.pdb
@@ -130,6 +131,5 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\YunXiu.Model.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Data.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\zh-Hans\System.Web.Mvc.resources.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\zh-Hans\System.Web.WebPages.resources.dll
-D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.pdb

@@ -20,3 +20,4 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.LogStrategy.T
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.LogStrategy.Txt.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.LogStrategy.Txt\obj\Debug\BrnMall.LogStrategy.Txt.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.LogStrategy.Txt\obj\Debug\BrnMall.LogStrategy.Txt.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.LogStrategy.Txt\obj\Debug\BrnMall.LogStrategy.Txt.csprojResolveAssemblyReference.cache

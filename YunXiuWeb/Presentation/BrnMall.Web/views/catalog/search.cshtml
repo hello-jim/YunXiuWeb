@@ -62,6 +62,7 @@
         <ul class="">
             @foreach (var product in Model.PageResult.ResultList)
             {
+            
                 <li pid="@product.PID">
                     <h1><a href="@Url.Action("product", new RouteValueDictionary { { "pid", product.PID } })"><img src="/images/productImg/@product.ShowImg" /></a></h1>
                     <dl>

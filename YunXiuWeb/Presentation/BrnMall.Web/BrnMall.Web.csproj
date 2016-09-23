@@ -439,6 +439,7 @@
     <Content Include="scripts\js_Purchase\pingjia.js" />
     <Content Include="scripts\js_Purchase\tabControl.js" />
     <Content Include="scripts\js_Purchase\ui-choose.js" />
+    <Content Include="scripts\mall\productConsult.js" />
     <Content Include="scripts\mall\search.js" />
     <Content Include="scripts\order.js" />
     <Content Include="scripts\product.js" />
@@ -516,6 +517,7 @@
   <ItemGroup>
     <Folder Include="App_Data\txtlogs\" />
     <Folder Include="images\productImg\" />
+    <Folder Include="images\storeImg\" />
     <Folder Include="plugins\bin\" />
     <Folder Include="upload\adv\" />
     <Folder Include="upload\brand\" />

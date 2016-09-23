@@ -4,6 +4,7 @@ using System.Data;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using BrnMall.Core;
 using BrnMall.Services;
@@ -34,7 +35,7 @@ namespace BrnMall.Web.Controllers
                 pid = WebHelper.GetQueryInt("pid");
 
             //判断商品是否存在
-            //   ProductInfo productInfo = Products.GetProductById(pid);
+            //ProductInfo productInfo = Products.GetProductById(pid);
 
             //if (productInfo == null)
             //    return PromptView("/", "你访问的商品不存在");
@@ -44,11 +45,14 @@ namespace BrnMall.Web.Controllers
 
             //获取商品库存
             var stockNumber = Convert.ToInt32(CommomClass.HttpPost(string.Format("{0}/Product/GetProductStock", productApi), pid.ToString()));
+            var consultationResult = JsonConvert.DeserializeObject<ConsultationResult>(CommomClass.HttpPost(string.Format("{0}/Product/GetConsultation", productApi), pid.ToString()));
 
             //商品存在时
             ProductModel model = new ProductModel();
             model.ProductInfo = product;
             model.StockNumber = stockNumber;
+            model.ConsultationResult = consultationResult;
+
             //   //商品id
             //   model.Pid = pid;
             //   //商品信息
@@ -318,7 +322,7 @@ namespace BrnMall.Web.Controllers
             //Searches.SearchMallProducts(20, page, word, cateId, brandId, filterPrice, attrValueIdList, onlyStock, sortColumn, sortDirection, ref categoryInfo, ref catePriceRangeList, ref cateAAndVList, ref categoryList, ref brandInfo, ref brandList, ref totalCount, ref productList);
             string[] arr = new string[] { word, page.ToString(), "20" };
             var data = CommomClass.HttpPost("http://localhost:58654/Product/SearchProduct", JsonConvert.SerializeObject(arr));
-            PageResult<Product> pageResult = JsonConvert.DeserializeObject<PageResult<Product>>(data);
+            PageResult<ProductInfo> pageResult = JsonConvert.DeserializeObject<PageResult<ProductInfo>>(data);
             //if (productList == null)
             //    return PromptView(WorkContext.UrlReferrer, "您搜索的商品不存在");
 
@@ -471,31 +475,19 @@ namespace BrnMall.Web.Controllers
             int page = WebHelper.GetQueryInt("page");
 
             //判断商品是否存在
-            PartProductInfo productInfo = Products.GetPartProductById(pid);
-            if (productInfo == null)
+              PartProductInfo productInfo = Products.GetPartProductById(pid);
+            var productJson = CommomClass.HttpPost(string.Format("{0}/Product/GetProductByID", productApi), pid.ToString());
+            var product = JsonConvert.DeserializeObject<Product>(productJson);
+            if (product == null)
                 return PromptView("/", "你访问的商品不存在");
 
-            //店铺信息
-            StoreInfo storeInfo = Stores.GetStoreById(productInfo.StoreId);
-            if (storeInfo.State != (int)StoreState.Open)
-                return PromptView("/", "你访问的商品不存在");
-
-            PageModel pageModel = new PageModel(10, page, BrnMall.Services.ProductConsults.GetProductConsultCount(pid, consultTypeId, consultMessage));
+            //获取产品咨询类型
+            var consultationTypeListJson = CommomClass.HttpPost(string.Format("{0}/Product/GetConsultationType",productApi),"");
+            var consultationTypeList = JsonConvert.DeserializeObject<List<ConsultationType>>(consultationTypeListJson);
             ProductConsultListModel model = new ProductConsultListModel()
             {
-                ProductInfo = productInfo,
-                CategoryInfo = Categories.GetCategoryById(productInfo.CateId),
-                BrandInfo = Brands.GetBrandById(productInfo.BrandId),
-                StoreInfo = storeInfo,
-                StoreKeeperInfo = Stores.GetStoreKeeperById(storeInfo.StoreId),
-                StoreRegion = BrnMall.Services.Regions.GetRegionById(storeInfo.RegionId),
-                StoreRankInfo = StoreRanks.GetStoreRankById(storeInfo.StoreRid),
-                ConsultTypeId = consultTypeId,
-                ConsultMessage = consultMessage,
-                PageModel = pageModel,
-                ProductConsultList = BrnMall.Services.ProductConsults.GetProductConsultList(pageModel.PageSize, pageModel.PageNumber, pid, consultTypeId, consultMessage),
-                ProductConsultTypeList = BrnMall.Services.ProductConsults.GetProductConsultTypeList(),
-                IsVerifyCode = CommonHelper.IsInArray(WorkContext.PageKey, WorkContext.MallConfig.VerifyPages)
+                ProductInfo = product,
+                ConsultationTypeList = consultationTypeList
             };
 
             return View(model);
@@ -675,6 +667,45 @@ namespace BrnMall.Web.Controllers
                 {
                     result = "-1";
                 }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+
+        public string AddConsultation()
+        {
+            var result = "";
+            try
+            {
+                var cTypeID = Convert.ToInt32(Request.Form["typeID"]);
+                var content = Request.Form["content"].ToString();
+                var pID = Convert.ToInt32(Request.Form["pID"]);
+                var uID = 0;
+                if (uID != 0)
+                {
+                    Consultation consultation = new Consultation
+                    {
+                        CProduct = new Product
+                        {
+                            PID = pID
+                        },
+                        CreateUser = new User
+                        {
+                            UID = uID
+                        },
+                        CType = new ConsultationType
+                        {
+                            ID = cTypeID
+                        },
+                        CContent = content
+
+                    };
+                    var isAdd = CommomClass.HttpPost("", JsonConvert.SerializeObject(consultation));//是否添加成功
+                }
+
             }
             catch (Exception ex)
             {

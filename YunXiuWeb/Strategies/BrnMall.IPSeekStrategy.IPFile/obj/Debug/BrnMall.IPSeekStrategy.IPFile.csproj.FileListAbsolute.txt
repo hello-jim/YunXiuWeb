@@ -10,5 +10,6 @@ C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Deb
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.IPSeekStrategy.IPFile.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.IPSeekStrategy.IPFile.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.pdb

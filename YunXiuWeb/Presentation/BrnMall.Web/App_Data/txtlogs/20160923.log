@@ -1,0 +1,183 @@
+Log Entry : 2016年09月23日 10:07:19
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:08:43
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:22:16
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 10:23:38
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:26:15
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 10:27:03
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:33:18
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:34:13
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:36:21
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 10:39:53
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:41:16
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:41:38
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:43:14
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:55:31
+方法:Void Execute(),异常信息:未将对象引用设置到对象的实例。
+------------------------------------
+Log Entry : 2016年09月23日 10:57:15
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 10:57:25
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月23日 11:01:37
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:03:32
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 11:05:30
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 11:07:08
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月23日 11:08:44
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 11:25:10
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 11:26:27
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:29:29
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 11:29:57
+方法:Void Execute(),异常信息:未将对象引用设置到对象的实例。
+------------------------------------
+Log Entry : 2016年09月23日 11:32:52
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:34:33
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:36:39
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:37:44
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:38:27
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月23日 11:38:33
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月23日 11:41:47
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:42:15
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:44:33
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:47:48
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 11:50:08
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 11:50:53
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:54:34
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 11:55:12
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 12:00:01
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 12:02:07
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 12:04:25
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 12:06:20
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 12:07:32
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 12:10:42
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 12:11:26
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 14:56:12
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 14:56:22
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月23日 14:57:05
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 15:10:23
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 15:20:36
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 15:21:45
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 15:23:53
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 15:25:15
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
+------------------------------------
+Log Entry : 2016年09月23日 15:28:35
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 15:32:18
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 15:43:05
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 15:45:30
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月23日 15:47:20
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------
+Log Entry : 2016年09月23日 16:47:00
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:d:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\views\catalog\productconsultlist.cshtml(19): error CS1061: “YunXiu.Model.Product”不包含“Pid”的定义，并且找不到可接受类型为“YunXiu.Model.Product”的第一个参数的扩展方法“Pid”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2016年09月23日 16:47:42
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:d:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\views\catalog\productconsultlist.cshtml(51): error CS1061: “YunXiu.Model.Product”不包含“GetStarLevel”的定义，并且找不到可接受类型为“YunXiu.Model.Product”的第一个参数的扩展方法“GetStarLevel”(是否缺少 using 指令或程序集引用?)
+------------------------------------

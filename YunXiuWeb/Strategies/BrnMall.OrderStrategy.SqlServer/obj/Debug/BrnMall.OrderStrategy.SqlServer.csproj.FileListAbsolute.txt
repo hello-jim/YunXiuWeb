@@ -25,3 +25,4 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.OrderStrategy
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.OrderStrategy.SqlServer.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.OrderStrategy.SqlServer\obj\Debug\BrnMall.OrderStrategy.SqlServer.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.OrderStrategy.SqlServer\obj\Debug\BrnMall.OrderStrategy.SqlServer.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.OrderStrategy.SqlServer\obj\Debug\BrnMall.OrderStrategy.SqlServer.csprojResolveAssemblyReference.cache

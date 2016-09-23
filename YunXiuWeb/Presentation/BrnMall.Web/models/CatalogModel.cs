@@ -22,27 +22,28 @@ namespace BrnMall.Web.Models
         /// </summary>
         //  public ProductInfo ProductInfo { get; set; }
         public Product ProductInfo { get; set; }
-   
-        /// <summary>
-        /// 店铺区域
-        /// </summary>
-        public RegionInfo StoreRegion { get; set; }
-        /// <summary>
-        /// 店铺等级信息
-        /// </summary>
-        public StoreRankInfo StoreRankInfo { get; set; }
-        /// <summary>
-        /// 商品图片列表
-        /// </summary>
-        public List<ProductImageInfo> ProductImageList { get; set; }
-        /// <summary>
-        /// 扩展商品属性列表
-        /// </summary>
-        public List<ExtProductAttributeInfo> ExtProductAttributeList { get; set; }
-        /// <summary>
-        /// 商品SKU列表
-        /// </summary>
-        public List<ExtProductSKUItemInfo> ProductSKUList { get; set; }
+
+        public ConsultationResult ConsultationResult { get; set; }
+        ///// <summary>
+        ///// 店铺区域
+        ///// </summary>
+        //public RegionInfo StoreRegion { get; set; }
+        ///// <summary>
+        ///// 店铺等级信息
+        ///// </summary>
+        //public StoreRankInfo StoreRankInfo { get; set; }
+        ///// <summary>
+        ///// 商品图片列表
+        ///// </summary>
+        //public List<ProductImageInfo> ProductImageList { get; set; }
+        ///// <summary>
+        ///// 扩展商品属性列表
+        ///// </summary>
+        //public List<ExtProductAttributeInfo> ExtProductAttributeList { get; set; }
+        ///// <summary>
+        ///// 商品SKU列表
+        ///// </summary>
+        //public List<ExtProductSKUItemInfo> ProductSKUList { get; set; }
         /// <summary>
         /// 商品库存数量
         /// </summary>
@@ -50,55 +51,55 @@ namespace BrnMall.Web.Models
         /// <summary>
         /// 单品促销活动
         /// </summary>
-        public SinglePromotionInfo SinglePromotionInfo { get; set; }
-        /// <summary>
-        /// 买送促销活动列表
-        /// </summary>
-        public List<BuySendPromotionInfo> BuySendPromotionList { get; set; }
-        /// <summary>
-        /// 赠品促销活动
-        /// </summary>
-        public GiftPromotionInfo GiftPromotionInfo { get; set; }
-        /// <summary>
-        /// 扩展赠品列表
-        /// </summary>
-        public List<ExtGiftInfo> ExtGiftList { get; set; }
-        /// <summary>
-        /// 套装商品列表
-        /// </summary>
-        public List<KeyValuePair<SuitPromotionInfo, List<ExtSuitProductInfo>>> SuitProductList { get; set; }
-        /// <summary>
-        /// 满赠促销活动
-        /// </summary>
-        public FullSendPromotionInfo FullSendPromotionInfo { get; set; }
-        /// <summary>
-        /// 满减促销活动
-        /// </summary>
-        public FullCutPromotionInfo FullCutPromotionInfo { get; set; }
-        /// <summary>
-        /// 广告语
-        /// </summary>
-        public string Slogan { get; set; }
-        /// <summary>
-        /// 商品促销信息
-        /// </summary>
-        public string PromotionMsg { get; set; }
-        /// <summary>
-        /// 商品折扣价格
-        /// </summary>
-        public decimal DiscountPrice { get; set; }
-        /// <summary>
-        /// 关联商品列表
-        /// </summary>
-        public List<PartProductInfo> RelateProductList { get; set; }
-        /// <summary>
-        /// 用户浏览历史
-        /// </summary>
-        public List<PartProductInfo> UserBrowseHistory { get; set; }
-        /// <summary>
-        /// 商品咨询类型列表
-        /// </summary>
-        public ProductConsultTypeInfo[] ProductConsultTypeList { get; set; }
+        //public SinglePromotionInfo SinglePromotionInfo { get; set; }
+        ///// <summary>
+        ///// 买送促销活动列表
+        ///// </summary>
+        //public List<BuySendPromotionInfo> BuySendPromotionList { get; set; }
+        ///// <summary>
+        ///// 赠品促销活动
+        ///// </summary>
+        //public GiftPromotionInfo GiftPromotionInfo { get; set; }
+        ///// <summary>
+        ///// 扩展赠品列表
+        ///// </summary>
+        //public List<ExtGiftInfo> ExtGiftList { get; set; }
+        ///// <summary>
+        ///// 套装商品列表
+        ///// </summary>
+        //public List<KeyValuePair<SuitPromotionInfo, List<ExtSuitProductInfo>>> SuitProductList { get; set; }
+        ///// <summary>
+        ///// 满赠促销活动
+        ///// </summary>
+        //public FullSendPromotionInfo FullSendPromotionInfo { get; set; }
+        ///// <summary>
+        ///// 满减促销活动
+        ///// </summary>
+        //public FullCutPromotionInfo FullCutPromotionInfo { get; set; }
+        ///// <summary>
+        ///// 广告语
+        ///// </summary>
+        //public string Slogan { get; set; }
+        ///// <summary>
+        ///// 商品促销信息
+        ///// </summary>
+        //public string PromotionMsg { get; set; }
+        ///// <summary>
+        ///// 商品折扣价格
+        ///// </summary>
+        //public decimal DiscountPrice { get; set; }
+        ///// <summary>
+        ///// 关联商品列表
+        ///// </summary>
+        //public List<PartProductInfo> RelateProductList { get; set; }
+        ///// <summary>
+        ///// 用户浏览历史
+        ///// </summary>
+        //public List<PartProductInfo> UserBrowseHistory { get; set; }
+        ///// <summary>
+        ///// 商品咨询类型列表
+        ///// </summary>
+        //public ProductConsultTypeInfo[] ProductConsultTypeList { get; set; }
     }
 
     /// <summary>
@@ -280,7 +281,7 @@ namespace BrnMall.Web.Models
         /// <summary>
         /// 分页结果
         /// </summary>
-        public PageResult<Product> PageResult { get; set; }
+        public PageResult<ProductInfo> PageResult { get; set; }
         /// <summary>
         /// 用户浏览历史
         /// </summary>
@@ -365,55 +366,19 @@ namespace BrnMall.Web.Models
         /// <summary>
         /// 商品信息
         /// </summary>
-        public PartProductInfo ProductInfo { get; set; }
+        public Product ProductInfo { get; set; }
         /// <summary>
-        /// 商品分类
+        /// 咨询类型
         /// </summary>
-        public CategoryInfo CategoryInfo { get; set; }
+        public List<ConsultationType> ConsultationTypeList { get; set; }
+
         /// <summary>
-        /// 商品品牌
+        /// 咨询内容
         /// </summary>
-        public BrandInfo BrandInfo { get; set; }
-        /// <summary>
-        /// 店铺信息
-        /// </summary>
-        public StoreInfo StoreInfo { get; set; }
-        /// <summary>
-        /// 店长信息
-        /// </summary>
-        public StoreKeeperInfo StoreKeeperInfo { get; set; }
-        /// <summary>
-        /// 店铺区域
-        /// </summary>
-        public RegionInfo StoreRegion { get; set; }
-        /// <summary>
-        /// 店铺等级信息
-        /// </summary>
-        public StoreRankInfo StoreRankInfo { get; set; }
-        /// <summary>
-        /// 咨询类型id
-        /// </summary>
-        public int ConsultTypeId { get; set; }
-        /// <summary>
-        /// 咨询信息
-        /// </summary>
-        public string ConsultMessage { get; set; }
-        /// <summary>
-        /// 分页对象
-        /// </summary>
-        public PageModel PageModel { get; set; }
-        /// <summary>
-        /// 商品咨询列表
-        /// </summary>
-        public List<ProductConsultInfo> ProductConsultList { get; set; }
-        /// <summary>
-        /// 商品咨询类型列表
-        /// </summary>
-        public ProductConsultTypeInfo[] ProductConsultTypeList { get; set; }
-        /// <summary>
-        /// 是否显示验证码
-        /// </summary>
-        public bool IsVerifyCode { get; set; }
+        public ConsultationResult ConsultationResult { get; set; }
+
+
+     
     }
 
     /// <summary>

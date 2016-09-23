@@ -66,6 +66,7 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web.Framework\bin\Debug\zh-
 C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web.Framework\obj\Debug\BrnMall.Web.Framework.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web.Framework\obj\Debug\BrnMall.Web.Framework.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web.Framework\obj\Debug\BrnMall.Web.Framework.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\obj\Debug\BrnMall.Web.Framework.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\BrnMall.Web.Framework.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\BrnMall.Web.Framework.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\BrnMall.Core.dll
@@ -80,6 +81,5 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\Syste
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\BrnMall.Data.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
-D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\obj\Debug\BrnMall.Web.Framework.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\obj\Debug\BrnMall.Web.Framework.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\obj\Debug\BrnMall.Web.Framework.pdb

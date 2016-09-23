@@ -25,3 +25,4 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.B
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.BrnMall.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Debug\BrnMall.SMSStrategy.BrnMall.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Debug\BrnMall.SMSStrategy.BrnMall.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Debug\BrnMall.SMSStrategy.BrnMall.csprojResolveAssemblyReference.cache

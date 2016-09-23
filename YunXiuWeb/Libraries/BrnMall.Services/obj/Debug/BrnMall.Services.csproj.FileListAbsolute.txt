@@ -34,12 +34,12 @@ C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Services\bin\Debug\BrnMall.Dat
 C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Services.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Services.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Core.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Data.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Core.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Data.pdb
-D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.pdb

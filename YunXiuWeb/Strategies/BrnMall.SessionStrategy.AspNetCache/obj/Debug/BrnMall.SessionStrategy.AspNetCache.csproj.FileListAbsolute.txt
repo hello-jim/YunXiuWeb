@@ -23,3 +23,4 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.SessionStrate
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.SessionStrategy.AspNetCache.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.SessionStrategy.AspNetCache\obj\Debug\BrnMall.SessionStrategy.AspNetCache.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.SessionStrategy.AspNetCache\obj\Debug\BrnMall.SessionStrategy.AspNetCache.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.SessionStrategy.AspNetCache\obj\Debug\BrnMall.SessionStrategy.AspNetCache.csprojResolveAssemblyReference.cache

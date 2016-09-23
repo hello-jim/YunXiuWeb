@@ -18,8 +18,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.Web.MallAdm
 C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\admin_mall\obj\Debug\BrnMall.Web.MallAdmin.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\admin_mall\obj\Debug\BrnMall.Web.MallAdmin.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\admin_mall\obj\Debug\BrnMall.Web.MallAdmin.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_mall\obj\Debug\BrnMall.Web.MallAdmin.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.MallAdmin.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.MallAdmin.pdb
-D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_mall\obj\Debug\BrnMall.Web.MallAdmin.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_mall\obj\Debug\BrnMall.Web.MallAdmin.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_mall\obj\Debug\BrnMall.Web.MallAdmin.pdb
