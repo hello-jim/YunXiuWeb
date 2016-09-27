@@ -539,6 +539,17 @@ namespace BrnMall.Web.StoreAdmin.Controllers
             return PromptView("店铺配送费用删除成功");
         }
 
+
+        public ActionResult StoreDecoration() 
+        {         
+            return View();
+        }
+
+        public string UpdateStoreHome() 
+        {
+            
+        }
+
         private void LoadStoreShipFee(int regionId)
         {
             RegionInfo regionInfo = Regions.GetRegionById(regionId);

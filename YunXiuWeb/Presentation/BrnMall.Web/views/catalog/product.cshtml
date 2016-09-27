@@ -5,7 +5,8 @@
 
 
 <link href="/css/Css_Purchase/detail.css" rel="stylesheet" />
-<link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/css/mall/comment.css" rel="stylesheet"/>
 <link href="/css/content.css" rel="stylesheet" />
 
 <style type="text/css">
@@ -71,9 +72,12 @@
     <div class="detail-pic">
         <div id="preview" class="spec-preview">
             <div class="jqzoom">
-                <img class="jqzoom1" src="@{@WorkContext.ImageCDN}/images/productImg/@Model.ProductInfo.ShowImg"
-                     rel="@{@WorkContext.ImageCDN}/images/productImg/@Model.ProductInfo.ShowImg"
-                     jqimg="@{@WorkContext.ImageCDN}/images/productImg/@Model.ProductInfo.ShowImg" />
+                @{
+                    var defaultImgPath = Model.ProductInfo.PID + "_" + Model.ProductInfo.ShowImg;
+                <img class="jqzoom1" src="/images/productImg/@Model.ProductInfo.ShowImg"
+                     rel="/images/productImg/@defaultImgPath"
+                     jqimg="/images/productImg/@defaultImgPath" />
+                }
 
             </div>
         </div>
@@ -85,9 +89,11 @@
                     <!--bimg 大图 src里面的图片为缩略图 -->
                     @foreach (var info in Model.ProductInfo.ProductImages)
                     {
+                        var imgPath = Model.ProductInfo.PID + "_" + @info.ShowImg;
                         <li>
-                            <img alt="图片" big="@{@WorkContext.ImageCDN}/upload/store/@info.StoreId/product/show/thumb800_800/@info.ShowImg"
-                                 src="@{@WorkContext.ImageCDN}/images/productImg/@info.ShowImg" onmousemove="preview(this);" />
+                            <img class="jqzoom1" alt="图片" big="@imgPath" 
+                                 rel="/images/productImg/@defaultImgPath"
+                                 src="/images/productImg/@imgPath" onmousemove="preview(this);" />
                         </li>
                     }
                 </ul>
@@ -408,28 +414,21 @@
                     </ul>
                     <ul>
                         <table cellpadding="0" cellspacing="1" width="100%" border="0" class="Ptable">
-                            @*<tbody>
+                            <tbody>
                                     @{
-                                        int tempAttrGroupId = 0;
-                                        foreach (ExtProductAttributeInfo info in Model.ExtProductAttributeList)
+                                        foreach (var productAttr in Model.ProductInfo.Attributes)
                                         {
-                                            if (info.AttrGroupId != tempAttrGroupId)
+                                            if (productAttr.InputVal != "") 
                                             {
-                                                <tr><th colspan="2" class="tdTitle">@info.AttrGroupName</th></tr>
-                                                <tr></tr>
+                                                <tr><td class="tdTitle">@productAttr.Attr.Name</td><td>@productAttr.InputVal</td></tr>
                                             }
-                                            if (info.IsInput == 0)
+                                            else 
                                             {
-                                                <tr><td class="tdTitle">@info.AttrName</td><td>@info.AttrValue</td></tr>
+                                                  <tr><td class="tdTitle">@productAttr.Attr.Name</td><td>@productAttr.AttrVal.AttrVal</td></tr>
                                             }
-                                            else
-                                            {
-                                                <tr><td class="tdTitle">@info.AttrName</td><td>@info.InputValue</td></tr>
-                                            }
-                                            tempAttrGroupId = info.AttrGroupId;
                                         }
                                     }
-                                </tbody>*@
+                                </tbody>
                         </table>
                     </ul>
                     <ul>
@@ -456,8 +455,8 @@
                             decimal reviewLayer2 = 0;
                             decimal reviewLayer3 = 0;
 
-                            decimal goodStars = Model.ProductInfo.OneStar + Model.ProductInfo.TwoStar + Model.ProductInfo.ThreeStar;
-                            decimal allStars = goodStars + Model.ProductInfo.FourStar + Model.ProductInfo.FiveStar;
+                            decimal goodStars = Model.ProductInfo.FourStar + Model.ProductInfo.FiveStar;
+                            decimal allStars =goodStars+ Model.ProductInfo.OneStar + Model.ProductInfo.TwoStar + Model.ProductInfo.ThreeStar;
 
                             if (allStars != 0)
                             {
@@ -512,21 +511,22 @@
                     </div>
 
                     <h2 class="infoRT infoBT2">
-                        <ul>
-                            <li class="hot" id="Li_Review" onclick="changeReviewType(this,0)">全部评价</li>
-                            <li onclick="changeReviewType(this,1)">好评</li>
-                            <li onclick="changeReviewType(this,2)">中评</li>
-                            <li onclick="changeReviewType(this,3)">差评</li>
+                        <ul class="review-list">
+                            <li class="all-review" id="" onclick="changeReviewType(this,0)">全部评价</li>
+                            <li class="good-review" onclick="changeReviewType(this,1)">好评</li>
+                            <li class="secondary-review" onclick="changeReviewType(this,2)">中评</li>
+                            <li class="differ-review" onclick="changeReviewType(this,3)">差评</li>
                             <div class="clear"></div>
                         </ul>
                     </h2>
 
 
-                    <div id="productReviewList">
-                        @*商品评价列表*@
+                    <div class="product-review-list">
+                        <div class="all-review-list box container-fluid clearfix"></div>
+                        <div class="good-review-list"></div>
+                        <div class="secondary-review-list"></div>
+                        <div class="differ-review-list"></div>
                     </div>
-
-
                 </div>
 
 
@@ -672,11 +672,14 @@
 
 
 <input id="storeID" type="hidden" value="@Model.ProductInfo.Store.StoreID" />
-<script src="/scripts/jquery.js"></script>
+<input id="pID" type="hidden" value="@Model.ProductInfo.PID"/>
+<input id="productReviewJson" type="hidden" value="" />
 <script src="/scripts/js_Purchase/base.js"></script>
 <script src="/scripts/js_Purchase/jquery.jqzoom.js"></script>
 <script src="/scripts/js_Purchase/ui-choose.js"></script>
 <script src="/scripts/js_Purchase/jquery.imagezoom.min.js"></script>
+<script src="/scripts/jQuery.artTxtCount.js"></script>
 <script src="/scripts/product.js"></script>
+<script src="/scripts/mall/comment.js"></script>
 
 @Html.Partial("_footer")

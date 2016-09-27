@@ -1,0 +1,10 @@
+Log Entry : 2016年09月26日 11:21:38
+方法:System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext),异常信息:未找到视图“StoreDecoration”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/admin_store/views/store/StoreDecoration.cshtml
+~/admin_store/views/shared/StoreDecoration.cshtml
+------------------------------------
+Log Entry : 2016年09月26日 11:22:43
+方法:System.Web.Mvc.ViewEngineResult FindView(System.Web.Mvc.ControllerContext),异常信息:未找到视图“StoreDecoration”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/admin_store/views/store/StoreDecoration.cshtml
+~/admin_store/views/shared/StoreDecoration.cshtml
+------------------------------------

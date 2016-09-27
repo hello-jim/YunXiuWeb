@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
-
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
+using YunXiu.Model;
 
 namespace BrnMall.Web.Models
 {
@@ -316,5 +316,21 @@ namespace BrnMall.Web.Models
         /// 订单售后服务列表
         /// </summary>
         public List<OrderAfterServiceInfo> OrderAfterServiceList { get; set; }
+    }
+
+    /// <summary>
+    /// 用户中心
+    /// </summary>
+    public class UserCenterModel 
+    {
+        /// <summary>
+        /// 用户订单
+        /// </summary>
+        public List<Order> Orders { get; set; }
+
+        /// <summary>
+        /// 用户收藏商品
+        /// </summary>
+        public List<FavoriteProduct> FProducts { get; set; }
     }
 }

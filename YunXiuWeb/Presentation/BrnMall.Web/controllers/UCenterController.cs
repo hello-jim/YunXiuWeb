@@ -17,6 +17,10 @@ namespace BrnMall.Web.Controllers
     /// </summary>
     public partial class UCenterController : BaseWebController
     {
+        public ActionResult Index() 
+        {
+            return View();
+        }
         #region 用户信息
 
         /// <summary>

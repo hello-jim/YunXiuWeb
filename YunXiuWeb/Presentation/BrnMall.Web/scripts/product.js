@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    $(".jqzoom1").imagezoom();
+
     $(".btn-shopfav").on("click", function () {
         var storeID = $("#storeID").val();
         $.post("",

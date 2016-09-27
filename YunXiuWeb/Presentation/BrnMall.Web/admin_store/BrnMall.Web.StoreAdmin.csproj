@@ -69,7 +69,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\basic.css" />
+    <Content Include="css\bootstrap-wysiwyg\bootstrap-combined.no-icons.min.css" />
+    <Content Include="css\bootstrap-wysiwyg\bootstrap-responsive.min.css" />
+    <Content Include="css\bootstrap-wysiwyg\font-awesome.css" />
+    <Content Include="css\bootstrap-wysiwyg\index.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\dec.css" />
+    <Content Include="css\dropzone.css" />
+    <Content Include="css\jquery-ui.min.css" />
+    <Content Include="css\normalize.css" />
     <Content Include="css\site.css" />
+    <Content Include="css\style.css" />
     <Content Include="images\a.jpg" />
     <Content Include="images\add.jpg" />
     <Content Include="images\bg.jpg" />
@@ -104,7 +115,51 @@
     <Content Include="images\top_bg.jpg" />
     <Content Include="images\tree_close.gif" />
     <Content Include="images\tree_open.gif" />
+    <Content Include="scripts\bootstrap-wysiwyg.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\all.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\analytics.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\bootstrap-wysiwyg.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-apollo.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-basic.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-clj.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-css.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-dart.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-erlang.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-go.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-hs.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-lisp.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-llvm.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-lua.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-matlab.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-ml.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-mumps.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-n.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-pascal.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-proto.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-r.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-rd.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-scala.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-sql.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-tcl.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-tex.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-vb.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-vhdl.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-wiki.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-xq.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\lang-yaml.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\prettify.css" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\prettify.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\google-code-prettify\run_prettify.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\external\jquery.hotkeys.js" />
+    <Content Include="scripts\bootstrap-wysiwyg\widgets.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\dropzone-amd-module.js" />
+    <Content Include="scripts\dropzone.js" />
+    <Content Include="scripts\edtjs.js" />
     <Content Include="scripts\excanvas.js" />
+    <Content Include="scripts\jquery-3.1.0.min.js" />
+    <Content Include="scripts\jquery-ui.min.js" />
+    <Content Include="scripts\jQuery.artTxtCount.js" />
     <Content Include="scripts\jquery.flot.js" />
     <Content Include="scripts\jquery.flot.pie.js" />
     <Content Include="scripts\jquery.js" />
@@ -114,6 +169,7 @@
     <Content Include="scripts\region.js" />
     <Content Include="scripts\selectlist.js" />
     <Content Include="scripts\showlist.js" />
+    <Content Include="scripts\storeAdmin\decorate.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="views\coupon\addcoupontype.cshtml" />
@@ -188,6 +244,7 @@
     <None Include="views\store\editstoreclass.cshtml" />
     <None Include="views\store\editstoreshipfee.cshtml" />
     <None Include="views\store\editstoreshiptemplate.cshtml" />
+    <None Include="views\store\StoreDecoration.cshtml" />
     <None Include="views\store\storeclasslist.cshtml" />
     <None Include="views\store\storeshipfeelist.cshtml" />
     <None Include="views\store\storeshiptemplatelist.cshtml" />
@@ -209,6 +266,7 @@
       <Name>BrnMall.Web.Framework</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,796 @@
+body {
+    font: 12px/20px "Hiragino Sans GB","Microsoft Yahei",arial,宋体,"Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+    color: #666;
+    background: #F6F7FB none repeat scroll 0 0;
+    min-width: 1200px;
+}
+html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, fieldset, input {
+    padding: 0;
+    margin: 0;
+}
+a:hover,a:link,a:active{
+	text-decoration: none;
+	color: #555;
+}
+ul, ol {
+    list-style: none outside none;
+}
+input[type="text"], input[type="password"], input.text, input.password {
+    font: 12px/20px Arial;
+    color: #777;
+    background-color: #FFF;
+    vertical-align: top;
+    display: inline-block;
+    height: 30px;
+    padding: 4px;
+    border: solid 1px #E6E9EE;
+    outline: 0 none;
+}
+input[type="file"] {
+    line-height: 20px;
+    background-color: #FBFBFB;
+    height: 30px;
+    border: solid 1px #D8D8D8;
+    cursor: default;
+}
+input[type="radio"], .radio {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: -5px;
+}
+input[type="submit"], input.submit, a.submit {
+    font-size: 12px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #48CFAE;
+    display: block;
+    height: 30px;
+    padding: 0 20px;
+    border-radius: 3px;
+    border: none 0;
+    cursor: pointer;
+}
+textarea, .textarea {
+    font: 12px/18px Arial;
+    color: #777;
+    background-color: #FFF;
+    vertical-align: top;
+    display: inline-block;
+    height: 54px;
+    padding: 4px;
+    border: solid 1px #CCD0D9;
+    outline: 0 none;
+}
+fieldset, img {
+    border: medium none;
+    vertical-align: middle;
+}
+.w80 {
+    width: 80px !important;
+}
+.w40 {
+    width: 40px !important;
+}
+.h100 {
+    height: 100px !important;
+}
+.w200 {
+    width: 200px !important;
+}
+.w400 {
+    width: 400px!important;
+}
+.orange {
+    color: #FF892A !important;
+}
+.mt5 {
+    margin-top: 5px;
+}
+.ml5 {
+    margin-left: 5px!important;
+}
+.ml10 {
+    margin-left: 10px!important;
+}
+.vm {
+    vertical-align: middle;
+}
+/*顶部菜单栏*/
+.decorate{
+	font-size: 0;
+    height: 70px;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #F5F5F5;
+    width: 1180px;
+    margin: 20px auto;
+    position: relative;
+}
+.decorate .title, .decorate .menu, .decorate .tips, .decorate .menu li {
+    font-size: 12px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+}
+
+.title{
+    width: 200px;
+    height: 50px;
+    margin: 10px 0 10px 10px;
+    vertical-align: top;
+}
+.title .icon{
+    background: url(../images/ncsc_bg_img.png) no-repeat 0 -360px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 10px;
+}
+.title h3{
+    font: normal 18px/26px "microsoft yahei";
+    color: #111;
+    margin: 0;
+
+}
+.title h5{
+    font: normal 12px/20px Arial;
+    color: #999;
+}
+
+.menu {
+    font-size: 0;
+    width: 495px;
+}
+
+.decorate .menu li {
+    width: 95px;
+}
+.decorate .menu li a {
+    font-weight: 600;
+    color: #999;
+    line-height: 20px;
+    text-align: center;
+    display: block;
+    height: 56px;
+    padding: 8px 0 6px 0;
+}
+.menu li a i {
+    background: url(../images/ncsc_bg_img.png) no-repeat;
+    display: block;
+    width: 44px;
+    height: 36px;
+    margin: 0 auto;
+    opacity: 0.6/* Firefox, Safari(WebKit), Opera) */;
+    filter: "alpha(opacity=60)"/* IE 8 */;
+    zoom: 1;
+}
+.menu li a i.background {
+    background-position: -50px -360px;
+}
+ .menu li a i.head {
+    background-position: -94px -360px;
+}
+.menu li a i.block {
+    background-position: -138px -360px;
+}
+.menu li a i.preview {
+    background-position: -182px -360px;
+}
+.menu li a i.cexit {
+    background-position: -226px -360px;
+}
+.decorate .tips{
+    color: #888;
+    background-color: #F9F9F9;
+    width: 455px;
+    padding: 5px 10px;
+    margin: 0px 0 10px 20px;
+    border-radius: 5px;
+}
+
+/*对话框样式*/
+.eject_con {
+    background-color: #FFF;
+    overflow: hidden;
+}
+.dialog_wrapper {
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#3F000000', endColorstr='#3F000000');
+    background: rgba(0,0,0,0.25);
+    padding: 5px;
+}
+.dialog_body {
+    background-color: #FFF;
+    border: solid 1px #E6E6E6;
+}
+.dialog_head {
+    background-color: #F5F5F5;
+    margin: 0;
+    border-bottom: solid 1px #E6E6E6;
+    position: relative;
+    z-index: auto;
+}
+.dialog_title {
+    line-height: 20px;
+    display: inline-block;
+    height: 20px;
+    padding: 5px 0 5px 10px;
+    border: none 0;
+}
+.dialog_title_icon {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+    color: #555;
+}
+.dialog_close_button {
+    font-family: Verdana;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #999;
+    text-align: center;
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+.eject_con .upload-btn, .eject_con .upload-btn span, .eject_con .upload-btn .input-file {
+    width: 80px;
+    height: 30px;
+}
+.eject_con dl {
+    font-size: 0;
+    line-height: 20px;
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+.dialog_content dt {
+    width: 18% !important;
+    padding: 5px 1% 5px 0;
+}
+.dialog_content dd {
+    width: 80% !important;
+    padding: 5px 0;
+}
+.dialog_content label {
+    margin-right: 20px;
+    cursor: pointer;
+}
+.eject_con dl dt {
+    font-size: 12px;
+    line-height: 32px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-align: right;
+    display: inline-block;
+    width: 29%;
+    padding: 10px 1% 10px 0;
+    margin: 0;
+    zoom: 1;
+}
+.eject_con dl dd {
+    font-size: 12px;
+    line-height: 32px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    width: 69%;
+    padding: 10px 0 10px 0;
+    zoom: 1;
+}
+
+
+/*编辑背景版块*/
+.hint {
+    font-size: 12px;
+    line-height: 16px;
+    color: #BBB;
+    margin-top: 4px;
+}
+.upload-btn {
+    vertical-align: top;
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    margin: 5px 5px 0 0;
+}
+.upload-btn a {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+.background-image-thumb {
+    max-width: 400px;
+    max-height: 150px;
+    padding: 4px;
+    margin-top: 10px;
+    border: dashed 1px #E7E7E7;
+    position: relative;
+    z-index: 1;
+}
+.upload-btn span {
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+.upload-btn .input-file {
+    width: 80px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: none 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+.eject_con .upload-btn p {
+    color: #666;
+    width: 78px;
+    height: 30px;
+}
+.upload-btn p {
+    font-size: 12px;
+    line-height: 20px;
+    background-color: #F5F5F5;
+    color: #999;
+    text-align: center;
+    width: 78px;
+    height: 20px;
+    padding: 4px 0;
+    border: solid 1px;
+    border-color: #DCDCDC #DCDCDC #B3B3B3 #DCDCDC;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.upload-btn p i {
+    vertical-align: middle;
+    margin-right: 4px;
+}
+.background-image-thumb {
+    max-width: 400px;
+    max-height: 150px;
+    padding: 4px;
+    margin-top: 10px;
+    border: dashed 1px #E7E7E7;
+    position: relative;
+    z-index: 1;
+}
+.background-image-thumb img {
+    max-width: 400px;
+    max-height: 150px;
+    display: block;
+    padding-bottom: 10px;
+}
+.background-image-thumb a.del {
+    font: lighter 12px/20px Verdana;
+    color: #CCC;
+    text-decoration: none;
+    background-color: #FFF;
+    text-align: center;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: solid 1px #E7E7E7;
+    border-radius: 11px;
+    position: absolute;
+    z-index: 1;
+    top: -9px;
+    right: -9px;
+}
+.add-on {
+    line-height: 28px;
+    background-color: #F6F7Fb;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    border: solid #E6E9EE;
+    border-width: 1px 1px 1px 0;
+}
+.add-on {
+    zoom: 1;
+}
+.eject_con .bottom {
+    background-color: #F9F9F9;
+    text-align: center;
+    border-top: 1px solid #EAEAEA;
+    z-index: 1900px;
+    overflow: hidden;
+}
+.bottom .submit-border {
+    margin: 10px auto;
+}
+.submit-border {
+    vertical-align: middle;
+    display: inline-block;
+}
+.bottom a.submit {
+    width: 100px;
+    margin: 0 auto;
+}
+.bottom .submit {
+    font: 14px/36px "microsoft yahei";
+    text-align: center;
+    min-width: 100px;
+    height: 36px;
+}
+
+/*布局块列表*/
+.store-decoration-block-1 {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+.store-decoration-block-1 {
+    width: 1000px;
+    margin: 0 auto;
+}
+.ncsc-decration-block {
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7FFFFFFF', endColorstr='#7FFFFFFF');
+    background: rgba(255,255,255,0.5);
+    min-height: 100px;
+    border: dashed 1px #CCC;
+    position: relative;
+    z-index: 1;
+}
+.ncsc-decration-block-content {
+    background-color: #FFF;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    cursor: default;
+}
+.ncsc-decration-block-content .edit {
+    color: #666;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#BFFFF299', endColorstr='#BFFFF299');
+    background: rgba(255,242,153,0.75);
+    padding: 4px 19px;
+    position: absolute;
+    z-index: 1;
+    top: 2px;
+    left: 2px;
+}
+.ncsc-decration-block-content .edit i {
+    vertical-align: middle;
+    margin-right: 4px;
+}
+.ncsc-decration-block .block-delete {
+    color: #999;
+    background-color: #FFF;
+    display: none;
+    padding: 1px 6px;
+    border: solid 1px;
+    border-color: #CCC #999 #999 #CCC;
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    right: 4px;
+}
+.ncsc-decration-block .delete i {
+    vertical-align: middle;
+    margin-right: 4px;
+}
+.ncsc-decration-block .delete:hover {
+    color: #FFF;
+    text-decoration: none;
+    background-color: #DA4F49;
+    border-color: #C44742;
+}
+
+/*选择模块*/
+.dialog-decoration-module ul {
+    font-size: 0;
+    margin: -1px 0 0 -1px;
+
+}
+.dialog-decoration-module ul li {
+    font-size: 12px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    border: solid #F7F7F7;
+    border-width: 1px 0 0 1px;
+    width: 50%;
+    padding-bottom: 20px;
+}
+.dialog-decoration-module ul li a {
+    width: 240px;
+    height: 40px;
+    padding: 20px;
+    color: #555;
+    display: block;
+}
+.dialog-decoration-module ul li i {
+    background: url(../images/ncsc_bg_img.png) no-repeat;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    float: left;
+    margin: 4px 6px 4px 0;
+}
+.dialog-decoration-module ul li i.slide {
+    background-position: -40px -420px;
+}
+.dialog-decoration-module ul li i.html {
+    background-position: -200px -420px;
+}
+.dialog-decoration-module ul li i.goods {
+    background-position: -160px -420px;
+}
+.dialog-decoration-module ul li i.hotarea {
+    background-position: -120px -420px;
+}
+.dialog-decoration-module ul li .select-item {
+    float: left;
+}
+.dialog-decoration-module ul li h3 {
+    font: normal 14px/24px "microsoft yahei";
+}
+.dialog-decoration-module ul li p {
+    line-height: 16px;
+    color: #AAA;
+}
+
+/*图片幻灯片样式*/
+.eject_con .alert {
+    margin: 10px;
+}
+.alert {
+    color: #C09853;
+    background-color: #FCF8E3;
+    padding: 8px 35px 8px 14px;
+    margin: 10px auto;
+    border: 1px solid #FBEED5;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.dialog-decoration-edit .alert ul {
+    margin: 0;
+}
+.eject_con ul {
+    overflow: hidden;
+}
+.alert li {
+    margin: 4px 0;
+}
+.dialog-decoration-edit .dialog_content h4 {
+    font: 600 14px/20px Arial, "microsoft yahei";
+    background-color: #F9F9F9;
+    padding: 5px 0 5px 15px;
+    border-bottom: solid 1px #F5F5F5;
+}
+.dialog-decoration-edit .display-set span {
+    margin-right: 30px;
+}
+.dialog-decoration-edit .dialog_content .checkobx {
+    vertical-align: middle;
+}
+a.ncbtn {
+    height: 20px;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+a.ncbtn-mini, a.ncbtn {
+    font: normal 12px/20px "microsoft yahei", arial;
+    color: #FFF;
+    background-color: #CCD0D9;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.ncsc-upload-btn a {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+.eject_con .ncsc-upload-btn p {
+    color: #666;
+    width: 78px;
+    height: 20px;
+}
+.ncsc-upload-btn p {
+    font-size: 12px;
+    line-height: 20px;
+    background-color: #F5F5F5;
+    color: #999;
+    text-align: center;
+    color: #666;
+    width: 78px;
+    height: 40px;
+    padding: 4px 0;
+    border: solid 1px;
+    border-color: #DCDCDC #DCDCDC #B3B3B3 #DCDCDC;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.ncsc-upload-btn p i {
+    vertical-align: middle;
+    margin-right: 4px;
+}
+.eject_con dl {
+    font-size: 0;
+    line-height: 20px;
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+.ncsc-upload-btn .input-file {
+    width: 80px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: none 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+.decoration-search-goods {
+    border-top: solid 1px #E7E7E7;
+}
+.decoration-search-goods .search-bar {
+    padding: 5px 15px;
+    border-bottom: solid 1px #E7E7E7;
+}
+
+/*编辑器样式*/
+.editorstyle{
+	width: 1008px;
+	height: 340px;
+}
+/*各模块样式*/
+#dialog_module_html{
+	z-index: 1100; 
+	position: fixed; 
+	width: 1020px; 
+	left: 164.5px; 
+	top: 16px; 
+	display: none;
+}
+#dialog_module_goods{
+	z-index: 1100; 
+	position: fixed; 
+	width: 1020px; 
+	left: 164.5px; 
+	top: 175.5px; 
+	display: none;
+}
+#dialog_module_hot_area{
+	z-index: 1100; 
+	position: fixed; 
+	width: 1020px; 
+	left: 164.5px; 
+	top: 124.5px; 
+	display: none;
+}
+#dialog_module_slide{
+	z-index: 1100; 
+	position: fixed; 
+	width: 1020px; 
+	left: 164.5px; 
+	top: 153px; 
+	display: none;
+}
+#dialog_select{
+	z-index: 1100; 
+	position: fixed; 
+	width: 480px; 
+	left: 434.5px; 
+	top: 40px; 
+	display: none;
+}
+#edit_head{
+	z-index: 1100; 
+	position: fixed; 
+	width: 640px; 
+	left: 347.5px; 
+	top: 140.5px; 
+	display: none;
+}
+#edit_background{
+	z-index: 1100; 
+	position: fixed; 
+	width: 640px; 
+	left: 354.5px; 
+	top: 4.5px; 
+	display: none;
+}
+
+#decorationGoods {
+    width: 100%;
+    max-height: 180px;
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+}
+#decorationGoods .goods-list {
+    background-color: #F0F8FF;
+    margin: 0 9px;
+}
+.dialog-decoration-edit .goods-list {
+    font-size: 0;
+    margin: 9px;
+}
+#decorationGoods .goods-list li {
+    border-color: #BCE8F1;
+    text-align: center;
+}
+.goods-list li {
+    font-size: 12px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    width: 100px;
+    border-left: dashed 1px #E7E7E7;
+    padding: 5px 0;
+    margin-left: -1px;
+}
+.dialog-decoration-edit .goods-thumb {
+    width: 80px;
+    height: 80px;
+    margin: 5px auto 0 auto;
+}
+.dialog-decoration-edit .goods-thumb a {
+    line-height: 0;
+    background-color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+.dialog-decoration-edit .goods-thumb img {
+    max-width: 80px;
+    max-height: 80px;
+    margin-top: expression(80-this.height/2);
+}
+.dialog-decoration-edit .goods-info {
+    width: 80px;
+    text-align: left;
+    margin: 5px auto 0 auto;
+}
+.dialog-decoration-edit .goods-info dt {
+    text-align: left;
+    width: 100% !important;
+    display: block;
+    line-height: 16px;
+    height: 32px;
+    padding: 0;
+    overflow: hidden;
+}
+.dialog-decoration-edit .goods-info dt a {
+    color: #333;
+}
+.dialog-decoration-edit .goods-info dd {
+    font: 600 12px/20px Arial;
+    color: #C00;
+    width: 100% !important;
+    height: auto !important;
+    padding: 3px 0;
+}

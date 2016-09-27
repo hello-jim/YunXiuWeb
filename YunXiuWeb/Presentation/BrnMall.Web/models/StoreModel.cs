@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
+using YunXiu.Model;
 
 namespace BrnMall.Web.Models
 {
@@ -80,4 +80,13 @@ namespace BrnMall.Web.Models
         /// </summary>
         public StoreClassInfo StoreClassInfo { get; set; }
     }
+
+    public class StoreHomeModel 
+    {
+        public List<StoreNavigation> NavigationList { get; set; }
+
+        public StoreHome StoreHome { get; set; } 
+    }
+
+
 }

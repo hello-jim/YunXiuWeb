@@ -48,7 +48,7 @@
 <em>@Model.ProductInfo.Name</em></a>
 <div class="i"><p>商城价:</p><b>¥@Model.ProductInfo.ShopPrice</b></div>
 <div class="i"><p>商品评分:</p><b><div class="star">
-<span class="star_yellow" style=" width:@Html.Raw((Model.ProductInfo.GetStarLevel() * 20).ToString())%;">&nbsp;</span>
+@*<span class="star_yellow" style=" width:@Html.Raw((Model.ProductInfo.GetStarLevel() * 20).ToString())%;">&nbsp;</span>*@
 </div></b></div>
 <div class="i"><p>评价数:</p><span>@Model.ProductInfo.ReviewCount 条</span></div>
 <div class="i"><a href="javascript:void(0)" onclick="addProductToCart(@Model.ProductInfo.PID, 1)" class="redBT">加入购物车</a></div>

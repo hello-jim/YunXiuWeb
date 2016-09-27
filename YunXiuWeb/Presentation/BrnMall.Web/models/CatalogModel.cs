@@ -201,7 +201,7 @@ namespace BrnMall.Web.Models
         /// <summary>
         /// 商品列表
         /// </summary>
-        public List<StoreProductInfo> ProductList { get; set; }
+        public List<Product> ProductList { get; set; }
     }
 
     /// <summary>
@@ -281,7 +281,7 @@ namespace BrnMall.Web.Models
         /// <summary>
         /// 分页结果
         /// </summary>
-        public PageResult<ProductInfo> PageResult { get; set; }
+        public PageResult<Product> PageResult { get; set; }
         /// <summary>
         /// 用户浏览历史
         /// </summary>

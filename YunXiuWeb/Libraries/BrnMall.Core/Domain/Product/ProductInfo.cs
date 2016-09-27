@@ -50,7 +50,7 @@ namespace BrnMall.Core
         /// </summary>
         public string PSN
         {
-            set { _psn = value.TrimEnd(); }
+            set { _psn = value; }
             get { return _psn; }
         }
         /// <summary>

@@ -255,7 +255,7 @@ namespace BrnMall.Web.Controllers
                 CatePriceRangeList = catePriceRangeList,
                 AAndVList = cateAAndVList,
                 PageModel = pageModel,
-                ProductList = Products.GetCategoryProductList(pageModel.PageSize, pageModel.PageNumber, cateId, brandId, filterPrice, catePriceRangeList, attrValueIdList, onlyStock, sortColumn, sortDirection)
+                //  ProductList = Products.GetCategoryProductList(pageModel.PageSize, pageModel.PageNumber, cateId, brandId, filterPrice, catePriceRangeList, attrValueIdList, onlyStock, sortColumn, sortDirection)
             };
 
             return View(model);
@@ -322,7 +322,7 @@ namespace BrnMall.Web.Controllers
             //Searches.SearchMallProducts(20, page, word, cateId, brandId, filterPrice, attrValueIdList, onlyStock, sortColumn, sortDirection, ref categoryInfo, ref catePriceRangeList, ref cateAAndVList, ref categoryList, ref brandInfo, ref brandList, ref totalCount, ref productList);
             string[] arr = new string[] { word, page.ToString(), "20" };
             var data = CommomClass.HttpPost("http://localhost:58654/Product/SearchProduct", JsonConvert.SerializeObject(arr));
-            PageResult<ProductInfo> pageResult = JsonConvert.DeserializeObject<PageResult<ProductInfo>>(data);
+            PageResult<Product> pageResult = JsonConvert.DeserializeObject<PageResult<Product>>(data);
             //if (productList == null)
             //    return PromptView(WorkContext.UrlReferrer, "您搜索的商品不存在");
 
@@ -475,14 +475,14 @@ namespace BrnMall.Web.Controllers
             int page = WebHelper.GetQueryInt("page");
 
             //判断商品是否存在
-              PartProductInfo productInfo = Products.GetPartProductById(pid);
+            PartProductInfo productInfo = Products.GetPartProductById(pid);
             var productJson = CommomClass.HttpPost(string.Format("{0}/Product/GetProductByID", productApi), pid.ToString());
             var product = JsonConvert.DeserializeObject<Product>(productJson);
             if (product == null)
                 return PromptView("/", "你访问的商品不存在");
 
             //获取产品咨询类型
-            var consultationTypeListJson = CommomClass.HttpPost(string.Format("{0}/Product/GetConsultationType",productApi),"");
+            var consultationTypeListJson = CommomClass.HttpPost(string.Format("{0}/Product/GetConsultationType", productApi), "");
             var consultationTypeList = JsonConvert.DeserializeObject<List<ConsultationType>>(consultationTypeListJson);
             ProductConsultListModel model = new ProductConsultListModel()
             {
@@ -675,6 +675,10 @@ namespace BrnMall.Web.Controllers
             return result;
         }
 
+        /// <summary>
+        /// 添加商品咨询
+        /// </summary>
+        /// <returns></returns>
         public string AddConsultation()
         {
             var result = "";
@@ -703,7 +707,15 @@ namespace BrnMall.Web.Controllers
                         CContent = content
 
                     };
-                    var isAdd = CommomClass.HttpPost("", JsonConvert.SerializeObject(consultation));//是否添加成功
+                    var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Product/AddConsultation"), JsonConvert.SerializeObject(consultation)));//是否添加成功
+                    if (isAdd)
+                    {
+                        result = "1";
+                    }
+                }
+                else
+                {
+                    result = "-1";//用户不存在
                 }
 
             }
@@ -712,6 +724,77 @@ namespace BrnMall.Web.Controllers
 
             }
             return result;
+        }
+
+        /// <summary>
+        /// 添加商品评价
+        /// </summary>
+        /// <returns></returns>
+        public string AddProductReview()
+        {
+            var result = "0";
+            try
+            {
+                var content = Request.Form["content"];
+                var pID =Convert.ToInt32(Request.Form["pID"]);
+                var uID = 10;
+                var oID = Convert.ToInt32(Request.Form["oID"]);
+                var parent = Request.Form["parent"] != null ? Convert.ToInt32(Request.Form["parent"]) : 0;
+                if (uID != 0)//登录后才能评论
+                {
+                    ProductReview review = new ProductReview
+                    {
+                        RContent = content,
+                        RProduct = new Product
+                        {
+                            PID = pID
+                        },
+                        RUser = new User
+                        {
+                            UID = uID
+                        },
+                        ROrder = new Order 
+                        {
+                            OID=oID
+                        },
+                        ReviewTime=DateTime.Now,
+                        Parent = parent
+                    };
+                    var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Product/AddProductReview", productApi), JsonConvert.SerializeObject(review)));
+                    if (isAdd)
+                    {
+                        result = "1";//评论成功
+                    }
+                }
+                else
+                {
+                    result = "-1";//
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取商品评论
+        /// </summary>
+        /// <returns></returns>
+        public string GetProductReview()
+        {
+            var reviewJson = "";
+            try
+            {
+                var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID
+                reviewJson = CommomClass.HttpPost(string.Format("{0}/Product/GetProductReviewByProductID", productApi), pID.ToString());
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return reviewJson;
         }
     }
 }

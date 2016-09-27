@@ -2,11 +2,14 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Collections.Generic;
-
+using System.Configuration;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.Models;
+using YunXiu.Commom;
+using YunXiu.Model;
+using Newtonsoft.Json;
 
 namespace BrnMall.Web.Controllers
 {
@@ -15,12 +18,28 @@ namespace BrnMall.Web.Controllers
     /// </summary>
     public partial class StoreController : BaseWebController
     {
+        string productApi = ConfigurationManager.AppSettings["productApi"].ToString();
+        string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
         /// <summary>
         /// 店铺首页
         /// </summary>
         public ActionResult Index()
         {
-            return View();
+            StoreHomeModel model = new StoreHomeModel();
+            try
+            {
+                var sID = GetRouteInt("sID");//商铺ID
+                var storeHome = JsonConvert.DeserializeObject<StoreHome>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreHome", accountApi), sID.ToString()));//获取商铺首页
+                var navigationList=JsonConvert.DeserializeObject<List<StoreNavigation>>(CommomClass.HttpPost("",""));//获取商铺导航
+             
+                model.NavigationList = navigationList;
+                model.StoreHome = storeHome;
+            }
+            catch (Exception ex) 
+            {
+            
+            }
+            return View(model);
         }
 
         /// <summary>

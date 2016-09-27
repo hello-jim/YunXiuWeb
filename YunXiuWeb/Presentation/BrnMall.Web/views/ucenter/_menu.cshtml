@@ -1,15 +1,44 @@
-﻿<div id="memberL">
-<h2>个人中心</h2>
-<ul id="memberNav">
-    <li><a href="@Url.Action("userinfo")"><s>&gt;</s>账户信息</a></li>
-    <li><a href="@Url.Action("safeinfo")"><s>&gt;</s>账户安全</a></li>
-    <li><a href="@Url.Action("orderlist")"><s>&gt;</s>我的订单</a></li>
-    <li><a href="@Url.Action("shipaddresslist")"><s>&gt;</s>收货地址</a></li>
-    <li><a href="@Url.Action("favoriteproductlist")"><s>&gt;</s>收藏商品</a></li>
-    <li><a href="@Url.Action("favoritestorelist")"><s>&gt;</s>收藏店铺</a></li>
-    <li><a href="@Url.Action("paycreditloglist")"><s>&gt;</s>我的@{@WorkContext.PayCreditName}</a></li>
-    <li><a href="@Url.Action("couponlist")"><s>&gt;</s>优惠劵</a></li>
-    <li><a href="@Url.Action("productconsultlist")"><s>&gt;</s>购买咨询</a></li>
-    <li><a href="@Url.Action("productreviewlist")"><s>&gt;</s>商品评价</a></li>
-</ul>
+﻿
+<div class="fl" id="LeftMenuDiv" style="margin-bottom:20px;">
+    <ul class="form">
+        <li class="firstext" id="LeftMenu_Title"></li>
+        <li class="firstext" style="height:40px;"><p class="fl"><img src="/images/bean_intro_title_bg2.png" /></p></li>
+        <li><a class="logout" href="/ucenter/index">个人中心</a></li>
+        <li><a class="logout" href="@Url.Action("orderlist")">我的订单</a></li>
+        <li><a class="logout" href="@Url.Action("shipaddresslist")">常用收货地址</a></li>
+        <li><a class="logout" href="@Url.Action("MyFavorite")">我的收藏</a></li>
+
+        @*<li><a class="logout" href="@Url.Action("favoriteproductlist")">我的收藏商品</a></li>
+            <li><a class="logout" href="@Url.Action("favoritestorelist")">收藏店铺</a></li>*@
+        <li><a class="logout" href="@Url.Action("paycreditloglist")">我的@{@WorkContext.PayCreditName}</a></li>
+        <li><a class="logout" href="@Url.Action("couponlist")">优惠劵</a></li>
+        <li><a class="logout" href="@Url.Action("productconsultlist")">购买咨询</a></li>
+        <li><a class="logout" href="@Url.Action("productreviewlist")">商品评价</a></li>
+        <li><a class="logout" href="@Url.Action("MyReturnProducts")">我的售后</a></li>
+
+        @*@{
+            var PublicApply = Stores.SelectApply(999999, 1, " Uid=" + WorkContext.Uid);
+            var ComApply = Stores.enterpriseApply(999999, 1, " Uid=" + WorkContext.Uid);
+        }
+
+        @if (ComApply.Count > 0 || PublicApply.Count > 0)
+        {
+            <li><a class="logout" href="@Url.Action("MyApplyList")">入驻申请进度</a></li>
+        }*@
+    </ul>
 </div>
+
+<script type="text/javascript">
+    @*$(function () {
+        var _url="/"+"@ViewContext.RouteData.Route.GetRouteData(this.Context).Values["controller"]"
+        +"/"
+        + "@ViewContext.RouteData.Route.GetRouteData(this.Context).Values["action"]";
+
+        $("#LeftMenuDiv").find("a[href='" + _url + "']").closest("li").addClass("selected");
+        var _txt=$("#LeftMenuDiv").find("a[href='" + _url + "']").text();
+        $("#LeftMenuDiv ul").find("li").eq(0).text(_txt);
+
+    })*@
+
+
+</script>

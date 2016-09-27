@@ -184,6 +184,7 @@
     <Content Include="components\webuploader\webuploader.js" />
     <Content Include="css\account.css" />
     <Content Include="css\base.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\buy.css" />
     <Content Include="css\content.css" />
     <Content Include="css\Css_Purchase\detail.css" />
@@ -199,12 +200,15 @@
     <Content Include="css\Css_Purchase\shopruzhu.css" />
     <Content Include="css\Css_Purchase\upload.css" />
     <Content Include="css\Css_Purchase\uploadidea.css" />
+    <Content Include="css\header.css" />
     <Content Include="css\help.css" />
     <Content Include="css\home.css" />
     <Content Include="css\list.css" />
     <Content Include="css\list1.css" />
+    <Content Include="css\mall\comment.css" />
     <Content Include="css\public.css" />
     <Content Include="css\ucenter.css" />
+    <Content Include="css\zzsc.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="App_Data\credit.config" />
@@ -222,6 +226,7 @@
     <Content Include="App_Data\sms.config" />
     <Content Include="images\05.png" />
     <Content Include="images\1-0.png" />
+    <Content Include="images\1.jpg" />
     <Content Include="images\123.png" />
     <Content Include="images\1234.png" />
     <Content Include="images\132.jpg" />
@@ -235,11 +240,19 @@
     <Content Include="images\3-0.png" />
     <Content Include="images\3-1.png" />
     <Content Include="images\3-2.png" />
+    <Content Include="images\3.jpg" />
     <Content Include="images\4-0.png" />
+    <Content Include="images\4.jpg" />
+    <Content Include="images\5.jpg" />
     <Content Include="images\54Q58PICWyw_1024.jpg" />
+    <Content Include="images\6.jpg" />
+    <Content Include="images\7.jpg" />
     <Content Include="images\75.jpg" />
     <Content Include="images\a2.jpg" />
     <Content Include="images\alibar.png" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\arrowl.png" />
+    <Content Include="images\arrowr.png" />
     <Content Include="images\art.png" />
     <Content Include="images\assort.png" />
     <Content Include="images\author.png" />
@@ -259,6 +272,7 @@
     <Content Include="images\banshen.jpg" />
     <Content Include="images\bean_intro_title_bg.png" />
     <Content Include="images\bean_intro_title_bg2.png" />
+    <Content Include="images\brand.jpg" />
     <Content Include="images\cart.png" />
     <Content Include="images\cloth %281%29.jpg" />
     <Content Include="images\cloth.png" />
@@ -287,7 +301,14 @@
     <Content Include="images\factory.png" />
     <Content Include="images\figure.png" />
     <Content Include="images\fm.jpg" />
+    <Content Include="images\footicon1.png" />
+    <Content Include="images\footicon2.png" />
+    <Content Include="images\footicon3.png" />
+    <Content Include="images\footicon4.png" />
+    <Content Include="images\footicon5.png" />
+    <Content Include="images\footicon6.png" />
     <Content Include="images\hat.png" />
+    <Content Include="images\headimg.png" />
     <Content Include="images\heng1.png" />
     <Content Include="images\heng2.png" />
     <Content Include="images\Horse86.png" />
@@ -348,6 +369,7 @@
     <Content Include="images\logo.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo1.png" />
+    <Content Include="images\logo2.png" />
     <Content Include="images\logoh.png" />
     <Content Include="images\lr.jpg" />
     <Content Include="images\lrS.jpg" />
@@ -367,6 +389,9 @@
     <Content Include="images\pic1.png" />
     <Content Include="images\plus.png" />
     <Content Include="images\prev.png" />
+    <Content Include="images\productImg\5_1.jpg" />
+    <Content Include="images\productImg\5_2.jpg" />
+    <Content Include="images\productImg\5_3.jpg" />
     <Content Include="images\pu.png" />
     <Content Include="images\qiyeicon.png" />
     <Content Include="images\recom.png" />
@@ -384,9 +409,11 @@
     <Content Include="images\shopicon.png" />
     <Content Include="images\shopping.png" />
     <Content Include="images\shoppingNone.gif" />
+    <Content Include="images\shoppingw.png" />
     <Content Include="images\shouchi.jpg" />
     <Content Include="images\shouhou.png" />
     <Content Include="images\sicons.png" />
+    <Content Include="images\slogan.png" />
     <Content Include="images\star.png" />
     <Content Include="images\succ-error.png" />
     <Content Include="images\succ-ico.png" />
@@ -412,6 +439,7 @@
     <Content Include="images\xin.png" />
     <Content Include="images\xin1.png" />
     <Content Include="images\x_2.jpg" />
+    <Content Include="images\yunxiufont.png" />
     <Content Include="images\zheng.jpg" />
     <Content Include="images\zheng1.jpg" />
     <Content Include="images\zm.jpg" />
@@ -422,10 +450,14 @@
     <Content Include="scripts\account.js" />
     <Content Include="scripts\common.js" />
     <Content Include="scripts\home.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jQuery.artTxtCount.js" />
     <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\jquery.kinMaxShow-1.0.min.js" />
     <Content Include="scripts\jquery.soChange.js" />
     <Content Include="scripts\jquery.jqzoom.js" />
     <Content Include="scripts\jquery.jqzoom.css" />
+    <Content Include="scripts\jquery.SuperSlide.2.1.1.js" />
     <Content Include="scripts\js_Purchase\base.js" />
     <Content Include="scripts\js_Purchase\helpCenter.js" />
     <Content Include="scripts\js_Purchase\jquery-1.10.2.min.js" />
@@ -439,6 +471,7 @@
     <Content Include="scripts\js_Purchase\pingjia.js" />
     <Content Include="scripts\js_Purchase\tabControl.js" />
     <Content Include="scripts\js_Purchase\ui-choose.js" />
+    <Content Include="scripts\mall\comment.js" />
     <Content Include="scripts\mall\productConsult.js" />
     <Content Include="scripts\mall\search.js" />
     <Content Include="scripts\order.js" />
@@ -513,10 +546,10 @@
     <Content Include="images\demo_default_images\Thumbs.db" />
     <Content Include="images\down-arrow.svg" />
     <Content Include="images\iconfont-shape.svg" />
+    <Content Include="views\ucenter\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\txtlogs\" />
-    <Folder Include="images\productImg\" />
     <Folder Include="images\storeImg\" />
     <Folder Include="plugins\bin\" />
     <Folder Include="upload\adv\" />

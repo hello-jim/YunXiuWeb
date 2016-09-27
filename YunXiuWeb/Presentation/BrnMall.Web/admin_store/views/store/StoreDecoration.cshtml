@@ -1,0 +1,363 @@
+﻿@{
+    ViewBag.Title = "店铺装修";
+    Layout = null;
+}
+
+<link rel="stylesheet" type="text/css" href="/admin_store/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="/admin_store/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/admin_store/css/dec.css">
+<link rel="stylesheet" type="text/css" href="/admin_store/css/dropzone.css" />
+<link href="/admin_store/scripts/bootstrap-wysiwyg/external/google-code-prettify/prettify.css" rel="stylesheet">
+<link href="/admin_store/css/bootstrap-wysiwyg/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="/admin_store/css/bootstrap-wysiwyg/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="/admin_store/css/bootstrap-wysiwyg/font-awesome.css" rel="stylesheet">
+<link href="/admin_store/css/bootstrap-wysiwyg/index.css" rel="stylesheet">
+
+
+
+<div class="decorate">
+    <div class="title">
+        <i class="icon"></i>
+        <h3>店铺装修选项</h3>
+        <h5>店铺首页模板设计操作</h5>
+    </div>
+
+    <ul class="menu">
+        <li>
+            <a href="javascript:void(0);">
+                <i class="background"></i>
+                编辑背景
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="head"></i>
+                编辑头部
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="block-add"></i>
+                添加局部块
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <i class="preview"></i>
+                设计预览
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="store-home-save">
+                <i class="cexit"></i>
+                完成退出
+            </a>
+        </li>
+    </ul>
+
+    <div class="tips">
+        下方区域为1180像素宽度即时编辑区域；“添加布局块”后选择模块类型进行详细设置；“设计预览”可查看生成后效果；内容将实时保存，设置完成后直接选择“完成退出”。
+    </div>
+
+</div>
+
+<div class="store_decoration_area">
+
+</div>
+
+
+<div id="edit_background" class="eject_con dialog_wrapper">
+    <div class="dialog_body" style="position: relative;">
+        <h3 class="dialog_head" style="cursor: move;">
+            <span class="dialog_title">
+                <span class="dialog_title_icon">编辑背景</span>
+            </span>
+            <span class="dialog_close_button">X</span>
+        </h3>
+        <div class="dialog_content">
+            <dl>
+                <dt>背景颜色：</dt>
+                <dd>
+                    <input id="txt_background_color" class="text w80" type="text" name="" value="" maxlength="7">
+                    <p class="hint">设置背景颜色请使用十六进制形式(#XXXXXX)，默认留空为白色背景。</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>背景图：</dt>
+                <dd>
+                    <div class="upload-btn">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal">
+                            <span>
+                                <input type="file" hidefocus="true" size="1" class="input-file" id="file_background_image" name="file">
+                            </span>
+                            <p><i class="icon-upload-alt"></i>图片上传</p>
+                        </a>
+                    </div>
+                    <div id="div_background_image" class="background-image-thumb">
+                        <img id="img_background_image" src="/images/ps_1605251026145057554.jpg" alt="">
+                        <input id="txt_background_image" type="hidden" name="" value="">
+                        <a id="btn_del_background_image" class="del" href="javascript:void(0);" title="移除背景图">X</a>
+                    </div>
+                </dd>
+            </dl>
+            <dl>
+                <dt>背景图定位：</dt>
+                <dd>
+                    <input id="txt_background_position_x" class="text w40" type="text" value="50%">
+                    <label class="add-on">X</label>
+                    <input id="txt_background_position_y" class="text w40" type="text" value="-39px">
+                    <label class="add-on">Y</label>
+                    <p class="hint">设置背景图像的起始位置。</p>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>背景图填充方式：</dt>
+                <dd>
+                    <input id="input_no_repeat" type="radio" value="no-repeat" name="background_repeat" checked="">
+                    <label for="input_no_repeat">不重复</label>
+                    <input id="input_repeat" type="radio" value="repeat" name="background_repeat">
+                    <label for="input_repeat">平铺</label>
+                    <input id="input_repeat_x" type="radio" value="repeat-x" name="background_repeat">
+                    <label for="input_repeat_x">x轴平铺</label>
+                    <input id="input_repeat_y" type="radio" value="repeat-y" name="background_repeat">
+                    <label for="input_repeat_y">y轴平铺</label>
+                </dd>
+            </dl>
+            <dl>
+                <dt>背景滚动模式：</dt>
+                <dd>
+                    <input id="txt_background_attachment" class="text w80" type="text" value="">
+                    <p class="hint">设置背景随屏幕滚动或固定，例如："scroll"或"fixed"。</p>
+                </dd>
+            </dl>
+            <div class="bottom">
+                <label class="submit-border">
+                    <a id="btn_save_background" class="submit" href="javascript:void(0);">保存</a>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 选择模块 -->
+<div id="dialog_select" class="dialog-decoration-module dialog_wrapper ui-draggable">
+    <div class="dialog_body" style="position: relative;">
+        <h3 class="dialog_head" style="cursor: move;">
+            <span class="dialog_title">
+                <span class="dialog_title_icon">选择模块</span>
+            </span>
+            <span class="dialog_close_button">X</span>
+        </h3>
+
+        <div class="dialog_content" style="position: relative;">
+            <ul>
+                <li>
+                    <a href="javascript:void(0);" data-toggle="modal" data-target="#images-div">
+                        <i class="slide"></i>
+                        <div class="select-item">
+                            <h3>图片和幻灯</h3>
+                            <p>添加图片和可切换幻灯</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" data-toggle="modal" data-target="#product-div">
+                        <i class="goods"></i>
+                        <div class="select-item">
+                            <h3>选择商铺</h3>
+                            <p>选择添加店铺内的在售商品</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" data-toggle="modal" data-target="#edit-html-div">
+                        <i class="html"></i>
+                        <div class="select-item">
+                            <h3>自定义</h3>
+                            <p>使用编辑器自定义编辑html</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<!-- 图片幻灯片模块 -->
+<div class="modal fade" id="images-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    上传图片
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form id="dropzone-upload" class="dropzone needsclick dz-clickable" action="/" dropzone="copy|move|link">
+                    <div class="dz-message needsclick">
+                        点击或拖拽上传图片
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary save-images">
+                    提交
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<!--商品编辑模块-->
+<div class="modal fade" id="product-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    模态框（Modal）标题
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="dialog_content" style="position: relative;">
+                    <div class="alert">
+                        <ul>
+                            <li>1. 搜索店铺内在售商品并“选择添加”，设置窗口上部将出现已选择的商品列表，也可对其进行“取消选择”操作，点击保存设置后生效。</li>
+                            <li>2. 当已选择的商品超过10个时，系统默认未全部显示，可通过在已选区域滚动鼠标或拉动侧边条进行查看及操作。</li>
+                        </ul>
+                    </div>
+                    <h4 class="mt10">店铺在售商品选择</h4>
+                    <div id="decorationGoods" class="ps-container" style="overflow:auto;">
+                        <ul class="goods-list select-product-list"></ul>
+                    </div>
+                    <div class="decoration-search-goods">
+                        <div class="search-bar">
+                            输入商品关键字：
+                            <input id="txt_goods_search_keyword" type="text" class="text w200 vm" name="">
+                            <a id="btn_module_goods_search" class="ncbtn" href="javascript:void(0);">搜索</a>
+                            <span class="ml10 orange">小提示： 留空搜索显示店铺全部在售商品，每页显示10个。</span>
+                        </div>
+                        <div id="div_module_goods_search_list"></div>
+                    </div>
+                    <div id="div_module_goods_search_list">
+                        <ul id="product-list" class="goods-list"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary product-list-save">
+                    保存
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 自定义编辑器模块 -->
+<div class="modal fade" id="edit-html-div" style="width:1000px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" style="width:1000px;">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+            </div>
+            <div class="modal-body">
+                <div class="btn-toolbar" data-role="editor-toolbar" data-target=".edit-html">
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
+                        <ul class="dropdown-menu"></ul>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+                            <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+                            <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+                        <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+                        <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
+                        <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="icon-list-ul"></i></a>
+                        <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="icon-list-ol"></i></a>
+                        <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+                        <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+                        <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+                        <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+                        <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
+                        <div class="dropdown-menu input-append">
+                            <input class="span2" placeholder="URL" type="text" data-edit="createLink" />
+                            <button class="btn" type="button">Add</button>
+                        </div>
+                        <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
+                    </div>
+
+                    <div class="btn-group">
+                        <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
+                        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+                        <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+                    </div>
+                    <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+                </div>
+                <div class="edit-html">
+                    Go ahead&hellip;
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary edit-html-save">提交</button>
+            </div>
+
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<input type="hidden" id="edit-block-id" value="" />
+
+
+
+
+<script src="/admin_store/scripts/jquery-3.1.0.min.js"></script>
+<script src="/admin_store/scripts/jquery-ui.min.js"></script>
+<script src="/admin_store/scripts/bootstrap.min.js"></script>
+<script src="/admin_store/scripts/bootstrap-wysiwyg/external/jquery.hotkeys.js"></script>
+<script src="/admin_store/scripts/bootstrap-wysiwyg/external/google-code-prettify/prettify.js"></script>
+<script src="/admin_store/scripts/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
+<script src="/admin_store/scripts/dropzone.js"></script>
+<script src="/admin_store/scripts/storeAdmin/decorate.js"></script>
+
+
+
