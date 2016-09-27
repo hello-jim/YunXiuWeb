@@ -321,7 +321,7 @@ namespace BrnMall.Web.Controllers
             //搜索
             //Searches.SearchMallProducts(20, page, word, cateId, brandId, filterPrice, attrValueIdList, onlyStock, sortColumn, sortDirection, ref categoryInfo, ref catePriceRangeList, ref cateAAndVList, ref categoryList, ref brandInfo, ref brandList, ref totalCount, ref productList);
             string[] arr = new string[] { word, page.ToString(), "20" };
-            var data = CommomClass.HttpPost("http://localhost:58654/Product/SearchProduct", JsonConvert.SerializeObject(arr));
+            var data = CommomClass.HttpPost(string.Format("{0}/Product/SearchProduct",productApi), JsonConvert.SerializeObject(arr));
             PageResult<Product> pageResult = JsonConvert.DeserializeObject<PageResult<Product>>(data);
             //if (productList == null)
             //    return PromptView(WorkContext.UrlReferrer, "您搜索的商品不存在");
