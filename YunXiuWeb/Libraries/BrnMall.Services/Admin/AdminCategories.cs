@@ -3,8 +3,10 @@ using System.IO;
 using System.Text;
 using System.Data;
 using System.Collections.Generic;
-
 using BrnMall.Core;
+using YunXiu.Commom;
+using Newtonsoft.Json;
+using System.Configuration;
 
 namespace BrnMall.Services
 {
@@ -15,103 +17,109 @@ namespace BrnMall.Services
     {
         //商城后台分类选择列表缓存文件
         private const string _malladmincategoryselectlistcachefile = "/cache/category/selectlist.htm";
-
+        static string productApi = ConfigurationManager.AppSettings["productApi"];
         /// <summary>
         /// 更新分类
         /// </summary>
         public static void UpdateCategory(CategoryInfo categoryInfo, int oldParentId)
         {
-            if (categoryInfo.ParentId != oldParentId)//父分类改变时
+            //if (categoryInfo.ParentId != oldParentId)//父分类改变时
+            //{
+            //    int changeLayer = 0;
+            //    List<CategoryInfo> categoryList = BrnMall.Data.Categories.GetCategoryList();
+            //    CategoryInfo oldParentCategoryInfo = categoryList.Find(x => x.CateId == oldParentId);//旧的父分类
+            //    if (categoryInfo.ParentId > 0)//非顶层分类时
+            //    {
+            //        CategoryInfo newParentCategoryInfo = categoryList.Find(x => x.CateId == categoryInfo.ParentId);//新的父分类
+            //        if (oldParentCategoryInfo == null)
+            //        {
+            //            changeLayer = newParentCategoryInfo.Layer;
+            //        }
+            //        else
+            //        {
+            //            changeLayer = newParentCategoryInfo.Layer - oldParentCategoryInfo.Layer;
+            //        }
+            //        categoryInfo.Layer = newParentCategoryInfo.Layer + 1;
+            //        categoryInfo.Path = newParentCategoryInfo.Path + "," + categoryInfo.CateId;
+
+            //        if (newParentCategoryInfo.HasChild == 0)
+            //        {
+            //            newParentCategoryInfo.HasChild = 1;
+            //            BrnMall.Data.Categories.UpdateCategory(newParentCategoryInfo);
+            //        }
+            //    }
+            //    else//顶层分类时
+            //    {
+            //        changeLayer = -oldParentCategoryInfo.Layer;
+            //        categoryInfo.Layer = 1;
+            //        categoryInfo.Path = categoryInfo.CateId.ToString();
+            //    }
+
+            //    if (oldParentId > 0 && categoryList.FindAll(x => x.ParentId == oldParentId).Count == 1)
+            //    {
+            //        oldParentCategoryInfo.HasChild = 0;
+            //        BrnMall.Data.Categories.UpdateCategory(oldParentCategoryInfo);
+            //    }
+
+            //    foreach (CategoryInfo info in categoryList.FindAll(x => x.ParentId == categoryInfo.CateId))
+            //    {
+            //        UpdateChildCategoryLayerAndPath(categoryList, info, changeLayer, categoryInfo.Path);
+            //    }
+            //}
+
+            //BrnMall.Data.Categories.UpdateCategory(categoryInfo);
+
+            //BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_LIST);
+
+            var result = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Category/UpdateCategory", productApi), JsonConvert.SerializeObject(categoryInfo)));
+            if (result)//修改成功后更新环境
             {
-                int changeLayer = 0;
-                List<CategoryInfo> categoryList = BrnMall.Data.Categories.GetCategoryList();
-                CategoryInfo oldParentCategoryInfo = categoryList.Find(x => x.CateId == oldParentId);//旧的父分类
-                if (categoryInfo.ParentId > 0)//非顶层分类时
-                {
-                    CategoryInfo newParentCategoryInfo = categoryList.Find(x => x.CateId == categoryInfo.ParentId);//新的父分类
-                    if (oldParentCategoryInfo == null)
-                    {
-                        changeLayer = newParentCategoryInfo.Layer;
-                    }
-                    else
-                    {
-                        changeLayer = newParentCategoryInfo.Layer - oldParentCategoryInfo.Layer;
-                    }
-                    categoryInfo.Layer = newParentCategoryInfo.Layer + 1;
-                    categoryInfo.Path = newParentCategoryInfo.Path + "," + categoryInfo.CateId;
-
-                    if (newParentCategoryInfo.HasChild == 0)
-                    {
-                        newParentCategoryInfo.HasChild = 1;
-                        BrnMall.Data.Categories.UpdateCategory(newParentCategoryInfo);
-                    }
-                }
-                else//顶层分类时
-                {
-                    changeLayer = -oldParentCategoryInfo.Layer;
-                    categoryInfo.Layer = 1;
-                    categoryInfo.Path = categoryInfo.CateId.ToString();
-                }
-
-                if (oldParentId > 0 && categoryList.FindAll(x => x.ParentId == oldParentId).Count == 1)
-                {
-                    oldParentCategoryInfo.HasChild = 0;
-                    BrnMall.Data.Categories.UpdateCategory(oldParentCategoryInfo);
-                }
-
-                foreach (CategoryInfo info in categoryList.FindAll(x => x.ParentId == categoryInfo.CateId))
-                {
-                    UpdateChildCategoryLayerAndPath(categoryList, info, changeLayer, categoryInfo.Path);
-                }
+                WriteMallAdminCategorySelectListCache(GetCategoryList());
             }
-
-            BrnMall.Data.Categories.UpdateCategory(categoryInfo);
-
-            BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_LIST);
-
-            WriteMallAdminCategorySelectListCache(GetCategoryList());
         }
-
         /// <summary>
         /// 创建分类
         /// </summary>
         public static void CreateCategory(CategoryInfo categoryInfo)
         {
-            if (categoryInfo.ParentId > 0)
+            //if (categoryInfo.ParentId > 0)
+            //{
+            //    List<CategoryInfo> categoryList = BrnMall.Data.Categories.GetCategoryList();
+            //    CategoryInfo parentCategoryInfo = categoryList.Find(x => x.CateId == categoryInfo.ParentId);//父分类
+            //    categoryInfo.Layer = parentCategoryInfo.Layer + 1;
+            //    categoryInfo.HasChild = 0;
+            //    categoryInfo.Path = "";
+            //    int categoryId = BrnMall.Data.Categories.CreateCategory(categoryInfo);
+
+            //    categoryInfo.CateId = categoryId;
+            //    categoryInfo.Path = parentCategoryInfo.Path + "," + categoryId;
+            //    BrnMall.Data.Categories.UpdateCategory(categoryInfo);
+
+            //    if (parentCategoryInfo.HasChild == 0)
+            //    {
+            //        parentCategoryInfo.HasChild = 1;
+            //        BrnMall.Data.Categories.UpdateCategory(parentCategoryInfo);
+            //    }
+            //}
+            //else
+            //{
+            //    categoryInfo.Layer = 1;
+            //    categoryInfo.HasChild = 0;
+            //    categoryInfo.Path = "";
+            //    int categoryId = BrnMall.Data.Categories.CreateCategory(categoryInfo);
+
+            //    categoryInfo.CateId = categoryId;
+            //    categoryInfo.Path = categoryId.ToString();
+            //    BrnMall.Data.Categories.UpdateCategory(categoryInfo);
+            //}
+
+
+            //BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_LIST);
+            var result = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Category/AddCategory", productApi), JsonConvert.SerializeObject(categoryInfo)));
+            if (result)//创建成功更新缓存文件
             {
-                List<CategoryInfo> categoryList = BrnMall.Data.Categories.GetCategoryList();
-                CategoryInfo parentCategoryInfo = categoryList.Find(x => x.CateId == categoryInfo.ParentId);//父分类
-                categoryInfo.Layer = parentCategoryInfo.Layer + 1;
-                categoryInfo.HasChild = 0;
-                categoryInfo.Path = "";
-                int categoryId = BrnMall.Data.Categories.CreateCategory(categoryInfo);
-
-                categoryInfo.CateId = categoryId;
-                categoryInfo.Path = parentCategoryInfo.Path + "," + categoryId;
-                BrnMall.Data.Categories.UpdateCategory(categoryInfo);
-
-                if (parentCategoryInfo.HasChild == 0)
-                {
-                    parentCategoryInfo.HasChild = 1;
-                    BrnMall.Data.Categories.UpdateCategory(parentCategoryInfo);
-                }
+                WriteMallAdminCategorySelectListCache(GetCategoryList());
             }
-            else
-            {
-                categoryInfo.Layer = 1;
-                categoryInfo.HasChild = 0;
-                categoryInfo.Path = "";
-                int categoryId = BrnMall.Data.Categories.CreateCategory(categoryInfo);
-
-                categoryInfo.CateId = categoryId;
-                categoryInfo.Path = categoryId.ToString();
-                BrnMall.Data.Categories.UpdateCategory(categoryInfo);
-            }
-
-
-            BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_LIST);
-
-            WriteMallAdminCategorySelectListCache(GetCategoryList());
         }
 
         /// <summary>
@@ -121,31 +129,34 @@ namespace BrnMall.Services
         /// <returns>-3代表分类不存在,-2代表此分类下还有子分类未删除,-1代表此分类下还有属性分组未删除,0代表此分类下还有商品未删除,1代表删除成功</returns>
         public static int DeleteCategoryById(int cateId)
         {
-            List<CategoryInfo> categoryList = BrnMall.Data.Categories.GetCategoryList();
-            CategoryInfo categoryInfo = categoryList.Find(x => x.CateId == cateId);
-            if (categoryInfo == null)
-                return -3;
-            if (categoryInfo.HasChild == 1)
-                return -2;
-            if (GetAttributeGroupListByCateId(cateId).Count > 0)
-                return -1;
-            if (AdminProducts.AdminGetCategoryProductCount(cateId) > 0)
-                return 0;
+            //List<CategoryInfo> categoryList = BrnMall.Data.Categories.GetCategoryList();
+            //CategoryInfo categoryInfo = categoryList.Find(x => x.CateId == cateId);
+            //if (categoryInfo == null)
+            //    return -3;
+            //if (categoryInfo.HasChild == 1)
+            //    return -2;
+            //if (GetAttributeGroupListByCateId(cateId).Count > 0)
+            //    return -1;
+            //if (AdminProducts.AdminGetCategoryProductCount(cateId) > 0)
+            //    return 0;
 
-            BrnMall.Data.Categories.DeleteCategoryById(cateId);
-            if (categoryInfo.Layer > 1 && categoryList.FindAll(x => x.ParentId == categoryInfo.ParentId).Count == 1)
+            //BrnMall.Data.Categories.DeleteCategoryById(cateId);
+            //if (categoryInfo.Layer > 1 && categoryList.FindAll(x => x.ParentId == categoryInfo.ParentId).Count == 1)
+            //{
+            //    CategoryInfo parentCategoryInfo = categoryList.Find(x => x.CateId == categoryInfo.ParentId);
+            //    parentCategoryInfo.HasChild = 0;
+            //    BrnMall.Data.Categories.UpdateCategory(parentCategoryInfo);
+            //}
+
+            //BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_LIST);
+            //BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_BRANDLIST + cateId);
+            //BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_FILTERAANDVLIST + cateId);
+            //BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_AANDVLISTJSONCACHE + cateId);
+            var result = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Category/DeleteCategory", productApi),cateId.ToString()));
+            if (result) //删除后更新缓存
             {
-                CategoryInfo parentCategoryInfo = categoryList.Find(x => x.CateId == categoryInfo.ParentId);
-                parentCategoryInfo.HasChild = 0;
-                BrnMall.Data.Categories.UpdateCategory(parentCategoryInfo);
-            }
-
-            BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_LIST);
-            BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_BRANDLIST + cateId);
-            BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_FILTERAANDVLIST + cateId);
-            BrnMall.Core.BMACache.Remove(CacheKeys.MALL_CATEGORY_AANDVLISTJSONCACHE + cateId);
-
-            WriteMallAdminCategorySelectListCache(GetCategoryList());
+                WriteMallAdminCategorySelectListCache(GetCategoryList());
+            }  
             return 1;
         }
 

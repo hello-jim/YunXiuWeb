@@ -547,7 +547,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
 
         public string UpdateStoreHome() 
         {
-            
+            return "";
         }
 
         private void LoadStoreShipFee(int regionId)

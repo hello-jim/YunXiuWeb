@@ -4,24 +4,29 @@ using System.Data;
 using System.Text;
 using System.Web.Mvc;
 using System.Collections.Generic;
-
+using System.Configuration;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.MallAdmin.Models;
+using YunXiu.Commom;
+using Newtonsoft.Json;
 
 namespace BrnMall.Web.MallAdmin.Controllers
 {
+
     /// <summary>
     /// 商城后台分类控制器类
     /// </summary>
     public partial class CategoryController : BaseMallAdminController
     {
+        string productApi = ConfigurationManager.AppSettings["productApi"];
         /// <summary>
         /// 分类列表
         /// </summary>
         public ActionResult CategoryList()
         {
+
             CategoryListModel model = new CategoryListModel();
             model.CategoryList = AdminCategories.GetCategoryList();
             MallUtils.SetAdminRefererCookie(Url.Action("categorylist"));
@@ -45,6 +50,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         [HttpPost]
         public ActionResult AddCategory(CategoryModel model)
         {
+
             if (AdminCategories.GetCateIdByName(model.CategroyName) > 0)
                 ModelState.AddModelError("CategroyName", "名称已经存在");
 
@@ -62,8 +68,9 @@ namespace BrnMall.Web.MallAdmin.Controllers
                 };
 
                 AdminCategories.CreateCategory(categoryInfo);
-                AddMallAdminLog("添加分类", "添加分类,分类为:" + model.CategroyName);
-                return PromptView("分类添加成功");
+                //AddMallAdminLog("添加分类", "添加分类,分类为:" + model.CategroyName);
+                var result = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Category/AddCategory", productApi), JsonConvert.SerializeObject(categoryInfo)));
+               return PromptView("分类添加成功");          
             }
 
             Load();

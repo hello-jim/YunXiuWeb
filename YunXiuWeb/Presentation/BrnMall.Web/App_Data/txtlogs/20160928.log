@@ -4,3 +4,15 @@ Log Entry : 2016年09月28日 09:05:09
 Log Entry : 2016年09月28日 16:07:08
 方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 服务器关闭了本应保持活动状态的连接。
 ------------------------------------
+Log Entry : 2016年09月28日 17:50:44
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:d:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\views\catalog\search.cshtml(67): error CS1061: “YunXiu.Model.Product”不包含“ShowImg”的定义，并且找不到可接受类型为“YunXiu.Model.Product”的第一个参数的扩展方法“ShowImg”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2016年09月28日 17:51:48
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:d:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\views\catalog\product.cshtml(76): error CS1061: “YunXiu.Model.Product”不包含“ShowImg”的定义，并且找不到可接受类型为“YunXiu.Model.Product”的第一个参数的扩展方法“ShowImg”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2016年09月28日 19:06:31
+方法:Void CreateThis(System.String, Boolean, System.UriKind),异常信息:无效的 URI: 此 URI 为空。
+------------------------------------
+Log Entry : 2016年09月28日 20:02:56
+方法:System.Nullable`1[System.Int32] ReadAsInt32Internal(),异常信息:Error reading integer. Unexpected token: Boolean. Path '[0].HasChild', line 1, position 173.
+------------------------------------

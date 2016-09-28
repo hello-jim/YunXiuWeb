@@ -43,3 +43,13 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Core.
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Data.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Commom.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Model.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\Dapper.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\Lucene.Net.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\PanGu.HighLight.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\PanGu.Lucene.Analyzer.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\PanGu.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\Newtonsoft.Json.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Commom.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Model.pdb

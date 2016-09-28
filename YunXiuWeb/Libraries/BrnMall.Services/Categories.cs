@@ -2,8 +2,11 @@
 using System.Data;
 using System.Text;
 using System.Collections.Generic;
-
 using BrnMall.Core;
+using YunXiu.Model;
+using YunXiu.Commom;
+using Newtonsoft.Json;
+using System.Configuration;
 
 namespace BrnMall.Services
 {
@@ -12,20 +15,25 @@ namespace BrnMall.Services
     /// </summary>
     public partial class Categories
     {
+
+        static string productApi = ConfigurationManager.AppSettings["productApi"];
         /// <summary>
         /// 获得分类列表
         /// </summary>
         /// <returns></returns>
         public static List<CategoryInfo> GetCategoryList()
         {
-            List<CategoryInfo> categoryList = BrnMall.Core.BMACache.Get(CacheKeys.MALL_CATEGORY_LIST) as List<CategoryInfo>;
-            if (categoryList == null)
-            {
-                categoryList = new List<CategoryInfo>();
-                List<CategoryInfo> sourceCategoryList = BrnMall.Data.Categories.GetCategoryList();
-                CreateCategoryTree(sourceCategoryList, categoryList, 0);
-                BrnMall.Core.BMACache.Insert(CacheKeys.MALL_CATEGORY_LIST, categoryList);
-            }
+            //List<CategoryInfo> categoryList = BrnMall.Core.BMACache.Get(CacheKeys.MALL_CATEGORY_LIST) as List<CategoryInfo>;
+            //if (categoryList == null)
+            //{
+
+            List<CategoryInfo> categoryList = new List<CategoryInfo>();
+            // List<CategoryInfo> sourceCategoryList = BrnMall.Data.Categories.GetCategoryList();
+            List<CategoryInfo> sourceCategoryList = JsonConvert.DeserializeObject<List<CategoryInfo>>(CommomClass.HttpPost(string.Format("{0}/Category/GetCategory", productApi), ""));
+            CreateCategoryTree(sourceCategoryList, categoryList, 0);
+            BrnMall.Core.BMACache.Insert(CacheKeys.MALL_CATEGORY_LIST, categoryList);
+            // }
+
             return categoryList;
         }
 
@@ -43,6 +51,8 @@ namespace BrnMall.Services
                 }
             }
         }
+
+
 
         /// <summary>
         /// 通过分类名称获得分类id

@@ -73,8 +73,8 @@
             <div id="preview" class="spec-preview">
                 <div class="jqzoom">
                     @{
-                    var defaultImgPath = Model.ProductInfo.PID + "_" + Model.ProductInfo.ShowImg;
-                    <img class="jqzoom1" src="/images/productImg/@Model.ProductInfo.ShowImg"
+                    var defaultImgPath = Model.ProductInfo.PID + "_" + Model.ProductInfo.ImgID;
+                    <img class="jqzoom1" src="/images/productImg/@Model.ProductInfo.ImgID"
                          rel="/images/productImg/@defaultImgPath"
                          jqimg="/images/productImg/@defaultImgPath" />
                     }
@@ -89,7 +89,7 @@
                         <!--bimg 大图 src里面的图片为缩略图 -->
                         @foreach (var info in Model.ProductInfo.ProductImages)
                     {
-                        var imgPath = Model.ProductInfo.PID + "_" + @info.ShowImg;
+                        var imgPath = Model.ProductInfo.PID + "_" + @info.ImgID;
                             <li>
                                 <img alt="图片" big="@imgPath"
                                      rel="/images/productImg/@defaultImgPath"

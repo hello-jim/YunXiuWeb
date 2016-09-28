@@ -39,7 +39,9 @@
                         <option @if (0 == Model.ParentCateId){<text>selected="selected"</text>} value="0">顶层分类</option>
                         @foreach (CategoryInfo info in ViewData["categoryList"] as List<CategoryInfo>)
                         {
-                            <option @if (info.CateId == Model.ParentCateId) {<text>selected="selected"</text>} value="@info.CateId">@Html.Raw(CommonHelper.GetHtmlBS(info.Layer - 1)) @info.Name</option>
+                            <option @if (info.CateId == Model.ParentCateId) 
+                                    {<text>selected="selected"</text>
+                            } value="@info.CateId" >@Html.Raw(CommonHelper.GetHtmlBS(info.Layer - 1)) @info.Name</option>
                         }
                         </select>
                         @Html.ValidationMessageFor(x => x.ParentCateId)

@@ -83,3 +83,13 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\zh-Ha
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\obj\Debug\BrnMall.Web.Framework.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\obj\Debug\BrnMall.Web.Framework.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\YunXiu.Model.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\YunXiu.Commom.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\Newtonsoft.Json.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\Dapper.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\Lucene.Net.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\PanGu.HighLight.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\PanGu.Lucene.Analyzer.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\PanGu.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\YunXiu.Model.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\YunXiu.Commom.pdb
