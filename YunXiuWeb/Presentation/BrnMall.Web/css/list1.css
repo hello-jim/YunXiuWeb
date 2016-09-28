@@ -1,6 +1,6 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
-body {background:#f4f4f4;}
+body {background:#f4f4f4 !important;}
 
 /***2016-03-24 new***/
 .brandshop{}
@@ -66,7 +66,7 @@ html body .grayBT {
 @media screen and (max-device-width: 1920px) {
 	.center-x{margin:0 auto;width:1200px;}
 	.goodlist ul li{float:left;width:222px;height:320px;margin-right:20px;}
-	.goodlist ul li h1 {width:222px;height:222px; display:table;/*margin-bottom:5px;*/background:#fff;}
+	.goodlist ul li h1 {width:222px;height:222px; display:table;margin-bottom:0px;background:#fff;}
 	.goodlist ul li h1 a{ width:220px;height:220px; display:table-cell;border:1px solid #ddd; vertical-align:middle; text-align:center;}
 	.goodlist ul li h1 a img {max-width:220px; max-height:220px;}
 	.shop-header h1:before {content:"";border:solid #4575b7; border-width:4px 4px 0 4px; width:173px; display:inline-block;height:32px; position:absolute;top:-10px;left:42.5%;}
@@ -86,7 +86,7 @@ html body .grayBT {
 	.b_con ul li h1 a{ display:table-cell;width:228px;height:195px;vertical-align:middle; text-align:center;}
 	.b_con ul li h1 a img {max-width:228px; max-height:195px;}
 	
-	#rightCon {float:right;width:82%;}
+	#listR {float:right;width:82%;}
 	}
 @media screen and (max-device-width: 1380px) {
 	.search-part{width:400px !important;float:left;}
@@ -113,7 +113,7 @@ html body .grayBT {
 	.b_con ul li h1 a{ display:table-cell;width:192px;height:195px;vertical-align:middle; text-align:center;}
 	.b_con ul li h1 a img {max-width:192px; max-height:195px;}
 	
-	#rightCon {float:left;width:79%;}
+	#listR {float:left;width:79%;}
 	}
 @media screen and (max-device-width: 1024px) {
 	.center-x{margin:0 auto;width:800px !important;}
@@ -153,7 +153,7 @@ html body .grayBT {
 	clear:both;
 	visibility:hidden;
 }
-#leftmenu{width:200px;float:right;}
+#listL{width:200px;float:left;}
 /*#leftList{border:1px solid #e7e7e7;}*/
 #leftList a{color:#666}
 #leftList a:hover{text-decoration:none;color:#ff5017;}
@@ -161,10 +161,10 @@ html body .grayBT {
 .UI-ask{display:inline-block;width:21px;height:21px;overflow:hidden;background:url(../images/sIcons.png) -55px -20px no-repeat;}
 .UI-bubble{display:inline-block;width:23px;height:23px;overflow:hidden;background:url(../images/sIcons.png) -80px -20px no-repeat;}
 
-/***rightcon***/
-/***leftmenu***/
+/***listR***/
+/***listL***/
 #leftList a.current {color:#ff5017;}
-/**rightCon*/
+/**listR**/
 
 .selectpart { border:1px solid #ddd;margin-bottom:32px; background:#fff;}
 .selectpart ul li{height:30px;line-height:30px;border-top:1px dashed #e2e2e2;}
@@ -203,6 +203,8 @@ html body .grayBT {
 	background:#f7f7f7;
 	}
 .goodlist ul li dl dt { height:20px; overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;}
+.goodlist ul li dl dt a {color:#222;font-weight:normal;text-decoration:none}
+.goodlist ul li dl dt a:hover{color:#0061c4;}
 .goodlist ul li dl dd.price-line {overflow:hidden;height:34px;}
 .goodlist ul li b{font-size:16px;line-height:34px;}
 .goodlist ul li span {float:right;color:#666;line-height:34px;padding-right:10px;}
@@ -216,8 +218,11 @@ html body .grayBT {
 	border-radius:3px;
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
+    color:#222;
 	}
-/**end rightCon***/
+     .goodlist ul li a.cartbtn:hover,.goodlist ul li dl dd a:hover{color:#0275d8;}
+     .goodlist ul li dl dd a{color:#222;}
+/**end listR***/
 /***show more**/
 #showMore{margin:0 auto; position:relative;}
 #showMore span{

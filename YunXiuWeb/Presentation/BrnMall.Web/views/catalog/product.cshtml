@@ -52,622 +52,624 @@
     }*@
 
 
-
-@*<div id="breadcrumb">
+@Html.Partial("_header")
+<div id="breadcrumb">
 
         <div class="center-x">
-            <strong>
+            @*<strong>
                 <a href="#">@categoryInfo1.Name</a>
             </strong>
             <span>
                 <a href="@Url.Action("category", "catalog", new RouteValueDictionary { { "filterAttr", "0" }, { "cateId", Model.CategoryInfo.CateId }, { "brandId", "0" }, { "filterPrice", 0 }, { "onlyStock", 0 }, { "sortColumn", 0 }, { "sortDirection", 0 }, { "page", 1 } })">@categoryInfo2.Name</a>
                 <a href="#">@Model.ProductInfo.Name</a>
-            </span>
+            </span>*@
         </div>
-    </div>*@
-
-@Html.Partial("_header")
-<div class="center-x" style="height:550px; border-bottom:1px solid #eee;">
-
-    <div class="detail-pic">
-        <div id="preview" class="spec-preview">
-            <div class="jqzoom">
-                @{
-                    var defaultImgPath = Model.ProductInfo.PID + "_" + Model.ProductInfo.ShowImg;
-                <img class="jqzoom1" src="/images/productImg/@Model.ProductInfo.ShowImg"
-                     rel="/images/productImg/@defaultImgPath"
-                     jqimg="/images/productImg/@defaultImgPath" />
-                }
-
-            </div>
-        </div>
-        <!--缩图开始-->
-        <div class="spec-scroll">
-            <a class="prev">&lt;</a> <a class="next">&gt;</a>
-            <div class="items">
-                <ul>
-                    <!--bimg 大图 src里面的图片为缩略图 -->
-                    @foreach (var info in Model.ProductInfo.ProductImages)
-                    {
-                        var imgPath = Model.ProductInfo.PID + "_" + @info.ShowImg;
-                        <li>
-                            <img class="jqzoom1" alt="图片" big="@imgPath" 
-                                 rel="/images/productImg/@defaultImgPath"
-                                 src="/images/productImg/@imgPath" onmousemove="preview(this);" />
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div>
-        <!--缩图结束-->
     </div>
 
-    <div class="detail-right">
-        <div style="height:460px; display:block;">
-            <div class="detail-title">
-                <h2>@Model.ProductInfo.Name</h2>
-                @*{
-                        StoreShipTemplateInfo storeShipTemplateInfo = Stores.GetStoreShipTemplateById(Model.ProductInfo.StoreSTid);
 
-                        if (storeShipTemplateInfo.Free == 1)
+<div class="container prodetail">
+    <div class="row">
+        <div class="detail-pic">
+            <div id="preview" class="spec-preview">
+                <div class="jqzoom">
+                    @{
+                    var defaultImgPath = Model.ProductInfo.PID + "_" + Model.ProductInfo.ShowImg;
+                    <img class="jqzoom1" src="/images/productImg/@Model.ProductInfo.ShowImg"
+                         rel="/images/productImg/@defaultImgPath"
+                         jqimg="/images/productImg/@defaultImgPath" />
+                    }
+
+                </div>
+            </div>
+            <!--缩图开始-->
+            <div class="spec-scroll">
+                <a class="prev">&lt;</a> <a class="next">&gt;</a>
+                <div class="items">
+                    <ul>
+                        <!--bimg 大图 src里面的图片为缩略图 -->
+                        @foreach (var info in Model.ProductInfo.ProductImages)
+                    {
+                        var imgPath = Model.ProductInfo.PID + "_" + @info.ShowImg;
+                            <li>
+                                <img alt="图片" big="@imgPath"
+                                     rel="/images/productImg/@defaultImgPath"
+                                     src="/images/productImg/@imgPath" onmousemove="preview(this);" />
+                            </li>
+                    }
+                    </ul>
+                </div>
+            </div>
+            <!--缩图结束-->
+        </div>
+
+        <div class="detail-right">
+            <div class="detail-rtop">
+                <div class="detail-title">
+                    <h2>@Model.ProductInfo.Name</h2>
+                    @*{
+                    StoreShipTemplateInfo storeShipTemplateInfo = Stores.GetStoreShipTemplateById(Model.ProductInfo.StoreSTid);
+
+                    if (storeShipTemplateInfo.Free == 1)
+                    {
+                        //免运费
+                        if (storeShipTemplateInfo.Type == 2)
                         {
-                            //免运费
-                            if (storeShipTemplateInfo.Type == 2)
-                            {
-                                //满XX包邮
-                                @storeShipTemplateInfo.Title
-                            }
+                            //满XX包邮
+                            @storeShipTemplateInfo.Title
                         }
-
                     }
 
+                }
 
-                    @if (!String.IsNullOrEmpty(Model.PromotionMsg))
+
+                @if (!String.IsNullOrEmpty(Model.PromotionMsg))
+                {
+                    <dl>
+                        <dt>促销</dt>
+                        <dd class="coloryellow">@Html.Raw(Model.PromotionMsg)</dd>
+                    </dl>
+                }
+                @if (Model.ExtGiftList != null && Model.ExtGiftList.Count > 0)
+                {
+                    <dl>
+                        <dt>赠品</dt>
+                        <dd class="coloryellow">
+                            @foreach (ExtGiftInfo info in Model.ExtGiftList)
+                            {
+                                @info.Name @:X  @info.Number <br />
+                                        }
+                        </dd>
+                    </dl>
+                }*@
+                </div>
+                <div class="de-price">
+                    <h2>
+                        @*￥@Model.DiscountPrice
+                    <s>￥@Model.ProductInfo.ShopPrice</s>*@
+                    </h2>
+
+                    @*<a class="fr">(降价通知)</a>
+                <p class="star-yellow" style="width:@Html.Raw(Math.Floor(((Model.ProductInfo.GetStarLevel())*0.8)).ToString())px;">&nbsp;</p>*@
+
+                </div>
+                <div class="canshu">
+                    <ul>
+                        <li>
+                            <dl>
+                                <dt>品&nbsp;&nbsp;牌</dt>
+                                <dd>@Model.ProductInfo.Brand.Name</dd>
+                            </dl>
+                            <dl>
+                                <dt>商品编号</dt>
+                                <dd>@Model.ProductInfo.Psn</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl style="width:400px;">
+                                <dt>服&nbsp;&nbsp;务</dt>
+                                <dd>由<a class="colorblue">@Model.ProductInfo.Store.Name</a>发货并提供售后服务</dd>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="choice">
+
+                    @*  @if (Model.ProductSKUList != null && Model.ProductSKUList.Count > 0)
+                            {
+                                //int attrLayer = 0;
+                                //List<ExtProductSKUItemInfo> currentProductSKUItemList = Model.ProductSKUList.FindAll(x => x.Pid == Model.Pid);
+                                //List<KeyValuePair<int, ExtProductSKUItemInfo>> skuProductList = new List<KeyValuePair<int, ExtProductSKUItemInfo>>();
+                                //foreach (IGrouping<int, ExtProductSKUItemInfo> info in Model.ProductSKUList.GroupBy(x => x.Pid, x => x))
+                                //{
+                                //    int attrValueIdKey = 1;
+                                //    foreach (var item in info)
+                                //    {
+                                //        attrValueIdKey *= item.AttrValueId;
+                                //    }
+                                //    skuProductList.Add(new KeyValuePair<int, ExtProductSKUItemInfo>(attrValueIdKey, info.First<ExtProductSKUItemInfo>()));
+                                //}
+                                //List<ExtProductSKUItemInfo> attrList = new List<ExtProductSKUItemInfo>();
+                                //foreach (ExtProductSKUItemInfo info in Model.ProductSKUList)
+                                //{
+                                //    if (attrList.Find(x => x.AttrId == info.AttrId) == null)
+                                //    {
+                                //        attrList.Add(info);
+                                //    }
+                                //}
+                              foreach (ExtProductSKUItemInfo info in attrList)
                     {
-                        <dl>
-                            <dt>促销</dt>
-                            <dd class="coloryellow">@Html.Raw(Model.PromotionMsg)</dd>
-                        </dl>
-                    }
-                    @if (Model.ExtGiftList != null && Model.ExtGiftList.Count > 0)
-                    {
-                        <dl>
-                            <dt>赠品</dt>
-                            <dd class="coloryellow">
-                                @foreach (ExtGiftInfo info in Model.ExtGiftList)
-                                {
-                                    @info.Name @:X  @info.Number <br />
-                                            }
-                            </dd>
-                        </dl>
-                    }*@
-            </div>
-            <div class="de-price">
-                <h2>
-                    @*￥@Model.DiscountPrice
-                        <s>￥@Model.ProductInfo.ShopPrice</s>*@
-                </h2>
 
-                @*<a class="fr">(降价通知)</a>
-                    <p class="star-yellow" style="width:@Html.Raw(Math.Floor(((Model.ProductInfo.GetStarLevel())*0.8)).ToString())px;">&nbsp;</p>*@
-
-            </div>
-            <div class="canshu">
-                <ul>
-                    <li>
-                        <dl>
-                            <dt>品&nbsp;&nbsp;牌</dt>
-                            <dd>@Model.ProductInfo.Brand.Name</dd>
-                        </dl>
-                        <dl>
-                            <dt>商品编号</dt>
-                            <dd>@Model.ProductInfo.Psn</dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl style="width:400px;">
-                            <dt>服&nbsp;&nbsp;务</dt>
-                            <dd>由<a class="colorblue">@Model.ProductInfo.Store.Name</a>发货并提供售后服务</dd>
-                        </dl>
-                    </li>
-                </ul>
-
-            </div>
-
-            <div class="choice">
-
-                @*  @if (Model.ProductSKUList != null && Model.ProductSKUList.Count > 0)
-                                {
-                                    //int attrLayer = 0;
-                                    //List<ExtProductSKUItemInfo> currentProductSKUItemList = Model.ProductSKUList.FindAll(x => x.Pid == Model.Pid);
-                                    //List<KeyValuePair<int, ExtProductSKUItemInfo>> skuProductList = new List<KeyValuePair<int, ExtProductSKUItemInfo>>();
-                                    //foreach (IGrouping<int, ExtProductSKUItemInfo> info in Model.ProductSKUList.GroupBy(x => x.Pid, x => x))
-                                    //{
-                                    //    int attrValueIdKey = 1;
-                                    //    foreach (var item in info)
-                                    //    {
-                                    //        attrValueIdKey *= item.AttrValueId;
-                                    //    }
-                                    //    skuProductList.Add(new KeyValuePair<int, ExtProductSKUItemInfo>(attrValueIdKey, info.First<ExtProductSKUItemInfo>()));
-                                    //}
-                                    //List<ExtProductSKUItemInfo> attrList = new List<ExtProductSKUItemInfo>();
-                                    //foreach (ExtProductSKUItemInfo info in Model.ProductSKUList)
-                                    //{
-                                    //    if (attrList.Find(x => x.AttrId == info.AttrId) == null)
-                                    //    {
-                                    //        attrList.Add(info);
-                                    //    }
-                                    //}
-                                  foreach (ExtProductSKUItemInfo info in attrList)
-                        {
-
-                            @:<p>@info.AttrName</p>
+                        @:<p>@info.AttrName</p>
 
 
 
 
-                            @:<ul class="ui-choose" id="uc_03">
-                                        List<ExtProductSKUItemInfo> attrValueList = new List<ExtProductSKUItemInfo>();
-                                        foreach (ExtProductSKUItemInfo attrValue in Model.ProductSKUList)
+                        @:<ul class="ui-choose" id="uc_03">
+                                    List<ExtProductSKUItemInfo> attrValueList = new List<ExtProductSKUItemInfo>();
+                                    foreach (ExtProductSKUItemInfo attrValue in Model.ProductSKUList)
+                                    {
+                                        if (attrValue.AttrId == info.AttrId && attrValueList.Find(x => x.AttrValueId == attrValue.AttrValueId) == null)
                                         {
-                                            if (attrValue.AttrId == info.AttrId && attrValueList.Find(x => x.AttrValueId == attrValue.AttrValueId) == null)
+                                            attrValueList.Add(attrValue);
+                                        }
+                                    }
+
+                                    foreach (ExtProductSKUItemInfo attrValue in attrValueList)
+                                    {
+                                        int attrValueIdKey = 1;
+                                        for (int i = 0; i < currentProductSKUItemList.Count; i++)
+                                        {
+                                            if (attrLayer != i)
                                             {
-                                                attrValueList.Add(attrValue);
+                                                attrValueIdKey *= currentProductSKUItemList[i].AttrValueId;
+                                            }
+                                            else
+                                            {
+                                                attrValueIdKey *= attrValue.AttrValueId;
                                             }
                                         }
-
-                                        foreach (ExtProductSKUItemInfo attrValue in attrValueList)
+                                        KeyValuePair<int, ExtProductSKUItemInfo> skuProduct = skuProductList.Find(x => x.Key == attrValueIdKey);
+                                        if (skuProduct.Value == null)
                                         {
-                                            int attrValueIdKey = 1;
-                                            for (int i = 0; i < currentProductSKUItemList.Count; i++)
-                                            {
-                                                if (attrLayer != i)
-                                                {
-                                                    attrValueIdKey *= currentProductSKUItemList[i].AttrValueId;
-                                                }
-                                                else
-                                                {
-                                                    attrValueIdKey *= attrValue.AttrValueId;
-                                                }
-                                            }
-                                            KeyValuePair<int, ExtProductSKUItemInfo> skuProduct = skuProductList.Find(x => x.Key == attrValueIdKey);
-                                            if (skuProduct.Value == null)
-                                            {
-                                                <li>
+                                            <li>
 
-                                                    <a href="javascript:;" class="">
+                                                <a href="javascript:;" class="">
+                                                    @if (attrValue.IsInput == 0)
+                                                    { @attrValue.AttrValue }
+                                                    else
+                                                    { @attrValue.InputValue }
+                                                </a>
+
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (info.AttrShowType == 0)
+                                            {
+                                                <li class="@if (skuProduct.Value.Pid == Model.Pid){ <text>selected</text> }">
+                                                    <a href="@Url.Action("product", new RouteValueDictionary { { "pid", skuProduct.Value.Pid } })" class="">
                                                         @if (attrValue.IsInput == 0)
                                                         { @attrValue.AttrValue }
                                                         else
                                                         { @attrValue.InputValue }
                                                     </a>
-
                                                 </li>
                                             }
                                             else
                                             {
-                                                if (info.AttrShowType == 0)
-                                                {
-                                                    <li class="@if (skuProduct.Value.Pid == Model.Pid){ <text>selected</text> }">
-                                                        <a href="@Url.Action("product", new RouteValueDictionary { { "pid", skuProduct.Value.Pid } })" class="">
+                                                <li class="@if (skuProduct.Value.Pid == Model.Pid)
+                                                 { <text>selected</text> }">
+                                                    <a href="@Url.Action("product", new RouteValueDictionary { { "pid", skuProduct.Value.Pid } })" class="">
+                                                        <img src="@{@WorkContext.ImageCDN}/upload/store/@Model.ProductInfo.StoreId/product/show/thumb60_60/@skuProduct.Value.ShowImg" width="25" height="25" /><i>
                                                             @if (attrValue.IsInput == 0)
                                                             { @attrValue.AttrValue }
                                                             else
                                                             { @attrValue.InputValue }
-                                                        </a>
-                                                    </li>
-                                                }
-                                                else
-                                                {
-                                                    <li class="@if (skuProduct.Value.Pid == Model.Pid)
-                                                     { <text>selected</text> }">
-                                                        <a href="@Url.Action("product", new RouteValueDictionary { { "pid", skuProduct.Value.Pid } })" class="">
-                                                            <img src="@{@WorkContext.ImageCDN}/upload/store/@Model.ProductInfo.StoreId/product/show/thumb60_60/@skuProduct.Value.ShowImg" width="25" height="25" /><i>
-                                                                @if (attrValue.IsInput == 0)
-                                                                { @attrValue.AttrValue }
-                                                                else
-                                                                { @attrValue.InputValue }
-                                                            </i>
-                                                        </a>
-                                                    </li>
-                                                }
+                                                        </i>
+                                                    </a>
+                                                </li>
                                             }
                                         }
+                                    }
 
 
-                                        attrLayer++;
-                                        @:
-                                    </ul>
-                            }
+                                    attrLayer++;
+                                    @:
+                                </ul>
+                        }
 
-                    }*@
+                }*@
 
-                <dl class="clear choose" style="padding-left:10px;">
-                    <dt>数量</dt>
-                    <dd>
-                        <span class="numform">
-                            <a class="num" href="###" onclick="cutProductCount()">-</a>
-                            <input class="pnum" type="tel" id="buyCount" name="buyCount" value="1" maxlength="99" maxnumlimit="@Model.StockNumber" minnumlimit="1" />
-                            <a class="num" href="####" onclick="addProuctCount()">+</a>
-                        </span>&nbsp;(@Model.StockNumber 可售)
-                    </dd>
-                </dl>
+                    <dl class="clear choose" style="padding-left:10px;">
+                        <dt>数量</dt>
+                        <dd>
+                            <span class="numform">
+                                <a class="num" href="###" onclick="cutProductCount()">-</a>
+                                <input class="pnum" type="tel" id="buyCount" name="buyCount" value="1" maxlength="99" maxnumlimit="@Model.StockNumber" minnumlimit="1" />
+                                <a class="num" href="####" onclick="addProuctCount()">+</a>
+                            </span>&nbsp;(@Model.StockNumber 可售)
+                        </dd>
+                    </dl>
+                </div>
+
             </div>
 
+
+            <div class="btn-group">
+                <a class="buy-btn bgyellow" onclick="directBuyProduct(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">立即购买</a>
+                <a class="buy-btn cart-btn" onclick="addProductToCart(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">加入购物车</a>
+                <a class="fav-btn" onclick="addProductToFavorite(@Model.ProductInfo.PID)"></a>
+            </div>
+
+
         </div>
 
 
-        <div class="btn-group">
-            <a class="buy-btn bgyellow" onclick="directBuyProduct(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">立即购买</a>
-            <a class="buy-btn cart-btn" onclick="addProductToCart(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">加入购物车</a>
-            <a class="fav-btn" onclick="addProductToFavorite(@Model.ProductInfo.PID)"></a>
-        </div>
 
-
-    </div>
-
-
-
-    <div class="detail-rshop">
-        <ul class="shopbar">
-            <li style="text-align:center">
-                <img src="@{@WorkContext.ImageCDN}/upload/store/@Model.ProductInfo.Store.StoreID/logo/thumb100_100/@Model.ProductInfo.Store.Logo" style="margin-top:30px" />
-            </li>
-            <li>
-                <h1>
-                    <a>
-                        @Model.ProductInfo.Store.Name
-                    </a>
-                </h1>
-            </li>
-            <li>
-                <dl>
-                    <dt>综合评分：</dt>
-                    <dd>
-                        <a class="star-yellow" style="width:@{@Html.Raw((Math.Round((Model.ProductInfo.Store.DePoint + Model.ProductInfo.Store.SePoint + Model.ProductInfo.Store.ShPoint) / 6, 2) * 15).ToString())}px;">
+        <div class="detail-rshop">
+            <ul class="shopbar">
+                <li style="text-align:center">
+                    <img src="@{@WorkContext.ImageCDN}/upload/store/@Model.ProductInfo.Store.StoreID/logo/thumb100_100/@Model.ProductInfo.Store.Logo" style="margin-top:30px" />
+                </li>
+                <li>
+                    <h1>
+                        <a>
+                            @Model.ProductInfo.Store.Name
                         </a>
-                    </dd>
-                </dl>
-            </li>
-            <li>
-                <dl>
-                    <dt>店铺名称：</dt>
-                    <dd>@Model.ProductInfo.Store.Name</dd>
-                </dl>
-            </li>
-            <li>
-                <dl>
-                    <dt>联系电话：</dt>
-                    <dd>@Model.ProductInfo.Store.Mobile</dd>
-                </dl>
-            </li>
-            <li>
-                <dl>
-                    <dt>所在地：</dt>
-                    @*<dd>@Model.StoreRegion.CityName @Model.StoreRegion.Name</dd>*@
-                </dl>
-            </li>
+                    </h1>
+                </li>
+                <li>
+                    <dl>
+                        <dt>综合评分：</dt>
+                        <dd>
+                            <a class="star-yellow" style="width:@{@Html.Raw((Math.Round((Model.ProductInfo.Store.DePoint + Model.ProductInfo.Store.SePoint + Model.ProductInfo.Store.ShPoint) / 6, 2) * 15).ToString())}px;">
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>店铺名称：</dt>
+                        <dd>@Model.ProductInfo.Store.Name</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>联系电话：</dt>
+                        <dd>@Model.ProductInfo.Store.Mobile</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>所在地：</dt>
+                        @*<dd>@Model.StoreRegion.CityName @Model.StoreRegion.Name</dd>*@
+                    </dl>
+                </li>
 
-            <li>
-                <a class="btn-shop btn-shopfav" href="javascript:void(0)" onclick="addStoreToFavorite(@Model.ProductInfo.Store.StoreID)">收藏店铺</a>
-                <a href="@Url.Action("index", "store", new RouteValueDictionary { { "storeId", Model.ProductInfo.Store.StoreID } })" class="btn-enshop btn-shop">进入店铺</a>
-            </li>
-        </ul>
-    </div>
-
-
-
-    <div class="intro center-x clear">
-
-        <div class="intro-l">
-            @*<p>相关分类</p>
-                <ul>
-                    @foreach (CategoryInfo info in Categories.GetChildCategoryList(categoryInfo2.CateId, categoryInfo2.Layer, categoryList))
-                    {
-                        <li><a href="@Url.Action("category", new RouteValueDictionary { { "cateId", info.CateId } })">@info.Name</a></li>
-                    }
-                    @if (Categories.GetChildCategoryList(categoryInfo2.CateId, categoryInfo2.Layer, categoryList).Count == 0)
-                    {
-                        <li>暂无相关分类</li>
-                    }
-                </ul>
-                <p>相关品牌</p>
-                <ul>
-                    <li><a href="###">神州田岛</a><span><a href="###">线辅材</a></span></li>
-                    <li><a href="###">神州田岛</a><span><a href="###">线辅材</a></span></li>
-                    <li><a href="###">神州田岛</a><span><a href="###">线辅材</a></span></li>
-                </ul>
-
-                <p>浏览历史</p>
-                <ul class="haseen">
-                    @foreach (PartProductInfo info in Model.UserBrowseHistory)
-                    {
-                        <li>
-                            <h1>
-                                <a href="@Url.Action("product", new RouteValueDictionary { { "pid", info.Pid } })">
-                                    <img src="@{@WorkContext.ImageCDN}/upload/store/@info.StoreId/product/show/thumb190_190/@info.ShowImg" width="100%" />
-                                </a>
-                            </h1>
-                            <em>@info.Name</em>
-                            <b>
-                                ¥@info.ShopPrice
-                            </b>
-                        </li>
-                    }
-                </ul>*@
+                <li>
+                    <a class="btn-shop btn-shopfav" href="javascript:void(0)" onclick="addStoreToFavorite(@Model.ProductInfo.Store.StoreID)">收藏店铺</a>
+                    <a href="@Url.Action("index", "store", new RouteValueDictionary { { "storeId", Model.ProductInfo.Store.StoreID } })" class="btn-enshop btn-shop">进入店铺</a>
+                </li>
+            </ul>
         </div>
 
-        <div class="intro-r">
-            <div class="outer">
-                <div class="empty-placeholder hidden"></div>
-                <div id="subNav">
-                    <ul id="tab" class="" data-role="content">
-                        <li class="current">商品详情</li>
-                        <li>相关参数</li>
-                        <li>官方保障</li>
-                        <li>常见问题</li>
+        </div>
+        </div>
+        <div class="intro container clear">
+            <div class="row">
+            <div class="intro-l">
+                <p>相关分类</p>
+                    @*<ul>
+                        @foreach (CategoryInfo info in Categories.GetChildCategoryList(categoryInfo2.CateId, categoryInfo2.Layer, categoryList))
+                        {
+                            <li><a href="@Url.Action("category", new RouteValueDictionary { { "cateId", info.CateId } })">@info.Name</a></li>
+                        }
+                        @if (Categories.GetChildCategoryList(categoryInfo2.CateId, categoryInfo2.Layer, categoryList).Count == 0)
+                        {
+                            <li>暂无相关分类</li>
+                        }
                     </ul>
-                </div>
-                <div id="content">
-                    <ul style="display:block;">
-                        @Html.Raw(Model.ProductInfo.Description)
-                    </ul>
+                    <p>相关品牌</p>
                     <ul>
-                        <table cellpadding="0" cellspacing="1" width="100%" border="0" class="Ptable">
-                            <tbody>
+                        <li><a href="###">神州田岛</a><span><a href="###">线辅材</a></span></li>
+                        <li><a href="###">神州田岛</a><span><a href="###">线辅材</a></span></li>
+                        <li><a href="###">神州田岛</a><span><a href="###">线辅材</a></span></li>
+                    </ul>
+
+                    <p>浏览历史</p>
+                    <ul class="haseen">
+                        @foreach (PartProductInfo info in Model.UserBrowseHistory)
+                        {
+                            <li>
+                                <h1>
+                                    <a href="@Url.Action("product", new RouteValueDictionary { { "pid", info.Pid } })">
+                                        <img src="@{@WorkContext.ImageCDN}/upload/store/@info.StoreId/product/show/thumb190_190/@info.ShowImg" width="100%" />
+                                    </a>
+                                </h1>
+                                <em>@info.Name</em>
+                                <b>
+                                    ¥@info.ShopPrice
+                                </b>
+                            </li>
+                        }
+                    </ul>*@
+            </div>
+
+            <div class="intro-r">
+                <div class="outer">
+                    <div class="empty-placeholder hidden"></div>
+                    <div id="subNav">
+                        <ul id="tab" class="" data-role="content">
+                            <li class="current">商品详情</li>
+                            <li>相关参数</li>
+                            <li>官方保障</li>
+                            <li>常见问题</li>
+                        </ul>
+                    </div>
+                    <div id="content">
+                        <ul style="display:block;">
+                            @Html.Raw(Model.ProductInfo.Description)
+                        </ul>
+                        <ul>
+                            <table cellpadding="0" cellspacing="1" width="100%" border="0" class="Ptable">
+                                <tbody>
                                     @{
                                         foreach (var productAttr in Model.ProductInfo.Attributes)
                                         {
-                                            if (productAttr.InputVal != "") 
+                                            if (productAttr.InputVal != "")
                                             {
                                                 <tr><td class="tdTitle">@productAttr.Attr.Name</td><td>@productAttr.InputVal</td></tr>
                                             }
-                                            else 
+                                            else
                                             {
-                                                  <tr><td class="tdTitle">@productAttr.Attr.Name</td><td>@productAttr.AttrVal.AttrVal</td></tr>
+                                                <tr><td class="tdTitle">@productAttr.Attr.Name</td><td>@productAttr.AttrVal.AttrVal</td></tr>
                                             }
                                         }
                                     }
                                 </tbody>
-                        </table>
-                    </ul>
-                    <ul>
-                        <div>
-                            @Html.Raw(Model.ProductInfo.OfficialGuarantee)
-                        </div>
+                            </table>
+                        </ul>
+                        <ul>
+                            <div>
+                                @Html.Raw(Model.ProductInfo.OfficialGuarantee)
+                            </div>
 
-                    </ul>
-                    <ul>
-                        <div>
-                            @Html.Raw(Model.ProductInfo.FAQs)
-                        </div>
+                        </ul>
+                        <ul>
+                            <div>
+                                @Html.Raw(Model.ProductInfo.FAQs)
+                            </div>
 
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
 
 
-                <div class="infoRCon" id="PJ">
+                    <div class="infoRCon" id="PJ">
 
-                    <div class="PJinfo">
-                        <h2>商品评价</h2>
-                        @{
-                            decimal reviewLayer1 = 0;
-                            decimal reviewLayer2 = 0;
-                            decimal reviewLayer3 = 0;
+                        <div class="PJinfo">
+                            <h2>商品评价</h2>
+                            @{
+                                decimal reviewLayer1 = 0;
+                                decimal reviewLayer2 = 0;
+                                decimal reviewLayer3 = 0;
 
-                            decimal goodStars = Model.ProductInfo.FourStar + Model.ProductInfo.FiveStar;
-                            decimal allStars =goodStars+ Model.ProductInfo.OneStar + Model.ProductInfo.TwoStar + Model.ProductInfo.ThreeStar;
+                                decimal goodStars = Model.ProductInfo.FourStar + Model.ProductInfo.FiveStar;
+                                decimal allStars = goodStars + Model.ProductInfo.OneStar + Model.ProductInfo.TwoStar + Model.ProductInfo.ThreeStar;
 
-                            if (allStars != 0)
-                            {
-                                reviewLayer1 = (decimal)Math.Floor((double)(goodStars / allStars * 100));
-                                reviewLayer2 = (decimal)Math.Floor((double)(Model.ProductInfo.FourStar / allStars * 100));
-                                reviewLayer3 = 100 - reviewLayer1 - reviewLayer2;
+                                if (allStars != 0)
+                                {
+                                    reviewLayer1 = (decimal)Math.Floor((double)(goodStars / allStars * 100));
+                                    reviewLayer2 = (decimal)Math.Floor((double)(Model.ProductInfo.FourStar / allStars * 100));
+                                    reviewLayer3 = 100 - reviewLayer1 - reviewLayer2;
+                                }
+
                             }
 
-                        }
 
+                            <div class="rate">
+                                <strong>@reviewLayer1<span>%</span></strong> <br />
+                                <span>好评度</span>
+                            </div>
 
-                        <div class="rate">
-                            <strong>@reviewLayer1<span>%</span></strong> <br />
-                            <span>好评度</span>
-                        </div>
+                            <div class="percent">
+                                <dl>
+                                    <dt>好评<span>(@reviewLayer1%)</span></dt>
+                                    <dd>
+                                        <div style="width: @reviewLayer1%;"></div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>中评<span>(@reviewLayer2%)</span></dt>
+                                    <dd class="d1">
+                                        <div style="width: @reviewLayer2%;"> </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>差评<span>(@reviewLayer3%)</span></dt>
+                                    <dd class="d1">
+                                        <div style="width: @reviewLayer3%;"> </div>
+                                    </dd>
+                                </dl>
+                            </div>
 
-                        <div class="percent">
-                            <dl>
-                                <dt>好评<span>(@reviewLayer1%)</span></dt>
-                                <dd>
-                                    <div style="width: @reviewLayer1%;"></div>
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>中评<span>(@reviewLayer2%)</span></dt>
-                                <dd class="d1">
-                                    <div style="width: @reviewLayer2%;"> </div>
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>差评<span>(@reviewLayer3%)</span></dt>
-                                <dd class="d1">
-                                    <div style="width: @reviewLayer3%;"> </div>
-                                </dd>
-                            </dl>
-                        </div>
+                            <div class="btns">
+                                <div>您可对已购商品进行评价</div>
+                                <a href="@Url.Action("orderlist", "ucenter", new RouteValueDictionary {{"orderState",140} })" class="btn-comment" target="_blank">
+                                    发表评论
+                                </a>
+                                <div></div>
+                            </div>
 
-                        <div class="btns">
-                            <div>您可对已购商品进行评价</div>
-                            <a href="@Url.Action("orderlist", "ucenter", new RouteValueDictionary {{"orderState",140} })" class="btn-comment" target="_blank">
-                                发表评论
-                            </a>
-                            <div></div>
-                        </div>
-
-                        <div class="clear"></div>
-
-                    </div>
-
-                    <div class="hidden">
-                        <a href="@Url.Action("productreviewlist", new RouteValueDictionary { { "pid", Model.ProductInfo.PID } })" id="prCount"></a>
-                    </div>
-
-                    <h2 class="infoRT infoBT2">
-                        <ul class="review-list">
-                            <li class="all-review" id="" onclick="changeReviewType(this,0)">全部评价</li>
-                            <li class="good-review" onclick="changeReviewType(this,1)">好评</li>
-                            <li class="secondary-review" onclick="changeReviewType(this,2)">中评</li>
-                            <li class="differ-review" onclick="changeReviewType(this,3)">差评</li>
                             <div class="clear"></div>
-                        </ul>
-                    </h2>
 
+                        </div>
 
-                    <div class="product-review-list">
-                        <div class="all-review-list box container-fluid clearfix"></div>
-                        <div class="good-review-list"></div>
-                        <div class="secondary-review-list"></div>
-                        <div class="differ-review-list"></div>
-                    </div>
-                </div>
+                        <div class="hidden">
+                            <a href="@Url.Action("productreviewlist", new RouteValueDictionary { { "pid", Model.ProductInfo.PID } })" id="prCount"></a>
+                        </div>
 
-
-                @*<div class="center-x">
-                        @if (Model.SuitProductList.Count > 0)
-                        {
-                            <div class="">
-                                <h2 class="">
-                                    <div>
-                                        <p>优惠套装</p>
-                                        <div class="clear"></div>
-                                    </div>
-                                </h2>
+                        <h2 class="infoRT infoBT2">
+                            <ul class="review-list">
+                                <li class="all-review" id="" onclick="changeReviewType(this,0)">全部评价</li>
+                                <li class="good-review" onclick="changeReviewType(this,1)">好评</li>
+                                <li class="secondary-review" onclick="changeReviewType(this,2)">中评</li>
+                                <li class="differ-review" onclick="changeReviewType(this,3)">差评</li>
                                 <div class="clear"></div>
-                                <ul class="taocanNav">
-                                    @for (int i = 1; i <= Model.SuitProductList.Count; i++)
-                                    {
-                                        <li onmouseover="selectSuit(@{@i}, @{@Model.SuitProductList.Count})">优惠套装@{@i}</li>
-                                    }
-                                    <div class="clear"></div>
-                                </ul>
-                                <div class="infoCon taocan">
-                                    @{
-                                    decimal suitAmount = 0M;
-                                    decimal suitDiscount = 0M;
-                                    int suitIndex = 1;
-                                    foreach (KeyValuePair<SuitPromotionInfo, List<ExtSuitProductInfo>> pair in Model.SuitProductList)
-                                    {
-                                        <div class="proList" id="suitList@{@suitIndex}">
-                                            <ul>
-                                                <li>
-                                                    <a href="@Url.Action("product", new RouteValueDictionary { { "pid", Model.Pid } })"><img src="@{@WorkContext.ImageCDN}/upload/store/@Model.ProductInfo.StoreId/product/show/thumb190_190/@Model.ProductInfo.ShowImg" width="100%" /><em>@Model.ProductInfo.Name</em><b>¥@Model.ProductInfo.ShopPrice</b></a>
-                                                </li>
-                                            </ul>
-                                            <div class="left taocanCon" style="width:430px; overflow-x:auto;">
-                                                <ul>
-                                                    @foreach (ExtSuitProductInfo info in pair.Value)
-                                                    {
-                                                        suitAmount += info.Number * (info.ShopPrice - info.Discount);
-                                                        suitDiscount += info.Number * info.Discount;
-                                                        if (info.Pid != Model.Pid)
-                                                        {
-                                                            <li><a href="@Url.Action("product", new RouteValueDictionary { { "pid", info.Pid } })"><img src="@{@WorkContext.ImageCDN}/upload/store/@info.StoreId/product/show/thumb190_190/@info.ShowImg" width="100%" /><em>@info.Name</em></a><b><label>@*<input type="checkbox" /@*>info.ShopPrice</label></b></li>
-                                                        }
-                                                    }
-                                                </ul>
-                                            </div>
-                                            <div class="right taocanR">
-                                                <div>套  餐  价：<i>￥@suitAmount</i></div>
-                                                <div>商  城  价：<s>￥@Html.Raw((suitAmount + suitDiscount).ToString())</s></div>
-                                                <div>节&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;省：<s>￥@suitDiscount</s></div>
-                                                <div class="taocanRBt"><a href="@Url.Action("suit", new RouteValueDictionary { { "pmId", pair.Key.PmId } })">立即购买</a></div>
-                                            </div>
+                            </ul>
+                        </h2>
+
+
+                        <div class="product-review-list">
+                            <div class="all-review-list container-fluid clearfix"></div>
+                            <div class="good-review-list"></div>
+                            <div class="secondary-review-list"></div>
+                            <div class="differ-review-list"></div>
+                        </div>
+                    </div>
+
+
+                    @*<div class="center-x">
+                            @if (Model.SuitProductList.Count > 0)
+                            {
+                                <div class="">
+                                    <h2 class="">
+                                        <div>
+                                            <p>优惠套装</p>
                                             <div class="clear"></div>
                                         </div>
-                                                    suitAmount = 0M;
-                                                    suitDiscount = 0M;
-                                                    suitIndex++;
-                                    }
-                                    }
+                                    </h2>
                                     <div class="clear"></div>
+                                    <ul class="taocanNav">
+                                        @for (int i = 1; i <= Model.SuitProductList.Count; i++)
+                                        {
+                                            <li onmouseover="selectSuit(@{@i}, @{@Model.SuitProductList.Count})">优惠套装@{@i}</li>
+                                        }
+                                        <div class="clear"></div>
+                                    </ul>
+                                    <div class="infoCon taocan">
+                                        @{
+                                        decimal suitAmount = 0M;
+                                        decimal suitDiscount = 0M;
+                                        int suitIndex = 1;
+                                        foreach (KeyValuePair<SuitPromotionInfo, List<ExtSuitProductInfo>> pair in Model.SuitProductList)
+                                        {
+                                            <div class="proList" id="suitList@{@suitIndex}">
+                                                <ul>
+                                                    <li>
+                                                        <a href="@Url.Action("product", new RouteValueDictionary { { "pid", Model.Pid } })"><img src="@{@WorkContext.ImageCDN}/upload/store/@Model.ProductInfo.StoreId/product/show/thumb190_190/@Model.ProductInfo.ShowImg" width="100%" /><em>@Model.ProductInfo.Name</em><b>¥@Model.ProductInfo.ShopPrice</b></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="left taocanCon" style="width:430px; overflow-x:auto;">
+                                                    <ul>
+                                                        @foreach (ExtSuitProductInfo info in pair.Value)
+                                                        {
+                                                            suitAmount += info.Number * (info.ShopPrice - info.Discount);
+                                                            suitDiscount += info.Number * info.Discount;
+                                                            if (info.Pid != Model.Pid)
+                                                            {
+                                                                <li><a href="@Url.Action("product", new RouteValueDictionary { { "pid", info.Pid } })"><img src="@{@WorkContext.ImageCDN}/upload/store/@info.StoreId/product/show/thumb190_190/@info.ShowImg" width="100%" /><em>@info.Name</em></a><b><label>@*<input type="checkbox" /@*>info.ShopPrice</label></b></li>
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </div>
+                                                <div class="right taocanR">
+                                                    <div>套  餐  价：<i>￥@suitAmount</i></div>
+                                                    <div>商  城  价：<s>￥@Html.Raw((suitAmount + suitDiscount).ToString())</s></div>
+                                                    <div>节&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;省：<s>￥@suitDiscount</s></div>
+                                                    <div class="taocanRBt"><a href="@Url.Action("suit", new RouteValueDictionary { { "pmId", pair.Key.PmId } })">立即购买</a></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                                        suitAmount = 0M;
+                                                        suitDiscount = 0M;
+                                                        suitIndex++;
+                                        }
+                                        }
+                                        <div class="clear"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <script type="text/javascript">
-                                function selectSuit(index, count) {
-                                    for (var i = 1; i <= count; i++) {
-                                        document.getElementById("suitList" + i).style.display = "none";
+                                <script type="text/javascript">
+                                    function selectSuit(index, count) {
+                                        for (var i = 1; i <= count; i++) {
+                                            document.getElementById("suitList" + i).style.display = "none";
+                                        }
+                                        document.getElementById("suitList" + index).style.display = "block";
                                     }
-                                    document.getElementById("suitList" + index).style.display = "block";
-                                }
-                            </script>
-                        }
-                    </div>*@
+                                </script>
+                            }
+                        </div>*@
 
 
 
-                <div class="infoRBox" style="border:0;">
-                    <h2 class="infoRT infoBT2">
-                        <a href="@Url.Action("productconsultlist", new RouteValueDictionary { { "pid", Model.ProductInfo.PID } })#consult" class="fbpl">我要咨询</a>
-                        <ul id="Ul_Consult">
-                            <li class="hot" onclick="changeConsultType(this,0)">全部购买咨询</li>
-                            @*@foreach (ProductConsultTypeInfo info in Model.ProductConsultTypeList)
-                                {
-                                    <li onclick="changeConsultType(this,@info.ConsultTypeId)">@info.Title</li>
-                                }*@
+                    <div class="infoRBox" style="border:0;">
+                        <h2 class="infoRT infoBT2">
+                            <a href="@Url.Action("productconsultlist", new RouteValueDictionary { { "pid", Model.ProductInfo.PID } })#consult" class="fbpl">我要咨询</a>
+                            <ul id="Ul_Consult">
+                                <li class="hot" onclick="changeConsultType(this,0)">全部购买咨询</li>
+                                @*@foreach (ProductConsultTypeInfo info in Model.ProductConsultTypeList)
+                                    {
+                                        <li onclick="changeConsultType(this,@info.ConsultTypeId)">@info.Title</li>
+                                    }*@
+                                
+                            </ul>
+                        </h2>
+
+                        <div id="productConsultList" class="clear">
+                            @*商品咨询列表*@
                             <div class="clear product-consultation">
 
                                 @{
                                     foreach (var c in Model.ConsultationResult.ConsultationList)
                                     {
-                                        <div class="item">
-                                            <div class="user">
-                                                <span class="u-name">@c.CreateUser.UserName</span>
+                                        <div class="item col-md-12">
+                                            <div class="user col-md-12">
+                                                <span class="user-title">网&nbsp;&nbsp;友:</span><span class="u-name"> @c.CreateUser.UserName</span>
                                                 <span class="u-level"></span>
                                                 <span class="date-ask">@c.CreateDate</span>
                                             </div>
-                                            <dl class="ask">
+                                            <dl class="ask col-md-12">
                                                 <dt><b></b>咨询内容：</dt>
-                                                <dd><a href="//club.jd.com/consultation/741193-500054231.html" target="_blank">@c.CContent</a></dd>
+                                                <dd class="col-md-9"><a href="//club.jd.com/consultation/741193-500054231.html" target="_blank">@c.CContent</a></dd>
                                             </dl>
                                             @{
-                                            var reply = Model.ConsultationResult.ReplyList.Where(r => r.RConsultation.ID == @c.ID).ToList();
-                                            if (reply.Count>0)
-                                            {
-                                                <dl class="answer">
-                                                    <dt>
-                                                        <b></b>店家回复：
-                                                    </dt>
-                                                <dd>
-                                                    <div class="content">@reply[0].RContent</div>
+                                        var reply = Model.ConsultationResult.ReplyList.Where(r => r.RConsultation.ID == @c.ID).ToList();
+                                        if (reply.Count > 0)
+                                        {
+                                            <dl class="answer col-md-12">
+                                                <dt>
+                                                    <b></b>店家回复：
+                                                </dt>
+                                                <dd class="col-md-9">
+                                                    <div class="content colorblue">@reply[0].RContent</div>
                                                     <div class="date-answer">@reply[0].CreateDate</div>
                                                 </dd>
                                             </dl>
-                                            }
+                                        }
                                             }
 
-                                            
+
 
                                         </div>
                                     }
                                 }
 
                             </div>
-                        </ul>
-                    </h2>
 
-                    <div id="productConsultList">
-                        @*商品咨询列表*@
+                        </div>
                     </div>
+
+
+
                 </div>
-
-
-
             </div>
+
+
+
+
         </div>
-
-
-
-
     </div>
-
 </div>
 
 
