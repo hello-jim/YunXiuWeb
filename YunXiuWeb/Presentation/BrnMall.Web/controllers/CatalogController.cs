@@ -323,8 +323,28 @@ namespace BrnMall.Web.Controllers
             string[] arr = new string[] { word, page.ToString(), "20" };
             var data = CommomClass.HttpPost("http://localhost:58654/Product/SearchProduct", JsonConvert.SerializeObject(arr));
             PageResult<Product> pageResult = JsonConvert.DeserializeObject<PageResult<Product>>(data);
-            //if (productList == null)
-            //    return PromptView(WorkContext.UrlReferrer, "您搜索的商品不存在");
+            if (pageResult == null)
+               return PromptView(WorkContext.UrlReferrer, "您搜索的商品不存在");
+            //找出是否是同个类型的产品
+             List<int> sameCate = new List<int>();
+            foreach (var info in pageResult.ResultList) 
+            {
+                sameCate.Add(info.Category.CateID);
+            }
+            List<CateAttribute> cateAttrList = null;
+            List<AttributeValue> attrValList = null;
+            if (sameCate.Count == 1) //如果都是相同的则找出相同类型的
+            {
+                cateAttrList = JsonConvert.DeserializeObject<List<CateAttribute>>(CommomClass.HttpPost(string.Format("{0}/Category/GetCateAttr"), sameCate[0].ToString()));
+                var attrIDList=new List<int>();
+                cateAttrList.ForEach(a => attrIDList.Add(a.AttrID));
+                attrValList = JsonConvert.DeserializeObject<List<AttributeValue>>(CommomClass.HttpPost(string.Format("{0}/Category/GetAttrVal"), JsonConvert.SerializeObject(attrIDList)));
+            }
+            else 
+            {
+                //不是的话就按当前指定规则找出渲染分类
+                
+            }
 
             //当筛选属性和分类的筛选属性数目不对应时，重置筛选属性
             if (cateAAndVList == null)

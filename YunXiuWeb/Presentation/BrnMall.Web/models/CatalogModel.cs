@@ -282,6 +282,17 @@ namespace BrnMall.Web.Models
         /// 分页结果
         /// </summary>
         public PageResult<Product> PageResult { get; set; }
+
+        /// <summary>
+        /// 分类属性
+        /// </summary>
+        public List<CateAttribute> CateAttrList { get; set; }
+
+        /// <summary>
+        /// 属性值
+        /// </summary>
+        public List<AttributeValue> AttrValList { get; set; }
+
         /// <summary>
         /// 用户浏览历史
         /// </summary>

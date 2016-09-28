@@ -81,12 +81,62 @@ namespace BrnMall.Web.Models
         public StoreClassInfo StoreClassInfo { get; set; }
     }
 
-    public class StoreHomeModel 
+    public class StoreHomeModel
     {
-        public List<StoreNavigation> NavigationList { get; set; }
+        /// <summary>
+        /// 主页信息
+        /// </summary>
+        public StoreHome StoreHome { get; set; }
 
-        public StoreHome StoreHome { get; set; } 
+        /// <summary>
+        /// 店铺信息
+        /// </summary>
+        public Store StoreInfo { get; set; }
     }
 
+    public class StoreIntroductionModel
+    {
+
+        /// <summary>
+        /// 店铺信息
+        /// </summary>
+        public Store StoreInfo { get; set; }
+
+        /// <summary>
+        /// 公司证件
+        /// </summary>
+        public List<Certificate> CertificateList { get; set; }
+    }
+
+    public class SupplyProductModel
+    {
+        /// <summary>
+        /// 产品分类
+        /// </summary>
+        public List<Categories> CateList { get; set; }
+
+        /// <summary>
+        /// 供应商品
+        /// </summary>
+        public List<Product> Products { get; set; }
+
+        /// <summary>
+        /// 店铺信息
+        /// </summary>
+        public Store StoreInfo { get; set; }
+    }
+
+    public class StoreAlbumModel 
+    {
+        /// <summary>
+        /// 店铺信息
+        /// </summary>
+        public Store StoreInfo { get; set; }
+
+        /// <summary>
+        /// 店铺相册
+        /// </summary>
+        public List<StoreImg> StoreImages { get; set; }
+    }
 
 }

@@ -30,14 +30,12 @@ namespace BrnMall.Web.Controllers
             {
                 var sID = GetRouteInt("sID");//商铺ID
                 var storeHome = JsonConvert.DeserializeObject<StoreHome>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreHome", accountApi), sID.ToString()));//获取商铺首页
-                var navigationList=JsonConvert.DeserializeObject<List<StoreNavigation>>(CommomClass.HttpPost("",""));//获取商铺导航
-             
-                model.NavigationList = navigationList;
+                var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), sID.ToString()));
                 model.StoreHome = storeHome;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-            
+
             }
             return View(model);
         }
@@ -162,6 +160,64 @@ namespace BrnMall.Web.Controllers
         public ActionResult Details()
         {
             return View();
+        }
+
+        /// <summary>
+        /// 供应商品
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SupplyProduct()
+        {
+            SupplyProductModel model = new SupplyProductModel();
+            try
+            {
+                var sID = 0;
+                var products = JsonConvert.DeserializeObject<List<Product>>(CommomClass.HttpPost(string.Format("{0}/Product/GetProductByStore", productApi), sID.ToString()));
+                var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), sID.ToString()));
+                model.Products = products;
+                model.StoreInfo = storeInfo;
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// 公司介绍
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult StoreIntroduction()
+        {
+            StoreIntroductionModel model = new StoreIntroductionModel();
+            try
+            {
+                var sID = 0;
+                var certificateList = JsonConvert.DeserializeObject<List<Certificate>>(CommomClass.HttpPost(string.Format("{0}/Store/GetCertificate",accountApi), sID.ToString()));//公司证件
+                var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), sID.ToString()));
+                model.CertificateList = certificateList;
+                model.StoreInfo = storeInfo;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View(model);
+        }
+
+        /// <summary>
+        /// 公司相册
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult StoreAlbum()
+        {
+            StoreAlbumModel model = new StoreAlbumModel();
+            var sID = 0;
+            var storeImages = JsonConvert.DeserializeObject<List<StoreImg>>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreImg", accountApi), sID.ToString()));//相片
+            var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), sID.ToString()));
+            return View(model);
         }
 
         protected sealed override void Initialize(RequestContext requestContext)
