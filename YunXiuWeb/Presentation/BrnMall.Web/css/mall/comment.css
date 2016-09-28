@@ -28,6 +28,7 @@ li{
 }
 .box-conten{
 	zoom:1;	
+    margin-top:9px;
 }
 .right-conten{
 }
@@ -38,11 +39,16 @@ li{
 .star{
 	width: 85px;
     height: 22px;
-    background:url("/images/star.png") no-repeat -183px -239px;
+    background:url("/images/commentStars.png") no-repeat;
 }
 .star4{
-	background-position: 0 0;
+	background-position: -17px 0;
 }
+.star3{
+	background-position: -34px 0;
+}
+.star2 {background-position: -51px 0;}
+.star1 {background-position: -68px 0;}
 .comment-replylist{
 	margin-top: 5px;
 }
@@ -60,28 +66,34 @@ li{
 	border-radius: 13px;
 }
 
+/*.user-name {color:#0275d8;}*/
 .reply-input{
-	width: 500px;
+	width: 95%;
 }
 .reply-submit{
 	padding: 5px 28px;
-    background: #e4393c;
+    background: #0275d8;
     color: #FFF;
     margin-right: 0;
     display: inline-block;
 }
 .reply-textarea{
 	margin-top: 10px;
+    padding-top:10px;
+    padding-left:10px;
+    padding-bottom:10px;
+    background: #f7f7f7;
 }
 .operate-box{
 	float: right;
 	margin-top: 5px;
+    margin-right:5%;
 }
 .reply-item{
 	padding-top: 5px;
 	margin-top: 5px;
     display:none;
-	
+	border-top:1px solid #eee;
 }
 .row-hight {
     border-bottom: 1px solid #ddd;
@@ -100,3 +112,12 @@ li{
 .list3{
 	display: none;
 }
+.product-consultation{}
+.item {border-bottom:1px dotted #999;}
+.item:last-child{border-bottom:0;}
+.item dl {margin-bottom:3px;}
+.item .user {color:#999;margin-bottom:8px;margin-top:8px;}
+dl.ask dt,dl.answer dt{width:60px;float:left;}
+.item .user .user-title{width:55px;float:left;text-align:right; display:inline-block;}
+.item .user span {margin-right:18px;}
+/*.item dl dd{float:left;}*/

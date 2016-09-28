@@ -13,6 +13,7 @@ select {outline:none;}
 a:hover {color:#cca809;}
 a.sumbtn {border:1px solid #0078ff; background:#0069e0; display:inline-block;height:35px;;width:150px;color:#fff; text-align:center;font-size:18px;}
 img{border:0;}
+.topart {background:#fff;}
 button[type="button"],input[type="button"] {outline:none; cursor:pointer;}
 input[type="text"] {outline:none;}
 ul li { list-style:none;}
@@ -21,7 +22,7 @@ ul li { list-style:none;}
 .font16 { font-size:16px;}
 .font14 { font-size:14px;}
 .colored {color:#cc3728;}
-.colororange {color:#ff5017;}
+.colororange {color:#f60;}
 .colorgreen {color:#549628;}
 .colorpink {color:#f4316b;}
 .colorblue {color:#0078ff;}
@@ -225,9 +226,8 @@ header {
 /*.footbot ul li {float:left;width:140px;height:80px; line-height:90px;}*/	
 .footbot ul li {
     float: left;
-    width: 165px;
     height: 80px;
-    line-height: 90px;
+    margin-top: 20px;
 }
 .footbot {
     background: #0061c4;

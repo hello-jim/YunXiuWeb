@@ -1,5 +1,5 @@
-#listL{ width:208px; float:left;}
-#listR{ width:988px; float:right;}
+/*#listL{ width:208px; float:left;}
+#listR{ width:988px; float:right;}*/
 
 
 
@@ -68,22 +68,22 @@
 	display: block
 }
 
-.listHotPro { width:208px;border: 1px solid #ddd; }
+.listHotPro { width:200px;border: 1px solid #ddd;background-color:#fff;}
 .listHotPro h2{ background:#F7F7F7;font-weight: normal;height: 31px;padding-left: 8px;line-height: 31px;font-size: 14px;}
 
 .listHotPro .proList{ padding:10px;}
 .listHotPro .proList li{ padding-bottom:20px;}
 
 
-#listR .proList{ width:988px; overflow:hidden;}
+/*#listR .proList{ width:988px; overflow:hidden;}
 #listR .proList ul{ width:1008px}
 #listR .proList li{ float:left; width:222px; padding-right:30px; margin-bottom:10px;}
 #listR .proList li b{ font-size:14px;}
-#listR .proList li a:hover{ text-decoration:underline;}
+#listR .proList li a:hover{ text-decoration:underline;}*/
 
 #listSelect{ position:relative;margin-bottom:10px;}
-#listSelect h1{height: 33px;line-height:33px;padding: 0 10px;background: #F7F7F7; font-size:14px; font-weight:normal;border: 1px solid #ddd; border-bottom:1px solid #FFF; margin-bottom:-1px; position:relative;}
-#listSelect h1 b{color:#e4393c;}
+#listSelect>h1{height: 33px;line-height:33px;padding: 0 10px;background: #F7F7F7; font-size:14px; font-weight:normal;border: 1px solid #ddd; border-bottom:1px solid #FFF; position:relative;}
+#listSelect>h1>b{color:#e4393c;}
 
 .selectItme{padding: 4px 0 2px;_padding:1px 0 2px;overflow: hidden;zoom: 1;border-bottom: 1px dotted #ccc;}
 .selectItme h3{ float:left; font-size:12px; color:#666; width:100px; text-align:right;}

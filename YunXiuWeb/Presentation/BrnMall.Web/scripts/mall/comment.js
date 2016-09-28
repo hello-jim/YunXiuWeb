@@ -28,9 +28,9 @@ function CreateProductReview(json, index, count) {
         html += "<div class='star star4'></div>";
         html += "<div class='day-item'>下单3天后评论</div>";
         html += "<div class='time-item'>2016-09-01 11:51</div>";
-        html += "<div class='feature'>";
-        html += "<ul><li>"+nList[i].RProduct.Name+"</li></ul>";
-        html += "</div>";
+       // html += "<div class='feature'>";
+       // html += "<ul><li>"+nList[i].RProduct.Name+"</li></ul>";
+       // html += "</div>";
         html += "</div>";
 
         ///评论
@@ -159,9 +159,9 @@ function GetReplyList(json, pID) {
             html += "<div class='reply-info'>";
             var parent = GetParentReview(childrenReview, nList[j].Parent);
             if (parent != null) {
-                html += "<span class='user-name'>" + nList[j].RUser.UID + " 回复 " + parent.RUser.UID + "</span>:";
+                html += "<span class='user-name colorblue'>" + nList[j].RUser.UID + "</span>" + " 回复 " + "<span class='user-name colororange'>" + parent.RUser.UID + "</span>:";
             } else {
-                html += "<span class='user-name'>" + nList[j].RUser.UID + "</span>:";
+                html += "<span class='user-name colororange'>" + nList[j].RUser.UID + "</span>:";
             }
             html += nList[j].RContent;//评论内容    
             html += "</div>";

@@ -124,3 +124,49 @@ function getProductConsultList(pid, consultTypeId, consultMessage, page) {
 function getProductConsultListResponse(data) {
     $("#productConsultList").html(data);
 }
+
+$(document).ready(function () {
+
+    $(".jqzoom1").imagezoom();
+
+    var $li = $('#tab li');
+    var $ul = $('#content ul');
+
+    $li.click(function () {
+        var $this = $(this);
+        var $t = $this.index();
+        $li.removeClass();
+        $this.addClass('current');
+        $ul.css('display', 'none');
+        $ul.eq($t).css('display', 'block');
+    })
+
+});
+
+
+
+function changeReviewType(obj, reviewType) {
+    var liList = obj.parentNode.getElementsByTagName("li");
+    for (var i = 0; i < liList.length; i++) {
+        liList[i].className = "";
+    }
+    obj.className = "hot";
+    getProductReviewList(141, reviewType, 1);
+}
+
+$(function () {
+    $("#Li_Review").click();
+})
+
+//function changeConsultType(obj, consultType) {
+//    var liList = obj.parentNode.getElementsByTagName("li");
+//    for (var i = 0; i < liList.length; i++) {
+//        liList[i].className = "";
+//    }
+//    obj.className = "hot";
+//    getProductConsultList(141, consultType, "", 1);
+//}
+//$(function () {
+//    $("#Ul_Consult li").eq(0).click();
+
+//});

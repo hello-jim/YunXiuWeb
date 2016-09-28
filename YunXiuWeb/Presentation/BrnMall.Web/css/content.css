@@ -70,7 +70,7 @@ user-select:none;/**禁止选中文字*/
 
 
 .choose{ clear:both; padding-bottom:10px;}
-.choose dt{ line-height:35px;}
+/*.choose dt{ line-height:35px;}*/
 .choose .itme{float: left;margin: 2px 8px 2px 0;border: 1px solid #ccc; padding:0px 4px; height:25px; line-height:25px; text-align:center;}
 .choose .itme:hover,body .choose .hot{ border:1px solid #e4393c; color:#d23335;}
 .choose .itme i{ font-style:normal;}
@@ -100,7 +100,7 @@ body .chooseImg .itme img{ float:left;}
 .infoRT{ height:30px; line-height:30px; border-bottom:1px solid #ddd; border-top:2px solid #9f9f9f; background:#f7f7f7; position:relative;}
 .infoRBox{ border:1px solid #DDD; border-top:0; margin-bottom:20px;}
 .infoRT ul li{ float:left; position:relative;}
-.infoRT ul li.hot { height:34px; line-height:34px; background:#FFF; border:1px solid #ddd; margin-top:-5px; margin-left:-1px; border-bottom:1px solid #FFF; border-top:2px solid #e4393c; color:#e4393c;}
+.infoRT ul li.hot { height:34px; line-height:34px; background:#FFF; border:1px solid #ddd; margin-top:-5px; margin-left:-1px; border-bottom:1px solid #FFF; border-top:2px solid #0275d8; color:#0275d8;}
 .infoRT ul li { font-size:14px; font-weight:normal; height:30px; line-height:30px; padding:0 15px; display:block; _float:left; cursor:pointer;}
 
 .taocanNav{ padding:15px; padding-bottom:0px;}
@@ -130,34 +130,34 @@ body .infoBT2 ul li.hot a{ margin-top:-6px; border-bottom:0px;}
 
 /*商品评价*/
 #PJ{ margin-top:15px;}
-.PJinfo{border:1px solid #ddd; margin-bottom:20px;}
+.PJinfo{/*border:1px solid #ddd;*/ margin-bottom:20px;}
 .PJinfo h2{ font-size:14px; border-top: 2px solid #999; height:30px; line-height:30px; padding:0 12px; font-weight:normal;}
 
 
 #PJ .rate{float:left;width:120px;padding:20px 0 0;text-align:center}
-#PJ .rate strong{font:400 46px/30px arial;color:#e4393c}
+#PJ .rate strong{font:400 46px/30px arial;color:#0275d8;}
 #PJ .rate span{color:#999;font-family:arial}
-#PJ .rate strong span{font-size:24px;color:#e4393c}
+#PJ .rate strong span{font-size:24px;color:#0275d8;}
 
 #PJ .percent{float:left;width:186px;height:74px;padding:8px 0;border-right:1px solid #E4E4E4}
 #PJ .percent span{color:#9C9A9C}
-#PJ .percent dl{padding:2px 0;overflow:hidden;zoom:1}
+#PJ .percent dl{/*padding:2px 0;*/overflow:hidden;zoom:1;margin-bottom:0;}
 #PJ .percent dt{float:left;width:70px}
 #PJ .percent dd{float:left;width:100px;height:10px;margin-top:6px;overflow:hidden;background:#efefef}
-#PJ .percent dd div{overflow:hidden;height:10px;width:0;background-color:#ED0000;background-image:-ms-linear-gradient(top,#ED0000 0,#A50000 100%);background-image:-moz-linear-gradient(top,#ED0000 0,#A50000 100%);background-image:-o-linear-gradient(top,#ED0000 0,#A50000 100%);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#ED0000),color-stop(1,#A50000));background-image:-webkit-linear-gradient(top,#ED0000 0,#A50000 100%);background-image:linear-gradient(to bottom,#ED0000 0,#A50000 100%)}
+#PJ .percent dd div{overflow:hidden;height:10px;width:0;background-color:#0275d8;background-image:-ms-linear-gradient(top,#0275d8 0,#0460AD 100%);background-image:-moz-linear-gradient(top,#0275d8 0,#0460AD 100%);background-image:-o-linear-gradient(top,#0275d8 0,#0460AD 100%);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#0275d8),color-stop(1,#0460AD));background-image:-webkit-linear-gradient(top,#0275d8 0,#0460AD 100%);background-image:linear-gradient(to bottom,#0275d8 0,#0460AD 100%)}
 
 #PJ .btns{float:left;width:140px;height:75px;padding-top:5px;line-height:15px;text-align:center; margin-left:20px;}
 #PJ .btn-comment{display:block;overflow:hidden;margin:5px 0;width:119px;height:30px;line-height:30px; background:#eff8e7; border:1px solid #bed6af;}
 #PJ .btns .btn-comment{color:#333}
 #PJ .btns a{color:#005aa0}
 
-#PJ .infoRT{ margin-bottom:20px;}
+/*#PJ .infoRT{ margin-bottom:20px;}*/
 
 
 /*评价*/
 #PJ .itme{ position:relative; margin-bottom:10px; width:990px;}
 #PJ .page{ text-align:right;}
-.user{ width:120px;position: absolute;top: 2px;left: 0; text-align:center;}
+.user{ text-align:left;}
 .user img{ padding:8px; background:url(/images/userIMG-bg.png) no-repeat left top;}
 .userName,.userLV{ text-align:center;}
 
@@ -186,7 +186,7 @@ body .infoBT2 ul li.hot a{ margin-top:-6px; border-bottom:0px;}
 
 #productConsultList .page{ text-align:right;}
 
-html body .infoRT .fbpl{ color:#FFF; padding:3px 10px; background:#e03336; position:absolute; right:5px; top:3px; font-weight:normal; font-size:12px; height:16px; line-height:16px;}
+html body .infoRT .fbpl{ color:#FFF; padding:3px 10px; background:#0275d8; position:absolute; right:5px; top:3px; font-weight:normal; font-size:12px;line-height:16px;}
 
 
 
