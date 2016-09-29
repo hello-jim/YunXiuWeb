@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using YunXiu.Model;
 
-namespace BrnMall.Web.models
+namespace BrnMall.Web.Models
 {
     public class HomeModel
     {

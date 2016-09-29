@@ -1,120 +1,23 @@
 ﻿@{
     Layout = null;
 }
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>@{@WorkContext.MallConfig.SiteTitle}</title>
     @Html.Raw(WorkContext.MallConfig.SEOKeyword)
     @Html.Raw(WorkContext.MallConfig.SEODescription)
-<<<<<<< HEAD
- 
- 
-=======
-    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
-    <link href="@{@WorkContext.CSSCDN}/css/home.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/public.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/zzsc.css" />
-    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
-    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
-    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.soChange.js" type="text/javascript"></script>
-    <script src="js/home.js" type="text/javascript"></script>
->>>>>>> remotes/origin/LIZIDEEP_MALL
+
+
     <script type="text/javascript">
         uid = @WorkContext.Uid;
         isGuestSC = @WorkContext.MallConfig.IsGuestSC;
         scSubmitType = @WorkContext.MallConfig.SCSubmitType;
     </script>
-    <style type="text/css">
-        <!-- banner-- >
-        <!-- body {
-            background: #f4f4f4;
-        }
-        -->
-        #kinMaxShow {
-            visibility: hidden;
-            width: 100%;
-            height: 425px;
-            overflow: hidden;
-        }
-
-            #kinMaxShow .kinMaxShow_button {
-                right: 31% !important;
-            }
-        <!-- end banner- > .link-floor {
-            height: 500px;
-            display: block;
-        }
-
-        .link-floor .box {
-            border: 1px solid #ddd;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box; /* Firefox */
-            -webkit-box-sizing: border-box; /* Safari */
-            width: 49%;
-            float: left;
-            height: 400px;
-            display: block;
-            margin-top: 30px;
-        }
-
-        .box h2 {
-            height: 35px;
-            line-height:35px;
-            font-size: 18px;
-            display: block;
-            text-indent: 1em;
-        }
-        .shopping h2 a {
-            color:#666666;
-        }
-        .gonggao a {
-            color: #666666;
-            line-height:22px;
-        }
-    /*.box h3:after {
-            content: url(images/heng1.png);
-        }*/
-    .box h4:after {
-        content: url(images/heng2.png);
-    }
-
-        .cont {
-            position: relative;
-        }
-
-            .cont img {
-                margin: 3% 0;
-            }
-
-        .linkbtn {
-            line-height: 40px;
-        }
-
-            .linkbtn:before {
-                content: url(images/lianjie.png);
-            }
-
-    #categorysCon .item h3 {
-        font-weight: normal;
-        background: url(/images/categorys.jpg) no-repeat 95% center;
-        height: 30px;
-        line-height: 25px;
-        border-top: 1px solid #fcfcfc;
-        border-bottom: 1px solid #fcfcfc;
-        padding-left: 20px;
-        margin-bottom: 0px;
-        margin-top: 0px;
-    }
-      
-       
-    </style>
 </head>
 <body>
-@Html.Partial("_header")
-<<<<<<< HEAD
+    @Html.Partial("_header")
     <link href="@{@WorkContext.CSSCDN}/css/home.css" rel="stylesheet" type="text/css" />
     <div class="announce container">
         <div class="ann_con" style="">
@@ -152,74 +55,31 @@
     </div>
     <div id="kinMaxShow">
 
-    <div>
-        <a href="###" target="_blank"><img src="/images/demo_default_images/1.jpg" /></a>
+        <div>
+            <a href="###" target="_blank"><img src="/images/demo_default_images/1.jpg" /></a>
+        </div>
+
+        <div>
+            <a href="###" target="_blank"><img src="/images/demo_default_images/2.jpg" /></a>
+        </div>
+
+        <div>
+            <a href="###" target="_blank"><img src="/images/demo_default_images/3.jpg" /></a>
+        </div>
+
+        <div>
+            <a href="###" target="_blank"><img src="/images/demo_default_images/4.jpg" /></a>
+        </div>
+
+        <div>
+            <a href="###" target="_blank"><img src="/images/demo_default_images/5.jpg" /></a>
+        </div>
+
+        <div>
+            <a href="###" target="_blank"><img src="images/demo_default_images/6.jpg" /></a>
+        </div>
+
     </div>
-
-    <div>
-        <a href="###" target="_blank"><img src="/images/demo_default_images/2.jpg" /></a>
-    </div>
-
-    <div>
-        <a href="###" target="_blank"><img src="/images/demo_default_images/3.jpg" /></a>
-    </div>
-=======
-
-
-<script type="text/javascript">
-    $("#categorys").unbind();
-    $("#categorysCon").removeClass("hide");
-</script>
-
-<div id="index1" class="box">
-<div class="indexPic left">
-    @*@{
-        List<AdvertInfo> bannerList = Adverts.GetAdvertList(43);
-    }*@
-   
-	<ul>
-    @{var bannerList = @Model.GetBanner;}
-    @foreach (var banner in bannerList)
-    {
-		<li><a href=""><img src="@{@WorkContext.ImageCDN}/images/banner/@banner.Img" width="670px" height="240px"/></a></li>
-    }
-	</ul>
-	<div class="indexPicBT">
-        @for (int i = 1; i <= bannerList.Count; i++)
-        {
-            <a href="#">@i</a>
-        }
-        <div class="clear"></div>
-    </div>
-    @if (bannerList.Count > 1)
-    {
-    <script type="text/javascript">
-        $("#index1 .indexPic li").soChange({
-		        thumbObj:"#index1 .indexPicBT a",
-		        thumbNowClass:"hot",
-		        changeTime:4200,
-		        autoChange:true,
-		        slideTime:300
-	        })
-    </script>
-    }
-</div>
-<div class="gonggao right">
-<h2>通知公告<a href="@Url.Action("list", "news")" class="more">更多公告></a></h2>
-<ul class="textList">
-    @{
-        DataTable homeNewsList = News.GetHomeNewsList(0, 7);
-        }
-    @foreach (DataRow row in homeNewsList.Rows)
-    {
-        <li><a href="@Url.Action("details", "news", new RouteValueDictionary { { "newsId", row["newsid"] } })">@row["title"]</a></li>
-    }
-</ul>
-</div>
-<div class="clear"></div>
-</div>
-
-<!--页面样式开始-->
     <div style="padding-bottom:30px;">
         <div class="container">
             <div class="picScroll-left row">
@@ -233,26 +93,27 @@
                 <div class="bd" style="background:#fff;">
                     <ul class="picList">
                         @{
-                           var products = @Model.HotProducts;
-                            }
-                            @foreach (var info in products)
-                            {
-                                <li>
-                                    <div class="pic">
+                            var products = @Model.HotProducts;
+                        }
+                        @foreach (var info in products)
+                        {
+                            <li>
+                                <div class="pic">
                                     <a href="###" target="_blank">
                                         @{
-                                             string img = Convert.ToString(@info.ImgID);
-                                            string imgName = img + ".jpg";
+                            string img = Convert.ToString(@info.ImgID);
+                            string imgName = img + ".jpg";
                                         }
                                         <img src="@{@WorkContext.ImageCDN}/images/productImg/@imgName" />
-                                        </a></div>
-                                    <div class="title col-md-12">
-                                        <p class="titlepro"><a href="###" target="_blank">@info.Name</a></p>
-                                        <p class="priceline"><span class="pricel">@info.ShopPrice</span><span class="pricer">已售：@info.SaleCount</span></p>
-                                    </div>
-                                </li>
-                                }
-                                </ul>
+                                    </a>
+                                </div>
+                                <div class="title col-md-12">
+                                    <p class="titlepro"><a href="###" target="_blank">@info.Name</a></p>
+                                    <p class="priceline"><span class="pricel">@info.ShopPrice</span><span class="pricer">已售：@info.SaleCount</span></p>
+                                </div>
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
         </div>
@@ -282,16 +143,16 @@
                         }
                         @foreach (var brandsinfo in brands)
                         {
-                        <li class="col-md-2">
-                            <h1>
-                                <a href="###" target="_blank">
-                                    @*<img src="images/tiandao.png" />*@
-                                    <img class="fl" src="@{@WorkContext.ImageCDN}/images/brand/@brandsinfo.Logo" />
-                                </a>
-                            </h1>
-                        </li>
+                            <li class="col-md-2">
+                                <h1>
+                                    <a href="###" target="_blank">
+                                        @*<img src="images/tiandao.png" />*@
+                                        <img class="fl" src="@{@WorkContext.ImageCDN}/images/brand/@brandsinfo.Logo" />
+                                    </a>
+                                </h1>
+                            </li>
                         }
-                       
+
                     </ul>
                 </div>
                 <div class="fl" style="width:20%;height:268px;">
@@ -353,9 +214,9 @@
                                     <h1>
                                         <a href="###" target="_blank">
                                             @{
-                                                string img =Convert.ToString(@CategorysProducInfo.ImgID);
-                                                string imgName = img + ".jpg";
-                                              }
+                                string img = Convert.ToString(@CategorysProducInfo.ImgID);
+                                string imgName = img + ".jpg";
+                                            }
                                             <img class="fl" src="@{@WorkContext.ImageCDN}/images/productImg/@imgName" />
                                         </a>
                                     </h1>
@@ -385,15 +246,15 @@
         </div>
 
 
-  
-             <div class="mac-floor clear container">
+
+        <div class="mac-floor clear container">
 
             <div class="row">
-           
+
                 <div class="floorT themered">
                     <h2 class="font16">@Model.CategoryNameOne</h2>
                 </div>
-           
+
                 <div class="floorCon bg-white">
                     <div class="a_con">
                         <div class="a_con_top">
@@ -401,76 +262,76 @@
                         </div>
 
                         <div class="a_con_bot">
-                    @{ var brandByCategory = @Model.GetBrandByCategoryOne;
-}
+                            @{ var brandByCategory = @Model.GetBrandByCategoryOne;
+                            }
 
-@foreach (var brandByCategoryInfo in brandByCategory)
-            {
-                      <ul class="col-sm-6">
-           
-                     <li><a>@brandByCategoryInfo.Name</a></li>
+                            @foreach (var brandByCategoryInfo in brandByCategory)
+                            {
+                                <ul class="col-sm-6">
 
-                            </ul>
-            }         
+                                    <li><a>@brandByCategoryInfo.Name</a></li>
+
+                                </ul>
+                            }
                         </div>
                         <ul class="huodong col-sm-12">
                             <li><a>格罗茨针></a></li>
                             <li><a>格罗茨针格罗茨格罗茨></a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="b_con">
                         <ul>
-                        @{var CategorysProducOne = @Model.GetProductByCategoryOne;
-                        }
-                        @foreach (var CategorysProducInfoOne in CategorysProducOne)
+                            @{var CategorysProducOne = @Model.GetProductByCategoryOne;
+                            }
+                            @foreach (var CategorysProducInfoOne in CategorysProducOne)
                             {
-                            <li>
-                                <h1>
-                                    <a href="###" target="_blank">
-                                        @{
-                                            string img = Convert.ToString(@CategorysProducInfoOne.ImgID);
-                                        string imgName = img + ".jpg";
-                                        }
-                                        <img class="fl" src="@{@WorkContext.ImageCDN}/images/productImg/@imgName" />
-                                    </a>
-                                </h1>
-                                <p>@CategorysProducInfoOne.Name</p>
-                                <b class="colorgreen">@CategorysProducInfoOne.ShopPrice</b>
-                            </li>
-}
-                            
+                                <li>
+                                    <h1>
+                                        <a href="###" target="_blank">
+                                            @{
+                                string img = Convert.ToString(@CategorysProducInfoOne.ImgID);
+                                string imgName = img + ".jpg";
+                                            }
+                                            <img class="fl" src="@{@WorkContext.ImageCDN}/images/productImg/@imgName" />
+                                        </a>
+                                    </h1>
+                                    <p>@CategorysProducInfoOne.Name</p>
+                                    <b class="colorgreen">@CategorysProducInfoOne.ShopPrice</b>
+                                </li>
+                            }
+
                             @*<li>
-                                <h1>
-                                    <a href="###" target="_blank">
-                                        <img src="images/pei2.png" />
-                                    </a>
-                                </h1>
-                                <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                <b class="colorgreen">￥88800</b><s>89000</s>
-                            </li>
-                            <li>
-                                <h1><a href="###" target="_blank"><img src="images/pei3.png" /></a></h1>
-                                <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                <b class="colorgreen">￥64</b><s>89</s>
-                            </li>
-                            <li>
-                                <h1><a href="###" target="_blank"><img src="images/pei1.png" /></a></h1>
-                                <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                <b class="colorgreen">￥64</b><s>89</s>
-                            </li>
-                            <li>
-                                <h1><a href="###" target="_blank"><img src="images/17279_1.jpg" /></a></h1>
-                                <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                <b class="colorgreen">￥64</b><s>89</s>
-                            </li>
-                            <li>
-                                <h1><a href="###" target="_blank"><img src="images/pei4.png" /></a></h1>
-                                <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                <b class="colorgreen">￥64</b><s>89</s>
-                            </li>*@
+                                    <h1>
+                                        <a href="###" target="_blank">
+                                            <img src="images/pei2.png" />
+                                        </a>
+                                    </h1>
+                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
+                                    <b class="colorgreen">￥88800</b><s>89000</s>
+                                </li>
+                                <li>
+                                    <h1><a href="###" target="_blank"><img src="images/pei3.png" /></a></h1>
+                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
+                                    <b class="colorgreen">￥64</b><s>89</s>
+                                </li>
+                                <li>
+                                    <h1><a href="###" target="_blank"><img src="images/pei1.png" /></a></h1>
+                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
+                                    <b class="colorgreen">￥64</b><s>89</s>
+                                </li>
+                                <li>
+                                    <h1><a href="###" target="_blank"><img src="images/17279_1.jpg" /></a></h1>
+                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
+                                    <b class="colorgreen">￥64</b><s>89</s>
+                                </li>
+                                <li>
+                                    <h1><a href="###" target="_blank"><img src="images/pei4.png" /></a></h1>
+                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
+                                    <b class="colorgreen">￥64</b><s>89</s>
+                                </li>*@
                         </ul>
-                    </div> 
+                    </div>
 
                     <div class="c_con">
                         <ul>
@@ -483,262 +344,21 @@
                             {
                                 <li><h1><a><img src="@{@WorkContext.ImageCDN}/images/brand/@hotBrandinfo2.Logo" /></a></h1></li>
                             }
-                          </ul>
+                        </ul>
                     </div>
                 </div>
-            </div> 
+            </div>
 
         </div>
-        
-      
-   
     </div>
 
-<!-- 1楼 -->
 
-@*<div id="floor1" class="floor box">
-<h2 class="floorT">
-<b>1F</b>电脑数码
-<ul>
-    <li><a href="javascript:void(0)" class="hot">手机</a></li>
-    <li><a href="javascript:void(0)">耳机</a></li>
-    <li><a href="javascript:void(0)">数码影音</a></li>
-    <li><a href="javascript:void(0)">摄影摄像</a></li>
-    <div class="clear"></div>
-</ul>
-<div class="floorBt"><a href="#">DIY装机大师</a><a href="#">游戏社区</a></div>
-<div class="clear"></div>
-</h2>
-<div class="floorL left">
-<ul>
-    @{
-        List<AdvertInfo> floor1AdvertList1 = Adverts.GetAdvertList(10);
-     }
-     @foreach (AdvertInfo info in floor1AdvertList1)
-     { 
-    <li><a href="@info.Url" class="hot">@info.Image</a></li>
-     }
-    <div class="clear"></div>
-</ul>
-    @{
-        List<AdvertInfo> floor1AdvertList2 = Adverts.GetAdvertList(11);
-     }
-     @if (floor1AdvertList2.Count > 0)
-     { 
-    <a href="@floor1AdvertList2[0].Url" class="floorAD"><img src="@{@WorkContext.ImageCDN}/upload/adv/@floor1AdvertList2[0].Image" width="202" height="155" /></a> 
-     }
-</div>
-<div class="floorR right">
-<div class="floorCon">
-<ul>
-    @{
-        List<AdvertInfo> floor1AdvertList3 = Adverts.GetAdvertList(12);
-     }
-     @foreach (AdvertInfo info in floor1AdvertList3)
-     {
-    <li><a href="@info.Url"><img src="@{@WorkContext.ImageCDN}/upload/adv/@info.Image" width="236" height="236" /><em>@info.ExtField1</em><b>¥@info.ExtField2<s>¥@info.ExtField3</s></b></a></li>
-     }
-</ul>
-</div>
-</div>
-<div class="floorR right hide">
-<div class="floorCon">
-<ul>
-    @{
-        List<AdvertInfo> floor1AdvertList4 = Adverts.GetAdvertList(13);
-     }
-     @foreach (AdvertInfo info in floor1AdvertList4)
-     {
-    <li><a href="@info.Url"><img src="@{@WorkContext.ImageCDN}/upload/adv/@info.Image" width="236" height="236" /><em>@info.ExtField1</em><b>¥@info.ExtField2<s>¥@info.ExtField3</s></b></a></li>
-     }
-</ul>
-</div>
-</div>
-<div class="floorR right hide">
-<div class="floorCon">
-<ul>
-    @{
-        List<AdvertInfo> floor1AdvertList5 = Adverts.GetAdvertList(14);
-     }
-     @foreach (AdvertInfo info in floor1AdvertList5)
-     {
-    <li><a href="@info.Url"><img src="@{@WorkContext.ImageCDN}/upload/adv/@info.Image" width="236" height="236" /><em>@info.ExtField1</em><b>¥@info.ExtField2<s>¥@info.ExtField3</s></b></a></li>
-     }
-</ul>
-</div>
-</div>
-<div class="floorR right hide">
-<div class="floorCon">
-<ul>
-    @{
-        List<AdvertInfo> floor1AdvertList6 = Adverts.GetAdvertList(15);
-     }
-     @foreach (AdvertInfo info in floor1AdvertList6)
-     {
-    <li><a href="@info.Url"><img src="@{@WorkContext.ImageCDN}/upload/adv/@info.Image" width="236" height="236" /><em>@info.ExtField1</em><b>¥@info.ExtField2<s>¥@info.ExtField3</s></b></a></li>
-     }
-</ul>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<script type="text/javascript">
-    $(function(){
-        $("#floor1 h2 ul li a").mouseover(function(){
-            var aList = $("#floor1 h2 ul li a");
-            var divList = $("#floor1 .floorR");
-            var index = aList.index(this);
->>>>>>> remotes/origin/LIZIDEEP_MALL
-
-    <div>
-        <a href="###" target="_blank"><img src="/images/demo_default_images/4.jpg" /></a>
-    </div>
-
-<<<<<<< HEAD
-    <div>
-        <a href="###" target="_blank"><img src="/images/demo_default_images/5.jpg" /></a>
-    </div>
-
-    <div>
-        <a href="###" target="_blank"><img src="images/demo_default_images/6.jpg" /></a>
-    </div>
-
-=======
-            divList.addClass("hide");
-            divList.eq(index).removeClass("hide");
-        })
-    })
-</script>*@
-
-<!-- 2楼 -->
-@*<div id="floor2" class="floor box">
-<h2 class="floorT">
-<b>2F</b>平板家电
-<ul>
-    <li><a href="javascript:void(0)" class="hot">平板</a></li>
-    <li><a href="javascript:void(0)">电视</a></li>
-    <li><a href="javascript:void(0)">冰箱</a></li>
-    <li><a href="javascript:void(0)">厨房电器</a></li>
-    <div class="clear"></div>
-</ul>
-<div class="floorBt"><a href="#">合约计划说明</a><a href="#">大家电配送</a></div>
-<div class="clear"></div>
-</h2>
-<div class="floorL left">
-<ul>
-    @{
-        List<AdvertInfo> floor2AdvertList1 = Adverts.GetAdvertList(16);
-     }
-     @foreach (AdvertInfo info in floor2AdvertList1)
-     { 
-    <li><a href="@info.Url" class="hot">@info.Image</a></li>
-     }
-    <div class="clear"></div>
-</ul>
-    @{
-        List<AdvertInfo> floor2AdvertList2 = Adverts.GetAdvertList(17);
-     }
-     @if (floor2AdvertList2.Count > 0)
-     { 
-    <a href="@floor2AdvertList2[0].Url" class="floorAD"><img src="@{@WorkContext.ImageCDN}/upload/adv/@floor2AdvertList2[0].Image" width="202" height="155" /></a> 
-     }
-</div>
-<div class="floorR right">
-<div class="floorCon">
-<ul>
-    @{
-        List<AdvertInfo> floor2AdvertList3 = Adverts.GetAdvertList(18);
-     }
-     @foreach (AdvertInfo info in floor2AdvertList3)
-     {
-    <li><a href="@info.Url"><img src="@{@WorkContext.ImageCDN}/upload/adv/@info.Image" width="236" height="236" /><em>@info.ExtField1</em><b>¥@info.ExtField2<s>¥@info.ExtField3</s></b></a></li>
-     }
-</ul>
-</div>
-</div>
-<div class="floorR right hide">
-<div class="floorCon">
-<ul>
-    @{
-        List<AdvertInfo> floor2AdvertList4 = Adverts.GetAdvertList(19);
-     }
-     @foreach (AdvertInfo info in floor2AdvertList4)
-     {
-    <li><a href="@info.Url"><img src="@{@WorkContext.ImageCDN}/upload/adv/@info.Image" width="236" height="236" /><em>@info.ExtField1</em><b>¥@info.ExtField2<s>¥@info.ExtField3</s></b></a></li>
-     }
-</ul>
-</div>
-</div>
-<div class="floorR right hide">
-<div class="floorCon">
-<ul>
-    @{
-        List<AdvertInfo> floor2AdvertList5 = Adverts.GetAdvertList(20);
-     }
-     @foreach (AdvertInfo info in floor2AdvertList5)
-     {
-    <li><a href="@info.Url"><img src="@{@WorkContext.ImageCDN}/upload/adv/@info.Image" width="236" height="236" /><em>@info.ExtField1</em><b>¥@info.ExtField2<s>¥@info.ExtField3</s></b></a></li>
-     }
-</ul>
-</div>
-</div>
-<div class="floorR right hide">
-<div class="floorCon">
-<ul>
-    @{
-        List<AdvertInfo> floor2AdvertList6 = Adverts.GetAdvertList(21);
-     }
-     @foreach (AdvertInfo info in floor2AdvertList6)
-     {
-    <li><a href="@info.Url"><img src="@{@WorkContext.ImageCDN}/upload/adv/@info.Image" width="236" height="236" /><em>@info.ExtField1</em><b>¥@info.ExtField2<s>¥@info.ExtField3</s></b></a></li>
-     }
-</ul>
-</div>
->>>>>>> remotes/origin/LIZIDEEP_MALL
-</div>
-    <div style="height:1000px;">
-</div>
-<script type="text/javascript">
-<<<<<<< HEAD
-    $("#categorys").unbind();
-    $("#categorysCon").removeClass("hide");
-</script>
-=======
-    $(function(){
-        $("#floor2 h2 ul li a").mouseover(function(){
-            var aList = $("#floor2 h2 ul li a");
-            var divList = $("#floor2 .floorR");
-            var index = aList.index(this);
-
-            aList.removeClass("hot");
-            $(this).addClass("hot");
-
-            divList.addClass("hide");
-            divList.eq(index).removeClass("hide");
-        })
-    })
-</script>*@
->>>>>>> remotes/origin/LIZIDEEP_MALL
-
-    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
-    <script src="/scripts/home.js"></script>
-    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.soChange.js" type="text/javascript"></script>
-@Html.Partial("_footer")
-    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/jquery.SuperSlide.2.1.1.js"></script>
+    <script src="/js/jquery.SuperSlide.2.1.1.js"></script>
     <script type="text/javascript">
         jQuery(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",autoPlay:true,scroll:5,vis:5,delayTime:1000});
     </script>
-    <script src="js/jquery.kinMaxShow-1.0.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(function(){
-
-            $("#kinMaxShow").kinMaxShow();
 
 
-        });
-
-    </script>
     <!--end banner js-->
     <script>
         $(".tab-search li").click(function(e){
@@ -762,6 +382,16 @@
         $("#submenu").removeClass("hide");
     });*/
     </script>
+
+    <script type="text/javascript">
+        $("#categorys").unbind();
+        $("#categorysCon").removeClass("hide");
+    </script>
+
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script src="/scripts/home.js"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.soChange.js" type="text/javascript"></script>
+    @Html.Partial("_footer")
 </body>
 
 

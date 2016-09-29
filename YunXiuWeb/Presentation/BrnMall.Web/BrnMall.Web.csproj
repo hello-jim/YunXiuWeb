@@ -83,6 +83,7 @@
     <Compile Include="models\CartModel.cs" />
     <Compile Include="models\CatalogModel.cs" />
     <Compile Include="models\HelpModel.cs" />
+    <Compile Include="models\HomeModel.cs" />
     <Compile Include="models\NewsModel.cs" />
     <Compile Include="models\OrderModel.cs" />
     <Compile Include="models\StoreModel.cs" />
@@ -446,6 +447,11 @@
     <Content Include="images\zoom.jpg" />
     <Content Include="images\zoom.png" />
     <Content Include="images\zoomloader.gif" />
+    <Content Include="js\home.js" />
+    <Content Include="js\jquery-1.10.2.min.js" />
+    <Content Include="js\jquery.kinMaxShow-1.0.min.js" />
+    <Content Include="js\jquery.kinMaxShow-1.0.src.js" />
+    <Content Include="js\jquery.SuperSlide.2.1.1.js" />
     <Content Include="robots.txt" />
     <Content Include="scripts\account.js" />
     <Content Include="scripts\common.js" />

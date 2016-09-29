@@ -33,3 +33,4 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\BrnMall.Core.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\BrnMall.Core.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\Newtonsoft.Json.dll
