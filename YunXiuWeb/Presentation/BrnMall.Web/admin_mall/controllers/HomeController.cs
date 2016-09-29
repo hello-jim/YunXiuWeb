@@ -6,6 +6,7 @@ using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.MallAdmin.Models;
+using Newtonsoft.Json;
 
 namespace BrnMall.Web.MallAdmin.Controllers
 {

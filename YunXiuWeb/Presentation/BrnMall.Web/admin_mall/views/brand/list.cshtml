@@ -1,4 +1,4 @@
-﻿@model BrnMall.Web.MallAdmin.Models.BrandListModel
+﻿@model BrnMall.Web.MallAdmin.Models.BrandList
 
 @section header{
 <title>品牌列表</title>
@@ -28,8 +28,9 @@
           品牌名称：
         </td>
         <td width="130">
-          	@Html.TextBox("BrandName", Model.BrandName, new { height = "18" })
-        </td>
+            <input name="搜索" type="text"/>
+                @*@Html.TextBox("Name", Model.Name, new { height = "18" })*@
+</td>
        <td>
        <input id="SearchBrand" name="SearchBrand" type="image" class="searchBut submit" src="/admin_mall/images/s.jpg" />
        </td>
@@ -49,26 +50,36 @@
     </tr>
 </thead>
   <tbody>
-  @foreach (DataRow row in Model.BrandList.Rows)
+      @{var brandList = @Model.Brands;}
+  @foreach (var row in brandList)
   {
   <tr>
     <td align="center"></td>
-    <td>@row["brandid"]</td>
-    <td>@row["name"]</td>
-    <td>@row["displayorder"]</td>
+    <td>@row.BrandID</td>
+    <td>@row.Name</td>
+    <td>@row.Sort</td>
     <td>
-        @Html.ActionLink("[编辑]", "edit", new { brandId = row["brandid"] }, new { @class = "editOperate" })
-        @Html.ActionLink("[删除]", "del", new { brandId = row["brandid"] }, new { @class = "deleteOperate" })
+        @Html.ActionLink("[编辑]", "edit", new { brandId = row.BrandID }, new { @class = "editOperate" })
+        @Html.ActionLink("[删除]", "del", new { brandId = row.BrandID }, new { @class = "deleteOperate" })
     </td>
     </tr>
   }
+      @*@{var brandList = @Model.Brands;}
+            @foreach (var row in brandList) { 
+                 <tr>
+                <td align="center"></td>
+                     <td>@row.BrandID</td>
+                     <td>@row.Name</td>
+                     <td>@row.Sort</td>
+                </tr>
+            }*@
 </tbody>
 </table>
 </div>
 <div class="dataListEdit">
-<div class="page">
+@*<div class="page">
     @Html.MallAdminPager(Model.PageModel)
-</div>
+</div>*@
 </div>
 }
 }

@@ -6,7 +6,8 @@ using System.ComponentModel.DataAnnotations;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
-
+using System.Collections.Generic;
+using YunXiu.Model;
 namespace BrnMall.Web.MallAdmin.Models
 {
     /// <summary>
@@ -26,11 +27,18 @@ namespace BrnMall.Web.MallAdmin.Models
         /// 品牌名称
         /// </summary>
         public string BrandName { get; set; }
+
+        public int BrandID { get; set; }
+
+        public string Name { get; set; }
+
+        public string Logo { get; set; }
+        public List<Brand> Brands { get; set; }
     }
 
     /// <summary>
     /// 品牌模型类
-    /// </summary>
+    ///// </summary>
     public class BrandModel
     {
         /// <summary>
@@ -49,5 +57,21 @@ namespace BrnMall.Web.MallAdmin.Models
         /// </summary>
         [DisplayName("排序")]
         public int DisplayOrder { get; set; }
+
+        public Category Caregorys { get; set; }
     }
+    public class BrandList {
+        public int BrandID
+        {
+            get;
+            set;
+        }
+        public string Sort
+        {
+            get;
+            set;
+        }
+        public List<Brand> Brands { get; set; }
+    }
+ 
 }

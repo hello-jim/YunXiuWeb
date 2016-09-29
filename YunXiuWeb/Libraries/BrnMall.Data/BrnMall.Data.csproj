@@ -30,9 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\YunXiu\YunXiu\YunXiu\YunXiu.Commom\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="YunXiu.Commom">
+      <HintPath>..\..\..\..\..\YunXiu\YunXiu\YunXiu\YunXiu.Commom\bin\Debug\YunXiu.Commom.dll</HintPath>
+    </Reference>
+    <Reference Include="YunXiu.Model">
+      <HintPath>..\..\..\..\..\YunXiu\YunXiu\YunXiu\YunXiu.Commom\bin\Debug\YunXiu.Model.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adverts.cs" />
