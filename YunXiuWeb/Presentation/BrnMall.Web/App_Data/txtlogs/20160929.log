@@ -1,0 +1,42 @@
+Log Entry : 2016年09月29日 09:02:46
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月29日 17:27:27
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月29日 17:42:19
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:d:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\views\catalog\product.cshtml(628): error CS1061: “YunXiu.Model.User”不包含“UserName”的定义，并且找不到可接受类型为“YunXiu.Model.User”的第一个参数的扩展方法“UserName”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2016年09月29日 19:25:00
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:d:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\views\catalog\product.cshtml(628): error CS1061: “YunXiu.Model.User”不包含“UserName”的定义，并且找不到可接受类型为“YunXiu.Model.User”的第一个参数的扩展方法“UserName”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2016年09月29日 19:29:36
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月29日 19:51:21
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月29日 19:51:37
+方法:Void Execute(),异常信息:未将对象引用设置到对象的实例。
+------------------------------------
+Log Entry : 2016年09月29日 20:00:31
+方法:System.IO.Stream GetRequestStream(System.Net.TransportContext ByRef),异常信息:无法连接到远程服务器
+------------------------------------
+Log Entry : 2016年09月29日 20:18:20
+方法:Void Execute(),异常信息:未将对象引用设置到对象的实例。
+------------------------------------
+Log Entry : 2016年09月29日 20:19:15
+方法:Void Execute(),异常信息:未将对象引用设置到对象的实例。
+------------------------------------
+Log Entry : 2016年09月29日 20:19:20
+方法:Void Execute(),异常信息:未将对象引用设置到对象的实例。
+------------------------------------
+Log Entry : 2016年09月29日 20:19:39
+方法:Void Execute(),异常信息:未将对象引用设置到对象的实例。
+------------------------------------
+Log Entry : 2016年09月29日 20:23:28
+方法:System.Net.WebResponse GetResponse(),异常信息:基础连接已经关闭: 接收时发生错误。
+------------------------------------
+Log Entry : 2016年09月29日 20:30:17
+方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
+------------------------------------

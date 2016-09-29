@@ -68,8 +68,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
                 };
 
                 AdminCategories.CreateCategory(categoryInfo);
-                //AddMallAdminLog("添加分类", "添加分类,分类为:" + model.CategroyName);
-                var result = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Category/AddCategory", productApi), JsonConvert.SerializeObject(categoryInfo)));
+                //AddMallAdminLog("添加分类", "添加分类,分类为:" + model.CategroyName);         
                return PromptView("分类添加成功");          
             }
 

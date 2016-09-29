@@ -85,13 +85,19 @@ function closeCartSnap() {
 function addProductToFavorite(pid) {
     if (pid < 1) {
         alert("请选择商品");
+        return;
     }
-    else if (uid < 1) {
-        alert("请先登录");
-    }
-    else {
-        $.get("/ucenter/addproducttofavorite?pid=" + pid, addProductToFavoriteResponse)
-    }
+    $.post("/UCenter/addProductToFavorite",
+        {
+            pID: pid
+        },
+        function (data) {
+            if (data == "1") {
+                alert("添加成功");
+            } else {
+                alert("添加失败")
+            }
+        });
 }
 
 //处理添加商品到收藏夹的反馈信息
@@ -104,13 +110,15 @@ function addProductToFavoriteResponse(data) {
 function addStoreToFavorite(storeId) {
     if (storeId < 1) {
         alert("请选择店铺");
+        return;
     }
-    else if (uid < 1) {
-        alert("请先登录");
-    }
-    else {
-        $.get("/ucenter/addstoretofavorite?storeId=" + storeId, addStoreToFavoriteResponse)
-    }
+    $.post("/UCenter/AddStoretoFavorite",
+        {
+            sID: storeId
+        },
+        function (data) {
+
+        });
 }
 
 //处理添加店铺到收藏夹的反馈信息
@@ -123,19 +131,20 @@ function addStoreToFavoriteResponse(data) {
 function addProductToCart(pid, buyCount) {
     if (pid < 1) {
         alert("请选择商品");
+        return;
     }
-    else if (isGuestSC == 0 && uid < 1) {
-        alert("请先登录");
-    }
-    else if (buyCount < 1) {
-        alert("请填写购买数量");
-    }
-    else if (scSubmitType != 2) {
-        window.location.href = "/cart/addproduct?pid=" + pid + "&buyCount=" + buyCount;
-    }
-    else {
-        $.get("/cart/addproduct?pid=" + pid + "&buyCount=" + buyCount, addProductToCartResponse)
-    }
+    $.post("/UCenter/AddProductToShoppingCart",
+    {
+        pID: pid,
+        buyCount: buyCount
+    },
+    function (data) {
+        if (data == "1") {
+            alert("添加成功");
+        } else {
+            alert("添加失败");
+        }
+    });
 }
 
 //处理添加商品到购物车的反馈信息

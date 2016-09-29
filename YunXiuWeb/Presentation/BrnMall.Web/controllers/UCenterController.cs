@@ -4,11 +4,14 @@ using System.Data;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Collections.Generic;
-
+using System.Configuration;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.Models;
+using YunXiu.Model;
+using YunXiu.Commom;
+using Newtonsoft.Json;
 
 namespace BrnMall.Web.Controllers
 {
@@ -17,6 +20,7 @@ namespace BrnMall.Web.Controllers
     /// </summary>
     public partial class UCenterController : BaseWebController
     {
+        string accountApi = ConfigurationManager.AppSettings["accountApi"];
         public ActionResult Index() 
         {
             return View();
@@ -33,7 +37,7 @@ namespace BrnMall.Web.Controllers
             model.UserInfo = Users.GetUserById(WorkContext.Uid);
             model.UserRankInfo = WorkContext.UserRankInfo;
 
-            RegionInfo regionInfo = Regions.GetRegionById(model.UserInfo.RegionId);
+            RegionInfo regionInfo = BrnMall.Services.Regions.GetRegionById(model.UserInfo.RegionId);
             if (regionInfo != null)
             {
                 ViewData["provinceId"] = regionInfo.ProvinceId;
@@ -152,7 +156,7 @@ namespace BrnMall.Web.Controllers
             //验证区域
             if (regionId > 0)
             {
-                RegionInfo regionInfo = Regions.GetRegionById(regionId);
+                RegionInfo regionInfo = BrnMall.Services.Regions.GetRegionById(regionId);
                 if (regionInfo == null || regionInfo.Layer != 3)
                     errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "regionId", "请选择正确的地址", "}");
             }
@@ -760,7 +764,7 @@ namespace BrnMall.Web.Controllers
 
             OrderInfoModel model = new OrderInfoModel();
             model.OrderInfo = orderInfo;
-            model.RegionInfo = Regions.GetRegionById(orderInfo.RegionId);
+            model.RegionInfo = BrnMall.Services.Regions.GetRegionById(orderInfo.RegionId);
             model.OrderProductList = AdminOrders.GetOrderProductList(oid);
             model.OrderActionList = OrderActions.GetOrderActionList(oid);
 
@@ -856,34 +860,34 @@ namespace BrnMall.Web.Controllers
         /// <summary>
         /// 添加商品到收藏夹
         /// </summary>
-        public ActionResult AddProductToFavorite()
-        {
-            //商品id
-            int pid = WebHelper.GetQueryInt("pid");
-            //商品信息
-            PartProductInfo partProductInfo = Products.GetPartProductById(pid);
-            if (partProductInfo == null)
-                return AjaxResult("noproduct", "请选择商品");
-            //店铺信息
-            StoreInfo storeInfo = Stores.GetStoreById(partProductInfo.StoreId);
-            if (storeInfo.State != (int)StoreState.Open)
-                return AjaxResult("nostore", "店铺不存在");
+        //public ActionResult AddProductToFavorite()
+        //{
+        //    //商品id
+        //    int pid = WebHelper.GetQueryInt("pid");
+        //    //商品信息
+        //    PartProductInfo partProductInfo = Products.GetPartProductById(pid);
+        //    if (partProductInfo == null)
+        //        return AjaxResult("noproduct", "请选择商品");
+        //    //店铺信息
+        //    StoreInfo storeInfo = Stores.GetStoreById(partProductInfo.StoreId);
+        //    if (storeInfo.State != (int)StoreState.Open)
+        //        return AjaxResult("nostore", "店铺不存在");
 
-            //当收藏夹中已经存在此商品时
-            if (FavoriteProducts.IsExistFavoriteProduct(WorkContext.Uid, pid))
-                return AjaxResult("exist", "商品已经存在");
+        //    //当收藏夹中已经存在此商品时
+        //    if (FavoriteProducts.IsExistFavoriteProduct(WorkContext.Uid, pid))
+        //        return AjaxResult("exist", "商品已经存在");
 
-            //收藏夹已满时
-            if (WorkContext.MallConfig.FavoriteProductCount <= FavoriteProducts.GetFavoriteProductCount(WorkContext.Uid))
-                return AjaxResult("full", "收藏夹已满");
+        //    //收藏夹已满时
+        //    if (WorkContext.MallConfig.FavoriteProductCount <= FavoriteProducts.GetFavoriteProductCount(WorkContext.Uid))
+        //        return AjaxResult("full", "收藏夹已满");
 
-            bool result = FavoriteProducts.AddProductToFavorite(WorkContext.Uid, pid, 0, DateTime.Now);
+        //    bool result = FavoriteProducts.AddProductToFavorite(WorkContext.Uid, pid, 0, DateTime.Now);
 
-            if (result)//添加成功
-                return AjaxResult("success", "收藏成功");
-            else//添加失败
-                return AjaxResult("error", "收藏失败");
-        }
+        //    if (result)//添加成功
+        //        return AjaxResult("success", "收藏成功");
+        //    else//添加失败
+        //        return AjaxResult("error", "收藏失败");
+        //}
 
         /// <summary>
         /// 删除收藏夹中的商品
@@ -923,30 +927,30 @@ namespace BrnMall.Web.Controllers
         /// <summary>
         /// 添加店铺到收藏夹
         /// </summary>
-        public ActionResult AddStoreToFavorite()
-        {
-            //店铺id
-            int storeId = WebHelper.GetQueryInt("storeId");
-            //店铺信息
-            StoreInfo storeInfo = Stores.GetStoreById(storeId);
-            if (storeInfo == null || storeInfo.State != (int)StoreState.Open)
-                return AjaxResult("nostore", "店铺不存在");
+        //public ActionResult AddStoreToFavorite()
+        //{
+        //    //店铺id
+        //    int storeId = WebHelper.GetQueryInt("storeId");
+        //    //店铺信息
+        //    StoreInfo storeInfo = Stores.GetStoreById(storeId);
+        //    if (storeInfo == null || storeInfo.State != (int)StoreState.Open)
+        //        return AjaxResult("nostore", "店铺不存在");
 
-            //当收藏夹中已经存在此店铺时
-            if (FavoriteStores.IsExistFavoriteStore(WorkContext.Uid, storeId))
-                return AjaxResult("exist", "店铺已经存在");
+        //    //当收藏夹中已经存在此店铺时
+        //    if (FavoriteStores.IsExistFavoriteStore(WorkContext.Uid, storeId))
+        //        return AjaxResult("exist", "店铺已经存在");
 
-            //收藏夹已满时
-            if (WorkContext.MallConfig.FavoriteStoreCount <= FavoriteStores.GetFavoriteStoreCount(WorkContext.Uid))
-                return AjaxResult("full", "收藏夹已满");
+        //    //收藏夹已满时
+        //    if (WorkContext.MallConfig.FavoriteStoreCount <= FavoriteStores.GetFavoriteStoreCount(WorkContext.Uid))
+        //        return AjaxResult("full", "收藏夹已满");
 
-            bool result = FavoriteStores.AddStoreToFavorite(WorkContext.Uid, storeId, DateTime.Now);
+        //    bool result = FavoriteStores.AddStoreToFavorite(WorkContext.Uid, storeId, DateTime.Now);
 
-            if (result)//添加成功
-                return AjaxResult("success", "收藏成功");
-            else//添加失败
-                return AjaxResult("error", "收藏失败");
-        }
+        //    if (result)//添加成功
+        //        return AjaxResult("success", "收藏成功");
+        //    else//添加失败
+        //        return AjaxResult("error", "收藏失败");
+        //}
 
         /// <summary>
         /// 删除收藏夹中的店铺
@@ -1140,7 +1144,7 @@ namespace BrnMall.Web.Controllers
             StringBuilder errorList = new StringBuilder("[");
 
             //检查区域
-            RegionInfo regionInfo = Regions.GetRegionById(regionId);
+            RegionInfo regionInfo = BrnMall.Services.Regions.GetRegionById(regionId);
             if (regionInfo == null || regionInfo.Layer != 3)
                 errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "regionId", "请选择有效的区域", "}");
 
@@ -1279,11 +1283,11 @@ namespace BrnMall.Web.Controllers
         {
             int page = WebHelper.GetQueryInt("page");
 
-            PageModel pageModel = new PageModel(10, page, ProductConsults.GetUserProductConsultCount(WorkContext.Uid));
+            PageModel pageModel = new PageModel(10, page, BrnMall.Services.ProductConsults.GetUserProductConsultCount(WorkContext.Uid));
             UserProductConsultListModel model = new UserProductConsultListModel()
             {
                 PageModel = pageModel,
-                ProductConsultList = ProductConsults.GetUserProductConsultList(WorkContext.Uid, pageModel.PageSize, pageModel.PageNumber)
+                ProductConsultList = BrnMall.Services.ProductConsults.GetUserProductConsultList(WorkContext.Uid, pageModel.PageSize, pageModel.PageNumber)
             };
 
             return View(model);
@@ -1611,7 +1615,7 @@ namespace BrnMall.Web.Controllers
                 if (shipSN.Length > 30)
                     return AjaxResult("muchshipsn", "配送单号不能超过30个字");
 
-                RegionInfo regionInfo = Regions.GetRegionById(regionId);
+                RegionInfo regionInfo = BrnMall.Services.Regions.GetRegionById(regionId);
                 if (regionInfo == null || regionInfo.Layer != 3)
                     return AjaxResult("wrongregion", "请选择有效的区域");
 
@@ -1683,5 +1687,116 @@ namespace BrnMall.Web.Controllers
                     filterContext.Result = RedirectToAction("login", "account", new RouteValueDictionary { { "returnUrl", WorkContext.Url } });
             }
         }
+
+        /// <summary>
+        /// 添加收藏店铺
+        /// </summary>
+        /// <returns></returns>
+        public string AddStoreToFavorite()
+        {
+            var result = "";
+            try
+            {
+                var storeID = Convert.ToInt32(Request.Form["storeID"]);//店铺ID
+                var uID = 0;//用户ID
+                if (uID != 0)
+                {
+                    FavoriteStore fStore = new FavoriteStore
+                    {
+                        User = new User
+                        {
+                            UID = uID
+                        },
+                        Store = new Store
+                        {
+                            StoreID = storeID
+                        }
+                    };
+                    var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Store/AddFavoriteStore", accountApi), JsonConvert.SerializeObject(fStore)));
+                }
+                else
+                {
+                    result = "-1";
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 添加产品到购物车
+        /// </summary>
+        /// <returns></returns>
+        public string AddProductToShoppingCart()
+        {
+            var result = "0";
+            var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID
+            var uID = 0;//用户ID
+            var number = Convert.ToInt32(Request.Form["buyCount"]);//数量
+            if (uID != 0)
+            {
+                ShoppingCart cart = new ShoppingCart
+                {
+                    Product = new Product
+                    {
+                        PID = pID
+                    },
+                    User = new User
+                    {
+                        UID = uID
+                    },
+                    Number = number
+                };
+
+                var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Account/AddProductToShoppingCart", accountApi), JsonConvert.SerializeObject(cart)));
+                if (isAdd)
+                {
+                    result = "1";
+                }
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 添加收藏商品
+        /// </summary>
+        /// <returns></returns>
+        public string AddProductToFavorite()
+        {
+            var result = "0";//0为失败
+            var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID
+            var uID = 0;//用户ID
+            //检查是否登录
+            if (uID != 0)//登录之后才能收藏 
+            {
+                FavoriteProduct fp = new FavoriteProduct();
+                fp.FProduct = new Product
+                {
+                    PID = pID
+                };
+                fp.FUser = new User
+                {
+                    UID = uID
+                };
+                var data = CommomClass.HttpPost(string.Format("{0}/Account/AddFavoriteProduct",accountApi), JsonConvert.SerializeObject(fp));
+                if (JsonConvert.DeserializeObject<bool>(data))
+                {
+                    result = "1";//1为添加成功
+                }
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
+        }
+  
     }
 }

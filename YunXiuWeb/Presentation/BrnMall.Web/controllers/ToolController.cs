@@ -40,7 +40,7 @@ namespace BrnMall.Web.Controllers
             RandomImage verifyImage = Randoms.CreateRandomImage(verifyValue, width, height, Color.White, Color.Blue, Color.DarkRed);
             //将验证值保存到session中
             Sessions.SetItem(sid, "verifyCode", verifyValue);
-
+            
             //输出验证图片
             return new ImageResult(verifyImage.Image, verifyImage.ContentType);
         }

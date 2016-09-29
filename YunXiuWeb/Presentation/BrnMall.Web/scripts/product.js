@@ -13,6 +13,10 @@
                 }
             });
     });
+
+    $(".to-cart-btn").on("click", function () {
+
+    });
     
 });
 

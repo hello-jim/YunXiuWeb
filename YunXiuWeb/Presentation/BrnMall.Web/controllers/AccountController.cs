@@ -3,11 +3,15 @@ using System.Web;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
-
+using System.Configuration;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.Models;
+using YunXiu.Commom;
+using YunXiu.Model;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace BrnMall.Web.Controllers
 {
@@ -16,6 +20,7 @@ namespace BrnMall.Web.Controllers
     /// </summary>
     public partial class AccountController : BaseWebController
     {
+        string accountApi = ConfigurationManager.AppSettings["accountApi"];
         /// <summary>
         /// 登录
         /// </summary>
@@ -27,15 +32,15 @@ namespace BrnMall.Web.Controllers
 
             if (WorkContext.MallConfig.LoginType == "")
                 return PromptView(returnUrl, "商城目前已经关闭登录功能!");
-            if (WorkContext.Uid > 0)
-                return PromptView(returnUrl, "您已经登录，无须重复登录!");
+            //if (WorkContext.Uid > 0)
+            //    return PromptView(returnUrl, "您已经登录，无须重复登录!");
             if (WorkContext.MallConfig.LoginFailTimes != 0 && LoginFailLogs.GetLoginFailTimesByIp(WorkContext.IP) >= WorkContext.MallConfig.LoginFailTimes)
                 return PromptView(returnUrl, "您已经输入错误" + WorkContext.MallConfig.LoginFailTimes + "次密码，请15分钟后再登录!");
 
             //get请求
             if (WebHelper.IsGet())
             {
-                LoginModel model = new LoginModel();
+                BrnMall.Web.Models.LoginModel model = new BrnMall.Web.Models.LoginModel();
 
                 model.ReturnUrl = returnUrl;
                 model.ShadowName = WorkContext.MallConfig.ShadowName;
@@ -89,6 +94,8 @@ namespace BrnMall.Web.Controllers
                     errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "verifyCode", "验证码不正确", "}");
                 }
             }
+
+          
 
             //当以上验证全部通过时
             PartUserInfo partUserInfo = null;
@@ -145,7 +152,7 @@ namespace BrnMall.Web.Controllers
                     {
                         if (partUserInfo.LiftBanTime > DateTime.Now)//达到解禁时间
                         {
-                            UserRankInfo userRankInfo = UserRanks.GetUserRankByCredits(partUserInfo.PayCredits);
+                            UserRankInfo userRankInfo = BrnMall.Services.UserRanks.GetUserRankByCredits(partUserInfo.PayCredits);
                             Users.UpdateUserRankByUid(partUserInfo.Uid, userRankInfo.UserRid);
                             partUserInfo.UserRid = userRankInfo.UserRid;
                         }
@@ -174,6 +181,24 @@ namespace BrnMall.Web.Controllers
 
                 return AjaxResult("success", "登录成功");
             }
+
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("account", accountName);
+            dic.Add("pwd", password);
+            var info = JsonConvert.DeserializeObject<LoginInfo>(CommomClass.HttpPost(string.Format("{0}/Account/Login", accountApi), JsonConvert.SerializeObject(dic)));
+            if (info.LoginState == 1)
+            {
+                return AjaxResult("success", "登录成功");
+            }
+            else if (info.LoginState == 0)
+            {
+                return AjaxResult("error", "用户名或密码错误");
+            }
+            else
+            {
+                return AjaxResult("error", "账号不存在");
+            }
+           
         }
 
         /// <summary>
@@ -322,7 +347,7 @@ namespace BrnMall.Web.Controllers
             int regionId = WebHelper.GetFormInt("regionId");
             if (regionId > 0)
             {
-                if (Regions.GetRegionById(regionId) == null)
+                if (BrnMall.Services.Regions.GetRegionById(regionId) == null)
                     errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "regionId", "请选择正确的地址", "}");
                 if (WebHelper.GetFormString("address").Length > 75)
                 {
@@ -423,7 +448,7 @@ namespace BrnMall.Web.Controllers
 
                 userInfo.Salt = Randoms.CreateRandomValue(6);
                 userInfo.Password = Users.CreateUserPassword(password, userInfo.Salt);
-                userInfo.UserRid = UserRanks.GetLowestUserRank().UserRid;
+                userInfo.UserRid = BrnMall.Services.UserRanks.GetLowestUserRank().UserRid;
                 userInfo.StoreId = 0;
                 userInfo.MallAGid = 1;//非管理员组
                 if (nickName.Length > 0)

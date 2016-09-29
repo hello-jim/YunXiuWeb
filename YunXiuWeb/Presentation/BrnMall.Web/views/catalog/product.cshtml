@@ -20,7 +20,7 @@
 </style>
 
 @*@{
-
+  
         List<CategoryInfo> categoryList = Categories.GetCategoryList();
 
         CategoryInfo categoryInfo2 = new CategoryInfo();
@@ -299,7 +299,7 @@
 
             <div class="btn-group">
                 <a class="buy-btn bgyellow" onclick="directBuyProduct(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">立即购买</a>
-                <a class="buy-btn cart-btn" onclick="addProductToCart(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">加入购物车</a>
+                <a class="buy-btn to-cart-btn" onclick="addProductToCart(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">加入购物车</a>
                 <a class="fav-btn" onclick="addProductToFavorite(@Model.ProductInfo.PID)"></a>
             </div>
 
@@ -625,7 +625,7 @@
                                     {
                                         <div class="item col-md-12">
                                             <div class="user col-md-12">
-                                                <span class="user-title">网&nbsp;&nbsp;友:</span><span class="u-name"> @c.CreateUser.UserName</span>
+                                                <span class="user-title">网&nbsp;&nbsp;友:</span><span class="u-name"> </span>
                                                 <span class="u-level"></span>
                                                 <span class="date-ask">@c.CreateDate</span>
                                             </div>

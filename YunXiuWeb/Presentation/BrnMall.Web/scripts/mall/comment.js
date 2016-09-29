@@ -25,7 +25,7 @@ function CreateProductReview(json, index, count) {
         //商品信息
         var html = "<div class='box-conten row' >";
         html += "<div class='right-conten col-md-2'>";
-        html += "<div class='star star4'></div>";
+        html += "<div class='star star" + nList[i].Star + "'></div>";
         html += "<div class='day-item'>下单3天后评论</div>";
         html += "<div class='time-item'>2016-09-01 11:51</div>";
        // html += "<div class='feature'>";
@@ -36,7 +36,7 @@ function CreateProductReview(json, index, count) {
         ///评论
         html += "  <div class='mid-conten col-md-7 clearfix'>";
         html += "<div class='comment'>";
-        html += "<span>" + nList[i].RUser.UID + "</span>:";
+        html += "<span>" + nList[i].RUser.TFUser.client_name + "</span>:";
         html += nList[i].RContent;
         html += "</div>";
         html += "<div class='otherFeature'></div>";
@@ -159,9 +159,9 @@ function GetReplyList(json, pID) {
             html += "<div class='reply-info'>";
             var parent = GetParentReview(childrenReview, nList[j].Parent);
             if (parent != null) {
-                html += "<span class='user-name colorblue'>" + nList[j].RUser.UID + "</span>" + " 回复 " + "<span class='user-name colororange'>" + parent.RUser.UID + "</span>:";
+                html += "<span class='user-name colorblue'>" + nList[j].RUser.TFUser.client_name + "</span>" + " 回复 " + "<span class='user-name colororange'>" + parent.RUser.TFUser.client_name + "</span>:";
             } else {
-                html += "<span class='user-name colororange'>" + nList[j].RUser.UID + "</span>:";
+                html += "<span class='user-name colororange'>" + nList[j].RUser.TFUser.client_name + "</span>:";
             }
             html += nList[j].RContent;//评论内容    
             html += "</div>";

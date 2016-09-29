@@ -21,11 +21,3 @@
 });
 
 
-function GetStarLevel(product){
-    var goodStars = product.OneStar + TwoStar + ThreeStar;
-    var allStars = goodStars + FourStar + FiveStar;
-
-    if (allStars == 0)
-        return 100;
-    return goodStars * 100 / allStars;
-}
