@@ -21,3 +21,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Debug\BrnMall.SMSStrategy.BrnMall.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Debug\BrnMall.SMSStrategy.BrnMall.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Debug\BrnMall.SMSStrategy.BrnMall.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.BrnMall.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.BrnMall.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Debug\BrnMall.SMSStrategy.BrnMall.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Debug\BrnMall.SMSStrategy.BrnMall.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Debug\BrnMall.SMSStrategy.BrnMall.csprojResolveAssemblyReference.cache

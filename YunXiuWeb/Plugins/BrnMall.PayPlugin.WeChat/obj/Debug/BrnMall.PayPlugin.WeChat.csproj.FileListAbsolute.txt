@@ -24,3 +24,12 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\plugins\BrnMall.PayPlug
 C:\Users\zm\Desktop\aaa\BrnMall\Plugins\BrnMall.PayPlugin.WeChat\obj\Debug\BrnMall.PayPlugin.WeChat.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Plugins\BrnMall.PayPlugin.WeChat\obj\Debug\BrnMall.PayPlugin.WeChat.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Plugins\BrnMall.PayPlugin.WeChat\obj\Debug\BrnMall.PayPlugin.WeChat.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.WeChat\db.config
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.WeChat\plugin.config
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.WeChat\views\adminwechat\config.cshtml
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.WeChat\views\wechat\pay.cshtml
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.WeChat\BrnMall.PayPlugin.WeChat.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.WeChat\BrnMall.PayPlugin.WeChat.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Plugins\BrnMall.PayPlugin.WeChat\obj\Debug\BrnMall.PayPlugin.WeChat.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Plugins\BrnMall.PayPlugin.WeChat\obj\Debug\BrnMall.PayPlugin.WeChat.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Plugins\BrnMall.PayPlugin.WeChat\obj\Debug\BrnMall.PayPlugin.WeChat.pdb

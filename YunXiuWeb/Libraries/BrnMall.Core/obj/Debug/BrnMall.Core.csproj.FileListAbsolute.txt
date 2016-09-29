@@ -15,3 +15,7 @@ C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Core\bin\Debug\BrnMall.Core.dl
 C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Core\bin\Debug\BrnMall.Core.pdb
 C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\BrnMall.Core.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\BrnMall.Core.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.pdb

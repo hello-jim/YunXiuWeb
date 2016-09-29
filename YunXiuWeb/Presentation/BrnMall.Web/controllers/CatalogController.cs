@@ -461,7 +461,7 @@ namespace BrnMall.Web.Controllers
             //判断商品是否存在
             PartProductInfo productInfo = Products.GetPartProductById(pid);
             if (productInfo == null)
-                return PromptView("/", "你访问的商品不存在");
+                return PromptView("/", "你访问的商品不存在");  
 
             //店铺信息
             StoreInfo storeInfo = Stores.GetStoreById(productInfo.StoreId);

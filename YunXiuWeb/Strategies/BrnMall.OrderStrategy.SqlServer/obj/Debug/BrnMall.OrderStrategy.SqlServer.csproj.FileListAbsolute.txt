@@ -21,3 +21,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.OrderStrate
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.OrderStrategy.SqlServer\obj\Debug\BrnMall.OrderStrategy.SqlServer.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.OrderStrategy.SqlServer\obj\Debug\BrnMall.OrderStrategy.SqlServer.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.OrderStrategy.SqlServer\obj\Debug\BrnMall.OrderStrategy.SqlServer.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.OrderStrategy.SqlServer.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.OrderStrategy.SqlServer.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.OrderStrategy.SqlServer\obj\Debug\BrnMall.OrderStrategy.SqlServer.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.OrderStrategy.SqlServer\obj\Debug\BrnMall.OrderStrategy.SqlServer.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.OrderStrategy.SqlServer\obj\Debug\BrnMall.OrderStrategy.SqlServer.csprojResolveAssemblyReference.cache

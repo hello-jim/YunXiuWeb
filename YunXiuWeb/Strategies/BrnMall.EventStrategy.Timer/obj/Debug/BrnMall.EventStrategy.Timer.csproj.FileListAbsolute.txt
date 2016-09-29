@@ -26,3 +26,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.EventStrate
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.EventStrategy.Timer\obj\Debug\BrnMall.EventStrategy.Timer.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.EventStrategy.Timer\obj\Debug\BrnMall.EventStrategy.Timer.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.EventStrategy.Timer\obj\Debug\BrnMall.EventStrategy.Timer.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.EventStrategy.Timer.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.EventStrategy.Timer.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.EventStrategy.Timer\obj\Debug\BrnMall.EventStrategy.Timer.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.EventStrategy.Timer\obj\Debug\BrnMall.EventStrategy.Timer.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.EventStrategy.Timer\obj\Debug\BrnMall.EventStrategy.Timer.pdb

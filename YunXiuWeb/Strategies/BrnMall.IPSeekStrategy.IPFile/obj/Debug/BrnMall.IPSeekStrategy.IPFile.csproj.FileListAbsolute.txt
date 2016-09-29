@@ -8,3 +8,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.IPSeekStrat
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.IPSeekStrategy.IPFile.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.IPSeekStrategy.IPFile.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.IPSeekStrategy.IPFile\obj\Debug\BrnMall.IPSeekStrategy.IPFile.pdb

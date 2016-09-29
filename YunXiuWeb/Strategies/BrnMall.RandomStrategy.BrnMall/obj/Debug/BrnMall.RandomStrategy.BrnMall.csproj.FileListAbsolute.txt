@@ -21,3 +21,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.RandomStrat
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.RandomStrategy.BrnMall\obj\Debug\BrnMall.RandomStrategy.BrnMall.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.RandomStrategy.BrnMall\obj\Debug\BrnMall.RandomStrategy.BrnMall.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.RandomStrategy.BrnMall\obj\Debug\BrnMall.RandomStrategy.BrnMall.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.RandomStrategy.BrnMall.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.RandomStrategy.BrnMall.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.RandomStrategy.BrnMall\obj\Debug\BrnMall.RandomStrategy.BrnMall.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.RandomStrategy.BrnMall\obj\Debug\BrnMall.RandomStrategy.BrnMall.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.RandomStrategy.BrnMall\obj\Debug\BrnMall.RandomStrategy.BrnMall.csprojResolveAssemblyReference.cache

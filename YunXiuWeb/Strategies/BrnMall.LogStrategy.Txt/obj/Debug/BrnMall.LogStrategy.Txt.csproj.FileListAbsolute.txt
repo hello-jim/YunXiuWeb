@@ -16,3 +16,8 @@ C:\Users\zm\Desktop\aaa\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.LogStrategy
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.LogStrategy.Txt\obj\Debug\BrnMall.LogStrategy.Txt.csprojResolveAssemblyReference.cache
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.LogStrategy.Txt\obj\Debug\BrnMall.LogStrategy.Txt.dll
 C:\Users\zm\Desktop\aaa\BrnMall\Strategies\BrnMall.LogStrategy.Txt\obj\Debug\BrnMall.LogStrategy.Txt.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.LogStrategy.Txt.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.LogStrategy.Txt.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.LogStrategy.Txt\obj\Debug\BrnMall.LogStrategy.Txt.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.LogStrategy.Txt\obj\Debug\BrnMall.LogStrategy.Txt.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.LogStrategy.Txt\obj\Debug\BrnMall.LogStrategy.Txt.csprojResolveAssemblyReference.cache
