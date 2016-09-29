@@ -14,10 +14,16 @@
             });
     });
 
-    $(".to-cart-btn").on("click", function () {
-
+    $(".to-cart").on("click", function () {
+        var pID = $("#pID").val();
+        var buyCount = $("#buyCount").val();
+        addProductToCart(pID,buyCount);
     });
     
+    $("").on("click", function () {
+        var storeID = $("#storeID").val();
+        addStoreToFavorite(storeID);
+    });
 });
 
 

@@ -299,7 +299,7 @@
 
             <div class="btn-group">
                 <a class="buy-btn bgyellow" onclick="directBuyProduct(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">立即购买</a>
-                <a class="buy-btn to-cart-btn" onclick="addProductToCart(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">加入购物车</a>
+                <a class="buy-btn to-cart cart-btn" onclick="addProductToCart(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">加入购物车</a>
                 <a class="fav-btn" onclick="addProductToFavorite(@Model.ProductInfo.PID)"></a>
             </div>
 
@@ -349,7 +349,7 @@
                 </li>
 
                 <li>
-                    <a class="btn-shop btn-shopfav" href="javascript:void(0)" onclick="addStoreToFavorite(@Model.ProductInfo.Store.StoreID)">收藏店铺</a>
+                    <a class="btn-shop store-fav btn-shopfav" href="javascript:void(0)" onclick="addStoreToFavorite(@Model.ProductInfo.Store.StoreID)">收藏店铺</a>
                     <a href="@Url.Action("index", "store", new RouteValueDictionary { { "storeId", Model.ProductInfo.Store.StoreID } })" class="btn-enshop btn-shop">进入店铺</a>
                 </li>
             </ul>
