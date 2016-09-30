@@ -53,3 +53,13 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\PanGu.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\Newtonsoft.Json.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Commom.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Model.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Services.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Services.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Core.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Data.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\Newtonsoft.Json.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Core.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\BrnMall.Data.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Services\obj\Debug\BrnMall.Services.pdb

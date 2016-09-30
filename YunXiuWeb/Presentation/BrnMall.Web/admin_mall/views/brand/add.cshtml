@@ -3,11 +3,15 @@
 @section header{
     <title>添加商品品牌</title>
     <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+<link type="text/css" href="/components/jbox/Skins/Default/jbox.css" rel="stylesheet" />
     <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
     <link type="text/css" rel="stylesheet" href="/components/webuploader/webuploader.css" />
     <script type="text/javascript" src="/components/webuploader/webuploader.js"></script>
     <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.js"></script>
     <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/selectlist.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/brand.js"></script>
+    <script type="text/javascript" src="/components/jbox/jquery.jBox-2.3.min.js"></script>
     @*<script type="text/javascript">
         $(function () {
 
@@ -98,9 +102,18 @@
                 <td>@Html.TextBoxFor(x => x.DisplayOrder, new { @class = "input", size = "3" })@Html.ValidationMessageFor(x => x.DisplayOrder)</td>
             </tr>
             <tr>
-                <td align="right">类别：</td>
-                <td>@Html.TextBoxFor(x => x.Caregorys.Name , new { @class = "input", size = "3" })@Html.ValidationMessageFor(x => x.Caregorys.Name)</td>
+                <td align="right">
+                    商品分类：
+                </td>
+                <td>
+                    <div id="Categorys" class="selectBt" style="float: left;">
+                        <input value="选择分类" onclick="openCategorySelectLayer(this)" type="button">
+                        <input class="CateId" id="CateId" name="CateId" value="-1" type="hidden">
+                        <input class="CategoryName" id="CategoryName" name="CategoryName" value="选择分类" type="hidden">
+                    </div>
+                </td>
             </tr>
+
             <tr>
                 <td align="right">&nbsp;</td>
                 <td>

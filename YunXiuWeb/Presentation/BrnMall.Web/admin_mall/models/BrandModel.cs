@@ -58,7 +58,20 @@ namespace BrnMall.Web.MallAdmin.Models
         [DisplayName("排序")]
         public int DisplayOrder { get; set; }
 
-        public Category Caregorys { get; set; }
+        public Category Category { get; set; }
+
+        public int CateID { get; set; }
+
+        public int BrandID { get; set; }
+        
+        public int Sort
+        {
+            get;
+            set;
+        }
+        public List<Brand> Brands { get; set; }
+
+        public string Name { get; set; }
     }
     public class BrandList {
         public int BrandID
@@ -66,12 +79,21 @@ namespace BrnMall.Web.MallAdmin.Models
             get;
             set;
         }
-        public string Sort
+        public int Sort
         {
             get;
             set;
         }
         public List<Brand> Brands { get; set; }
+
+        public Category Categorys { get; set; }
+
+        public int CateID { get; set; }
+
+        public string Logo { get; set; }
+
+        public string Name { get; set; }
+
     }
  
 }

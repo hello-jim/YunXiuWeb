@@ -4,7 +4,7 @@ using System.Data;
 using System.Text;
 using System.Web.Mvc;
 using System.Collections.Generic;
-
+using System.IO;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
@@ -12,7 +12,6 @@ using BrnMall.Web.MallAdmin.Models;
 using YunXiu.Model;
 using YunXiu.Commom;
 using Newtonsoft.Json;
-using System.IO;
 
 namespace BrnMall.Web.MallAdmin.Controllers
 {
@@ -49,11 +48,11 @@ namespace BrnMall.Web.MallAdmin.Controllers
         //}
         public ActionResult List()
         {
-            var brandData = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/GetBrand", "20");
+            var brandData = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/GetBrand", "30");
             var brandCount = JsonConvert.DeserializeObject<List<Brand>>(brandData);
             BrandList model = new BrandList();
             model.Brands = brandCount;
-           
+
             return View(model);
         }
         /// <summary>
@@ -93,17 +92,6 @@ namespace BrnMall.Web.MallAdmin.Controllers
             Load();
             return View(model);
         }
-        //[HttpGet]
-        //public ActionResult brandList()
-        //{
-        //    var brandData = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/GetBrand", "20");
-        //    var getBrand = JsonConvert.DeserializeObject<List<Brand>>(brandData);
-        //    BrandListModel model = new BrandListModel();
-        //    model.Brands = getBrand;
-        //    Load();
-        //    return View(model);
-        //}
-      
         /// <summary>
         /// 添加品牌
         /// </summary>
@@ -111,104 +99,120 @@ namespace BrnMall.Web.MallAdmin.Controllers
         public ActionResult Add(BrandModel model)
         {
 
-            //if (AdminBrands.GetBrandIdByName(model.BrandName) > 0)
-            //    ModelState.AddModelError("BrandName", "名称已经存在");
-
+       
             if (ModelState.IsValid)
             {
-                Brand brandInfo = new Brand(){
-                   
-                   Sort = model.DisplayOrder,
-                   Name = model.BrandName,
-                   Category = model.Caregorys,
-                   
+                HttpPostedFileBase f = Request.Files[0];
+
+                Brand brand = new Brand
+                {
+                    Sort = model.DisplayOrder,
+                    Name = model.BrandName,
+                    Logo = f.FileName,
+                    Category=new Category
+                    {
+                    CateId=model.CateID
+                    }
                 };
-                var caregoryData = CommomClass.HttpPost("http://192.168.9.32:8082/Category/GetCategory", "20");
-                var caregoryCount = JsonConvert.DeserializeObject<List<Category>>(caregoryData);
-                
-                
-                               HttpPostedFileBase f = Request.Files[0];
-                               brandInfo.Logo = f.FileName;
-                               var data = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/AddBrand", JsonConvert.SerializeObject(brandInfo));
-                               var path = Server.MapPath("/images/brand");
-                                string dataname =Convert.ToString(data);
-                                string filename = dataname + "_" + f.FileName;
-                                path = Path.Combine(path, filename);
 
-                               f.SaveAs(path);
+                var data = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/AddBrand", JsonConvert.SerializeObject(brand));
+                var path = Server.MapPath("/images/brand");
+                string dataname = Convert.ToString(data);
+                string filename = dataname + "_" + f.FileName;
+                path = Path.Combine(path, filename);
+                f.SaveAs(path);
 
-                           
-                           return PromptView("");
-                       
-                       
-                   
-                //brandInfo.Category = info.CateID;
-              
+
+                return PromptView("");
+
             }
-                Load();
+            Load();
             return View(model);
-            
+
         }
 
         /// <summary>
         /// 编辑品牌
         /// </summary>
-        //[HttpGet]
-        //public ActionResult Edit(int brandId = -1)
-        //{
-        //    BrandInfo brandInfo = AdminBrands.GetBrandById(brandId);
-        //    if (brandInfo == null)
-        //        return PromptView("品牌不存在");
+        [HttpGet]
+        public ActionResult Edit(int BrandId)
+        {
+            //BrandInfo brandInfo = AdminBrands.GetBrandById(brandId);
+            var data = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/GetBrandByID", JsonConvert.SerializeObject(BrandId));
+            var brandData = JsonConvert.DeserializeObject<Brand>(data);
+            if (brandData == null)
+                return PromptView("品牌不存在");
 
-        //    BrandModel model = new BrandModel();
-        //    model.DisplayOrder = brandInfo.DisplayOrder;
-        //    model.BrandName = brandInfo.Name;
-        //    model.Logo = brandInfo.Logo;
-        //    Load();
+            BrandModel model = new BrandModel();
+            model.BrandID = brandData.BrandID;
+            model.DisplayOrder = brandData.Sort;
+            model.BrandName = brandData.Name;
+            model.Logo = brandData.Logo;
+            Load();
 
-        //    return View(model);
-        //}
+            return View(model);
+        }
 
         /// <summary>
         /// 编辑品牌
         /// </summary>
-        //[HttpPost]
-        //public ActionResult Edit(BrandModel model, int brandId = -1)
-        //{
+        [HttpPost]
+        public ActionResult Edit(BrandModel model)
+        {
             //BrandInfo brandInfo = AdminBrands.GetBrandById(brandId);
             //if (brandInfo == null)
             //    return PromptView("品牌不存在");
+            var logo = model.Logo;
+            if (logo != null)
+            {
+                var data1 = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/GetBrandByID", JsonConvert.SerializeObject(model.BrandID));
+                var brandData = JsonConvert.DeserializeObject<Brand>(data1);
+                var oldLogo = brandData.Logo;
+            }
 
-            //int brandId2 = AdminBrands.GetBrandIdByName(model.BrandName);
-            //if (brandId2 > 0 && brandId2 != brandId)
-            //    ModelState.AddModelError("BrandName", "名称已经存在");
+            //if (brandData == null)
+            //    return PromptView("品牌不存在");
+            if (ModelState.IsValid)
+            {
+                
+                HttpPostedFileBase f = Request.Files[0];
+                BrandModel brandList = new BrandModel()
+                {
+                    BrandID=model.BrandID,
+                    Sort = model.DisplayOrder,
+                    Name = model.BrandName,
+                    Logo = f.FileName,
+                    Category = new Category
+                    {
+                        CateId = model.CateID
+                    }
+                };
+                
+                var updateBrand = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/UpdateBrand", JsonConvert.SerializeObject(brandList));
+                //var OleLogo = oldLogo;
+                var path = Server.MapPath("/images/brand");
+                string dataname = Convert.ToString(updateBrand);
+                string filename = dataname + "_" + f.FileName;
+                path = Path.Combine(path, filename);
+                f.SaveAs(path);
+                return PromptView("");
+            }
 
-            //if (ModelState.IsValid)
-            //{
-                //brandInfo.DisplayOrder = model.DisplayOrder;
-                //brandInfo.Name = model.BrandName;
-                //brandInfo.Logo = model.Logo ?? "";
-
-                //AdminBrands.UpdateBrand(brandInfo);
-                //AddMallAdminLog("修改品牌", "修改品牌,品牌ID为:" + brandId);
-                //return PromptView("品牌修改成功");
-            //}
-
-            //Load();
-        //    return View(model);
-        //}
+            Load();
+            return View(model);
+        }
 
         /// <summary>
         /// 删除品牌
         /// </summary>
-        //public ActionResult Del(int brandId = -1)
-        //{
-        //    int result = AdminBrands.DeleteBrandById(brandId);
-        //    if (result == 0)
-        //        return PromptView("删除失败,请先删除此品牌下的商品");
-        //    AddMallAdminLog("删除品牌", "删除品牌,品牌ID为:" + brandId);
-        //    return PromptView("品牌删除成功");
-        //}
+        public ActionResult Del(int brandId = -1)
+        {
+            int result = AdminBrands.DeleteBrandById(brandId);
+            if (result == 0)
+                return PromptView("删除失败,请先删除此品牌下的商品");
+            AddMallAdminLog("删除品牌", "删除品牌,品牌ID为:" + brandId);
+            return PromptView("品牌删除成功");
+        }
 
         private void Load()
         {

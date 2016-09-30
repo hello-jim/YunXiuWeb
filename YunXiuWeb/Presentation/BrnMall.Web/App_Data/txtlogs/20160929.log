@@ -40,3 +40,6 @@ Log Entry : 2016年09月29日 20:23:28
 Log Entry : 2016年09月29日 20:30:17
 方法:System.Net.WebResponse GetResponse(),异常信息:操作超时
 ------------------------------------
+Log Entry : 2016年09月29日 22:02:18
+方法:System.Web.Mvc.ActionResult List(),异常信息:未能加载文件或程序集“Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+------------------------------------
