@@ -53,7 +53,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
             var brandCount = JsonConvert.DeserializeObject<List<Brand>>(brandData);
             BrandList model = new BrandList();
             model.Brands = brandCount;
-           
+
             return View(model);
         }
         /// <summary>
@@ -103,7 +103,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         //    Load();
         //    return View(model);
         //}
-      
+
         /// <summary>
         /// 添加品牌
         /// </summary>
@@ -116,38 +116,42 @@ namespace BrnMall.Web.MallAdmin.Controllers
 
             if (ModelState.IsValid)
             {
-                Brand brandInfo = new Brand(){
-                   
-                   Sort = model.DisplayOrder,
-                   Name = model.BrandName,
-                   Category = model.Caregorys,
-                   
+                Brand brandInfo = new Brand()
+                {
+
+                    Sort = model.DisplayOrder,
+                    Name = model.BrandName,
+                    Category = new Category
+                    {
+                        CateId = 1
+                    }
+
                 };
                 var caregoryData = CommomClass.HttpPost("http://192.168.9.32:8082/Category/GetCategory", "20");
                 var caregoryCount = JsonConvert.DeserializeObject<List<Category>>(caregoryData);
-                
-                
-                               HttpPostedFileBase f = Request.Files[0];
-                               brandInfo.Logo = f.FileName;
-                               var data = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/AddBrand", JsonConvert.SerializeObject(brandInfo));
-                               var path = Server.MapPath("/images/brand");
-                                string dataname =Convert.ToString(data);
-                                string filename = dataname + "_" + f.FileName;
-                                path = Path.Combine(path, filename);
 
-                               f.SaveAs(path);
 
-                           
-                           return PromptView("");
-                       
-                       
-                   
+                HttpPostedFileBase f = Request.Files[0];
+                brandInfo.Logo = f.FileName;
+                var data = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/AddBrand", JsonConvert.SerializeObject(brandInfo));
+                var path = Server.MapPath("/images/brand");
+                string dataname = Convert.ToString(data);
+                string filename = dataname + "_" + f.FileName;
+                path = Path.Combine(path, filename);
+
+                f.SaveAs(path);
+
+
+                return PromptView("");
+
+
+
                 //brandInfo.Category = info.CateID;
-              
+
             }
-                Load();
+            Load();
             return View(model);
-            
+
         }
 
         /// <summary>
@@ -175,26 +179,26 @@ namespace BrnMall.Web.MallAdmin.Controllers
         //[HttpPost]
         //public ActionResult Edit(BrandModel model, int brandId = -1)
         //{
-            //BrandInfo brandInfo = AdminBrands.GetBrandById(brandId);
-            //if (brandInfo == null)
-            //    return PromptView("品牌不存在");
+        //BrandInfo brandInfo = AdminBrands.GetBrandById(brandId);
+        //if (brandInfo == null)
+        //    return PromptView("品牌不存在");
 
-            //int brandId2 = AdminBrands.GetBrandIdByName(model.BrandName);
-            //if (brandId2 > 0 && brandId2 != brandId)
-            //    ModelState.AddModelError("BrandName", "名称已经存在");
+        //int brandId2 = AdminBrands.GetBrandIdByName(model.BrandName);
+        //if (brandId2 > 0 && brandId2 != brandId)
+        //    ModelState.AddModelError("BrandName", "名称已经存在");
 
-            //if (ModelState.IsValid)
-            //{
-                //brandInfo.DisplayOrder = model.DisplayOrder;
-                //brandInfo.Name = model.BrandName;
-                //brandInfo.Logo = model.Logo ?? "";
+        //if (ModelState.IsValid)
+        //{
+        //brandInfo.DisplayOrder = model.DisplayOrder;
+        //brandInfo.Name = model.BrandName;
+        //brandInfo.Logo = model.Logo ?? "";
 
-                //AdminBrands.UpdateBrand(brandInfo);
-                //AddMallAdminLog("修改品牌", "修改品牌,品牌ID为:" + brandId);
-                //return PromptView("品牌修改成功");
-            //}
+        //AdminBrands.UpdateBrand(brandInfo);
+        //AddMallAdminLog("修改品牌", "修改品牌,品牌ID为:" + brandId);
+        //return PromptView("品牌修改成功");
+        //}
 
-            //Load();
+        //Load();
         //    return View(model);
         //}
 

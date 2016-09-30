@@ -101,10 +101,10 @@
                                 <div class="pic">
                                     <a href="###" target="_blank">
                                         @{
-                            string img = Convert.ToString(@info.ImgID);
-                            string imgName = img + ".jpg";
+                            //string img = Convert.ToString(@info.ImgID);
+                            //string imgName = img + ".jpg";
                                         }
-                                        <img src="@{@WorkContext.ImageCDN}/images/productImg/@imgName" />
+                                        <img src="@{@WorkContext.ImageCDN}/images/productImg/@info.ImgName" />
                                     </a>
                                 </div>
                                 <div class="title col-md-12">
@@ -214,10 +214,10 @@
                                     <h1>
                                         <a href="###" target="_blank">
                                             @{
-                                string img = Convert.ToString(@CategorysProducInfo.ImgID);
-                                string imgName = img + ".jpg";
+                                //string img = Convert.ToString(@CategorysProducInfo.ImgID);
+                                //string imgName = img + ".jpg";
                                             }
-                                            <img class="fl" src="@{@WorkContext.ImageCDN}/images/productImg/@imgName" />
+                                            <img class="fl" src="@{@WorkContext.ImageCDN}/images/productImg/@CategorysProducInfo.ImgName" />
                                         </a>
                                     </h1>
                                     <p>@CategorysProducInfo.Name</p>
@@ -290,10 +290,10 @@
                                     <h1>
                                         <a href="###" target="_blank">
                                             @{
-                                string img = Convert.ToString(@CategorysProducInfoOne.ImgID);
-                                string imgName = img + ".jpg";
+                                //string img = Convert.ToString(@CategorysProducInfoOne.ImgID);
+                                //string imgName = img + ".jpg";
                                             }
-                                            <img class="fl" src="@{@WorkContext.ImageCDN}/images/productImg/@imgName" />
+                                            <img class="fl" src="@{@WorkContext.ImageCDN}/images/productImg/@CategorysProducInfoOne.ImgName" />
                                         </a>
                                     </h1>
                                     <p>@CategorysProducInfoOne.Name</p>

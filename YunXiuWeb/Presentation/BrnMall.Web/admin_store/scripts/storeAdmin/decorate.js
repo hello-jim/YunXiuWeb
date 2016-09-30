@@ -1,6 +1,13 @@
+
+if ($("#dropzone-upload").length == 1) {
+    $("#dropzone-upload").dropzone({ url: "/", addRemoveLinks: true });
+}
+
+
 $(function () {
     $("#sortable").sortable();
-    $("#dropzone-upload").dropzone({ url: "/", addRemoveLinks: true });
+
+
     $('.edit-html').wysiwyg({ fileUploadError: showErrorAlert });
     window.prettyPrint && prettyPrint();
     $('#edit-html-div').on('show.bs.modal', function (e) {
@@ -28,6 +35,32 @@ $(function () {
         }
     });
 
+    $("#images-div").on('show.bs.modal', function (e) {
+        var isEdid = $(e.relatedTarget).attr("isEdit");
+        if (isEdid != undefined) {
+            $("#images-div").attr("edit","");
+            $("#dropzone-upload").hide();
+            $(".edit-img-div").html("");
+            $(".edit-img-div").show();
+            var images = $(e.relatedTarget).prev().prop("outerHTML");
+            $(".edit-img-div").html(images);
+            $(".edit-img-div").find("img").after("<a href='javascript:void(0);' class='edit-img-delete'>删除图片</a>");
+            $(".edit-img-delete").on("click", function () {
+                $(this).prev().remove();
+                $(this).remove();
+            });
+        } else {
+            $("#images-div").removeAttr("edit");
+            $("#dropzone-upload").show();
+            $("#dropzone-upload .dz-preview").remove();
+            $("#dropzone-upload .dz-message").show();
+            $(".edit-img-div").hide();
+        }
+    });
+
+    $(".modal").on("hide.bs.modal", function () {
+        $("#dialog_select").hide();
+    });
 
 
     $(".edit-html-save").on("click", function () {
@@ -38,10 +71,10 @@ $(function () {
     });
 
     $(".store-home-save").on("click", function () {
-        var storeHomeHtml =escape($(".store_decoration_area").html());
+        var storeHomeHtml = escape($(".store_decoration_area").html());
         $.post("/Home/AddStoreHome",
         {
-            html:storeHomeHtml
+            html: storeHomeHtml
         }, function (data) {
             alert(data);
         });
@@ -86,7 +119,7 @@ function showErrorAlert(reason, detail) {
 
 
 //添加块
-$("i.block-add").click(function () {
+$("i.block-add").on("click", function () {
     var maxIndex = parseInt(GetMaxBlockIndex());
     var block = "";
     block += "<div id='block-" + (maxIndex + 1) + "' class='ncsc-decration-block store-decoration-block-1 tip' bIndex='" + (maxIndex + 1) + "'>";
@@ -146,13 +179,19 @@ $(".product-list-save").unbind("click").on("click", function () {
 $(".save-images").unbind("click").on("click", function () {
     var imagesHtml = "";
     var bIndex = $("#edit-block-id").val();
-    var uSuccesImages = $("#dropzone-upload .dz-success");//上传成功图片
-    for (var i = 0; i < uSuccesImages.length; i++) {
-        imagesHtml += $(uSuccesImages[i]).find(".dz-image").html();
+    var edit=$("#images-div").attr("edit");
+    if (edit) {
+        imagesHtml = $(".edit-img-div").find("img");
+    } else {
+        var uSuccesImages = $("#dropzone-upload .dz-success");//上传成功图片
+        for (var i = 0; i < uSuccesImages.length; i++) {
+            imagesHtml += $(uSuccesImages[i]).find(".dz-image").html();
+        }
     }
+ 
     $("div[bIndex=" + bIndex + "] .store-decoration-block-1-module").html(imagesHtml);
     $("div[bIndex=" + bIndex + "]").attr("editType", "editImages");
-    $("div[bIndex=" + bIndex + "] .ncsc-decration-block-content .editbc").unbind("click").attr({ "data-toggle": "modal", "data-target": "#edit-html-div", "isEdit": "1" }).removeClass("editbc");
+    $("div[bIndex=" + bIndex + "] .ncsc-decration-block-content .editbc").unbind("click").attr({ "data-toggle": "modal", "data-target": "#images-div", "isEdit": "1" }).removeClass("editbc");
 });
 
 // 删除按钮点击事件

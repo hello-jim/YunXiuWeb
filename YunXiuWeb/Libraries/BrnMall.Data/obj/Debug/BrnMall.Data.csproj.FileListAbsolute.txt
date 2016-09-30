@@ -34,3 +34,12 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\BrnMall.Core.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\Newtonsoft.Json.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\YunXiu.Commom.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\YunXiu.Model.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\Dapper.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\Lucene.Net.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\PanGu.HighLight.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\PanGu.Lucene.Analyzer.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\PanGu.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\YunXiu.Commom.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\YunXiu.Model.pdb

@@ -6,6 +6,259 @@
 
 @Html.Partial("_header")
 
-公司介绍
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云绣网-公司介绍</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/css/mall/shorepublic.css">
+    <link rel="stylesheet" type="text/css" href="/css/mall/shoreinfo.css">
+</head>
+<body>
 
+    <div id="topbar">
+        <div class="container">
+            <div class="col-xs-6 row">
+                <span class="fl">欢迎您,</span><!--<a>[登录]</a>&nbsp;<a>[注册]</a>-->
+                <ul class="fl topl">
+                    <li class="talk">
+                        消息<i style="background:url(images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
+                        <dl class="sub-menu">
+                            <dd><a>待处理订单</a></dd>
+                            <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
+                            <dd><a>通知</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        我的云绣
+                        <div class="sub-menu bg-white" style="z-index:9999; width:200px;border:1px solid #ddd;border-top:0;">
+                            <dl class="fl">
+                                <dt><a>我是买家</a></dt>
+                                <dd><a>发布采购</a></dd>
+                                <dd><a>发布招标</a></dd>
+                                <dd><a>我的优惠券</a></dd>
+                                <dd><a>我的采购单</a></dd>
+                                <dd><a>我的留言</a></dd>
+                            </dl>
+                            <dl class="fl">
+                                <dt><a>我是卖家</a></dt>
+                                <dd><a>管理旺铺</a></dd>
+                                <dd><a>已卖出的商品</a></dd>
+                                <dd><a>管理供应商品</a></dd>
+                                <dd><a>我的商机</a></dd>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="topbarr row">
+                <ul>
+                    <!--<li class="talk">
+                       消息<i style="background:url(images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
+                       <dl class="sub-menu">
+                          <dd><a>待处理订单</a></dd>
+                          <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
+                          <dd><a>通知</a></dd>
+                       </dl>
+                    </li>-->
+                    <li class="menu">
+                        我的收藏
+                        <dl class="sub-menu">
+                            <dd><a>收藏的商品</a></dd>
+                            <dd><a>收藏的供应商</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        云绣服务
+                        <dl class="sub-menu">
+                            <dd><a>标王服务</a></dd>
+                            <dd><a>黄金展位</a></dd>
+                            <dd><a>会员服务</a></dd>
+                            <dd><a>商贸通</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        诚信商家
+                        <dl class="sub-menu">
+                            <dd><a>商家权益</a></dd>
+                            <dd><a>招商标准</a></dd>
+                            <dd><a>收费标准</a></dd>
+                            <dd><a>入驻开店</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        客服中心
+                        <dl class="sub-menu">
+                            <dd><a>买家帮助</a></dd>
+                            <dd><a>卖家帮助</a></dd>
+                            <dd><a>在线咨询</a></dd>
+                            <dd><a>常见问答</a></dd>
+                            <dd><a>二维码</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        网站导航
+                        <dl class="sub-menu">
+                            <dd><a>云绣ERP</a></dd>
+                            <dd><a>娴婷一账通</a></dd>
+                            <dd><a>云绣网</a></dd>
+                        </dl>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <header class="container">
+        <div class="row">
+            <div class="logopart col-md-4" style="margin-top: -20px;">
+                <!--<a href="###" class="logo"></a>-->
+                <h2><img src="images/logo.png" alt="云绣网" /><span style="margin-left:15px; margin-top: 20px;"><img src="images/slogan.png" alt="刺绣行业一站式采购" /></span></h2>
+            </div>
+
+            <div class="search-part col-md-6">
+                <ul class="tab-search">
+                    <li class="selected"><a>全部</a></li>
+                    <li><a>线辅材</a></li>
+                    <li><a>供应商</a></li>
+                </ul>
+                <div class="clear">
+                    <input class="search-text" type="text" autocomplete="off" />
+                    <button type="button" class="searchbtn">搜索</button>
+                </div>
+                <div class="hotwords">
+                    <a href="###" target="_blank" class="hot">绣花机</a>
+                    <a href="###" target="_blank">绣针</a>
+                    <a href="###" target="_blank">机夹</a>
+                    <a href="###" target="_blank">机架</a>
+                    <a href="###" target="_blank">零配件</a>
+                </div>
+            </div>
+
+            <div class="cart-part col-md-2">
+                <h2><a href="###" target="_blank">我的购物车<b>3</b></a></h2>
+            </div>
+        </div>
+    </header>
+
+    <div class="store-header">
+        <div class="store-container">
+            <img src="images/tiandao.png">
+            <span>神州田岛</span>
+        </div>
+    </div>
+
+    <div class="store-nav clearfix">
+        <div class="store-container">
+            <ul>
+                <li><a href="">公司首页</a></li>
+                <li><a href="">供应产品</a></li>
+                <li class="store-nav-active"><a href="">公司介绍</a></li>
+                <li><a href="">旺铺动态</a></li>
+                <li><a href="">公司相册</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="store-info">
+        <div class="store-container">
+            <div class="wrap-header">
+                <p>公司简介</p>
+            </div>
+            <div class="store-info-conten clearfix">
+                <div class="info-right">
+                    <img src="images/tiandao.png">
+                    <p style="color: red;">买卖通会员</p>
+                    <p>公司名称：<span>神州田岛</span></p>
+                    <p>公司地址：<span>广东省惠州市</span></p>
+                </div>
+                <div class="info-txt">
+                    <p>神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛</p>
+                    <p>神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛神州田岛</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="store-detail">
+        <div class="store-container">
+            <div class="wrap-header">
+                <p>详细信息</p>
+            </div>
+            <div class="detail-conten">
+                <table>
+                    <tr>
+                        <td class="w100">成立时间</td>
+                        <td class="w200">2006年1月1日</td>
+                        <td class="w100">注册资金</td>
+                        <td class="w200">100万元</td>
+                        <td class="w100">注册地址</td>
+                        <td class="w200">广东省惠州市</td>
+                    </tr>
+                    <tr>
+                        <td class="w100">法定代表人</td>
+                        <td class="w200">XXX</td>
+                        <td class="w100">员工人数</td>
+                        <td class="w200">100以上</td>
+                        <td class="w100">经营品牌</td>
+                        <td class="w200">XXXXX</td>
+                    </tr>
+                    <tr>
+                        <td class="w100">经营范围</td>
+                        <td class="w200">XXXXXXX</td>
+                        <td class="w100">主营产品</td>
+                        <td class="w200">XXXX</td>
+                        <td class="w100">经营模式</td>
+                        <td class="w200">xxxxxx</td>
+                    </tr>
+                    <tr>
+                        <td class="w100">主要客户群</td>
+                        <td class="w200">XXXX</td>
+                        <td class="w100">主要市场</td>
+                        <td class="w200">XXXXX</td>
+                        <td class="w100">年出口额</td>
+                        <td class="w200">xxxx</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="store-zhengshu">
+        <div class="store-container">
+            <div class="wrap-header">
+                <p>公司证书</p>
+            </div>
+            <ul class="zslist">
+                <li>
+                    <a href="">
+                        <img src="images/zhengshupic.jpg">
+                        <p>企业基本资格证书</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/zhengshupic.jpg">
+                        <p>产品类证书</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/zhengshupic.jpg">
+                        <p>其他证书</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>
 @Html.Partial("_footer")

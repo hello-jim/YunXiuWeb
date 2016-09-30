@@ -1,26 +1,13 @@
 ﻿$(document).ready(function () {
     $(".jqzoom1").imagezoom();
 
-    $(".btn-shopfav").on("click", function () {
-        var storeID = $("#storeID").val();
-        $.post("",
-            {
-                storeID:storeID
-            },
-            function (data) {
-                if (data == "1") {
-                    alert("添加成功");
-                }
-            });
-    });
-
     $(".to-cart").on("click", function () {
         var pID = $("#pID").val();
         var buyCount = $("#buyCount").val();
         addProductToCart(pID,buyCount);
     });
     
-    $("").on("click", function () {
+    $(".store-fav").on("click", function () {
         var storeID = $("#storeID").val();
         addStoreToFavorite(storeID);
     });

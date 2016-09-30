@@ -233,21 +233,21 @@ namespace BrnMall.Web.Controllers
             WorkContext.StoreInfo = Stores.GetStoreById(WorkContext.StoreId);
         }
 
-        protected sealed override void OnAuthorization(AuthorizationContext filterContext)
-        {
-            base.OnAuthorization(filterContext);
+        //protected sealed override void OnAuthorization(AuthorizationContext filterContext)
+        //{
+        //    base.OnAuthorization(filterContext);
 
-            //验证店铺状态
-            if (WorkContext.StoreInfo == null || WorkContext.StoreInfo.State != (int)StoreState.Open)
-                filterContext.Result = PromptView("/", "你访问的店铺不存在");
-        }
+        //    //验证店铺状态
+        //    if (WorkContext.StoreInfo == null || WorkContext.StoreInfo.State != (int)StoreState.Open)
+        //        filterContext.Result = PromptView("/", "你访问的店铺不存在");
+        //}
 
-        protected sealed override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            base.OnActionExecuting(filterContext);
+        //protected sealed override void OnActionExecuting(ActionExecutingContext filterContext)
+        //{
+        //    base.OnActionExecuting(filterContext);
 
-            //将店铺主题添加到路由中
-            RouteData.DataTokens.Add("theme", WorkContext.StoreInfo.Theme);
-        }
+        //    //将店铺主题添加到路由中
+        //    RouteData.DataTokens.Add("theme", WorkContext.StoreInfo.Theme);
+        //}
     }
 }

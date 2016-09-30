@@ -76,6 +76,7 @@
     <Content Include="css\bootstrap-wysiwyg\index.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\dec.css" />
+    <Content Include="css\storeAdmin\store-decorate.css" />
     <Content Include="css\dropzone.css" />
     <Content Include="css\jquery-ui.min.css" />
     <Content Include="css\normalize.css" />
@@ -172,6 +173,13 @@
     <Content Include="scripts\storeAdmin\decorate.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="fonts\bootstrap-wysiwyg\fontawesome-webfont.eot" />
+    <None Include="fonts\bootstrap-wysiwyg\fontawesome-webfont.ttf" />
+    <None Include="fonts\bootstrap-wysiwyg\fontawesome-webfont.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.svg" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="views\coupon\addcoupontype.cshtml" />
     <None Include="views\coupon\couponlist.cshtml" />
     <None Include="views\coupon\couponproductlist.cshtml" />

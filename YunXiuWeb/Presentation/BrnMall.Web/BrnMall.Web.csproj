@@ -207,6 +207,8 @@
     <Content Include="css\list.css" />
     <Content Include="css\list1.css" />
     <Content Include="css\mall\comment.css" />
+    <Content Include="css\mall\shoreinfo.css" />
+    <Content Include="css\mall\shorepublic.css" />
     <Content Include="css\public.css" />
     <Content Include="css\ucenter.css" />
     <Content Include="css\zzsc.css" />
@@ -557,6 +559,13 @@
     <Content Include="views\store\StoreAlbum.cshtml" />
     <Content Include="views\store\SupplyProduct.cshtml" />
     <Content Include="views\store\Index.cshtml" />
+    <Content Include="fonts\bootstrap-wysiwyg\fontawesome-webfont.eot" />
+    <Content Include="fonts\bootstrap-wysiwyg\fontawesome-webfont.ttf" />
+    <Content Include="fonts\bootstrap-wysiwyg\fontawesome-webfont.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\txtlogs\" />

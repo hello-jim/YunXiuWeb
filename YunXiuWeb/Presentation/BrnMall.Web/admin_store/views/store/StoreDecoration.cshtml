@@ -12,7 +12,7 @@
 <link href="/admin_store/css/bootstrap-wysiwyg/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="/admin_store/css/bootstrap-wysiwyg/font-awesome.css" rel="stylesheet">
 <link href="/admin_store/css/bootstrap-wysiwyg/index.css" rel="stylesheet">
-
+<link href="/admin_store/css/storeAdmin/store-decorate.css" rel="stylesheet" />
 
 
 <div class="decorate">
@@ -36,7 +36,7 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void(0);">
+            <a >
                 <i class="block-add"></i>
                 添加局部块
             </a>
@@ -188,8 +188,8 @@
 </div>
 
 <!-- 图片幻灯片模块 -->
-<div class="modal fade" id="images-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade modal-div" id="images-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog img-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -200,7 +200,8 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <form id="dropzone-upload" class="dropzone needsclick dz-clickable" action="/" dropzone="copy|move|link">
+                <div class="edit-img-div"></div>
+                <form id="dropzone-upload" class="dropzone needsclick dz-clickable" action="/" dropzone="copy|move|link">                
                     <div class="dz-message needsclick">
                         点击或拖拽上传图片
                     </div>
@@ -210,17 +211,17 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">
                     关闭
                 </button>
-                <button type="button" class="btn btn-primary save-images">
+                <button type="button" class="btn btn-primary save-images" data-dismiss="modal">
                     提交
                 </button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
+        </div>
+    </div>
 </div>
 
 
 <!--商品编辑模块-->
-<div class="modal fade" id="product-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade modal-div" id="product-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -261,7 +262,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">
                     关闭
                 </button>
-                <button type="button" class="btn btn-primary product-list-save">
+                <button type="button" class="btn btn-primary product-list-save" data-dismiss="modal">
                     保存
                 </button>
             </div>
@@ -270,8 +271,8 @@
 </div>
 
 <!-- 自定义编辑器模块 -->
-<div class="modal fade" id="edit-html-div" style="width:1000px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" style="width:1000px;">
+<div class="modal fade edit-div" id="edit-html-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog edit-dialog" >
         <div class="modal-content">
 
             <div class="modal-header">
@@ -335,7 +336,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary edit-html-save">提交</button>
+                <button type="button" class="btn btn-primary edit-html-save" data-dismiss="modal">提交</button>
             </div>
 
 
@@ -357,7 +358,7 @@
 <script src="/admin_store/scripts/bootstrap-wysiwyg/external/google-code-prettify/prettify.js"></script>
 <script src="/admin_store/scripts/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
 <script src="/admin_store/scripts/dropzone.js"></script>
-<script src="/admin_store/scripts/storeAdmin/decorate.js"></script>
+<script src="/admin_store/scripts/storeAdmin/decorate.js?v1"></script>
 
 
 
