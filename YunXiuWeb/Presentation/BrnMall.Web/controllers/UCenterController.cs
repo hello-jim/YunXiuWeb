@@ -25,6 +25,11 @@ namespace BrnMall.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult UIndex() 
+        {
+            return View();
+        }
         #region 用户信息
 
         /// <summary>

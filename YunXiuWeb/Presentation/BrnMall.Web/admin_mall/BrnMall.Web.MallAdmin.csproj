@@ -70,6 +70,7 @@
     <Compile Include="controllers\HelpController.cs" />
     <Compile Include="controllers\HomeController.cs" />
     <Compile Include="controllers\LogController.cs" />
+    <Compile Include="controllers\MallManageController.cs" />
     <Compile Include="controllers\MallAdminGroupController.cs" />
     <Compile Include="controllers\NavController.cs" />
     <Compile Include="controllers\NewsController.cs" />
@@ -176,6 +177,11 @@
     <None Include="views\malladmingroup\add.cshtml" />
     <None Include="views\malladmingroup\edit.cshtml" />
     <None Include="views\malladmingroup\list.cshtml" />
+    <None Include="views\mallmanage\Permission.cshtml" />
+    <None Include="views\mallmanage\UserRole.cshtml" />
+    <None Include="views\mallmanage\Role.cshtml" />
+    <None Include="views\mallmanage\RolePermission.cshtml" />
+    <None Include="views\mallmanage\UserPermission.cshtml" />
     <None Include="views\nav\add.cshtml" />
     <None Include="views\nav\edit.cshtml" />
     <None Include="views\nav\list.cshtml" />
@@ -360,6 +366,7 @@
       <Name>BrnMall.Web.Framework</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -93,3 +93,5 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\PanGu
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\PanGu.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\YunXiu.Model.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\YunXiu.Commom.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\YunXiu.Interface.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web.Framework\bin\Debug\YunXiu.Interface.pdb

@@ -53,3 +53,5 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\PanGu.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\Newtonsoft.Json.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Commom.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Model.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Interface.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Services\bin\Debug\YunXiu.Interface.pdb

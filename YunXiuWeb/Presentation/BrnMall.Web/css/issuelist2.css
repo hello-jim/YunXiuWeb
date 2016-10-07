@@ -1,0 +1,72 @@
+
+.issuecontentw{
+	width: 770px;
+	border-top: 1px solid #ddd; 
+	margin-bottom:40px;
+	min-height: 700px;
+	float: left;
+}
+.issuetoptitle{
+	font-size: 16px;
+    padding: 20px 0 30px;
+    font-weight: bold;
+}
+.issuetoptitle1{
+	font-size: 16px;
+	padding: 20px 0 10px;
+	font-weight: bold;
+}
+
+.icontenx{
+	width: 88%;
+	position: relative;
+	margin: 20px auto;
+}
+.icontenw{
+	width: 88%;
+	position: relative;
+	margin: 20px auto;
+}
+.icontenx p{
+	line-height: 20px;
+	text-align: justify;
+}
+.icontenx p span{
+	color: #000;
+}
+.pleft16{
+	padding-left: 16px;
+}
+.pleft24{
+	padding-left: 24px;
+}
+.pleft48{
+	padding-left: 48px;
+}
+.color-red{
+	color: red;
+}
+.litemtitle{
+	font-size: 14px;
+	cursor: pointer;
+	margin-top: 20px;
+	padding-left: 20px;
+	background-image: url("../images/btnf.png");
+	background-size: 12px;
+	background-position:  left center;
+	background-repeat:  no-repeat;
+}
+.titleactive{
+	background-image: url("../images/btns.png");
+}
+/*p.litemtitle:before{
+	content: url(../images/btnf.png);
+	padding: 4px;
+	vertical-align: middle;
+}*/
+.litem-conten{
+	display: none;
+}
+.litem-conten:nth-child(n){
+	padding-left: 16px;
+}

@@ -1,0 +1,333 @@
+
+/*中间标题*/
+.titlebar{
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: 34px;
+}
+.titlebar span{
+	font-size: 28px;
+	font-weight: bold;
+	color: #666;
+	display: inline-block;
+	margin-top: -6px;
+	vertical-align: middle;
+}
+
+.titlebar .line1{
+	display: inline-block;
+	width: 150px;
+	height: 2px;
+	background: linear-gradient(to right,#ececec, #666);
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#ececec',endColorStr='#666666',gradientType='1'); 
+	margin-right: 14px;
+	vertical-align: middle;
+}
+.titlebar .line2{
+	width: 150px;
+	height: 2px;
+	display: inline-block;
+	background: linear-gradient(to right,#666, #ececec);
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#666666',endColorStr='#ececec',gradientType='1'); 
+	margin-left: 14px;
+	vertical-align: middle;
+
+}
+
+/*顶部链接topbar*/
+/*.topbar{
+	width: 100%;
+	height: 35px;
+	background-color: #e5e5e5;
+	line-height: 35px;
+}
+.topbar-l{
+	display: inline-block;
+}
+.topbar-r{
+	float: right;
+}*/
+
+
+
+/*banner登录*/
+.banner{
+	width: 100%;
+	height: 340px;
+	background: url("../images/bannerbg01.jpg") no-repeat center center;
+	background-size: cover;
+}
+.regbox{
+	width: 260px;
+	height: 270px;
+	position: absolute;
+	top: 50px;
+	right: 0;
+	background-color:rgba(255,255,255,.6);
+	border-radius: 10px;
+}
+.regbox .register{
+	position: relative;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.input-style{
+	width: 200px;
+	height: 32px;
+	border: 1px solid #ddd;
+	padding-left: 15px;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+.register #agree{
+	margin-top: 20px;
+}
+.btn-reg{
+	width: 200px;
+	margin-top: 10px;
+}
+
+/*四个圈*/
+.wrap-list{
+	width: 100%;
+	margin-top: 50px;
+	margin-bottom: 40px;
+}
+.wrap-item{
+	width: 180px;
+	height: 180px;
+	border: 3px solid #018ece;
+	border-radius: 50%;
+	color: #666;
+	text-align: center;
+	float: left;
+}
+.wrap-item:hover{
+}
+.wrap-item img{
+	display: block;
+	margin: 6px auto;
+}
+.wrap-item-title{
+	font-weight: bold;
+	font-size: 16px;
+}
+/*.circle{
+	width: 180px;
+	height: 100px;
+}*/
+/*.wrap-item p{
+	padding: 4px 6px 0 6px;
+	
+}*/
+
+
+/*优势advantage*/
+.advantage{
+	width: 100%;
+	height: 400px;
+	background-image: url("../images/advbg1.jpg");
+	background-size: cover;
+}
+.adv-list{
+	text-align: center;
+	height: 400px;
+}
+.advantage .adv-list + .adv-list{
+	border-left: 1px dashed #cbc8c8;
+}
+.adv-item{
+	margin-top: 80px;
+}
+.adv-seq{
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	background-color: #01479d;
+	border-radius: 50%;
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+}
+.adv-title{
+	color: #00479d;
+	font-size: 18px;
+}
+.adv-conten{
+	width: 100%;
+	height: 180px;
+	position: relative;
+	overflow: hidden;
+}
+.adv-conten p{
+	padding-top: 20px;
+	text-align: justify;
+}
+
+
+/*权益profit*/
+.profit{
+	width: 100%;
+	height: 440px;
+	background-image: url("../images/probg.jpg");
+	background-size: cover;
+}
+.profit img{
+	margin-top: 50px;
+}
+.pic3{
+	margin-top: 230px;
+}
+
+/*采购招标purchase*/
+.purchase{
+	width: 100%;
+}
+.purchase-list{
+	width: 100%;
+	height: 210px;
+	position: relative;
+	overflow: hidden;
+}
+.purchase-list li{
+	float: left;
+	margin-right: 30px;
+	white-space: nowrap;
+}
+.purchase-item{
+	width: 190px;
+	height: 210px;
+	border: 1px solid #e9e8e8;
+
+}
+.pur-item-top{
+	width: 100%;
+	height: 50px;
+	background-color: #f8fafa;
+	vertical-align: middle;
+}
+.pur-item-top p{
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.pur-item-top p span{
+	color: red;
+}
+.pur-item-conten{
+	padding-top: 10px;
+	padding-left: 20px;
+}
+.pur-item-conten p span{
+	color: red;
+}
+.pur-btn{
+	height: 24px;
+	border-color: red;
+	color: red;
+	font-size: 12px;
+	line-height: 12px;
+}
+.pur-btn:link{
+	border-color: #2569ec;
+	color: #2569ec;
+	background-color: #fff;
+}
+.pur-btn::focus{
+	border-color: #2569ec;
+	color: #2569ec;
+	background-color: #fff;
+}
+.pur-btn:hover{
+	border-color: #2569ec;
+	color: #2569ec;
+	background-color: #fff;
+}
+.pur-btn:active{
+	border-color: #2569ec;
+	color: #2569ec;
+	background-color: #fff;
+}
+
+/*选择banner*/
+.choice-banner{
+	width: 100%;
+	height: 400px;
+	background-image: url("../images/choicebg1.jpg");
+	background-size: cover;
+	background-position: center center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	overflow: hidden;
+}
+.choice-banner img{
+	float: right;
+	position: relative;
+	margin-top: 130px;
+	margin-right: -660px;
+}
+
+/*进度条*/
+.pro-right{
+	margin-top: 100px;
+}
+.profit p{
+	line-height: 16px;
+	padding: 0;
+	margin-top: 20px;
+}
+.profit .pbBar{
+	width: 130px; 
+	height: 30px;
+	position: relative;
+}
+
+.profit .pbc{
+	width: 0;
+	height: 30px;
+	background-color: #f76262;
+	border-radius: 0;
+}
+.profit .pb2{
+	width: 130;
+	height: 30px;
+	background-color: #f76262;
+	border-radius: 0;
+}
+.profit .pbc2{
+	width: 100%;
+	height: 30px;
+	background-color: #cacaca;
+	border-radius: 0;
+	display: inline-block;
+}
+.profit .pb{
+	height: 30px;
+	display: inline-block;
+	background-color: #cacaca;
+	border-radius: 0;
+}
+.poabspan{
+	position: absolute;
+	left: 48%;
+	float: left;
+}
+.profit span{
+	line-height: 30px;
+	color: #fff;
+}
+.profit .pbw40{
+	width: 40px;
+}
+.profit .pbw50{
+	width: 50px;
+}
+.profit .pbw30{
+	width: 30px;
+}
+.profit .pbw60{
+	width: 50px;
+}
+
+
+
+

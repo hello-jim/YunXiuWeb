@@ -161,3 +161,5 @@ D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\zh-Hans\System.
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.csprojResolveAssemblyReference.cache
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.dll
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\obj\Debug\BrnMall.Web.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\YunXiu.Interface.dll
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\YunXiu.Interface.pdb

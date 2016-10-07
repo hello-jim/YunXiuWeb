@@ -1,0 +1,77 @@
+h3,h2{
+	padding: 0;
+	margin: 0;
+}
+.headerw{
+	width: 1100px;
+	position: relative;
+	margin: 0 auto;
+}
+.issuew{
+	width: 1020px;
+	position: relative;
+	margin: 0 auto;
+
+}
+/*常见问题分类导航*/
+.issuemenu{
+	width: 230px;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 40px;
+}
+.menu-title{
+	
+    height: 40px;
+	
+    background-color: #2fa7e0;
+}
+.menu-title a{
+	font-size: 18px;
+    line-height: 40px;
+    color: #fff;
+    padding-left: 40px;
+}
+.tcolor{
+	color: #159edf;
+}
+.coll_body a:hover{
+	color: #159edf;
+}
+.Collapsing {
+	width:100%;
+	line-height:40px;
+	cursor:pointer;
+	font-size: 14px;
+	border-top:4px solid white;
+	background-repeat:no-repeat;
+	background-position:30px center;
+	background-image:url(../images/pro_left.png);
+	background-color:#efefef;
+	padding-left: 50px;
+}
+.coll_body {
+	display:none;
+}
+.coll_body a {
+	display:block;
+	line-height: 30px;
+	padding-left: 60px;
+}
+.coll_body a:not(:last-child){
+	border-bottom: 1px dashed #cdcdcd;
+}
+.current {
+	background-image:url(../images/pro_down.png);
+}
+
+
+/*常见问题内容*/
+.issuecontent{
+	width: 770px;
+	min-height: 700px;
+	float: left;
+}
+
+
+

@@ -578,5 +578,11 @@ namespace BrnMall.Web.MallAdmin.Controllers
             System.IO.File.WriteAllText(IOHelper.GetMapPath("/admin_mall/views/order/printorder.cshtml"), content, Encoding.UTF8);
             return PromptView(Url.Action("printorder"), "修改成功");
         }
+
+        [HttpGet]
+        public ActionResult Role() 
+        {
+            return View();
+        }
     }
 }

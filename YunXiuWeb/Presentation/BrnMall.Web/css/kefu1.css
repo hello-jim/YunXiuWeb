@@ -1,0 +1,226 @@
+.kefu-banner{
+	width: 100%;
+	height: 370px;
+	background-image: url("../images/kefu-banner.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.kefu-consult{
+	display: block;
+	width: 160px;
+	height: 41px;
+	margin-top: 300px;
+	float: right;
+}
+
+.rule-list{
+	width: 1080px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+
+}
+.rule-menu{
+	height: 430px;
+	border: 1px solid #ddd;
+}
+.rule-menu-title{
+	margin: 6px 0 6px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #555;
+}
+.search-bar{
+	margin: 8px 0 8px;
+}
+.search-bar input{
+	width: 110px;
+}
+.btn-ser{
+	width: 44px;
+	height: 22px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 0px;
+}
+.Collapsing{ 
+	width: 100%; 
+	line-height: 22px; 
+	cursor: pointer; 
+	margin-bottom: 0;
+	background-repeat: no-repeat; 
+	padding-left: 24px;
+	margin-left: 16px;
+	background-position: center left; 
+	background-repeat: no-repeat;
+	background-image: url(../images/bt22.png); 
+	font-weight: bold;
+	color: #666; 
+}
+.coll_body{
+	display: none;
+}
+.coll_body a{
+	display:block;
+	line-height: 20px;
+	padding-left: 50px;
+}
+.coll_body a:hover{
+	color:#296ecc;
+}
+.current{
+	background-image:url(../images/bt12.png);
+}
+
+
+.agreement{
+	height: 430px;
+	border-top: 1px dashed #6699cc;
+	border-bottom: 1px dashed #6699cc;
+}
+.agreement-content{
+	width: 100%;
+	height: 400px;
+	margin: 15px 0 15px;
+	background-image: url("../images/agreementbj.jpg");
+	background-size: cover;
+	text-align: center;
+}
+.agreement-title{
+	margin-top: 50px;
+}
+.agreement-content ul{
+	width: 430px;
+	margin-top: 20px;
+	display: inline-block;
+}
+.agreement-content ul li{
+	width: 200px;
+	height: 36px;
+	float: left;
+	margin-top: 20px;
+	background-color: rgba(255, 255, 255, 0.6);
+	font-size: 18px;
+	color: #000;
+	border-radius: 5px;
+	line-height: 36px;
+}
+.agreement-content ul li:nth-child(odd){
+	margin-right: 30px;
+}
+.morebtn{
+	width: 180px;
+	height: 42px;
+	margin-top: 20px;
+	font-family: SimHei;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 24px;
+}
+
+.help-list{
+	width: 900px;
+	height: 500px;
+	position: relative;
+	margin: 20px auto;
+}
+.helpconten img{
+	float: left;
+}
+.helptitle a:hover{
+	color:#296ecc;
+}
+.helptitle{
+	height: 340px;
+}
+.helptitle .helptxt{
+	font-size: 22px;
+	display: block;
+}
+.helptitle .ht1{
+	padding-top: 30px;
+    text-indent: -70px;
+}
+.helptitle .ht2{
+	padding-top: 54px;
+	text-indent: -10px;
+}
+.helptitle .ht3{
+	padding-top: 68px;
+    text-indent: 24px;
+}
+.helptitle .ht4{
+	padding-top: 74px;
+	text-indent: -10px;
+}
+.helptitle .ht5{
+	padding-top: 60px;
+    text-indent: -70px;
+}
+
+.comment{
+	width: 1180px;
+	height: 420px;
+	margin:0 auto;
+	background-image: url(../images/commentbj.png);
+	background-size: cover;
+	background-position: right;
+}
+.comment-content{
+	width: 900px;
+	position: relative;
+	margin: 0 auto;
+}
+.comment-input{
+	width: 370px;
+	height: 230px;
+	margin-top: 30px;
+	border-radius: 8px;
+	padding:8px 6px 30px;
+	border:2px solid #d6d6d6;
+	resize:none;
+}
+.artcount{
+	position: absolute;
+	z-index: 9;
+	top: 236px;
+	left: 160px;
+}
+.submitbtn{
+	width: 70px;
+	height: 20px;
+	font-size: 12px;
+	line-height: 6px;
+	position: absolute;
+	z-index: 9;
+	top: 234px;
+	left: 280px;
+}
+.kefucontent{
+	margin-top: 10px;
+}
+.kefulist{
+	float: left;
+	margin-left: 20px;
+	margin-right: 40px;
+}
+.kefupic{
+	float: left;
+}
+.kefupic a{
+	margin: 0 auto;
+}
+.kefupic img{
+	text-align: center;
+}
+.kefupic span{
+	display: block;
+}
+.kefuitem{
+	line-height: 22px;
+}
+.kefuitem:after{
+	padding-left: 4px;
+	padding-top: 4px;
+	vertical-align: middle;
+	content: url("../images/contact.png");
+}

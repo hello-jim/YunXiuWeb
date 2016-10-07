@@ -17,7 +17,6 @@ namespace BrnMall.Web
             ViewEngines.Engines.Add(new ThemeRazorViewEngine());
 
             AreaRegistration.RegisterAllAreas();
-
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             //启动事件机制
