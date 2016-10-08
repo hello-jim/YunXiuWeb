@@ -64,6 +64,7 @@
     <Compile Include="controllers\CategoryController.cs" />
     <Compile Include="controllers\CouponController.cs" />
     <Compile Include="controllers\DataBaseController.cs" />
+    <Compile Include="controllers\DynamicParameters.cs" />
     <Compile Include="controllers\EventController.cs" />
     <Compile Include="controllers\FilterWordController.cs" />
     <Compile Include="controllers\FriendLinkController.cs" />
