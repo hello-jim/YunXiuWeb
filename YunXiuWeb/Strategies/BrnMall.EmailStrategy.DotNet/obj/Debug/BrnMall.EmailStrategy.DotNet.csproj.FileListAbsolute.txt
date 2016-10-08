@@ -27,3 +27,8 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.EmailStrategy
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.EmailStrategy.DotNet\obj\Debug\BrnMall.EmailStrategy.DotNet.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.EmailStrategy.DotNet\obj\Debug\BrnMall.EmailStrategy.DotNet.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.EmailStrategy.DotNet\obj\Debug\BrnMall.EmailStrategy.DotNet.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.EmailStrategy.DotNet.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.EmailStrategy.DotNet.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.EmailStrategy.DotNet\obj\Debug\BrnMall.EmailStrategy.DotNet.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.EmailStrategy.DotNet\obj\Debug\BrnMall.EmailStrategy.DotNet.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.EmailStrategy.DotNet\obj\Debug\BrnMall.EmailStrategy.DotNet.pdb

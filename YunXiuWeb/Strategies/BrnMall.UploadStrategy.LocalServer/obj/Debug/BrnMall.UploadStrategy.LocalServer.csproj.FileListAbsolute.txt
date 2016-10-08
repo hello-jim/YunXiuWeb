@@ -21,3 +21,8 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.UploadStrateg
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.UploadStrategy.LocalServer\obj\Debug\BrnMall.UploadStrategy.LocalServer.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.UploadStrategy.LocalServer\obj\Debug\BrnMall.UploadStrategy.LocalServer.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.UploadStrategy.LocalServer\obj\Debug\BrnMall.UploadStrategy.LocalServer.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.UploadStrategy.LocalServer.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.UploadStrategy.LocalServer.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.UploadStrategy.LocalServer\obj\Debug\BrnMall.UploadStrategy.LocalServer.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.UploadStrategy.LocalServer\obj\Debug\BrnMall.UploadStrategy.LocalServer.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.UploadStrategy.LocalServer\obj\Debug\BrnMall.UploadStrategy.LocalServer.pdb

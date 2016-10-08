@@ -27,3 +27,8 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.ConfigStrateg
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.ConfigStrategy.File\obj\Debug\BrnMall.ConfigStrategy.File.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.ConfigStrategy.File\obj\Debug\BrnMall.ConfigStrategy.File.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.ConfigStrategy.File\obj\Debug\BrnMall.ConfigStrategy.File.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.ConfigStrategy.File.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.ConfigStrategy.File.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.ConfigStrategy.File\obj\Debug\BrnMall.ConfigStrategy.File.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.ConfigStrategy.File\obj\Debug\BrnMall.ConfigStrategy.File.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.ConfigStrategy.File\obj\Debug\BrnMall.ConfigStrategy.File.pdb

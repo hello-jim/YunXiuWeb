@@ -14,7 +14,7 @@
     <script type="text/javascript" src="/components/jbox/jquery.jBox-2.3.min.js"></script>
     <script type="text/javascript" src="/admin_mall/scripts/selectlist.js"></script>
     <script type="text/javascript" src="/admin_mall/scripts/product.js"></script>
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         productPageType=1;
         pid=@ViewData["pid"];
 
@@ -39,7 +39,7 @@
          }
        //商品属性列表
        productAttributeList = @Html.Raw(productAttributeListStr.ToString()); 
-    </script>
+    </script>*@
 }
 @section body{
     <h1 class="rightH1">
@@ -87,8 +87,12 @@
                         商品分类：
                     </td>
                     <td>
-                        <input type="text" disabled="disabled" value="@ViewData["categoryName"]" />
-                        <input type="hidden" id="CateId" name="CateId" value="@ViewData["cateId"]" />
+                        <div id="Categorys" class="selectBt" style="float: left;">
+                            <input value="选择分类" onclick="openCategorySelectLayer(this)" type="button">
+                            <input class="CateId" id="CateId" name="CateId" value="-1" type="hidden">
+                            <input class="CategoryName" id="CategoryName" name="CategoryName" value="选择分类" type="hidden">
+                        </div>
+                        @Html.ValidationMessageFor(x => x.CateId)
                     </td>
                 </tr>
                 <tr>
@@ -110,10 +114,11 @@
                     </td>
                     <td>
                         <div class="selectBt">
-                            <input type="button" value="@ViewData["storeName"]"/>
-                            <input type="hidden" class="StoreId" id="StoreId" name="StoreId" value="@ViewData["storeId"]" />
-                            <input type="hidden" class="StoreName" id="StoreName" name="StoreName" value="@ViewData["storeName"]" />
+                            <input type="button" value="@Model.StoreName" onclick="openStoreSelectLayer(this)" />
+                            <input type="hidden" class="StoreId" id="StoreId" name="StoreId" value="@Model.StoreId" />
+                            <input type="hidden" class="StoreName" id="StoreName" name="StoreName" value="@Model.StoreName" />
                         </div>
+                        @Html.ValidationMessageFor(x => x.StoreId)
                     </td>
                 </tr>
                 <tr>

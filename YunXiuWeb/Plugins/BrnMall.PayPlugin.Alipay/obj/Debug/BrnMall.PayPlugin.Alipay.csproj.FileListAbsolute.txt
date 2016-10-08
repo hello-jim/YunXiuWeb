@@ -51,3 +51,11 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.Alipay\BrnMall.PayPlugin.Alipay.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Plugins\BrnMall.PayPlugin.Alipay\obj\Debug\BrnMall.PayPlugin.Alipay.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Plugins\BrnMall.PayPlugin.Alipay\obj\Debug\BrnMall.PayPlugin.Alipay.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.Alipay\db.config
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.Alipay\plugin.config
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.Alipay\views\adminalipay\config.cshtml
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.Alipay\BrnMall.PayPlugin.Alipay.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.Alipay\BrnMall.PayPlugin.Alipay.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Plugins\BrnMall.PayPlugin.Alipay\obj\Debug\BrnMall.PayPlugin.Alipay.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Plugins\BrnMall.PayPlugin.Alipay\obj\Debug\BrnMall.PayPlugin.Alipay.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Plugins\BrnMall.PayPlugin.Alipay\obj\Debug\BrnMall.PayPlugin.Alipay.pdb

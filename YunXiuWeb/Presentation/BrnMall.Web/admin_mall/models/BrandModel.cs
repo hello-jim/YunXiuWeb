@@ -86,7 +86,7 @@ namespace BrnMall.Web.MallAdmin.Models
         }
         public List<Brand> Brands { get; set; }
 
-        public Category Categorys { get; set; }
+        public List<Category> Categorys { get; set; }
 
         public int CateID { get; set; }
 

@@ -27,3 +27,8 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.RDBSStrategy.
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.RDBSStrategy.SqlServer.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.RDBSStrategy.SqlServer\obj\Debug\BrnMall.RDBSStrategy.SqlServer.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.RDBSStrategy.SqlServer\obj\Debug\BrnMall.RDBSStrategy.SqlServer.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.RDBSStrategy.SqlServer.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.RDBSStrategy.SqlServer.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.RDBSStrategy.SqlServer\obj\Debug\BrnMall.RDBSStrategy.SqlServer.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.RDBSStrategy.SqlServer\obj\Debug\BrnMall.RDBSStrategy.SqlServer.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.RDBSStrategy.SqlServer\obj\Debug\BrnMall.RDBSStrategy.SqlServer.pdb

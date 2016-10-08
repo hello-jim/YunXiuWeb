@@ -4,6 +4,7 @@
     <title>修改商品品牌</title>
     <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
     <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="/components/jbox/Skins/Default/jbox.css" />
     <link type="text/css" rel="stylesheet" href="/components/webuploader/webuploader.css" />
     <script type="text/javascript" src="/components/webuploader/webuploader.js"></script>
     <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.js"></script>
@@ -82,23 +83,11 @@
     <td align="right">品牌Logo：</td>
     <td>
         <div class="upload">
-            @*<div class="uploadPreview">
-                @if (!string.IsNullOrEmpty(Model.Logo))
-                {
-                    <img src="@WorkContext.ImageCDN/upload/brand/source/@Model.Logo" />
-                }
-                else
-                {
-                    @:暂无图片
-                }
-            </div>*@
             <div class="left">
                 <div><input id="fileID" name="fileID" type="file" value="上传" />@Html.ValidationMessageFor(x => x.Logo)</div>
             </div>
             <div class="clear"></div>
         </div>
-        @*@Html.TextBoxFor(x => x.Logo, new { @class = "hide" })
-        @Html.ValidationMessageFor(x => x.Logo)*@
     </td>
     </tr>
       <tr>
@@ -111,9 +100,9 @@
         </td>
         <td>
             <div id="Categorys" class="selectBt" style="float: left;">
-                <input value="选择分类" onclick="openCategorySelectLayer(this)" type="button">
-                <input class="CateId" id="CateId" name="CateId" value="-1" type="hidden">
-                <input class="CategoryName" id="CategoryName" name="CategoryName" value="选择分类" type="hidden">
+                <input value="@Model.Category.Name" onclick="openCategorySelectLayer(this)" type="button">
+                <input class="CateId" id="CateId" name="CateId" value="@Model.Category.CateId" type="hidden">
+                <input class="CategoryName" id="CategoryName" name="CategoryName" value="@Model.Category.Name" type="hidden">
             </div>
         </td>
     </tr>
