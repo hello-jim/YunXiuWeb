@@ -1,0 +1,331 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云绣网-服务首页</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/public1.css">
+    <link rel="stylesheet" type="text/css" href="/css/service1.css">
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <div id="topbar">
+        <div class="container">
+            <div class="col-xs-6 row">
+                <span class="fl">欢迎您,</span><!--<a>[登录]</a>&nbsp;<a>[注册]</a>-->
+                <ul class="fl topl">
+                    <li class="talk">
+                        消息<i style="background:url(/images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
+                        <dl class="sub-menu">
+                            <dd><a>待处理订单</a></dd>
+                            <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
+                            <dd><a>通知</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        我的云绣
+                        <div class="sub-menu bg-white" style="z-index:9999; width:200px;border:1px solid #ddd;border-top:0;">
+                            <dl class="fl">
+                                <dt><a>我是买家</a></dt>
+                                <dd><a>发布采购</a></dd>
+                                <dd><a>发布招标</a></dd>
+                                <dd><a>我的优惠券</a></dd>
+                                <dd><a>我的采购单</a></dd>
+                                <dd><a>我的留言</a></dd>
+                            </dl>
+                            <dl class="fl">
+                                <dt><a>我是卖家</a></dt>
+                                <dd><a>管理旺铺</a></dd>
+                                <dd><a>已卖出的商品</a></dd>
+                                <dd><a>管理供应商品</a></dd>
+                                <dd><a>我的商机</a></dd>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="topbarr row">
+                <ul>
+                    <!--<li class="talk">
+                       消息<i style="background:url(/images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
+                       <dl class="sub-menu">
+                          <dd><a>待处理订单</a></dd>
+                          <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
+                          <dd><a>通知</a></dd>
+                       </dl>
+                    </li>-->
+                    <li class="menu">
+                        我的收藏
+                        <dl class="sub-menu">
+                            <dd><a>收藏的商品</a></dd>
+                            <dd><a>收藏的供应商</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        云绣服务
+                        <dl class="sub-menu">
+                            <dd><a>标王服务</a></dd>
+                            <dd><a>黄金展位</a></dd>
+                            <dd><a>会员服务</a></dd>
+                            <dd><a>商贸通</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        诚信商家
+                        <dl class="sub-menu">
+                            <dd><a>商家权益</a></dd>
+                            <dd><a>招商标准</a></dd>
+                            <dd><a>收费标准</a></dd>
+                            <dd><a>入驻开店</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        客服中心
+                        <dl class="sub-menu">
+                            <dd><a>买家帮助</a></dd>
+                            <dd><a>卖家帮助</a></dd>
+                            <dd><a>在线咨询</a></dd>
+                            <dd><a>常见问答</a></dd>
+                            <dd><a>二维码</a></dd>
+                        </dl>
+                    </li>
+                    <li class="menu">
+                        网站导航
+                        <dl class="sub-menu">
+                            <dd><a>云绣ERP</a></dd>
+                            <dd><a>娴婷一账通</a></dd>
+                            <dd><a>云绣网</a></dd>
+                        </dl>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <div class="header clearfix">
+        <div class="container">
+            <ul class="header-item header-l">
+                <li>
+                    <a href=""><img src="/images/logo.png"></a>
+                </li>
+                <li><p>云绣服务</p></li>
+                <li style="margin-left:15px;"><img src="/images/slogan1.png" alt="刺绣行业一站式采购" /></li>
+            </ul>
+            <p class="header-item header-r">
+                <a href="/">首页</a>
+                <b>|</b>
+                <a href="/Store/StoreServicesHome">云绣服务</a>
+                <b>|</b>
+                <a href="/Store/StoreCustomerServiceCentre">客服中心</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="service-banner"></div>
+
+    <div class="service-wrap container">
+        <!-- <div class="col-md-6">
+            <div class="shapeContainer">
+                <div class="shapeb center">
+                    <p>商家服务<br>推广特权</p>
+                </div>
+                <div class="shape top">
+                    <p>免费<br>SEO推广</p>
+                </div>
+                <div class="shape top-left">
+                    <p>店铺<br>定制装修</p>
+                </div>
+                <div class="shape top-right">
+                    <p>专属顾<br>问式服务</p>
+                </div>
+                <div class="shape bottom">
+                    <p>享受百度<br>优先收录</p>
+                </div>
+                <div class="shape bottom-left">
+                    <p>精准<br>商机服务</p>
+                </div>
+                <div class="shape bottom-right">
+                    <p>标王首位<br>尊贵独显</p>
+                </div>
+            </div>
+        </div> -->
+        <div class="col-md-2"></div>
+        <div class="col-md-4 centerpic">
+            <img class="service-wrap-item" src="/images/servicepic1.png">
+        </div>
+        <div class="col-md-4 centerpic">
+            <img class="service-wrap-item" src="/images/servicepic2.png">
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="service-list center-x">
+        <p class="service-title">
+            <span class="title-content">买卖通服务</span>
+        </p>
+        <div class="row  boder-b">
+            <div class="col-md-5 col-sm-5">
+                <ul class="list1">
+                    <li class="list-title">商家经典版：3688元</li>
+                    <li>①会员服务2年</li>
+                    <li>②黄金展位、排名服务</li>
+                    <li>③品牌街关键词12个月服务</li>
+                    <li>④诚信商家标识2年</li>
+                    <li>⑤平台免费装修店铺1次</li>
+                </ul>
+                <a class="serviceBtn" href=""></a>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <img class="listpicw" src="/images/servicepic3.png">
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px">
+            <div class="col-md-5 col-sm-5">
+                <ul class="list1">
+                    <li class="list-title">VIP至尊版：36000元</li>
+                    <li>①普通标王(11个标王词服务，1个标1个词)</li>
+                    <li>②2个关键词黄金展位各12个月</li>
+                    <li>③2个关键词超级展位各12个月</li>
+                    <li>④行业首品牌专题、专访各一次/年</li>
+                    <li>⑤品牌旗舰店产品展示12个月</li>
+                    <li>⑥行业网站“采购直通车”图片广告6个月</li>
+                    <li>⑦至尊VIP诚信商铺标识2年</li>
+                    <li>⑧享受所有买卖通会员服务</li>
+                    <li>⑨平台免费装修店铺1次，免费数据初始化2次</li>
+                </ul>
+                <a class="serviceBtn" href=""></a>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <img class="listpicw" src="/images/servicepic4.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="service-bid center-x">
+        <p class="service-title">
+            <span class="title-content">标王服务</span>
+        </p>
+        <div class="row  boder-b">
+            <div class="col-md-5 col-sm-5">
+                <ul class="list2">
+                    <li class="list-title">标王</li>
+                    <li>①全网覆盖，流量为王</li>
+                    <li>②无限点击，无需付费</li>
+                    <li>③位置突出，抢占商机</li>
+                    <li>④操作便捷，专业精准</li>
+                    <li>⑤享受商家经典版服务</li>
+                </ul>
+                <a class="serviceBtn" href=""></a>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <img src="/images/bw.png">
+                <p><b>*</b>标王是帮助企业加大曝光率，提示流量的一种最佳推广方式</p>
+                <p><b>*</b>当买家搜索产品关键词时，标王产品信息会出现在搜索结果页第一页，且拥有“标王”皇冠醒目头衔！彰显企业实力！</p>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 20px">
+            <div class="col-md-5 col-sm-5">
+                <ul class="list2">
+                    <li class="list-title">极度标王</li>
+                    <li>①百度-首页-左侧最优展示位置</li>
+                    <li>②五条商品信息展示</li>
+                    <li>③超大首页左侧图文展示</li>
+                    <li>④直达商品终极页</li>
+                    <li>⑤云绣网首页展示，商品描述、图片等展示</li>
+                    <li>⑥精准客户量每年增长160%</li>
+                </ul>
+                <a class="serviceBtn" href=""></a>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <img src="/images/jdbw.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="service-bottom-banner"></div>
+
+
+    <div class="footbot">
+        <div class="container">
+            <ul>
+                <li class="col-md-2"><a href="#"><img src="/images/footicon1.png" /></a></li>
+                <li class="col-md-2"><a href="#"><img src="/images/footicon2.png" /></a></li>
+                <li class="col-md-2"><a href="#"><img src="/images/footicon3.png" /></a></li>
+                <li class="col-md-2"><a href="#"><img src="/images/footicon4.png" /></a></li>
+                <li class="col-md-2"><a href="#"><img src="/images/footicon5.png" /></a></li>
+                <li class="col-md-2"><a href="#"><img src="/images/footicon6.png" /></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div style="width:100%;">
+        <div class="footsec container clear">
+            <ul class="f-tip">
+                <li class="f-title">新手入门</li>
+                <li><a href="###">购物流程</a></li>
+                <li><a href="###">入驻流程</a></li>
+                <li><a href="###">发票制度</a></li>
+                <li><a href="###">会员优惠</a></li>
+            </ul>
+
+            <ul class="f-tip">
+                <li class="f-title">商家服务</li>
+                <li><a href="###">招商标准</a></li>
+                <li><a href="###">缴费流程</a></li>
+                <li><a href="###">商家资质更新操作</a></li>
+                <li><a href="###">品牌申请操作</a></li>
+            </ul>
+
+            <ul class="f-tip">
+                <li class="f-title">平台规则</li>
+                <li><a href="###">买家积分管理规则</a></li>
+                <li><a href="###">交易纠纷处理规则</a></li>
+                <li><a href="###">违规申诉管理规则</a></li>
+                <li><a href="###">资金管理规则</a></li>
+            </ul>
+
+            <ul class="f-tip">
+                <li class="f-title">客服中心</li>
+                <li><a href="###">延时处理流程</a></li>
+                <li><a href="###">商城数据管理规则</a></li>
+                <li><a href="###">店铺动态设置</a></li>
+                <li><a href="###">店铺装修帮助</a></li>
+            </ul>
+
+            <ul class="f-tip">
+                <li class="f-title">&nbsp;</li>
+                <li><a href="###"><img style="width:100px;height:100px;" src="/images/tipflex_258.jpg" /></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- 底部链接 -->
+    <div class="footer container">
+        <p style="clear:both;"><a href="###">关于云绣网</a> | <a href="###">会员服务</a> | <a href="###">商家入驻</a> | <a href="###">广告服务</a> | <a href="###">网站导航</a> | <a href="###">诚聘英才</a> | <a href="###">意见投诉</a> | <a href="###">客服中心</a> | <a href="###">友情链接</a></p>
+        <p><img src="/images/bot.png" />粤ICP1234 </p>
+        <p>Copyright©云绣网XXX.com. All Rights Reserved</p>
+    </div>
+
+    <div class="kefu">
+        <a href=""><img src="/images/kefu.png"></a>
+        <span>在线客服</span>
+    </div>
+
+
+</body>
+</html>
+

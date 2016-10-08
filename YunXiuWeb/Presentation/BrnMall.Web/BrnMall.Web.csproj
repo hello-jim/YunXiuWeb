@@ -675,6 +675,8 @@
     <Content Include="views\CommonProblem\ReceiptProblems.cshtml" />
     <Content Include="views\CommonProblem\OrderSearch.cshtml" />
     <Content Include="views\ucenter\UIndex.cshtml" />
+    <Content Include="views\store\StoreServicesHome.cshtml" />
+    <Content Include="views\store\StoreCustomerServiceCentre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\txtlogs\" />

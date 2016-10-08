@@ -233,6 +233,17 @@ namespace BrnMall.Web.Controllers
             WorkContext.StoreInfo = Stores.GetStoreById(WorkContext.StoreId);
         }
 
+
+        public ActionResult StoreServicesHome() 
+        {
+            return View();
+        }
+
+        public ActionResult StoreCustomerServiceCentre() 
+        {
+            return View();
+        }
+
         //protected sealed override void OnAuthorization(AuthorizationContext filterContext)
         //{
         //    base.OnAuthorization(filterContext);
