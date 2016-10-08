@@ -52,3 +52,11 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.OAuthPlug
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.OAuthPlugin.QQ\BrnMall.OAuthPlugin.QQ.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Plugins\BrnMall.OAuthPlugin.QQ\obj\Debug\BrnMall.OAuthPlugin.QQ.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Plugins\BrnMall.OAuthPlugin.QQ\obj\Debug\BrnMall.OAuthPlugin.QQ.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.OAuthPlugin.QQ\db.config
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.OAuthPlugin.QQ\plugin.config
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.OAuthPlugin.QQ\views\adminqqoauth\config.cshtml
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.OAuthPlugin.QQ\BrnMall.OAuthPlugin.QQ.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\plugins\BrnMall.OAuthPlugin.QQ\BrnMall.OAuthPlugin.QQ.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Plugins\BrnMall.OAuthPlugin.QQ\obj\Debug\BrnMall.OAuthPlugin.QQ.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Plugins\BrnMall.OAuthPlugin.QQ\obj\Debug\BrnMall.OAuthPlugin.QQ.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Plugins\BrnMall.OAuthPlugin.QQ\obj\Debug\BrnMall.OAuthPlugin.QQ.pdb

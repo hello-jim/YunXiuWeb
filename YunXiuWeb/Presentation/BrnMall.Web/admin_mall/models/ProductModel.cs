@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
+using YunXiu.Model;
 
 namespace BrnMall.Web.MallAdmin.Models
 {
@@ -52,6 +53,10 @@ namespace BrnMall.Web.MallAdmin.Models
         /// 商品名称
         /// </summary>
         public string ProductName { get; set; }
+
+        public List<Product> Products { get; set; }
+
+        public List<Brand> Brands { get; set; }
     }
 
     /// <summary>
@@ -230,6 +235,10 @@ namespace BrnMall.Web.MallAdmin.Models
         /// 属性输入值列表
         /// </summary>
         public string[] AttrInputValueList { get; set; }
+
+        public int ImgID  { get; set; }
+
+        public string ImgName { get; set; }
     }
 
     /// <summary>
@@ -262,6 +271,15 @@ namespace BrnMall.Web.MallAdmin.Models
         [DisplayName("商品品牌")]
         public int BrandId { get; set; }
 
+        public int PID { get; set; }
+
+        public int CateId { get; set; }
+
+        public string StoreName { get; set; }
+
+        public int StoreId { get; set; }
+
+        public int SkuGID { get; set; }
         /// <summary>
         /// 品牌名称
         /// </summary>

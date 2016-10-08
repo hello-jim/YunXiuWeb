@@ -27,8 +27,7 @@
         <div class="clear">
         </div>
     </h1>
-    @using (Html.BeginForm())
-    {
+
         <div class="dataListSearch">
             <table height="32">
                 <tbody>
@@ -79,20 +78,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (DataRow row in Model.ProductList.Rows)
-                    {
+@{var productsList = @Model.Products;}
+@foreach (var row in productsList)
+  {
+                   
                         <tr>
-                            <td align="center"><input type="checkbox" value="@row["pid"]" selectItem="true" name="pidList" /></td>
-                            <td>@row["pid"]</td>
-                            <td><a href="@Url.Action("product", "catalog", new { pid = row["pid"], area = "" })" target="_blank">@row["pname"]</a></td>
-                            <td>@row["sname"]</td>
-                            <td align="center"><input type="text" url="@Url.Action("updateproductshopprice", new { pid = row["pid"] })" value="@row["shopprice"]" style=" width:70px;" class="shoppriceinput unselectedsortinput" /></td>
+                            <td align="center"><input type="checkbox" value="@row.PID" selectItem="true" name="pidList" /></td>
+                            <td>@row.PID</td>
+                            <td><a href="@Url.Action("product", "catalog", new { pid = row.PID, area = "" })" target="_blank">@row.Name</a></td>
+                            <td>@row.Store.Name</td>
+                            <td align="center"><input type="text" url="@Url.Action("updateproductshopprice", new { pid = row.PID })" value="@row.ShopPrice" style=" width:70px;" class="shoppriceinput unselectedsortinput" /></td>
                             <td>
-                                @Html.ActionLink("[图片]", "productimagelist", new { pid = row["pid"] }, new { @class = "editOperate" })|
-                                @Html.ActionLink("[关联商品]", "relateproductlist", new { pid = row["pid"] }, new { @class = "editOperate" })|
-                                <a href="#" class="outsaletag editOperate" url="@Url.Action("outsaleproduct", new { pidList = row["pid"] })">[下架]</a>|
-                                @Html.ActionLink("[编辑]", "editproduct", new { pid = row["pid"] }, new { @class = "editOperate" })|
-                                @Html.ActionLink("[删除]", "recycleproduct", new { pidList = row["pid"] }, new { @class = "deleteOperate" })
+                                @Html.ActionLink("[图片]", "productimagelist", new { pid = row.PID }, new { @class = "editOperate" })|
+                                @Html.ActionLink("[关联商品]", "relateproductlist", new { pid = row.PID }, new { @class = "editOperate" })|
+                                <a href="#" class="outsaletag editOperate" url="@Url.Action("outsaleproduct", new { pidList = row.PID })">[下架]</a>|
+                                @Html.ActionLink("[编辑]", "editproduct", new { pid = row.PID }, new { @class = "editOperate" })|
+                                @Html.ActionLink("[删除]", "delproduct", new { pid = row.PID }, new { @class = "deleteOperate" })
                             </td>
                         </tr>
                     }
@@ -102,9 +103,9 @@
         <div class="dataListEdit">
 <a href="javascript:void(0)" outSaleUrl="@Url.Action("outsaleproduct")" class="batch batchOutSale">批量下架</a>
 <a href="javascript:void(0)" recycleUrl="@Url.Action("recycleproduct")" class="batch batchRecycle">批量删除</a>
-            <div class="page">
+            @*<div class="page">
                 @Html.MallAdminPager(Model.PageModel)
-            </div>
+            </div>*@
         </div>
     }
 }

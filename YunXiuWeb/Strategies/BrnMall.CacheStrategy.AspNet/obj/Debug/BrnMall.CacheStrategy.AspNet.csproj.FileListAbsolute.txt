@@ -27,3 +27,8 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.CacheStrategy
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.CacheStrategy.AspNet\obj\Debug\BrnMall.CacheStrategy.AspNet.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.CacheStrategy.AspNet\obj\Debug\BrnMall.CacheStrategy.AspNet.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Strategies\BrnMall.CacheStrategy.AspNet\obj\Debug\BrnMall.CacheStrategy.AspNet.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.CacheStrategy.AspNet.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.CacheStrategy.AspNet.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.CacheStrategy.AspNet\obj\Debug\BrnMall.CacheStrategy.AspNet.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.CacheStrategy.AspNet\obj\Debug\BrnMall.CacheStrategy.AspNet.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Strategies\BrnMall.CacheStrategy.AspNet\obj\Debug\BrnMall.CacheStrategy.AspNet.pdb

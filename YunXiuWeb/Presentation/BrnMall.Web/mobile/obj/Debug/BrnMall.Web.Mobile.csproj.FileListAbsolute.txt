@@ -33,3 +33,8 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.Mobile.dl
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.Mobile.pdb
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\mobile\obj\Debug\BrnMall.Web.Mobile.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\mobile\obj\Debug\BrnMall.Web.Mobile.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.Mobile.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.Mobile.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\mobile\obj\Debug\BrnMall.Web.Mobile.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\mobile\obj\Debug\BrnMall.Web.Mobile.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\mobile\obj\Debug\BrnMall.Web.Mobile.pdb
