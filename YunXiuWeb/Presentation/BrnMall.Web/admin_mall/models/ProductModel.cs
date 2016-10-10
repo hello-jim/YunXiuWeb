@@ -551,6 +551,8 @@ namespace BrnMall.Web.MallAdmin.Models
         /// 店铺id
         /// </summary>
         public int StoreId { get; set; }
+
+        
     }
 
     /// <summary>

@@ -27,8 +27,8 @@
         <div class="clear">
         </div>
     </h1>
-    @using (Html.BeginForm())
-    {
+    @*@using (Html.BeginForm())
+    {*@
         <div class="dataListSearch">
             <table height="32">
                 <tbody>
@@ -51,9 +51,17 @@
                             </div>
                         </td>
                         <td>店铺分类：</td>
-                        <td width="80">@Html.DropDownListFor(x => x.StoreCid, Model.StoreClassList)</td>
+                        @*<td width="80">@Html.DropDownListFor(x => x.StoreCid, Model.StoreClassList)</td>*@
+                        <td width="80">
+                            <select data-val="true" data-val-number="字段 店铺分类 必须是一个数字。" data-val-range="请选择店铺分类" data-val-range-max="2147483647" data-val-range-min="1" data-val-required="店铺分类 字段是必需的。" id="StoreCid" name="StoreCid">
+                                <option selected="selected" value="-1">选择店铺分类</option>
+                                <option value="1">国产</option>
+                                <option value="3">进口</option>
+                                <option value="6">合资</option>
+                            </select>
+                        </td>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品名称：</td>
-                        <td width="180">@Html.TextBox("ProductName", Model.ProductName, new { height = "28", size = "30" })</td>
+                        <td width="180">@Html.TextBox("ProductName", Model.BrandName, new { height = "28", size = "30" })</td>
                         <td><input id="SearchProduct" name="SearchProduct" type="image" class="searchBut submit" src="/admin_store/images/s.jpg" /></td>
                     </tr>
                 </tbody>
@@ -72,80 +80,88 @@
                         <th width="46" align="center">新品</th>
                         <th width="56" align="center">排序</th>
                         <th width="76" align="center">价格</th>
-                        <th width="60" align="center">库存</th>
+                        <th width="60" align="center">销售数量</th>
                         <th width="220" align="left">管理操作</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (DataRow row in Model.ProductList.Rows)
-                    {
-                        <tr>
-                            <td align="center"><input type="checkbox" value="@row["pid"]" selectItem="true" name="pidList" /></td>
-                            <td>@row["pid"]</td>
-                            <td><a href="@Url.Action("product", "catalog", new { pid = row["pid"], area = "" })" target="_blank">@row["pname"]</a></td>
-                            <td align="center">
-                                @{
-                        if (row["isbest"].ToString() == "0")
-                        {
-                             <span style=" cursor:pointer" url="@Url.Action("changeproductisbest", new { pidList = row["pid"] })" isbest="0" class="isbestspan">
-                                        否</span>
-                        }
-                        else
-                        {
-                             <span style=" cursor:pointer" url="@Url.Action("changeproductisbest", new { pidList = row["pid"] })" isbest="1" class="isbestspan">
-                                        是</span>
-                        }
-                                }
-                            </td>
-                            <td align="center">
-                                @{
-                        if (row["ishot"].ToString() == "0")
-                        {
-                           <span style=" cursor:pointer" url="@Url.Action("changeproductishot", new { pidList = row["pid"] })" ishot="0" class="ishotspan">
-                                        否</span>
-                        }
-                        else
-                        {
-                           <span style=" cursor:pointer" url="@Url.Action("changeproductishot", new { pidList = row["pid"] })" ishot="1" class="ishotspan">
-                                        是</span>
-                        }
-                                }
-                            </td>
-                            <td align="center">
-                                @{
-                        if (row["isnew"].ToString() == "0")
-                        {
-                           <span style=" cursor:pointer" url="@Url.Action("changeproductisnew", new { pidList = row["pid"] })" isnew="0" class="isnewspan">
-                                        否</span>
-                        }
-                        else
-                        {
-                           <span style=" cursor:pointer" url="@Url.Action("changeproductisnew", new { pidList = row["pid"] })" isnew="1" class="isnewspan">
-                                        是</span>
-                        }
-                                }
-                            </td>
-                            <td align="center"> <input type="text" url="@Url.Action("updateproductdisplayorder", new { pid=row["pid"]})" value="@row["displayorder"]" class="sortinput unselectedsortinput" /></td>
-                            <td align="center"><input type="text" url="@Url.Action("updateproductshopprice", new { pid = row["pid"] })" value="@row["shopprice"]" style=" width:70px;" class="shoppriceinput unselectedsortinput" /></td>
-                            <td align="center"><input type="text" url="@Url.Action("updateproductstocknumber", new { pid = row["pid"] })" value="@row["number"]" class="stockinput unselectedsortinput" /></td>
-                            <td>
-                                @Html.ActionLink("[图片]", "productimagelist", new { pid = row["pid"] }, new { @class = "editOperate" })|
-                                @Html.ActionLink("[关联商品]", "relateproductlist", new { pid = row["pid"] }, new { @class = "editOperate" })|
-                                <a href="#" class="outsaletag editOperate" url="@Url.Action("outsaleproduct", new { pidList = row["pid"] })">[下架]</a>|
-                                @Html.ActionLink("[编辑]", "editproduct", new { pid = row["pid"] }, new { @class = "editOperate" })|
-                                @Html.ActionLink("[删除]", "recycleproduct", new { pidList = row["pid"] }, new { @class = "deleteOperate" })
-                            </td>
-                        </tr>
-                    }
+                    @{var products = @Model.Product;}
+                    @foreach (var row in products)
+{
+    <tr name="@row.Name" psn="@row.Psn.TrimEnd()" pid="@row.PID" sort="@row.Sort" cateid="@row.Category.CateId" catename="@row.Category.Name" brandid="@row.Brand.BrandID" brandname="@row.Brand.Name" ishot="@row.IsHot" skugid="@row.SkuGID" shopprice="@row.ShopPrice" marketprice="@row.MarketPrice" costprice="@row.CostPrice" state="@row.State" isbest="@row.IsBest" isnew="@row.IsNew" isrecommend="@row.IsRecommend" weight="@row.Weight" description="@row.Description" office="@row.OfficialGuarantee" faqs="@row.FAQs">
+        <td align="center"><input type="checkbox" value="@row.PID" selectitem="true" name="pidList" /></td>
+        <td>@row.PID</td>
+        <td><a href="@Url.Action("product", "catalog", new { pid = row.PID, area = "" })" target="_blank">@row.Name</a></td>
+
+        <td align="center">
+            @{
+    if (row.IsBest.ToString() == "0")
+    {
+        <span style=" cursor:pointer" url="@Url.Action("changeproductisbest", new { pidList = row.PID })" isbest="0" class="isbestspan">
+            否
+        </span>
+    }
+    else
+    {
+        <span style=" cursor:pointer" url="@Url.Action("changeproductisbest", new { pidList = row.PID })" isbest="1" class="isbestspan">
+            是
+        </span>
+    }
+            }
+        </td>
+        <td align="center">
+            @{
+    if (row.IsHot.ToString() == "0")
+    {
+        <span style=" cursor:pointer" url="@Url.Action("changeproductishot", new { pidList = row.PID })" ishot="0" class="ishotspan">
+            否
+        </span>
+    }
+    else
+    {
+        <span style=" cursor:pointer" url="@Url.Action("changeproductishot", new { pidList = row.PID })" ishot="1" class="ishotspan">
+            是
+        </span>
+    }
+            }
+        </td>
+        <td align="center">
+            @{
+    if (row.IsNew.ToString() == "0")
+    {
+        <span style=" cursor:pointer" url="@Url.Action("changeproductisnew", new { pidList = row.PID })" isnew="0" class="isnewspan">
+            否
+        </span>
+    }
+    else
+    {
+        <span style=" cursor:pointer" url="@Url.Action("changeproductisnew", new { pidList = row.PID })" isnew="1" class="isnewspan">
+            是
+        </span>
+    }
+            }
+        </td>
+        <td align="center"> <input type="text" url="@Url.Action("updateproductdisplayorder", new { pid = row.PID })" value="@row.Sort" class="sortinput unselectedsortinput" /></td>
+        <td align="center"><input type="text" url="@Url.Action("updateproductshopprice", new { pid = row.PID })" value="@row.ShopPrice" style=" width:70px;" class="shoppriceinput unselectedsortinput" /></td>
+        <td align="center"><input type="text" url="@Url.Action("updateproductstocknumber", new { pid = row.PID })" value="@row.SaleCount" class="stockinput unselectedsortinput" /></td>
+        <td>
+            @Html.ActionLink("[图片]", "productimagelist", new { pid = row.PID }, new { @class = "editOperate" })|
+            @Html.ActionLink("[关联商品]", "relateproductlist", new { pid = row.PID }, new { @class = "editOperate" })|
+            <a href="#" class="outsaletag editOperate" url="@Url.Action("outsaleproduct", new { pidList = row.PID })">[下架]</a>|
+            @Html.ActionLink("[编辑]", "editproduct", new { name = @row.Name, psn = @row.Psn.TrimEnd(), pid = @row.PID, cateid = @row.Category.CateId,catename=@row.Category.Name, brandid = @row.Brand.BrandID, brandname=@row.Brand.Name, ishot = @row.IsHot, skugid = @row.SkuGID, shopprice = @row.ShopPrice, marketprice = @row.MarketPrice, costprice = @row.CostPrice, state = @row.State, isbest = @row.IsBest, isnew = @row.IsNew, isrecommend = @row.IsRecommend, sort = @row.Sort, weight = @row.Weight, description = @row.Description, office = @row.OfficialGuarantee, faqs = @row.FAQs }, new { @class = "editOperate" })|
+            @Html.ActionLink("[删除]", "delProduct", new { PID = row.PID }, new { @class = "deleteOperate" })
+        </td>
+    </tr>
+}
                 </tbody>
             </table>
         </div>
         <div class="dataListEdit">
 <a href="javascript:void(0)" outSaleUrl="@Url.Action("outsaleproduct")" class="batch batchOutSale">批量下架</a>
 <a href="javascript:void(0)" recycleUrl="@Url.Action("recycleproduct")" class="batch batchRecycle">批量删除</a>
-            <div class="page">
+            @*<div class="page">
                 @Html.StoreAdminPager(Model.PageModel)
-            </div>
+            </div>*@
         </div>
-    }
+    @*}*@
 }

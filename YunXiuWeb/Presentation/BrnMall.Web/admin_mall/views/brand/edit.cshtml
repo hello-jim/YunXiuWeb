@@ -94,6 +94,15 @@
     <td align="right">排序：</td>
     <td>@Html.TextBoxFor(x => x.DisplayOrder, new { @class="input",size="3"})@Html.ValidationMessageFor(x => x.DisplayOrder)</td>
     </tr>
+
+    <tr>
+        <td align="right">标签：</td>
+        <td>
+            <p>
+                <label>@Html.CheckBoxFor(x => x.IsHotBrand, new { @class = "checkbox" })热门</label>
+            </p>
+        </td>
+    </tr>
     <tr>
         <td align="right">
             商品分类：

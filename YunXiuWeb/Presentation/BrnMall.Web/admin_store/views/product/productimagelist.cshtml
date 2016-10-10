@@ -14,7 +14,7 @@
     <script type="text/javascript">
         delMessage = "如果图片为主图,请您重新设置另一张图片为主图,您确定要删除吗？";
 
-        $(function () {
+        @*$(function () {
             var uploader = WebUploader.create({
                 pick: '.uploadBut',
                 auto: true,
@@ -50,7 +50,7 @@
             uploader.on('uploadError', function(file) {
                 $(".uploadPreview").html("上传失败");
             });
-        });
+        });*@
 
         /*主图*/
         $(function () {
@@ -119,38 +119,39 @@
                     <th width="140" align="center">
                         排序
                     </th>
-                    <th width="60" align="left">
+                    <th width="140" align="left">
                         管理操作
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (ProductImageInfo info in Model.ProductImageList)
+                @foreach (var info in Model.ProductImages)
                 {
                     <tr>
                         <td align="center">
-                            <input type="checkbox" value="@info.PImgId" />
+                            <input type="checkbox" value="@info.PImgID" />
                         </td>
-                        <td>@info.PImgId
+                        <td>@info.PImgID
                         </td>
                         <td>
-                            <img height="40" width="40" src="@WorkContext.ImageCDN/upload/store/@WorkContext.StoreId/product/show/source/@info.ShowImg" />
+                            <img height="40" width="40" src="@WorkContext.ImageCDN/images/productImg/@info.PImgID@info.ImgName" />
                         </td>
                         <td align="center">
                     @if (info.IsMain==0)
                     {
-                                <span style=" cursor:pointer" url="@Url.Action("setproductmianimage", new { pImgId = info.PImgId })" ismain="0" class="mainimgspan">否</span>
+                                <span style=" cursor:pointer" url="@Url.Action("setproductmianimage", new { pImgId = info.PImgID })" ismain="0" class="mainimgspan">否</span>
                     }
                     else
                     {
-                                <span style=" cursor:pointer" url="@Url.Action("setproductmianimage", new { pImgId = info.PImgId })" ismain="1" class="mainimgspan">是</span>
+                                <span style=" cursor:pointer" url="@Url.Action("setproductmianimage", new { pImgId = info.PImgID })" ismain="1" class="mainimgspan">是</span>
                     }
                         </td>
                         <td align="center">
-                            <input type="text" url="@Url.Action("changeproductimagedisplayorder", new { pImgId = info.PImgId })" value="@info.DisplayOrder" class="sortinput unselectedsortinput" />
+                            <input type="text" url="@Url.Action("changeproductimagedisplayorder", new { pImgId = info.PImgID })" value="@info.DisplayOrder" class="sortinput unselectedsortinput" />
                         </td>
                         <td>
-                        <a href="#" url="@Url.Action("delproductimage", new { pImgId = info.PImgId })" class = "ajaxdeleteOperate" }>[删除]</a>
+                        <a href="#" url="@Url.Action("delproductimage", new { pImgId = info.PImgID })" class = "ajaxdeleteOperate" }>[删除]</a>
+                            @Html.ActionLink("[设置为主图]", "setproductmianImage", new { pid = @Model.Pid, pimgid = info.PImgID, imgName = info.ImgName }, new { @class = "editOperate" })
                         </td>
                     </tr>
                 }
@@ -159,31 +160,38 @@
     </div>
     <div class="table_bottom">
     </div>
-    @using (Html.BeginForm("addproductimage", "product"))
-    {
+<form id="form1" method="post" enctype="multipart/form-data" action="/storeadmin/product/addproductimage">
+    @*@using (Html.BeginForm("addproductimage", "product"))
+    {*@
         <div class="addTable" style="margin-left: 15px; margin-bottom: 10px; padding-top: 10px; border: 2px solid #dbeffa">
             <table width="100%">
                 <tbody>
                     <tr>
                         <td width="66px" align="right">商品图片：</td>
                         <td>
-                            <input type="hidden" name="Pid" id="Pid" value="@Model.Pid"/>
+                            <input type="hidden" name="Pid" id="Pid" value="@Model.Pid" />
                             <div class="upload">
-                                <div class="uploadPreview">暂无图片</div>
                                 <div class="left">
-                                    <div class="uploadProgressBar"></div>
-                                    <div class="uploadBut">选择图片</div>
+                                    <div><input id="fileID" name="fileID" type="file" value="上传" />@*@Html.ValidationMessageFor(x => x.Logo)*@</div>
                                 </div>
                                 <div class="clear"></div>
                             </div>
-                            <input type="hidden" name="ShowImg" id="ShowImg" value="" />
+                            @*<div class="upload">
+                                    <div class="uploadPreview">暂无图片</div>
+                                    <div class="left">
+                                        <div class="uploadProgressBar"></div>
+                                        <div class="uploadBut">选择图片</div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <input type="hidden" name="ShowImg" id="ShowImg" value="" />*@
                         </td>
                     </tr>
                     <tr>
                         <td align="right">排序：</td>
-                        <td><input type="text" name="DisplayOrder" id="DisplayOrder" value="0" class = "input" size = "10"/></td>
+                        <td><input type="text" name="DisplayOrder" id="DisplayOrder" value="0" class="input" size="10" /></td>
                     </tr>
-                    <tr>
+                    @*<tr>
                         <td align="right">主图：</td>
                         <td>
                             <p>
@@ -192,10 +200,9 @@
                                 <br />
                             </p>
                         </td>
-                    </tr>
+                    </tr>*@
                     <tr>
-                        <td align="right">
-                        </td>
+                        <td align="right"></td>
                         <td>
                             <input type="image" id="addImg" style="margin: 0px; padding: 0px;" src="/admin_store/images/a.jpg" />
                             <script type="text/javascript">
@@ -215,5 +222,6 @@
                 </tbody>
             </table>
         </div>
-    }
+    @*}*@
+    </form>
 }

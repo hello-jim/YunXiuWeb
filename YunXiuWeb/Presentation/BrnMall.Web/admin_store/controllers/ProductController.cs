@@ -4,11 +4,14 @@ using System.Data;
 using System.Text;
 using System.Web.Mvc;
 using System.Collections.Generic;
-
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.StoreAdmin.Models;
+using YunXiu.Model;
+using YunXiu.Commom;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace BrnMall.Web.StoreAdmin.Controllers
 {
@@ -29,41 +32,49 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         /// <param name="pageNumber">当前页数</param>
         /// <param name="pageSize">每页数</param>
         /// <returns></returns>
-        public ActionResult OnSaleProductList(string productName, string categoryName, string brandName, int storeCid = -1, int cateId = -1, int brandId = -1, int pageNumber = 1, int pageSize = 15)
+        //public ActionResult OnSaleProductList(string productName, string categoryName, string brandName, int storeCid = -1, int cateId = -1, int brandId = -1, int pageNumber = 1, int pageSize = 15)
+        //{
+        //    string condition = AdminProducts.AdminGetProductListCondition(WorkContext.StoreId, storeCid, productName, cateId, brandId, (int)ProductState.OnSale);
+
+        //    PageModel pageModel = new PageModel(pageSize, pageNumber, AdminProducts.AdminGetProductCount(condition));
+
+        //    List<SelectListItem> storeClassList = new List<SelectListItem>();
+        //    storeClassList.Add(new SelectListItem() { Text = "全部分类", Value = "0" });
+        //    foreach (StoreClassInfo storeClassInfo in AdminStores.GetStoreClassList(WorkContext.StoreId).FindAll(x => x.HasChild == 0))
+        //    {
+        //        storeClassList.Add(new SelectListItem() { Text = storeClassInfo.Name, Value = storeClassInfo.StoreCid.ToString() });
+        //    }
+
+        //    ProductListModel model = new ProductListModel()
+        //    {
+        //        PageModel = pageModel,
+        //        ProductList = AdminProducts.AdminGetProductList(pageModel.PageSize, pageModel.PageNumber, condition),
+        //        StoreCid = storeCid,
+        //        StoreClassList = storeClassList,
+        //        CateId = cateId,
+        //        CategoryName = string.IsNullOrWhiteSpace(categoryName) ? "全部分类" : categoryName,
+        //        BrandId = brandId,
+        //        BrandName = string.IsNullOrWhiteSpace(brandName) ? "全部品牌" : brandName,
+        //        ProductName = productName
+        //    };
+
+        //    MallUtils.SetAdminRefererCookie(string.Format("{0}?pageNumber={1}&pageSize={2}&storeCid={3}&productName={4}&cateId={5}&brandId={6}&categoryName={7}&brandName={8}",
+        //                                                  Url.Action("onsaleproductlist"),
+        //                                                  pageModel.PageNumber, pageModel.PageSize,
+        //                                                  storeCid, productName,
+        //                                                  cateId, brandId,
+        //                                                  categoryName, brandName));
+        //    return View(model);
+        //}
+        public ActionResult OnSaleProductList()
         {
-            string condition = AdminProducts.AdminGetProductListCondition(WorkContext.StoreId, storeCid, productName, cateId, brandId, (int)ProductState.OnSale);
-
-            PageModel pageModel = new PageModel(pageSize, pageNumber, AdminProducts.AdminGetProductCount(condition));
-
-            List<SelectListItem> storeClassList = new List<SelectListItem>();
-            storeClassList.Add(new SelectListItem() { Text = "全部分类", Value = "0" });
-            foreach (StoreClassInfo storeClassInfo in AdminStores.GetStoreClassList(WorkContext.StoreId).FindAll(x => x.HasChild == 0))
-            {
-                storeClassList.Add(new SelectListItem() { Text = storeClassInfo.Name, Value = storeClassInfo.StoreCid.ToString() });
-            }
-
-            ProductListModel model = new ProductListModel()
-            {
-                PageModel = pageModel,
-                ProductList = AdminProducts.AdminGetProductList(pageModel.PageSize, pageModel.PageNumber, condition),
-                StoreCid = storeCid,
-                StoreClassList = storeClassList,
-                CateId = cateId,
-                CategoryName = string.IsNullOrWhiteSpace(categoryName) ? "全部分类" : categoryName,
-                BrandId = brandId,
-                BrandName = string.IsNullOrWhiteSpace(brandName) ? "全部品牌" : brandName,
-                ProductName = productName
-            };
-
-            MallUtils.SetAdminRefererCookie(string.Format("{0}?pageNumber={1}&pageSize={2}&storeCid={3}&productName={4}&cateId={5}&brandId={6}&categoryName={7}&brandName={8}",
-                                                          Url.Action("onsaleproductlist"),
-                                                          pageModel.PageNumber, pageModel.PageSize,
-                                                          storeCid, productName,
-                                                          cateId, brandId,
-                                                          categoryName, brandName));
+            var productData = CommomClass.HttpPost("http://192.168.9.32:8082/Product/GetProductByStore", "1");
+            var productCount = JsonConvert.DeserializeObject<List<Product>>(productData);
+            ProductListModel model = new ProductListModel();
+            
+            model.Product = productCount;
             return View(model);
         }
-
         /// <summary>
         /// 下架商品列表
         /// </summary>
@@ -199,6 +210,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
                 MallUtils.SetAdminRefererCookie(backUrl);
             }
             ViewData["referer"] = backUrl;
+            
             return View(model);
         }
 
@@ -208,65 +220,87 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         [HttpPost]
         public ActionResult AddProduct(AddProductModel model)
         {
-            if (ModelState.IsValid)
+            if (model.BrandId != 0)
             {
-                ProductInfo productInfo = new ProductInfo()
+
+                Product productInfo = new Product()
                 {
-                    PSN = model.PSN ?? "",
-                    CateId = model.CateId,
-                    BrandId = model.BrandId,
-                    StoreId = WorkContext.StoreId,
-                    StoreCid = model.StoreCid,
-                    StoreSTid = model.StoreSTid,
-                    SKUGid = 0,
+                    Psn = model.PSN ?? "",
+                    Category = new Category
+                    {
+                        CateId = model.CateId,
+                    },
+                    Brand = new Brand
+                    {
+                        BrandID = model.BrandId,
+                    },
+                    Store = new Store
+                    {
+                        StoreID = WorkContext.StoreId,
+                    },
+                 
+                    StoreStID = model.StoreSTid,
+                    SkuGID= 0,
                     Name = model.ProductName,
                     ShopPrice = model.ShopPrice,
                     MarketPrice = model.MarketPrice,
                     CostPrice = model.CostPrice,
                     State = model.State,
-                    IsBest = model.IsBest == true ? 1 : 0,
-                    IsHot = model.IsHot == true ? 1 : 0,
-                    IsNew = model.IsNew == true ? 1 : 0,
-                    DisplayOrder = model.DisplayOrder,
+                    IsBest = Convert.ToBoolean(model.IsBest == true ? 1 : 0),
+                    IsHot =  Convert.ToBoolean(model.IsHot == true ? 1 : 0),
+                    IsNew =  Convert.ToBoolean(model.IsNew == true ? 1 : 0),
+                    IsRecommend = Convert.ToBoolean(model.IsRecommend == true ? 1:0),
+                    Sort = model.DisplayOrder,
                     Weight = model.Weight,
-                    ShowImg = "",
+                    SaleCount = model.SaleCount,
+                    VisitCount = model.VisitCount,
+                    //ShowImg = "",
                     Description = model.Description ?? "",
-                    AddTime = DateTime.Now,
+                    OfficialGuarantee = model.OfficialGuarantee,
+                    FAQs = model.FAQs,
+                    //AddTime = DateTime.Now,
                 };
-
-                //属性处理
-                List<ProductAttributeInfo> productAttributeList = new List<ProductAttributeInfo>();
-                if (model.AttrValueIdList != null && model.AttrValueIdList.Length > 0)
+                var data = CommomClass.HttpPost("http://192.168.9.32:8082/Product/AddProduct", JsonConvert.SerializeObject(productInfo));
+                if (data == "false")
                 {
-                    for (int i = 0; i < model.AttrValueIdList.Length; i++)
-                    {
-                        int attrId = model.AttrIdList[i];//属性id
-                        int attrValueId = model.AttrValueIdList[i];//属性值id
-                        string inputValue = model.AttrInputValueList[i];//属性输入值
-                        if (attrId > 0 && attrValueId > 0)
-                        {
-                            productAttributeList.Add(new ProductAttributeInfo
-                            {
-                                AttrId = attrId,
-                                AttrValueId = attrValueId,
-                                InputValue = inputValue ?? ""
-                            });
-                        }
-                    }
+                    return PromptView("普通商品添加失败");
                 }
+                else { 
+                
+                   return PromptView("普通商品添加成功");
+                }
+                //属性处理
+            //    List<ProductAttributeInfo> productAttributeList = new List<ProductAttributeInfo>();
+            //    if (model.AttrValueIdList != null && model.AttrValueIdList.Length > 0)
+            //    {
+            //        for (int i = 0; i < model.AttrValueIdList.Length; i++)
+            //        {
+            //            int attrId = model.AttrIdList[i];//属性id
+            //            int attrValueId = model.AttrValueIdList[i];//属性值id
+            //            string inputValue = model.AttrInputValueList[i];//属性输入值
+            //            if (attrId > 0 && attrValueId > 0)
+            //            {
+            //                productAttributeList.Add(new ProductAttributeInfo
+            //                {
+            //                    AttrId = attrId,
+            //                    AttrValueId = attrValueId,
+            //                    InputValue = inputValue ?? ""
+            //                });
+            //            }
+            //        }
+            //    }
 
-                AdminProducts.AddProduct(productInfo, model.StockNumber, model.StockLimit, productAttributeList);
-                AddStoreAdminLog("添加普通商品", "添加普通商品,商品为:" + model.ProductName);
+            //    AdminProducts.AddProduct(productInfo, model.StockNumber, model.StockLimit, productAttributeList);
+            //    AddStoreAdminLog("添加普通商品", "添加普通商品,商品为:" + model.ProductName);
 
-                string backUrl = null;
-                if (productInfo.State == (int)ProductState.OnSale)
-                    backUrl = Url.Action("onsaleproductlist");
-                else
-                    backUrl = Url.Action("outsaleproductlist");
-                return PromptView(backUrl, "普通商品添加成功");
+            //    string backUrl = null;
+            //    if (productInfo.State == (int)ProductState.OnSale)
+            //        backUrl = Url.Action("onsaleproductlist");
+            //    else
+            //        backUrl = Url.Action("outsaleproductlist");
+             
             }
             LoadStore();
-            ViewData["referer"] = MallUtils.GetStoreAdminRefererCookie();
             return View(model);
         }
 
@@ -274,105 +308,116 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         /// 编辑商品
         /// </summary>
         [HttpGet]
-        public ActionResult EditProduct(int pid = -1)
+        //public ActionResult EditProduct(int pid = -1)
+        //{
+        //    ProductInfo productInfo = AdminProducts.AdminGetProductById(pid);
+        //    if (productInfo == null)
+        //        return PromptView("商品不存在");
+        //    if (productInfo.StoreId != WorkContext.StoreId)
+        //        return PromptView("不能操作其它店铺的商品");
+
+        //    EditProductModel model = new EditProductModel();
+
+        //    model.PSN = productInfo.PSN;
+        //    model.BrandId = productInfo.BrandId;
+        //    model.StoreCid = productInfo.StoreCid;
+        //    model.StoreSTid = productInfo.StoreSTid;
+        //    model.ProductName = productInfo.Name;
+        //    model.ShopPrice = productInfo.ShopPrice;
+        //    model.MarketPrice = productInfo.MarketPrice;
+        //    model.CostPrice = productInfo.CostPrice;
+        //    model.State = productInfo.State;
+        //    model.IsBest = productInfo.IsBest == 1 ? true : false;
+        //    model.IsHot = productInfo.IsHot == 1 ? true : false;
+        //    model.IsNew = productInfo.IsNew == 1 ? true : false;
+        //    model.DisplayOrder = productInfo.DisplayOrder;
+        //    model.Weight = productInfo.Weight;
+        //    model.Description = productInfo.Description;
+
+        //    model.BrandName = AdminBrands.GetBrandById(productInfo.BrandId).Name;
+
+
+        //    //库存信息
+        //    ProductStockInfo productStockInfo = AdminProducts.GetProductStockByPid(pid);
+        //    model.StockNumber = productStockInfo.Number;
+        //    model.StockLimit = productStockInfo.Limit;
+
+        //    //商品属性列表
+        //    List<ProductAttributeInfo> productAttributeList = Products.GetProductAttributeList(pid);
+
+        //    //商品sku项列表
+        //    DataTable productSKUItemList = AdminProducts.GetProductSKUItemList(productInfo.Pid);
+
+        //    ViewData["pid"] = productInfo.Pid;
+        //    ViewData["cateId"] = productInfo.CateId;
+        //    ViewData["categoryName"] = AdminCategories.GetCategoryById(productInfo.CateId).Name;
+        //    ViewData["productAttributeList"] = productAttributeList;
+        //    ViewData["productSKUItemList"] = productSKUItemList;
+
+        //    LoadStore();
+        //    ViewData["referer"] = MallUtils.GetStoreAdminRefererCookie();
+        //    return View(model);
+        //}
+        public ActionResult EditProduct(EditProductModel model)
         {
-            ProductInfo productInfo = AdminProducts.AdminGetProductById(pid);
-            if (productInfo == null)
-                return PromptView("商品不存在");
-            if (productInfo.StoreId != WorkContext.StoreId)
-                return PromptView("不能操作其它店铺的商品");
-
-            EditProductModel model = new EditProductModel();
-
-            model.PSN = productInfo.PSN;
-            model.BrandId = productInfo.BrandId;
-            model.StoreCid = productInfo.StoreCid;
-            model.StoreSTid = productInfo.StoreSTid;
-            model.ProductName = productInfo.Name;
-            model.ShopPrice = productInfo.ShopPrice;
-            model.MarketPrice = productInfo.MarketPrice;
-            model.CostPrice = productInfo.CostPrice;
-            model.State = productInfo.State;
-            model.IsBest = productInfo.IsBest == 1 ? true : false;
-            model.IsHot = productInfo.IsHot == 1 ? true : false;
-            model.IsNew = productInfo.IsNew == 1 ? true : false;
-            model.DisplayOrder = productInfo.DisplayOrder;
-            model.Weight = productInfo.Weight;
-            model.Description = productInfo.Description;
-
-            model.BrandName = AdminBrands.GetBrandById(productInfo.BrandId).Name;
-
-
-            //库存信息
-            ProductStockInfo productStockInfo = AdminProducts.GetProductStockByPid(pid);
-            model.StockNumber = productStockInfo.Number;
-            model.StockLimit = productStockInfo.Limit;
-
-            //商品属性列表
-            List<ProductAttributeInfo> productAttributeList = Products.GetProductAttributeList(pid);
-
-            //商品sku项列表
-            DataTable productSKUItemList = AdminProducts.GetProductSKUItemList(productInfo.Pid);
-
-            ViewData["pid"] = productInfo.Pid;
-            ViewData["cateId"] = productInfo.CateId;
-            ViewData["categoryName"] = AdminCategories.GetCategoryById(productInfo.CateId).Name;
-            ViewData["productAttributeList"] = productAttributeList;
-            ViewData["productSKUItemList"] = productSKUItemList;
-
             LoadStore();
             ViewData["referer"] = MallUtils.GetStoreAdminRefererCookie();
             return View(model);
         }
-
         /// <summary>
         /// 编辑商品
         /// </summary>
         [HttpPost]
-        public ActionResult EditProduct(EditProductModel model, int pid = -1)
+        public ActionResult EditProductList(EditProductModel model)
         {
-            ProductInfo productInfo = AdminProducts.AdminGetProductById(pid);
-            if (productInfo == null)
-                return PromptView("商品不存在");
-            if (productInfo.StoreId != WorkContext.StoreId)
-                return PromptView("不能操作其它店铺的商品");
+            //ProductInfo productInfo = AdminProducts.AdminGetProductById(pid);
+            //if (productInfo == null)
+            //    return PromptView("商品不存在");
+            //if (productInfo.StoreId != WorkContext.StoreId)
+            //    return PromptView("不能操作其它店铺的商品");
 
             if (ModelState.IsValid)
             {
-                productInfo.PSN = model.PSN ?? "";
-                productInfo.BrandId = model.BrandId;
-                productInfo.StoreCid = model.StoreCid;
-                productInfo.StoreSTid = model.StoreSTid;
-                productInfo.Name = model.ProductName;
-                productInfo.ShopPrice = model.ShopPrice;
-                productInfo.MarketPrice = model.MarketPrice;
-                productInfo.CostPrice = model.CostPrice;
-                productInfo.State = model.State;
-                productInfo.IsBest = model.IsBest == true ? 1 : 0;
-                productInfo.IsHot = model.IsHot == true ? 1 : 0;
-                productInfo.IsNew = model.IsNew == true ? 1 : 0;
-                productInfo.DisplayOrder = model.DisplayOrder;
-                productInfo.Weight = model.Weight;
-                productInfo.Description = model.Description ?? "";
-
-                AdminProducts.UpdateProduct(productInfo, model.StockNumber, model.StockLimit);
-                AddStoreAdminLog("修改商品", "修改商品,商品ID为:" + pid);
+                
+                Product editProduct = new Product(){
+                PID = model.PID,
+                Psn = model.PSN ?? "",
+                Category = new Category
+                {
+                    CateId = model.CateId,
+                },
+                Brand = new Brand
+                {
+                    BrandID = model.BrandId,
+                },
+                Store = new Store
+                {
+                    StoreID = WorkContext.StoreId,
+                },
+                 
+                StoreStID = model.StoreSTid,
+                SkuGID = 0,
+                Name = model.Name,
+                ShopPrice = model.ShopPrice,
+                MarketPrice = model.MarketPrice,
+                CostPrice = model.CostPrice,
+                State = model.State,
+                IsBest = Convert.ToBoolean(model.IsBest == true ? 1 : 0),
+                IsHot = Convert.ToBoolean(model.IsHot == true ? 1 : 0),
+                IsNew = Convert.ToBoolean(model.IsNew == true ? 1 : 0),
+                IsRecommend = Convert.ToBoolean(model.IsRecommend == true ? 1 : 0),
+                Sort = model.DisplayOrder,
+                Weight = model.Weight,
+                SaleCount = model.SaleCount,
+                VisitCount = model.VisitCount,
+                Description = model.Description ?? "",
+                OfficialGuarantee = model.OfficialGuarantee,
+                FAQs = model.FAQs,
+                
+                };
+                var data = CommomClass.HttpPost("http://192.168.9.32:8082/Product/UpdateProduct", JsonConvert.SerializeObject(editProduct));
                 return PromptView("商品修改成功");
             }
-
-
-            //商品属性列表
-            List<ProductAttributeInfo> productAttributeList = Products.GetProductAttributeList(pid);
-
-            //商品sku项列表
-            DataTable productSKUItemList = AdminProducts.GetProductSKUItemList(productInfo.Pid);
-
-            ViewData["pid"] = productInfo.Pid;
-            ViewData["cateId"] = productInfo.CateId;
-            ViewData["categoryName"] = AdminCategories.GetCategoryById(productInfo.CateId).Name;
-            ViewData["productAttributeList"] = productAttributeList;
-            ViewData["productSKUItemList"] = productSKUItemList;
-
             LoadStore();
             ViewData["referer"] = MallUtils.GetStoreAdminRefererCookie();
             return View(model);
@@ -570,13 +615,14 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         /// <summary>
         /// 删除商品
         /// </summary>
-        public ActionResult DelProduct(int[] pidList)
+        public ActionResult DelProduct(int PID)
         {
-            if (!AdminProducts.IsStoreProductByPid(WorkContext.StoreId, pidList))
-                return PromptView("不能删除其它店铺的商品");
+            var data = CommomClass.HttpPost("http://192.168.9.32:8082/Product/DeleteProduct", JsonConvert.SerializeObject(PID));
+            //if (!AdminProducts.IsStoreProductByPid(WorkContext.StoreId, pidList))
+            //    return PromptView("不能删除其它店铺的商品");
 
-            AdminProducts.DeleteProductById(pidList);
-            AddStoreAdminLog("删除商品", "删除商品,商品ID为:" + CommonHelper.IntArrayToString(pidList));
+            //AdminProducts.DeleteProductById(pidList);
+            //AddStoreAdminLog("删除商品", "删除商品,商品ID为:" + CommonHelper.IntArrayToString(pidList));
             return PromptView("商品删除成功");
         }
 
@@ -797,17 +843,17 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         /// </summary>
         public ActionResult ProductImageList(int pid = -1)
         {
-            PartProductInfo partProductInfo = AdminProducts.AdminGetPartProductById(pid);
-            if (partProductInfo == null)
-                return PromptView("商品不存在");
-            if (partProductInfo.StoreId != WorkContext.StoreId)
-                return PromptView("不能操作其它店铺的商品");
-
-            ProductImageListModel model = new ProductImageListModel()
-            {
-                ProductImageList = AdminProducts.GetProductImageList(pid),
-                Pid = pid
-            };
+            
+            //PartProductInfo partProductInfo = AdminProducts.AdminGetPartProductById(pid);
+            //if (partProductInfo == null)
+            //    return PromptView("商品不存在");
+            //if (partProductInfo.StoreId != WorkContext.StoreId)
+            //    return PromptView("不能操作其它店铺的商品");
+            var productImageData = CommomClass.HttpPost("http://192.168.9.32:8082/Product/GetProductImages", JsonConvert.SerializeObject(pid));
+            var productImage = JsonConvert.DeserializeObject<List<ProductImage>>(productImageData);
+            ProductImageListModel model = new ProductImageListModel();
+            model.ProductImages = productImage;
+            model.Pid = pid;
             Load();
             return View(model);
         }
@@ -815,28 +861,42 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         /// <summary>
         /// 添加商品图片
         /// </summary>
-        public ActionResult AddProductImage(string showImg, int isMain = 0, int displayOrder = 0, int pid = -1)
+        public ActionResult AddProductImage(int isMain, int displayOrder = 0, int pid = -1)
         {
-            PartProductInfo partProductInfo = AdminProducts.AdminGetPartProductById(pid);
-            if (partProductInfo == null)
-                return PromptView("商品不存在");
-            if (partProductInfo.StoreId != WorkContext.StoreId)
-                return PromptView("不能操作其它店铺的商品");
+            //PartProductInfo partProductInfo = AdminProducts.AdminGetPartProductById(pid);
+            //if (partProductInfo == null)
+            //    return PromptView("商品不存在");
+            //if (partProductInfo.StoreId != WorkContext.StoreId)
+            //    return PromptView("不能操作其它店铺的商品");
 
-            if (string.IsNullOrWhiteSpace(showImg))
-                return PromptView(Url.Action("productimagelist", new { pid = pid }), "图片不能为空");
+            //if (string.IsNullOrWhiteSpace(showImg))
+            //    return PromptView(Url.Action("productimagelist", new { pid = pid }), "图片不能为空");
+           
+                HttpPostedFileBase f = Request.Files[0];
+                string name = f.FileName;
+                string imgName = name.Substring(name.Length - 4);
+                ProductImage productImageInfo = new ProductImage
+                {
+                    //DisplayOrder = displayOrder,
+                    //IsMain = isMain,
+                    Product = new Product
+                    {
+                        PID = pid
+                    },
+                    ImgName = imgName,
+                    
+                };
+                var productImage = CommomClass.HttpPost("http://192.168.9.32:8082/Product/AddProductImage", JsonConvert.SerializeObject(productImageInfo));
+                var path = Server.MapPath("/images/productImg");
+                string dataname = Convert.ToString(productImage);
+                string filename = dataname + imgName;
+                path = Path.Combine(path, filename);
+                f.SaveAs(path);
 
-            ProductImageInfo productImageInfo = new ProductImageInfo
-            {
-                Pid = pid,
-                ShowImg = showImg,
-                IsMain = isMain == 0 ? 0 : 1,
-                DisplayOrder = displayOrder,
-                StoreId = partProductInfo.StoreId
-            };
-            AdminProducts.CreateProductImage(productImageInfo);
-            AddStoreAdminLog("添加商品图片", "添加商品图片,商品ID为:" + pid);
-            return PromptView(Url.Action("productimagelist", new { pid = pid }), "商品图片添加成功");
+           
+            //AdminProducts.CreateProductImage(productImageInfo);
+            //AddStoreAdminLog("添加商品图片", "添加商品图片,商品ID为:" + pid);
+                return PromptView(Url.Action("productimagelist", new { pid = pid, imgID = dataname, imgName=imgName}), "商品图片添加成功");
         }
 
         /// <summary>
@@ -844,27 +904,34 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         /// </summary>
         public ActionResult DelProductImage(int pImgId = -1)
         {
-            ProductImageInfo productImageInfo = AdminProducts.GetProductImageById(pImgId);
-            if (productImageInfo == null || productImageInfo.StoreId != WorkContext.StoreId)
-                return Content("0");
+            var deltproductimages = CommomClass.HttpPost("http://192.168.9.32:8082/Product/DeleteProductImg", JsonConvert.SerializeObject(pImgId));
+            //ProductImageInfo productImageInfo = AdminProducts.GetProductImageById(pImgId);
+            //if (productImageInfo == null || productImageInfo.StoreId != WorkContext.StoreId)
+            //    return Content("0");
 
-            AdminProducts.DeleteProductImageById(pImgId);
-            AddStoreAdminLog("删除商品图片", "删除商品图片,商品图片ID:" + pImgId);
-            return Content("1");
+            //AdminProducts.DeleteProductImageById(pImgId);
+            //AddStoreAdminLog("删除商品图片", "删除商品图片,商品图片ID:" + pImgId);
+            return PromptView("商品图片删除成功");
         }
 
         /// <summary>
         /// 设置图片为商品主图
         /// </summary>
-        public ActionResult SetProductMianImage(int pImgId = -1)
+        public ActionResult SetProductMianImage(string pid, string pimgid, string ImgName)
         {
-            ProductImageInfo productImageInfo = AdminProducts.GetProductImageById(pImgId);
-            if (productImageInfo == null || productImageInfo.StoreId != WorkContext.StoreId)
-                return Content("0");
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic["imgID"] = pimgid;
+            dic["imgName"] = ImgName;
+            dic["pID"] = Convert.ToString(pid);
+            var productMainImage = CommomClass.HttpPost("http://192.168.9.32:8082/Product/SetProductMainImage", JsonConvert.SerializeObject(dic));
+            //ProductImageInfo productImageInfo = AdminProducts.GetProductImageById(pImgId);
+            //if (productImageInfo == null || productImageInfo.StoreId != WorkContext.StoreId)
+            //    return Content("0");
 
-            AdminProducts.SetProductMainImage(pImgId);
-            AddStoreAdminLog("设置商品主图", "设置商品主图,商品图片ID:" + pImgId);
-            return Content("1");
+            //AdminProducts.SetProductMainImage(pImgId);
+            //AddStoreAdminLog("设置商品主图", "设置商品主图,商品图片ID:" + pImgId);
+
+            return PromptView("主图设置成功"); ;
         }
 
         /// <summary>

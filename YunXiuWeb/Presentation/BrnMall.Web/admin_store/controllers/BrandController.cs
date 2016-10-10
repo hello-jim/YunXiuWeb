@@ -9,9 +9,15 @@ using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.StoreAdmin.Models;
 using YunXiu.Model;
+<<<<<<< HEAD
 using YunXiu.Commom;
 using Newtonsoft.Json;
 using System.Configuration;
+=======
+using Newtonsoft.Json;
+using YunXiu.Commom;
+using System.Collections.Generic;
+>>>>>>> remotes/origin/LIZIDEEP_MALL_V6
 
 namespace BrnMall.Web.StoreAdmin.Controllers
 {
@@ -48,5 +54,6 @@ namespace BrnMall.Web.StoreAdmin.Controllers
             result.Append("]}");
             return Content(result.ToString());
         }
+ 
     }
 }

@@ -80,17 +80,15 @@ namespace BrnMall.Web.MallAdmin.Controllers
         [HttpPost]
         public ActionResult Add(BrandModel model)
         {
-
-
             if (ModelState.IsValid)
             {
                 HttpPostedFileBase f = Request.Files[0];
-
                 Brand brand = new Brand
                 {
                     Sort = model.DisplayOrder,
                     Name = model.BrandName,
                     Logo = f.FileName,
+                    IsHotBrand = Convert.ToBoolean(model.IsHotBrand == true ? 1 : 0),
                     Category = new Category
                     {
                         CateId = model.CateID
@@ -107,7 +105,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
 
                 return PromptView("");
 
-            }
+        }
             Load();
             return View(model);
 
