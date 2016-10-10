@@ -21,12 +21,12 @@ namespace BrnMall.Web.Controllers
     public partial class UCenterController : BaseWebController
     {
         string accountApi = ConfigurationManager.AppSettings["accountApi"];
-        public ActionResult Index() 
+        public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult UIndex() 
+        public ActionResult UIndex()
         {
             return View();
         }
@@ -197,6 +197,8 @@ namespace BrnMall.Web.Controllers
             {
                 return AjaxResult("error", errorList.Remove(errorList.Length - 1, 1).Append("]").ToString(), true);
             }
+
+               
         }
 
         #endregion
@@ -728,6 +730,7 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult OrderList()
         {
+
             int page = WebHelper.GetQueryInt("page");
             string startAddTime = WebHelper.GetQueryString("startAddTime");
             string endAddTime = WebHelper.GetQueryString("endAddTime");
@@ -762,6 +765,8 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult OrderInfo()
         {
+
+         
             int oid = WebHelper.GetQueryInt("oid");
             OrderInfo orderInfo = Orders.GetOrderByOid(oid);
             if (orderInfo == null || orderInfo.Uid != WorkContext.Uid)
@@ -1790,7 +1795,7 @@ namespace BrnMall.Web.Controllers
                 {
                     UID = uID
                 };
-                var data = CommomClass.HttpPost(string.Format("{0}/Account/AddFavoriteProduct",accountApi), JsonConvert.SerializeObject(fp));
+                var data = CommomClass.HttpPost(string.Format("{0}/Account/AddFavoriteProduct", accountApi), JsonConvert.SerializeObject(fp));
                 if (JsonConvert.DeserializeObject<bool>(data))
                 {
                     result = "1";//1为添加成功
@@ -1802,6 +1807,6 @@ namespace BrnMall.Web.Controllers
             }
             return result;
         }
-  
+
     }
 }

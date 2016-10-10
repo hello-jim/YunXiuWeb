@@ -19,11 +19,11 @@
         <member name="M:YunXiu.Model.Fakes.ShimAttributeValue.BehaveAsNotImplemented">
             <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AttrIDGet">
-            <summary>设置 AttributeValue.get_AttrID() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AttrGet">
+            <summary>设置 AttributeValue.get_Attr() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AttrIDSetCateAttribute">
-            <summary>设置 AttributeValue.set_AttrID(CateAttribute value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AttrSetCateAttribute">
+            <summary>设置 AttributeValue.set_Attr(CateAttribute value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AttrValGet">
             <summary>设置 AttributeValue.get_AttrVal() 的 填充码</summary>
@@ -52,11 +52,11 @@
         <member name="T:YunXiu.Model.Fakes.ShimAttributeValue.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AllInstances.AttrIDGet">
-            <summary>设置 AttributeValue.get_AttrID() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AllInstances.AttrGet">
+            <summary>设置 AttributeValue.get_Attr() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AllInstances.AttrIDSetCateAttribute">
-            <summary>设置 AttributeValue.set_AttrID(CateAttribute value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AllInstances.AttrSetCateAttribute">
+            <summary>设置 AttributeValue.set_Attr(CateAttribute value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimAttributeValue.AllInstances.AttrValGet">
             <summary>设置 AttributeValue.get_AttrVal() 的 填充码</summary>
@@ -472,6 +472,66 @@
         <member name="P:YunXiu.Model.Fakes.ShimBrand.AllInstances.SortSetInt32">
             <summary>设置 Brand.set_Sort(Int32 value) 的 填充码</summary>
         </member>
+        <member name="T:YunXiu.Model.Fakes.ShimBrowseHistorie">
+            <summary>YunXiu.Model.BrowseHistorie 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimBrowseHistorie.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimBrowseHistorie.#ctor(YunXiu.Model.BrowseHistorie)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimBrowseHistorie.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimBrowseHistorie.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.Constructor">
+            <summary>设置 BrowseHistorie.BrowseHistorie() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.HIDGet">
+            <summary>设置 BrowseHistorie.get_HID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.HIDSetInt32">
+            <summary>设置 BrowseHistorie.set_HID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.ProductGet">
+            <summary>设置 BrowseHistorie.get_Product() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.ProductSetProduct">
+            <summary>设置 BrowseHistorie.set_Product(Product value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.UserGet">
+            <summary>设置 BrowseHistorie.get_User() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.UserSetUser">
+            <summary>设置 BrowseHistorie.set_User(User value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimBrowseHistorie.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.AllInstances.HIDGet">
+            <summary>设置 BrowseHistorie.get_HID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.AllInstances.HIDSetInt32">
+            <summary>设置 BrowseHistorie.set_HID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.AllInstances.ProductGet">
+            <summary>设置 BrowseHistorie.get_Product() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.AllInstances.ProductSetProduct">
+            <summary>设置 BrowseHistorie.set_Product(Product value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.AllInstances.UserGet">
+            <summary>设置 BrowseHistorie.get_User() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimBrowseHistorie.AllInstances.UserSetUser">
+            <summary>设置 BrowseHistorie.set_User(User value) 的 填充码</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.ShimBuyApply">
             <summary>YunXiu.Model.BuyApply 的填充码类型</summary>
         </member>
@@ -682,11 +742,11 @@
         <member name="P:YunXiu.Model.Fakes.ShimCategory.Behavior">
             <summary>为已填充的类型的所有方法分配行为</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.CateIDGet">
-            <summary>设置 Category.get_CateID() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.CateIdGet">
+            <summary>设置 Category.get_CateId() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.CateIDSetInt32">
-            <summary>设置 Category.set_CateID(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.CateIdSetInt32">
+            <summary>设置 Category.set_CateId(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimCategory.Constructor">
             <summary>设置 Category.Category() 的 填充码</summary>
@@ -694,8 +754,8 @@
         <member name="P:YunXiu.Model.Fakes.ShimCategory.HasChildGet">
             <summary>设置 Category.get_HasChild() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.HasChildSetBoolean">
-            <summary>设置 Category.set_HasChild(Boolean value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.HasChildSetInt32">
+            <summary>设置 Category.set_HasChild(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimCategory.LayerGet">
             <summary>设置 Category.get_Layer() 的 填充码</summary>
@@ -709,11 +769,11 @@
         <member name="P:YunXiu.Model.Fakes.ShimCategory.NameSetString">
             <summary>设置 Category.set_Name(String value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.ParentIDGet">
-            <summary>设置 Category.get_ParentID() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.ParentIdGet">
+            <summary>设置 Category.get_ParentId() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.ParentIDSetInt32">
-            <summary>设置 Category.set_ParentID(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.ParentIdSetInt32">
+            <summary>设置 Category.set_ParentId(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimCategory.PathGet">
             <summary>设置 Category.get_Path() 的 填充码</summary>
@@ -730,17 +790,17 @@
         <member name="T:YunXiu.Model.Fakes.ShimCategory.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.CateIDGet">
-            <summary>设置 Category.get_CateID() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.CateIdGet">
+            <summary>设置 Category.get_CateId() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.CateIDSetInt32">
-            <summary>设置 Category.set_CateID(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.CateIdSetInt32">
+            <summary>设置 Category.set_CateId(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.HasChildGet">
             <summary>设置 Category.get_HasChild() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.HasChildSetBoolean">
-            <summary>设置 Category.set_HasChild(Boolean value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.HasChildSetInt32">
+            <summary>设置 Category.set_HasChild(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.LayerGet">
             <summary>设置 Category.get_Layer() 的 填充码</summary>
@@ -754,11 +814,11 @@
         <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.NameSetString">
             <summary>设置 Category.set_Name(String value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.ParentIDGet">
-            <summary>设置 Category.get_ParentID() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.ParentIdGet">
+            <summary>设置 Category.get_ParentId() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.ParentIDSetInt32">
-            <summary>设置 Category.set_ParentID(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.ParentIdSetInt32">
+            <summary>设置 Category.set_ParentId(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.PathGet">
             <summary>设置 Category.get_Path() 的 填充码</summary>
@@ -771,6 +831,126 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimCategory.AllInstances.SortSetInt32">
             <summary>设置 Category.set_Sort(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimCertificate">
+            <summary>YunXiu.Model.Certificate 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimCertificate.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimCertificate.#ctor(YunXiu.Model.Certificate)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimCertificate.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimCertificate.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.Constructor">
+            <summary>设置 Certificate.Certificate() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.IDGet">
+            <summary>设置 Certificate.get_ID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.IDSetInt32">
+            <summary>设置 Certificate.set_ID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.ImgGet">
+            <summary>设置 Certificate.get_Img() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.ImgSetString">
+            <summary>设置 Certificate.set_Img(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.StoreGet">
+            <summary>设置 Certificate.get_Store() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.StoreSetStore">
+            <summary>设置 Certificate.set_Store(Store value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.TypeGet">
+            <summary>设置 Certificate.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.TypeSetCertificateType">
+            <summary>设置 Certificate.set_Type(CertificateType value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimCertificate.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.AllInstances.IDGet">
+            <summary>设置 Certificate.get_ID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.AllInstances.IDSetInt32">
+            <summary>设置 Certificate.set_ID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.AllInstances.ImgGet">
+            <summary>设置 Certificate.get_Img() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.AllInstances.ImgSetString">
+            <summary>设置 Certificate.set_Img(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.AllInstances.StoreGet">
+            <summary>设置 Certificate.get_Store() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.AllInstances.StoreSetStore">
+            <summary>设置 Certificate.set_Store(Store value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.AllInstances.TypeGet">
+            <summary>设置 Certificate.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificate.AllInstances.TypeSetCertificateType">
+            <summary>设置 Certificate.set_Type(CertificateType value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimCertificateType">
+            <summary>YunXiu.Model.CertificateType 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimCertificateType.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimCertificateType.#ctor(YunXiu.Model.CertificateType)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimCertificateType.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimCertificateType.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.Constructor">
+            <summary>设置 CertificateType.CertificateType() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.IDGet">
+            <summary>设置 CertificateType.get_ID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.IDSetInt32">
+            <summary>设置 CertificateType.set_ID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.TypeNameGet">
+            <summary>设置 CertificateType.get_TypeName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.TypeNameSetString">
+            <summary>设置 CertificateType.set_TypeName(String value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimCertificateType.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.AllInstances.IDGet">
+            <summary>设置 CertificateType.get_ID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.AllInstances.IDSetInt32">
+            <summary>设置 CertificateType.set_ID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.AllInstances.TypeNameGet">
+            <summary>设置 CertificateType.get_TypeName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimCertificateType.AllInstances.TypeNameSetString">
+            <summary>设置 CertificateType.set_TypeName(String value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimConsultation">
             <summary>YunXiu.Model.Consultation 的填充码类型</summary>
@@ -883,11 +1063,11 @@
         <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.RIDSetInt32">
             <summary>设置 ConsultationReply.set_RID(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.RProductIDGet">
-            <summary>设置 ConsultationReply.get_RProductID() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.RProductGet">
+            <summary>设置 ConsultationReply.get_RProduct() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.RProductIDSetProduct">
-            <summary>设置 ConsultationReply.set_RProductID(Product value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.RProductSetProduct">
+            <summary>设置 ConsultationReply.set_RProduct(Product value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
@@ -910,11 +1090,59 @@
         <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances.RIDSetInt32">
             <summary>设置 ConsultationReply.set_RID(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances.RProductIDGet">
-            <summary>设置 ConsultationReply.get_RProductID() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances.RProductGet">
+            <summary>设置 ConsultationReply.get_RProduct() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances.RProductIDSetProduct">
-            <summary>设置 ConsultationReply.set_RProductID(Product value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances.RProductSetProduct">
+            <summary>设置 ConsultationReply.set_RProduct(Product value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimConsultationResult">
+            <summary>YunXiu.Model.ConsultationResult 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimConsultationResult.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimConsultationResult.#ctor(YunXiu.Model.ConsultationResult)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimConsultationResult.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimConsultationResult.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.Constructor">
+            <summary>设置 ConsultationResult.ConsultationResult() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.ConsultationListGet">
+            <summary>设置 ConsultationResult.get_ConsultationList() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.ConsultationListSetListOfConsultation">
+            <summary>设置 ConsultationResult.set_ConsultationList(List`1&lt;Consultation&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.ReplyListGet">
+            <summary>设置 ConsultationResult.get_ReplyList() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.ReplyListSetListOfConsultationReply">
+            <summary>设置 ConsultationResult.set_ReplyList(List`1&lt;ConsultationReply&gt; value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimConsultationResult.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.AllInstances.ConsultationListGet">
+            <summary>设置 ConsultationResult.get_ConsultationList() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.AllInstances.ConsultationListSetListOfConsultation">
+            <summary>设置 ConsultationResult.set_ConsultationList(List`1&lt;Consultation&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.AllInstances.ReplyListGet">
+            <summary>设置 ConsultationResult.get_ReplyList() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationResult.AllInstances.ReplyListSetListOfConsultationReply">
+            <summary>设置 ConsultationResult.set_ReplyList(List`1&lt;ConsultationReply&gt; value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimConsultationType">
             <summary>YunXiu.Model.ConsultationType 的填充码类型</summary>
@@ -1195,86 +1423,50 @@
         <member name="M:YunXiu.Model.Fakes.ShimFavoriteStore.BehaveAsNotImplemented">
             <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AddTimeGet">
-            <summary>设置 FavoriteStore.get_AddTime() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AddTimeSetDateTime">
-            <summary>设置 FavoriteStore.set_AddTime(DateTime value) 的 填充码</summary>
-        </member>
         <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.Behavior">
             <summary>为已填充的类型的所有方法分配行为</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.Constructor">
             <summary>设置 FavoriteStore.FavoriteStore() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.LogoGet">
-            <summary>设置 FavoriteStore.get_Logo() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.FIDGet">
+            <summary>设置 FavoriteStore.get_FID() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.LogoSetString">
-            <summary>设置 FavoriteStore.set_Logo(String value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.FIDSetInt32">
+            <summary>设置 FavoriteStore.set_FID(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.RecordIdGet">
-            <summary>设置 FavoriteStore.get_RecordId() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.StoreGet">
+            <summary>设置 FavoriteStore.get_Store() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.RecordIdSetInt32">
-            <summary>设置 FavoriteStore.set_RecordId(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.StoreSetStore">
+            <summary>设置 FavoriteStore.set_Store(Store value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.SNameGet">
-            <summary>设置 FavoriteStore.get_SName() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.UserGet">
+            <summary>设置 FavoriteStore.get_User() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.SNameSetString">
-            <summary>设置 FavoriteStore.set_SName(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.StoreIdGet">
-            <summary>设置 FavoriteStore.get_StoreId() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.StoreIdSetInt32">
-            <summary>设置 FavoriteStore.set_StoreId(Int32 value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.UidGet">
-            <summary>设置 FavoriteStore.get_Uid() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.UidSetInt32">
-            <summary>设置 FavoriteStore.set_Uid(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.UserSetUser">
+            <summary>设置 FavoriteStore.set_User(User value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.AddTimeGet">
-            <summary>设置 FavoriteStore.get_AddTime() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.FIDGet">
+            <summary>设置 FavoriteStore.get_FID() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.AddTimeSetDateTime">
-            <summary>设置 FavoriteStore.set_AddTime(DateTime value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.FIDSetInt32">
+            <summary>设置 FavoriteStore.set_FID(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.LogoGet">
-            <summary>设置 FavoriteStore.get_Logo() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.StoreGet">
+            <summary>设置 FavoriteStore.get_Store() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.LogoSetString">
-            <summary>设置 FavoriteStore.set_Logo(String value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.StoreSetStore">
+            <summary>设置 FavoriteStore.set_Store(Store value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.RecordIdGet">
-            <summary>设置 FavoriteStore.get_RecordId() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.UserGet">
+            <summary>设置 FavoriteStore.get_User() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.RecordIdSetInt32">
-            <summary>设置 FavoriteStore.set_RecordId(Int32 value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.SNameGet">
-            <summary>设置 FavoriteStore.get_SName() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.SNameSetString">
-            <summary>设置 FavoriteStore.set_SName(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.StoreIdGet">
-            <summary>设置 FavoriteStore.get_StoreId() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.StoreIdSetInt32">
-            <summary>设置 FavoriteStore.set_StoreId(Int32 value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.UidGet">
-            <summary>设置 FavoriteStore.get_Uid() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.UidSetInt32">
-            <summary>设置 FavoriteStore.set_Uid(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimFavoriteStore.AllInstances.UserSetUser">
+            <summary>设置 FavoriteStore.set_User(User value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimFavoriteStoreModel">
             <summary>YunXiu.Model.FavoriteStoreModel 的填充码类型</summary>
@@ -1407,6 +1599,54 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimInvoice.AllInstances.StoreSetStore">
             <summary>设置 Invoice.set_Store(Store value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimLoginInfo">
+            <summary>YunXiu.Model.LoginInfo 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimLoginInfo.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimLoginInfo.#ctor(YunXiu.Model.LoginInfo)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimLoginInfo.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimLoginInfo.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.Constructor">
+            <summary>设置 LoginInfo.LoginInfo() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.LoginStateGet">
+            <summary>设置 LoginInfo.get_LoginState() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.LoginStateSetInt32">
+            <summary>设置 LoginInfo.set_LoginState(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.UserGet">
+            <summary>设置 LoginInfo.get_User() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.UserSetUser">
+            <summary>设置 LoginInfo.set_User(User value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimLoginInfo.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.AllInstances.LoginStateGet">
+            <summary>设置 LoginInfo.get_LoginState() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.AllInstances.LoginStateSetInt32">
+            <summary>设置 LoginInfo.set_LoginState(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.AllInstances.UserGet">
+            <summary>设置 LoginInfo.get_User() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimLoginInfo.AllInstances.UserSetUser">
+            <summary>设置 LoginInfo.set_User(User value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimLoginfaillogs">
             <summary>YunXiu.Model.Loginfaillogs 的填充码类型</summary>
@@ -2176,6 +2416,78 @@
         <member name="P:YunXiu.Model.Fakes.ShimPayOrder.AllInstances.TradeStatusSetString">
             <summary>设置 PayOrder.set_TradeStatus(String value) 的 填充码</summary>
         </member>
+        <member name="T:YunXiu.Model.Fakes.ShimPermission">
+            <summary>YunXiu.Model.Permission 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimPermission.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimPermission.#ctor(YunXiu.Model.Permission)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimPermission.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimPermission.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.Constructor">
+            <summary>设置 Permission.Permission() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.DescribeGet">
+            <summary>设置 Permission.get_Describe() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.DescribeSetString">
+            <summary>设置 Permission.set_Describe(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.PIDGet">
+            <summary>设置 Permission.get_PID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.PIDSetInt32">
+            <summary>设置 Permission.set_PID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.PKeyGet">
+            <summary>设置 Permission.get_PKey() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.PKeySetString">
+            <summary>设置 Permission.set_PKey(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.PNameGet">
+            <summary>设置 Permission.get_PName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.PNameSetString">
+            <summary>设置 Permission.set_PName(String value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimPermission.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.DescribeGet">
+            <summary>设置 Permission.get_Describe() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.DescribeSetString">
+            <summary>设置 Permission.set_Describe(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.PIDGet">
+            <summary>设置 Permission.get_PID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.PIDSetInt32">
+            <summary>设置 Permission.set_PID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.PKeyGet">
+            <summary>设置 Permission.get_PKey() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.PKeySetString">
+            <summary>设置 Permission.set_PKey(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.PNameGet">
+            <summary>设置 Permission.get_PName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.PNameSetString">
+            <summary>设置 Permission.set_PName(String value) 的 填充码</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.ShimProduct">
             <summary>YunXiu.Model.Product 的填充码类型</summary>
         </member>
@@ -2251,6 +2563,18 @@
         <member name="P:YunXiu.Model.Fakes.ShimProduct.FourStarSetInt32">
             <summary>设置 Product.set_FourStar(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.ImgIDGet">
+            <summary>设置 Product.get_ImgID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.ImgIDSetInt32">
+            <summary>设置 Product.set_ImgID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.ImgNameGet">
+            <summary>设置 Product.get_ImgName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.ImgNameSetString">
+            <summary>设置 Product.set_ImgName(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.IsBestGet">
             <summary>设置 Product.get_IsBest() 的 填充码</summary>
         </member>
@@ -2305,11 +2629,23 @@
         <member name="P:YunXiu.Model.Fakes.ShimProduct.PIDSetInt32">
             <summary>设置 Product.set_PID(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.ProductImagesGet">
+            <summary>设置 Product.get_ProductImages() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.ProductImagesSetListOfProductImage">
+            <summary>设置 Product.set_ProductImages(List`1&lt;ProductImage&gt; value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.PsnGet">
             <summary>设置 Product.get_Psn() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.PsnSetString">
             <summary>设置 Product.set_Psn(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.ReviewCountGet">
+            <summary>设置 Product.get_ReviewCount() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.ReviewCountSetInt32">
+            <summary>设置 Product.set_ReviewCount(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.SaleCountGet">
             <summary>设置 Product.get_SaleCount() 的 填充码</summary>
@@ -2322,12 +2658,6 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.ShopPriceSetDecimal">
             <summary>设置 Product.set_ShopPrice(Decimal value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProduct.ShowImgGet">
-            <summary>设置 Product.get_ShowImg() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProduct.ShowImgSetString">
-            <summary>设置 Product.set_ShowImg(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.SkuGIDGet">
             <summary>设置 Product.get_SkuGID() 的 填充码</summary>
@@ -2440,6 +2770,18 @@
         <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.FourStarSetInt32">
             <summary>设置 Product.set_FourStar(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ImgIDGet">
+            <summary>设置 Product.get_ImgID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ImgIDSetInt32">
+            <summary>设置 Product.set_ImgID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ImgNameGet">
+            <summary>设置 Product.get_ImgName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ImgNameSetString">
+            <summary>设置 Product.set_ImgName(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.IsBestGet">
             <summary>设置 Product.get_IsBest() 的 填充码</summary>
         </member>
@@ -2494,11 +2836,23 @@
         <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.PIDSetInt32">
             <summary>设置 Product.set_PID(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ProductImagesGet">
+            <summary>设置 Product.get_ProductImages() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ProductImagesSetListOfProductImage">
+            <summary>设置 Product.set_ProductImages(List`1&lt;ProductImage&gt; value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.PsnGet">
             <summary>设置 Product.get_Psn() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.PsnSetString">
             <summary>设置 Product.set_Psn(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ReviewCountGet">
+            <summary>设置 Product.get_ReviewCount() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ReviewCountSetInt32">
+            <summary>设置 Product.set_ReviewCount(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.SaleCountGet">
             <summary>设置 Product.get_SaleCount() 的 填充码</summary>
@@ -2511,12 +2865,6 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ShopPriceSetDecimal">
             <summary>设置 Product.set_ShopPrice(Decimal value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ShowImgGet">
-            <summary>设置 Product.get_ShowImg() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.ShowImgSetString">
-            <summary>设置 Product.set_ShowImg(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProduct.AllInstances.SkuGIDGet">
             <summary>设置 Product.get_SkuGID() 的 填充码</summary>
@@ -2779,17 +3127,17 @@
         <member name="P:YunXiu.Model.Fakes.ShimProductConsults.ConsultUidSetInt32">
             <summary>设置 ProductConsults.set_ConsultUid(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductConsults.PImgIDGet">
+            <summary>设置 ProductConsults.get_PImgID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductConsults.PImgIDSetString">
+            <summary>设置 ProductConsults.set_PImgID(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimProductConsults.PNameGet">
             <summary>设置 ProductConsults.get_PName() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProductConsults.PNameSetString">
             <summary>设置 ProductConsults.set_PName(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductConsults.PShowImgGet">
-            <summary>设置 ProductConsults.get_PShowImg() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductConsults.PShowImgSetString">
-            <summary>设置 ProductConsults.set_PShowImg(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProductConsults.PidGet">
             <summary>设置 ProductConsults.get_Pid() 的 填充码</summary>
@@ -2884,17 +3232,17 @@
         <member name="P:YunXiu.Model.Fakes.ShimProductConsults.AllInstances.ConsultUidSetInt32">
             <summary>设置 ProductConsults.set_ConsultUid(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductConsults.AllInstances.PImgIDGet">
+            <summary>设置 ProductConsults.get_PImgID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductConsults.AllInstances.PImgIDSetString">
+            <summary>设置 ProductConsults.set_PImgID(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimProductConsults.AllInstances.PNameGet">
             <summary>设置 ProductConsults.get_PName() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProductConsults.AllInstances.PNameSetString">
             <summary>设置 ProductConsults.set_PName(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductConsults.AllInstances.PShowImgGet">
-            <summary>设置 ProductConsults.get_PShowImg() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductConsults.AllInstances.PShowImgSetString">
-            <summary>设置 ProductConsults.set_PShowImg(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProductConsults.AllInstances.PidGet">
             <summary>设置 ProductConsults.get_Pid() 的 填充码</summary>
@@ -2992,101 +3340,113 @@
         <member name="P:YunXiu.Model.Fakes.ShimProductConsultsModel.AllInstances.lssSetListOfProductConsults">
             <summary>设置 ProductConsultsModel.set_lss(List`1&lt;ProductConsults&gt; value) 的 填充码</summary>
         </member>
-        <member name="T:YunXiu.Model.Fakes.ShimProductImages">
-            <summary>YunXiu.Model.ProductImages 的填充码类型</summary>
+        <member name="T:YunXiu.Model.Fakes.ShimProductImage">
+            <summary>YunXiu.Model.ProductImage 的填充码类型</summary>
         </member>
-        <member name="M:YunXiu.Model.Fakes.ShimProductImages.#ctor">
+        <member name="M:YunXiu.Model.Fakes.ShimProductImage.#ctor">
             <summary>初始化新的填充码实例</summary>
         </member>
-        <member name="M:YunXiu.Model.Fakes.ShimProductImages.#ctor(YunXiu.Model.ProductImages)">
+        <member name="M:YunXiu.Model.Fakes.ShimProductImage.#ctor(YunXiu.Model.ProductImage)">
             <summary>初始化给定实例的新填充码</summary>
         </member>
-        <member name="M:YunXiu.Model.Fakes.ShimProductImages.BehaveAsCurrent">
+        <member name="M:YunXiu.Model.Fakes.ShimProductImage.BehaveAsCurrent">
             <summary>为已填充的类型的所有方法分配“Current”行为</summary>
         </member>
-        <member name="M:YunXiu.Model.Fakes.ShimProductImages.BehaveAsNotImplemented">
+        <member name="M:YunXiu.Model.Fakes.ShimProductImage.BehaveAsNotImplemented">
             <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.Behavior">
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.Behavior">
             <summary>为已填充的类型的所有方法分配行为</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.Constructor">
-            <summary>设置 ProductImages.ProductImages() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.Constructor">
+            <summary>设置 ProductImage.ProductImage() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.DisplayOrderGet">
-            <summary>设置 ProductImages.get_DisplayOrder() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.DisplayOrderGet">
+            <summary>设置 ProductImage.get_DisplayOrder() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.DisplayOrderSetInt32">
-            <summary>设置 ProductImages.set_DisplayOrder(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.DisplayOrderSetInt32">
+            <summary>设置 ProductImage.set_DisplayOrder(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.IsMainGet">
-            <summary>设置 ProductImages.get_IsMain() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.ImgIDGet">
+            <summary>设置 ProductImage.get_ImgID() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.IsMainSetInt32">
-            <summary>设置 ProductImages.set_IsMain(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.ImgIDSetString">
+            <summary>设置 ProductImage.set_ImgID(String value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.PImgIdGet">
-            <summary>设置 ProductImages.get_PImgId() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.ImgNameGet">
+            <summary>设置 ProductImage.get_ImgName() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.PImgIdSetInt32">
-            <summary>设置 ProductImages.set_PImgId(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.ImgNameSetString">
+            <summary>设置 ProductImage.set_ImgName(String value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.PidGet">
-            <summary>设置 ProductImages.get_Pid() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.IsMainGet">
+            <summary>设置 ProductImage.get_IsMain() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.PidSetInt32">
-            <summary>设置 ProductImages.set_Pid(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.IsMainSetInt32">
+            <summary>设置 ProductImage.set_IsMain(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.ShowImgGet">
-            <summary>设置 ProductImages.get_ShowImg() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.PImgIDGet">
+            <summary>设置 ProductImage.get_PImgID() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.ShowImgSetString">
-            <summary>设置 ProductImages.set_ShowImg(String value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.PImgIDSetInt32">
+            <summary>设置 ProductImage.set_PImgID(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.StoreIdGet">
-            <summary>设置 ProductImages.get_StoreId() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.ProductGet">
+            <summary>设置 ProductImage.get_Product() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.StoreIdSetInt32">
-            <summary>设置 ProductImages.set_StoreId(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.ProductSetProduct">
+            <summary>设置 ProductImage.set_Product(Product value) 的 填充码</summary>
         </member>
-        <member name="T:YunXiu.Model.Fakes.ShimProductImages.AllInstances">
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.StoreIdGet">
+            <summary>设置 ProductImage.get_StoreId() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.StoreIdSetInt32">
+            <summary>设置 ProductImage.set_StoreId(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimProductImage.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.DisplayOrderGet">
-            <summary>设置 ProductImages.get_DisplayOrder() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.DisplayOrderGet">
+            <summary>设置 ProductImage.get_DisplayOrder() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.DisplayOrderSetInt32">
-            <summary>设置 ProductImages.set_DisplayOrder(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.DisplayOrderSetInt32">
+            <summary>设置 ProductImage.set_DisplayOrder(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.IsMainGet">
-            <summary>设置 ProductImages.get_IsMain() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.ImgIDGet">
+            <summary>设置 ProductImage.get_ImgID() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.IsMainSetInt32">
-            <summary>设置 ProductImages.set_IsMain(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.ImgIDSetString">
+            <summary>设置 ProductImage.set_ImgID(String value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.PImgIdGet">
-            <summary>设置 ProductImages.get_PImgId() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.ImgNameGet">
+            <summary>设置 ProductImage.get_ImgName() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.PImgIdSetInt32">
-            <summary>设置 ProductImages.set_PImgId(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.ImgNameSetString">
+            <summary>设置 ProductImage.set_ImgName(String value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.PidGet">
-            <summary>设置 ProductImages.get_Pid() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.IsMainGet">
+            <summary>设置 ProductImage.get_IsMain() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.PidSetInt32">
-            <summary>设置 ProductImages.set_Pid(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.IsMainSetInt32">
+            <summary>设置 ProductImage.set_IsMain(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.ShowImgGet">
-            <summary>设置 ProductImages.get_ShowImg() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.PImgIDGet">
+            <summary>设置 ProductImage.get_PImgID() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.ShowImgSetString">
-            <summary>设置 ProductImages.set_ShowImg(String value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.PImgIDSetInt32">
+            <summary>设置 ProductImage.set_PImgID(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.StoreIdGet">
-            <summary>设置 ProductImages.get_StoreId() 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.ProductGet">
+            <summary>设置 ProductImage.get_Product() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimProductImages.AllInstances.StoreIdSetInt32">
-            <summary>设置 ProductImages.set_StoreId(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.ProductSetProduct">
+            <summary>设置 ProductImage.set_Product(Product value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.StoreIdGet">
+            <summary>设置 ProductImage.get_StoreId() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductImage.AllInstances.StoreIdSetInt32">
+            <summary>设置 ProductImage.set_StoreId(Int32 value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimProductKeyWords">
             <summary>YunXiu.Model.ProductKeyWords 的填充码类型</summary>
@@ -3235,6 +3595,12 @@
         <member name="P:YunXiu.Model.Fakes.ShimProductReview.ReviewTimeSetDateTime">
             <summary>设置 ProductReview.set_ReviewTime(DateTime value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductReview.ReviewTypeGet">
+            <summary>设置 ProductReview.get_ReviewType() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductReview.ReviewTypeSetInt32">
+            <summary>设置 ProductReview.set_ReviewType(Int32 value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimProductReview.StarGet">
             <summary>设置 ProductReview.get_Star() 的 填充码</summary>
         </member>
@@ -3297,6 +3663,12 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProductReview.AllInstances.ReviewTimeSetDateTime">
             <summary>设置 ProductReview.set_ReviewTime(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductReview.AllInstances.ReviewTypeGet">
+            <summary>设置 ProductReview.get_ReviewType() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimProductReview.AllInstances.ReviewTypeSetInt32">
+            <summary>设置 ProductReview.set_ReviewType(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimProductReview.AllInstances.StarGet">
             <summary>设置 ProductReview.get_Star() 的 填充码</summary>
@@ -4924,6 +5296,66 @@
         <member name="P:YunXiu.Model.Fakes.ShimRelateproducts.AllInstances.relatepidSetInt32">
             <summary>设置 Relateproducts.set_relatepid(Int32 value) 的 填充码</summary>
         </member>
+        <member name="T:YunXiu.Model.Fakes.ShimRole">
+            <summary>YunXiu.Model.Role 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimRole.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimRole.#ctor(YunXiu.Model.Role)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimRole.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimRole.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.Constructor">
+            <summary>设置 Role.Role() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.DescribeGet">
+            <summary>设置 Role.get_Describe() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.DescribeSetString">
+            <summary>设置 Role.set_Describe(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.RIDGet">
+            <summary>设置 Role.get_RID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.RIDSetInt32">
+            <summary>设置 Role.set_RID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.RNameGet">
+            <summary>设置 Role.get_RName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.RNameSetString">
+            <summary>设置 Role.set_RName(String value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimRole.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.AllInstances.DescribeGet">
+            <summary>设置 Role.get_Describe() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.AllInstances.DescribeSetString">
+            <summary>设置 Role.set_Describe(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.AllInstances.RIDGet">
+            <summary>设置 Role.get_RID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.AllInstances.RIDSetInt32">
+            <summary>设置 Role.set_RID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.AllInstances.RNameGet">
+            <summary>设置 Role.get_RName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimRole.AllInstances.RNameSetString">
+            <summary>设置 Role.set_RName(String value) 的 填充码</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.ShimSMS">
             <summary>YunXiu.Model.SMS 的填充码类型</summary>
         </member>
@@ -4945,8 +5377,32 @@
         <member name="P:YunXiu.Model.Fakes.ShimSMS.Constructor">
             <summary>设置 SMS.SMS() 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimSMS.ContentGet">
+            <summary>设置 SMS.get_Content() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimSMS.ContentSetString">
+            <summary>设置 SMS.set_Content(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimSMS.PhonesGet">
+            <summary>设置 SMS.get_Phones() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimSMS.PhonesSetListOfString">
+            <summary>设置 SMS.set_Phones(List`1&lt;String&gt; value) 的 填充码</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.ShimSMS.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimSMS.AllInstances.ContentGet">
+            <summary>设置 SMS.get_Content() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimSMS.AllInstances.ContentSetString">
+            <summary>设置 SMS.set_Content(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimSMS.AllInstances.PhonesGet">
+            <summary>设置 SMS.get_Phones() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimSMS.AllInstances.PhonesSetListOfString">
+            <summary>设置 SMS.set_Phones(List`1&lt;String&gt; value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimSearchhistories">
             <summary>YunXiu.Model.Searchhistories 的填充码类型</summary>
@@ -5632,6 +6088,18 @@
         <member name="P:YunXiu.Model.Fakes.ShimStore.Behavior">
             <summary>为已填充的类型的所有方法分配行为</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.BrandOperationGet">
+            <summary>设置 Store.get_BrandOperation() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.BrandOperationSetString">
+            <summary>设置 Store.set_BrandOperation(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.BusinessScopeGet">
+            <summary>设置 Store.get_BusinessScope() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.BusinessScopeSetString">
+            <summary>设置 Store.set_BusinessScope(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.CategoryGet">
             <summary>设置 Store.get_Category() 的 填充码</summary>
         </member>
@@ -5653,17 +6121,59 @@
         <member name="P:YunXiu.Model.Fakes.ShimStore.DescriptionSetString">
             <summary>设置 Store.set_Description(String value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.EstablishedGet">
+            <summary>设置 Store.get_Established() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.EstablishedSetDateTime">
+            <summary>设置 Store.set_Established(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.HadAnnualExportsGet">
+            <summary>设置 Store.get_HadAnnualExports() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.HadAnnualExportsSetString">
+            <summary>设置 Store.set_HadAnnualExports(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.HonestiesGet">
             <summary>设置 Store.get_Honesties() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.HonestiesSetDecimal">
             <summary>设置 Store.set_Honesties(Decimal value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.LegalPersonGet">
+            <summary>设置 Store.get_LegalPerson() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.LegalPersonSetString">
+            <summary>设置 Store.set_LegalPerson(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.LogoGet">
             <summary>设置 Store.get_Logo() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.LogoSetString">
             <summary>设置 Store.set_Logo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.MainCustomerGroupsGet">
+            <summary>设置 Store.get_MainCustomerGroups() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.MainCustomerGroupsSetString">
+            <summary>设置 Store.set_MainCustomerGroups(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.MainMarketGet">
+            <summary>设置 Store.get_MainMarket() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.MainMarketSetString">
+            <summary>设置 Store.set_MainMarket(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.MainProductsGet">
+            <summary>设置 Store.get_MainProducts() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.MainProductsSetString">
+            <summary>设置 Store.set_MainProducts(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.ManagementModelGet">
+            <summary>设置 Store.get_ManagementModel() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.ManagementModelSetString">
+            <summary>设置 Store.set_ManagementModel(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.MobileGet">
             <summary>设置 Store.get_Mobile() 的 填充码</summary>
@@ -5695,6 +6205,18 @@
         <member name="P:YunXiu.Model.Fakes.ShimStore.RegionIDSetInt32">
             <summary>设置 Store.set_RegionID(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.RegisteredAddrGet">
+            <summary>设置 Store.get_RegisteredAddr() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.RegisteredAddrSetString">
+            <summary>设置 Store.set_RegisteredAddr(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.RegisteredCapitalGet">
+            <summary>设置 Store.get_RegisteredCapital() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.RegisteredCapitalSetString">
+            <summary>设置 Store.set_RegisteredCapital(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.SePointGet">
             <summary>设置 Store.get_SePoint() 的 填充码</summary>
         </member>
@@ -5707,6 +6229,12 @@
         <member name="P:YunXiu.Model.Fakes.ShimStore.ShPointSetDecimal">
             <summary>设置 Store.set_ShPoint(Decimal value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.StaffCountGet">
+            <summary>设置 Store.get_StaffCount() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.StaffCountSetString">
+            <summary>设置 Store.set_StaffCount(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.StateGet">
             <summary>设置 Store.get_State() 的 填充码</summary>
         </member>
@@ -5718,6 +6246,12 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.StoreIDSetInt32">
             <summary>设置 Store.set_StoreID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.StoreIntroductionGet">
+            <summary>设置 Store.get_StoreIntroduction() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.StoreIntroductionSetString">
+            <summary>设置 Store.set_StoreIntroduction(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.StoreLinkGet">
             <summary>设置 Store.get_StoreLink() 的 填充码</summary>
@@ -5764,6 +6298,18 @@
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.AnnouncementSetString">
             <summary>设置 Store.set_Announcement(String value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.BrandOperationGet">
+            <summary>设置 Store.get_BrandOperation() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.BrandOperationSetString">
+            <summary>设置 Store.set_BrandOperation(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.BusinessScopeGet">
+            <summary>设置 Store.get_BusinessScope() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.BusinessScopeSetString">
+            <summary>设置 Store.set_BusinessScope(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.CategoryGet">
             <summary>设置 Store.get_Category() 的 填充码</summary>
         </member>
@@ -5782,17 +6328,59 @@
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.DescriptionSetString">
             <summary>设置 Store.set_Description(String value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.EstablishedGet">
+            <summary>设置 Store.get_Established() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.EstablishedSetDateTime">
+            <summary>设置 Store.set_Established(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.HadAnnualExportsGet">
+            <summary>设置 Store.get_HadAnnualExports() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.HadAnnualExportsSetString">
+            <summary>设置 Store.set_HadAnnualExports(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.HonestiesGet">
             <summary>设置 Store.get_Honesties() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.HonestiesSetDecimal">
             <summary>设置 Store.set_Honesties(Decimal value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.LegalPersonGet">
+            <summary>设置 Store.get_LegalPerson() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.LegalPersonSetString">
+            <summary>设置 Store.set_LegalPerson(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.LogoGet">
             <summary>设置 Store.get_Logo() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.LogoSetString">
             <summary>设置 Store.set_Logo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.MainCustomerGroupsGet">
+            <summary>设置 Store.get_MainCustomerGroups() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.MainCustomerGroupsSetString">
+            <summary>设置 Store.set_MainCustomerGroups(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.MainMarketGet">
+            <summary>设置 Store.get_MainMarket() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.MainMarketSetString">
+            <summary>设置 Store.set_MainMarket(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.MainProductsGet">
+            <summary>设置 Store.get_MainProducts() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.MainProductsSetString">
+            <summary>设置 Store.set_MainProducts(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.ManagementModelGet">
+            <summary>设置 Store.get_ManagementModel() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.ManagementModelSetString">
+            <summary>设置 Store.set_ManagementModel(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.MobileGet">
             <summary>设置 Store.get_Mobile() 的 填充码</summary>
@@ -5824,6 +6412,18 @@
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.RegionIDSetInt32">
             <summary>设置 Store.set_RegionID(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.RegisteredAddrGet">
+            <summary>设置 Store.get_RegisteredAddr() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.RegisteredAddrSetString">
+            <summary>设置 Store.set_RegisteredAddr(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.RegisteredCapitalGet">
+            <summary>设置 Store.get_RegisteredCapital() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.RegisteredCapitalSetString">
+            <summary>设置 Store.set_RegisteredCapital(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.SePointGet">
             <summary>设置 Store.get_SePoint() 的 填充码</summary>
         </member>
@@ -5836,6 +6436,12 @@
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.ShPointSetDecimal">
             <summary>设置 Store.set_ShPoint(Decimal value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.StaffCountGet">
+            <summary>设置 Store.get_StaffCount() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.StaffCountSetString">
+            <summary>设置 Store.set_StaffCount(String value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.StateGet">
             <summary>设置 Store.get_State() 的 填充码</summary>
         </member>
@@ -5847,6 +6453,12 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.StoreIDSetInt32">
             <summary>设置 Store.set_StoreID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.StoreIntroductionGet">
+            <summary>设置 Store.get_StoreIntroduction() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.StoreIntroductionSetString">
+            <summary>设置 Store.set_StoreIntroduction(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStore.AllInstances.StoreLinkGet">
             <summary>设置 Store.get_StoreLink() 的 填充码</summary>
@@ -6015,6 +6627,66 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimStoreHome.AllInstances.StoreSetStore">
             <summary>设置 StoreHome.set_Store(Store value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimStoreImg">
+            <summary>YunXiu.Model.StoreImg 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimStoreImg.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimStoreImg.#ctor(YunXiu.Model.StoreImg)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimStoreImg.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimStoreImg.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.Constructor">
+            <summary>设置 StoreImg.StoreImg() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.IDGet">
+            <summary>设置 StoreImg.get_ID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.IDSetInt32">
+            <summary>设置 StoreImg.set_ID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.ImgGet">
+            <summary>设置 StoreImg.get_Img() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.ImgSetString">
+            <summary>设置 StoreImg.set_Img(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.StoreGet">
+            <summary>设置 StoreImg.get_Store() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.StoreSetStore">
+            <summary>设置 StoreImg.set_Store(Store value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimStoreImg.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.AllInstances.IDGet">
+            <summary>设置 StoreImg.get_ID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.AllInstances.IDSetInt32">
+            <summary>设置 StoreImg.set_ID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.AllInstances.ImgGet">
+            <summary>设置 StoreImg.get_Img() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.AllInstances.ImgSetString">
+            <summary>设置 StoreImg.set_Img(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.AllInstances.StoreGet">
+            <summary>设置 StoreImg.get_Store() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreImg.AllInstances.StoreSetStore">
+            <summary>设置 StoreImg.set_Store(Store value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimStoreNavigation">
             <summary>YunXiu.Model.StoreNavigation 的填充码类型</summary>
@@ -8332,6 +9004,582 @@
         <member name="P:YunXiu.Model.Fakes.ShimSuitpromotions.AllInstances.userranklowerSetInt32">
             <summary>设置 Suitpromotions.set_userranklower(Int32 value) 的 填充码</summary>
         </member>
+        <member name="T:YunXiu.Model.Fakes.ShimTFUser">
+            <summary>YunXiu.Model.TFUser 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimTFUser.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimTFUser.#ctor(YunXiu.Model.TFUser)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimTFUser.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimTFUser.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.Constructor">
+            <summary>设置 TFUser.TFUser() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.addressGet">
+            <summary>设置 TFUser.get_address() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.addressSetString">
+            <summary>设置 TFUser.set_address(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.agentcreatetimeGet">
+            <summary>设置 TFUser.get_agentcreatetime() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.agentcreatetimeSetDateTime">
+            <summary>设置 TFUser.set_agentcreatetime(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.answerGet">
+            <summary>设置 TFUser.get_answer() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.answerSetString">
+            <summary>设置 TFUser.set_answer(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.birthdayGet">
+            <summary>设置 TFUser.get_birthday() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.birthdaySetString">
+            <summary>设置 TFUser.set_birthday(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.businessscaleGet">
+            <summary>设置 TFUser.get_businessscale() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.businessscaleSetString">
+            <summary>设置 TFUser.set_businessscale(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.businesstypeGet">
+            <summary>设置 TFUser.get_businesstype() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.businesstypeSetString">
+            <summary>设置 TFUser.set_businesstype(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.cellphoneGet">
+            <summary>设置 TFUser.get_cellphone() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.cellphoneSetString">
+            <summary>设置 TFUser.set_cellphone(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.client_guidGet">
+            <summary>设置 TFUser.get_client_guid() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.client_guidSetGuid">
+            <summary>设置 TFUser.set_client_guid(Guid value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.client_logoGet">
+            <summary>设置 TFUser.get_client_logo() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.client_logoSetString">
+            <summary>设置 TFUser.set_client_logo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.client_nameGet">
+            <summary>设置 TFUser.get_client_name() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.client_nameSetString">
+            <summary>设置 TFUser.set_client_name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.codeGet">
+            <summary>设置 TFUser.get_code() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.codeSetInt32">
+            <summary>设置 TFUser.set_code(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.company_nameGet">
+            <summary>设置 TFUser.get_company_name() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.company_nameSetString">
+            <summary>设置 TFUser.set_company_name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.contact_nameGet">
+            <summary>设置 TFUser.get_contact_name() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.contact_nameSetString">
+            <summary>设置 TFUser.set_contact_name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.contact_phoneGet">
+            <summary>设置 TFUser.get_contact_phone() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.contact_phoneSetString">
+            <summary>设置 TFUser.set_contact_phone(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.countryGet">
+            <summary>设置 TFUser.get_country() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.countrySetString">
+            <summary>设置 TFUser.set_country(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.create_dateGet">
+            <summary>设置 TFUser.get_create_date() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.create_dateSetDateTime">
+            <summary>设置 TFUser.set_create_date(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.educatiolGet">
+            <summary>设置 TFUser.get_educatiol() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.educatiolSetString">
+            <summary>设置 TFUser.set_educatiol(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.emailGet">
+            <summary>设置 TFUser.get_email() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.emailSetString">
+            <summary>设置 TFUser.set_email(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.emailstatusGet">
+            <summary>设置 TFUser.get_emailstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.emailstatusSetString">
+            <summary>设置 TFUser.set_emailstatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.faxGet">
+            <summary>设置 TFUser.get_fax() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.faxSetString">
+            <summary>设置 TFUser.set_fax(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.group_codeGet">
+            <summary>设置 TFUser.get_group_code() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.group_codeSetString">
+            <summary>设置 TFUser.set_group_code(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.isadminGet">
+            <summary>设置 TFUser.get_isadmin() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.isadminSetBoolean">
+            <summary>设置 TFUser.set_isadmin(Boolean value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.iscompanyagentGet">
+            <summary>设置 TFUser.get_iscompanyagent() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.iscompanyagentSetString">
+            <summary>设置 TFUser.set_iscompanyagent(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.isvirtualGet">
+            <summary>设置 TFUser.get_isvirtual() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.isvirtualSetString">
+            <summary>设置 TFUser.set_isvirtual(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.last_lcidGet">
+            <summary>设置 TFUser.get_last_lcid() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.last_lcidSetGuid">
+            <summary>设置 TFUser.set_last_lcid(Guid value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.lastloginipGet">
+            <summary>设置 TFUser.get_lastloginip() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.lastloginipSetString">
+            <summary>设置 TFUser.set_lastloginip(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.lastlogintimeGet">
+            <summary>设置 TFUser.get_lastlogintime() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.lastlogintimeSetString">
+            <summary>设置 TFUser.set_lastlogintime(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.logintimesGet">
+            <summary>设置 TFUser.get_logintimes() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.logintimesSetString">
+            <summary>设置 TFUser.set_logintimes(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.merriagestatusGet">
+            <summary>设置 TFUser.get_merriagestatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.merriagestatusSetString">
+            <summary>设置 TFUser.set_merriagestatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.openagentstatusGet">
+            <summary>设置 TFUser.get_openagentstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.openagentstatusSetString">
+            <summary>设置 TFUser.set_openagentstatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.passport_noGet">
+            <summary>设置 TFUser.get_passport_no() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.passport_noSetString">
+            <summary>设置 TFUser.set_passport_no(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.passport_typeGet">
+            <summary>设置 TFUser.get_passport_type() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.passport_typeSetString">
+            <summary>设置 TFUser.set_passport_type(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.questionGet">
+            <summary>设置 TFUser.get_question() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.questionSetString">
+            <summary>设置 TFUser.set_question(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.questionstatusGet">
+            <summary>设置 TFUser.get_questionstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.questionstatusSetString">
+            <summary>设置 TFUser.set_questionstatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.realstatusGet">
+            <summary>设置 TFUser.get_realstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.realstatusSetString">
+            <summary>设置 TFUser.set_realstatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.registertimeGet">
+            <summary>设置 TFUser.get_registertime() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.registertimeSetString">
+            <summary>设置 TFUser.set_registertime(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.role_typeGet">
+            <summary>设置 TFUser.get_role_type() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.role_typeSetGuid">
+            <summary>设置 TFUser.set_role_type(Guid value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.schoolGet">
+            <summary>设置 TFUser.get_school() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.schoolSetString">
+            <summary>设置 TFUser.set_school(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.sexGet">
+            <summary>设置 TFUser.get_sex() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.sexSetInt32">
+            <summary>设置 TFUser.set_sex(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.stateGet">
+            <summary>设置 TFUser.get_state() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.stateSetString">
+            <summary>设置 TFUser.set_state(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.statusGet">
+            <summary>设置 TFUser.get_status() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.statusSetBoolean">
+            <summary>设置 TFUser.set_status(Boolean value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.systemstatusGet">
+            <summary>设置 TFUser.get_systemstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.systemstatusSetInt32">
+            <summary>设置 TFUser.set_systemstatus(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.telephoneGet">
+            <summary>设置 TFUser.get_telephone() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.telephoneSetString">
+            <summary>设置 TFUser.set_telephone(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.truenameGet">
+            <summary>设置 TFUser.get_truename() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.truenameSetString">
+            <summary>设置 TFUser.set_truename(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.userpositionGet">
+            <summary>设置 TFUser.get_userposition() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.userpositionSetString">
+            <summary>设置 TFUser.set_userposition(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.zipGet">
+            <summary>设置 TFUser.get_zip() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.zipSetString">
+            <summary>设置 TFUser.set_zip(String value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimTFUser.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.addressGet">
+            <summary>设置 TFUser.get_address() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.addressSetString">
+            <summary>设置 TFUser.set_address(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.agentcreatetimeGet">
+            <summary>设置 TFUser.get_agentcreatetime() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.agentcreatetimeSetDateTime">
+            <summary>设置 TFUser.set_agentcreatetime(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.answerGet">
+            <summary>设置 TFUser.get_answer() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.answerSetString">
+            <summary>设置 TFUser.set_answer(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.birthdayGet">
+            <summary>设置 TFUser.get_birthday() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.birthdaySetString">
+            <summary>设置 TFUser.set_birthday(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.businessscaleGet">
+            <summary>设置 TFUser.get_businessscale() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.businessscaleSetString">
+            <summary>设置 TFUser.set_businessscale(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.businesstypeGet">
+            <summary>设置 TFUser.get_businesstype() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.businesstypeSetString">
+            <summary>设置 TFUser.set_businesstype(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.cellphoneGet">
+            <summary>设置 TFUser.get_cellphone() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.cellphoneSetString">
+            <summary>设置 TFUser.set_cellphone(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.client_guidGet">
+            <summary>设置 TFUser.get_client_guid() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.client_guidSetGuid">
+            <summary>设置 TFUser.set_client_guid(Guid value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.client_logoGet">
+            <summary>设置 TFUser.get_client_logo() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.client_logoSetString">
+            <summary>设置 TFUser.set_client_logo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.client_nameGet">
+            <summary>设置 TFUser.get_client_name() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.client_nameSetString">
+            <summary>设置 TFUser.set_client_name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.codeGet">
+            <summary>设置 TFUser.get_code() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.codeSetInt32">
+            <summary>设置 TFUser.set_code(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.company_nameGet">
+            <summary>设置 TFUser.get_company_name() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.company_nameSetString">
+            <summary>设置 TFUser.set_company_name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.contact_nameGet">
+            <summary>设置 TFUser.get_contact_name() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.contact_nameSetString">
+            <summary>设置 TFUser.set_contact_name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.contact_phoneGet">
+            <summary>设置 TFUser.get_contact_phone() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.contact_phoneSetString">
+            <summary>设置 TFUser.set_contact_phone(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.countryGet">
+            <summary>设置 TFUser.get_country() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.countrySetString">
+            <summary>设置 TFUser.set_country(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.create_dateGet">
+            <summary>设置 TFUser.get_create_date() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.create_dateSetDateTime">
+            <summary>设置 TFUser.set_create_date(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.educatiolGet">
+            <summary>设置 TFUser.get_educatiol() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.educatiolSetString">
+            <summary>设置 TFUser.set_educatiol(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.emailGet">
+            <summary>设置 TFUser.get_email() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.emailSetString">
+            <summary>设置 TFUser.set_email(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.emailstatusGet">
+            <summary>设置 TFUser.get_emailstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.emailstatusSetString">
+            <summary>设置 TFUser.set_emailstatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.faxGet">
+            <summary>设置 TFUser.get_fax() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.faxSetString">
+            <summary>设置 TFUser.set_fax(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.group_codeGet">
+            <summary>设置 TFUser.get_group_code() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.group_codeSetString">
+            <summary>设置 TFUser.set_group_code(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.isadminGet">
+            <summary>设置 TFUser.get_isadmin() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.isadminSetBoolean">
+            <summary>设置 TFUser.set_isadmin(Boolean value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.iscompanyagentGet">
+            <summary>设置 TFUser.get_iscompanyagent() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.iscompanyagentSetString">
+            <summary>设置 TFUser.set_iscompanyagent(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.isvirtualGet">
+            <summary>设置 TFUser.get_isvirtual() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.isvirtualSetString">
+            <summary>设置 TFUser.set_isvirtual(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.last_lcidGet">
+            <summary>设置 TFUser.get_last_lcid() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.last_lcidSetGuid">
+            <summary>设置 TFUser.set_last_lcid(Guid value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.lastloginipGet">
+            <summary>设置 TFUser.get_lastloginip() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.lastloginipSetString">
+            <summary>设置 TFUser.set_lastloginip(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.lastlogintimeGet">
+            <summary>设置 TFUser.get_lastlogintime() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.lastlogintimeSetString">
+            <summary>设置 TFUser.set_lastlogintime(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.logintimesGet">
+            <summary>设置 TFUser.get_logintimes() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.logintimesSetString">
+            <summary>设置 TFUser.set_logintimes(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.merriagestatusGet">
+            <summary>设置 TFUser.get_merriagestatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.merriagestatusSetString">
+            <summary>设置 TFUser.set_merriagestatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.openagentstatusGet">
+            <summary>设置 TFUser.get_openagentstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.openagentstatusSetString">
+            <summary>设置 TFUser.set_openagentstatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.passport_noGet">
+            <summary>设置 TFUser.get_passport_no() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.passport_noSetString">
+            <summary>设置 TFUser.set_passport_no(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.passport_typeGet">
+            <summary>设置 TFUser.get_passport_type() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.passport_typeSetString">
+            <summary>设置 TFUser.set_passport_type(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.questionGet">
+            <summary>设置 TFUser.get_question() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.questionSetString">
+            <summary>设置 TFUser.set_question(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.questionstatusGet">
+            <summary>设置 TFUser.get_questionstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.questionstatusSetString">
+            <summary>设置 TFUser.set_questionstatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.realstatusGet">
+            <summary>设置 TFUser.get_realstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.realstatusSetString">
+            <summary>设置 TFUser.set_realstatus(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.registertimeGet">
+            <summary>设置 TFUser.get_registertime() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.registertimeSetString">
+            <summary>设置 TFUser.set_registertime(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.role_typeGet">
+            <summary>设置 TFUser.get_role_type() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.role_typeSetGuid">
+            <summary>设置 TFUser.set_role_type(Guid value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.schoolGet">
+            <summary>设置 TFUser.get_school() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.schoolSetString">
+            <summary>设置 TFUser.set_school(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.sexGet">
+            <summary>设置 TFUser.get_sex() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.sexSetInt32">
+            <summary>设置 TFUser.set_sex(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.stateGet">
+            <summary>设置 TFUser.get_state() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.stateSetString">
+            <summary>设置 TFUser.set_state(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.statusGet">
+            <summary>设置 TFUser.get_status() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.statusSetBoolean">
+            <summary>设置 TFUser.set_status(Boolean value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.systemstatusGet">
+            <summary>设置 TFUser.get_systemstatus() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.systemstatusSetInt32">
+            <summary>设置 TFUser.set_systemstatus(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.telephoneGet">
+            <summary>设置 TFUser.get_telephone() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.telephoneSetString">
+            <summary>设置 TFUser.set_telephone(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.truenameGet">
+            <summary>设置 TFUser.get_truename() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.truenameSetString">
+            <summary>设置 TFUser.set_truename(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.userpositionGet">
+            <summary>设置 TFUser.get_userposition() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.userpositionSetString">
+            <summary>设置 TFUser.set_userposition(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.zipGet">
+            <summary>设置 TFUser.get_zip() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimTFUser.AllInstances.zipSetString">
+            <summary>设置 TFUser.set_zip(String value) 的 填充码</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.ShimTender">
             <summary>YunXiu.Model.Tender 的填充码类型</summary>
         </member>
@@ -8923,12 +10171,6 @@
         <member name="M:YunXiu.Model.Fakes.ShimUser.BehaveAsNotImplemented">
             <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AccountClientGuidGet">
-            <summary>设置 User.get_AccountClientGuid() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AccountClientGuidSetNullableOfGuid">
-            <summary>设置 User.set_AccountClientGuid(Nullable`1&lt;Guid&gt; value) 的 填充码</summary>
-        </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AvatarGet">
             <summary>设置 User.get_Avatar() 的 填充码</summary>
         </member>
@@ -8940,24 +10182,6 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.Constructor">
             <summary>设置 User.User() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.EmailGet">
-            <summary>设置 User.get_Email() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.EmailSetString">
-            <summary>设置 User.set_Email(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.IsVerifyEmailGet">
-            <summary>设置 User.get_IsVerifyEmail() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.IsVerifyEmailSetBoolean">
-            <summary>设置 User.set_IsVerifyEmail(Boolean value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.IsVerifyMobileGet">
-            <summary>设置 User.get_IsVerifyMobile() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.IsVerifyMobileSetBoolean">
-            <summary>设置 User.set_IsVerifyMobile(Boolean value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.LiftBanTimeGet">
             <summary>设置 User.get_LiftBanTime() 的 填充码</summary>
@@ -8971,29 +10195,17 @@
         <member name="P:YunXiu.Model.Fakes.ShimUser.MallaGIDSetInt32">
             <summary>设置 User.set_MallaGID(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.MobileGet">
-            <summary>设置 User.get_Mobile() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.MobileSetString">
-            <summary>设置 User.set_Mobile(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.NickNameGet">
-            <summary>设置 User.get_NickName() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.NickNameSetString">
-            <summary>设置 User.set_NickName(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.PasswordGet">
-            <summary>设置 User.get_Password() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.PasswordSetString">
-            <summary>设置 User.set_Password(String value) 的 填充码</summary>
-        </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.PayCreditsGet">
             <summary>设置 User.get_PayCredits() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.PayCreditsSetInt32">
             <summary>设置 User.set_PayCredits(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.PermissionsGet">
+            <summary>设置 User.get_Permissions() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.PermissionsSetListOfPermission">
+            <summary>设置 User.set_Permissions(List`1&lt;Permission&gt; value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.RankCreditsGet">
             <summary>设置 User.get_RankCredits() 的 填充码</summary>
@@ -9007,6 +10219,12 @@
         <member name="P:YunXiu.Model.Fakes.ShimUser.SaltSetString">
             <summary>设置 User.set_Salt(String value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.TFUserGet">
+            <summary>设置 User.get_TFUser() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.TFUserSetTFUser">
+            <summary>设置 User.set_TFUser(TFUser value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.UIDGet">
             <summary>设置 User.get_UID() 的 填充码</summary>
         </member>
@@ -9019,50 +10237,26 @@
         <member name="P:YunXiu.Model.Fakes.ShimUser.UStoreSetStore">
             <summary>设置 User.set_UStore(Store value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.UserNameGet">
-            <summary>设置 User.get_UserName() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.UserNameSetString">
-            <summary>设置 User.set_UserName(String value) 的 填充码</summary>
-        </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.UserRIDGet">
             <summary>设置 User.get_UserRID() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.UserRIDSetInt32">
             <summary>设置 User.set_UserRID(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.client_guidGet">
+            <summary>设置 User.get_client_guid() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.client_guidSetGuid">
+            <summary>设置 User.set_client_guid(Guid value) 的 填充码</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.ShimUser.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.AccountClientGuidGet">
-            <summary>设置 User.get_AccountClientGuid() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.AccountClientGuidSetNullableOfGuid">
-            <summary>设置 User.set_AccountClientGuid(Nullable`1&lt;Guid&gt; value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.AvatarGet">
             <summary>设置 User.get_Avatar() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.AvatarSetString">
             <summary>设置 User.set_Avatar(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.EmailGet">
-            <summary>设置 User.get_Email() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.EmailSetString">
-            <summary>设置 User.set_Email(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.IsVerifyEmailGet">
-            <summary>设置 User.get_IsVerifyEmail() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.IsVerifyEmailSetBoolean">
-            <summary>设置 User.set_IsVerifyEmail(Boolean value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.IsVerifyMobileGet">
-            <summary>设置 User.get_IsVerifyMobile() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.IsVerifyMobileSetBoolean">
-            <summary>设置 User.set_IsVerifyMobile(Boolean value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.LiftBanTimeGet">
             <summary>设置 User.get_LiftBanTime() 的 填充码</summary>
@@ -9076,29 +10270,17 @@
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.MallaGIDSetInt32">
             <summary>设置 User.set_MallaGID(Int32 value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.MobileGet">
-            <summary>设置 User.get_Mobile() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.MobileSetString">
-            <summary>设置 User.set_Mobile(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.NickNameGet">
-            <summary>设置 User.get_NickName() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.NickNameSetString">
-            <summary>设置 User.set_NickName(String value) 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.PasswordGet">
-            <summary>设置 User.get_Password() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.PasswordSetString">
-            <summary>设置 User.set_Password(String value) 的 填充码</summary>
-        </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.PayCreditsGet">
             <summary>设置 User.get_PayCredits() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.PayCreditsSetInt32">
             <summary>设置 User.set_PayCredits(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.PermissionsGet">
+            <summary>设置 User.get_Permissions() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.PermissionsSetListOfPermission">
+            <summary>设置 User.set_Permissions(List`1&lt;Permission&gt; value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.RankCreditsGet">
             <summary>设置 User.get_RankCredits() 的 填充码</summary>
@@ -9112,6 +10294,12 @@
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.SaltSetString">
             <summary>设置 User.set_Salt(String value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.TFUserGet">
+            <summary>设置 User.get_TFUser() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.TFUserSetTFUser">
+            <summary>设置 User.set_TFUser(TFUser value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.UIDGet">
             <summary>设置 User.get_UID() 的 填充码</summary>
         </member>
@@ -9124,17 +10312,17 @@
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.UStoreSetStore">
             <summary>设置 User.set_UStore(Store value) 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.UserNameGet">
-            <summary>设置 User.get_UserName() 的 填充码</summary>
-        </member>
-        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.UserNameSetString">
-            <summary>设置 User.set_UserName(String value) 的 填充码</summary>
-        </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.UserRIDGet">
             <summary>设置 User.get_UserRID() 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.UserRIDSetInt32">
             <summary>设置 User.set_UserRID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.client_guidGet">
+            <summary>设置 User.get_client_guid() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.client_guidSetGuid">
+            <summary>设置 User.set_client_guid(Guid value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimUserRanks">
             <summary>YunXiu.Model.UserRanks 的填充码类型</summary>
@@ -9658,6 +10846,24 @@
         <member name="P:YunXiu.Model.Fakes.StubBrand.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
+        <member name="T:YunXiu.Model.Fakes.StubBrowseHistorie">
+            <summary>YunXiu.Model.BrowseHistorie 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubBrowseHistorie.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubBrowseHistorie.InitializeStub">
+            <summary>初始化 type StubBrowseHistorie 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubBrowseHistorie.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubBrowseHistorie.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubBrowseHistorie.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.StubBuyApply">
             <summary>YunXiu.Model.BuyApply 的存根类型</summary>
         </member>
@@ -9730,6 +10936,42 @@
         <member name="P:YunXiu.Model.Fakes.StubCategory.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
+        <member name="T:YunXiu.Model.Fakes.StubCertificate">
+            <summary>YunXiu.Model.Certificate 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubCertificate.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubCertificate.InitializeStub">
+            <summary>初始化 type StubCertificate 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubCertificate.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubCertificate.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubCertificate.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.StubCertificateType">
+            <summary>YunXiu.Model.CertificateType 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubCertificateType.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubCertificateType.InitializeStub">
+            <summary>初始化 type StubCertificateType 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubCertificateType.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubCertificateType.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubCertificateType.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.StubConsultation">
             <summary>YunXiu.Model.Consultation 的存根类型</summary>
         </member>
@@ -9764,6 +11006,24 @@
             <summary>获取或设置实例行为。</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.StubConsultationReply.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.StubConsultationResult">
+            <summary>YunXiu.Model.ConsultationResult 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubConsultationResult.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubConsultationResult.InitializeStub">
+            <summary>初始化 type StubConsultationResult 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubConsultationResult.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubConsultationResult.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubConsultationResult.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.StubConsultationType">
@@ -9890,6 +11150,24 @@
             <summary>获取或设置实例行为。</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.StubInvoice.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.StubLoginInfo">
+            <summary>YunXiu.Model.LoginInfo 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubLoginInfo.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubLoginInfo.InitializeStub">
+            <summary>初始化 type StubLoginInfo 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubLoginInfo.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubLoginInfo.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubLoginInfo.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.StubLoginfaillogs">
@@ -10036,6 +11314,24 @@
         <member name="P:YunXiu.Model.Fakes.StubPayOrder.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
+        <member name="T:YunXiu.Model.Fakes.StubPermission">
+            <summary>YunXiu.Model.Permission 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubPermission.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubPermission.InitializeStub">
+            <summary>初始化 type StubPermission 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubPermission.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubPermission.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubPermission.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.StubProduct">
             <summary>YunXiu.Model.Product 的存根类型</summary>
         </member>
@@ -10126,22 +11422,22 @@
         <member name="P:YunXiu.Model.Fakes.StubProductConsultsModel.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
-        <member name="T:YunXiu.Model.Fakes.StubProductImages">
-            <summary>YunXiu.Model.ProductImages 的存根类型</summary>
+        <member name="T:YunXiu.Model.Fakes.StubProductImage">
+            <summary>YunXiu.Model.ProductImage 的存根类型</summary>
         </member>
-        <member name="M:YunXiu.Model.Fakes.StubProductImages.#ctor">
+        <member name="M:YunXiu.Model.Fakes.StubProductImage.#ctor">
             <summary>初始化新实例</summary>
         </member>
-        <member name="M:YunXiu.Model.Fakes.StubProductImages.InitializeStub">
-            <summary>初始化 type StubProductImages 的新实例</summary>
+        <member name="M:YunXiu.Model.Fakes.StubProductImage.InitializeStub">
+            <summary>初始化 type StubProductImage 的新实例</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.StubProductImages.CallBase">
+        <member name="P:YunXiu.Model.Fakes.StubProductImage.CallBase">
             <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.StubProductImages.InstanceBehavior">
+        <member name="P:YunXiu.Model.Fakes.StubProductImage.InstanceBehavior">
             <summary>获取或设置实例行为。</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.StubProductImages.InstanceObserver">
+        <member name="P:YunXiu.Model.Fakes.StubProductImage.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.StubProductKeyWords">
@@ -10450,6 +11746,24 @@
         <member name="P:YunXiu.Model.Fakes.StubRelateproducts.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
+        <member name="T:YunXiu.Model.Fakes.StubRole">
+            <summary>YunXiu.Model.Role 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubRole.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubRole.InitializeStub">
+            <summary>初始化 type StubRole 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubRole.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubRole.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubRole.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.StubSMS">
             <summary>YunXiu.Model.SMS 的存根类型</summary>
         </member>
@@ -10610,6 +11924,24 @@
             <summary>获取或设置实例行为。</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.StubStoreHome.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.StubStoreImg">
+            <summary>YunXiu.Model.StoreImg 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubStoreImg.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubStoreImg.InitializeStub">
+            <summary>初始化 type StubStoreImg 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubStoreImg.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubStoreImg.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubStoreImg.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.StubStoreNavigation">
@@ -10934,6 +12266,24 @@
             <summary>获取或设置实例行为。</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.StubSuitpromotions.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.StubTFUser">
+            <summary>YunXiu.Model.TFUser 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubTFUser.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubTFUser.InitializeStub">
+            <summary>初始化 type StubTFUser 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubTFUser.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubTFUser.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubTFUser.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.StubTender">

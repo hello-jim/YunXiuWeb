@@ -45,3 +45,10 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\YunXiu.Interface.
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\BrnMall.Core.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\BrnMall.Core.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\YunXiu.Commom.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\YunXiu.Model.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.csprojResolveAssemblyReference.cache
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.dll
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.pdb

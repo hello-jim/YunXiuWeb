@@ -40,6 +40,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -54,7 +55,7 @@
     </Reference>
     <Reference Include="YunXiu.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\YunXiu\YunXiu\YunXiu.Model\bin\Debug\YunXiu.Model.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\YunXiu\YunXiu\YunXiu.Model\bin\Debug\YunXiu.Model.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
