@@ -76,30 +76,25 @@
                 <td align="right">品牌Logo：</td>
                 <td>
                     <div class="upload">
-                        @*<div class="uploadPreview">
-                            @if (!string.IsNullOrEmpty(Model.Logo))
-                            {
-                                <img src="@WorkContext.ImageCDN/upload/brand/source/@Model.Logo" />
-                            }
-                            else
-                            {
-                                @:暂无图片
-                }
-                        </div>*@
                         <div class="left">
-                           
                             <div><input id="fileID" name="fileID" type="file" value="上传" />@Html.ValidationMessageFor(x => x.Logo)</div>
-                          
                         </div>
                         <div class="clear"></div>
                     </div>
-                    @*@Html.TextBoxFor(x => x.Logo, new { @class = "hide" })
-                    @Html.ValidationMessageFor(x => x.Logo)*@
                 </td>
             </tr>
             <tr>
                 <td align="right">排序：</td>
                 <td>@Html.TextBoxFor(x => x.DisplayOrder, new { @class = "input", size = "3" })@Html.ValidationMessageFor(x => x.DisplayOrder)</td>
+            </tr>
+
+            <tr>
+                <td align="right">标签：</td>
+                <td>
+                    <p>
+                        <label>@Html.CheckBoxFor(x => x.IsHotBrand, new { @class = "checkbox" })热门</label>
+                    </p>
+                </td>
             </tr>
             <tr>
                 <td align="right">

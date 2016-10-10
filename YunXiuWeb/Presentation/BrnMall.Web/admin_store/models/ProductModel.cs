@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
-
+using YunXiu.Model;
 namespace BrnMall.Web.StoreAdmin.Models
 {
     /// <summary>
@@ -52,6 +52,7 @@ namespace BrnMall.Web.StoreAdmin.Models
         /// 商品名称
         /// </summary>
         public string ProductName { get; set; }
+        public List<Product> Product { get; set; }
     }
 
     /// <summary>
@@ -79,6 +80,8 @@ namespace BrnMall.Web.StoreAdmin.Models
         [StringLength(15, ErrorMessage = "货号长度不能大于15")]
         public string PSN { get; set; }
 
+
+        public string PID { get; set; }
         /// <summary>
         /// 分类id
         /// </summary>
@@ -197,11 +200,45 @@ namespace BrnMall.Web.StoreAdmin.Models
         public bool IsNew { get; set; }
 
         /// <summary>
+        /// 是否是推荐产品
+        /// </summary>
+        public bool IsRecommend { get; set; }
+
+        /// <summary>
+        /// 销售数量
+        /// </summary>
+        public int SaleCount { get; set; }
+        /// <summary>
+        /// 访问数量
+        /// </summary>
+        public int VisitCount { get; set; }
+        /// <summary>
+        /// 官方说明
+        /// </summary>
+        public string OfficialGuarantee { get; set; }
+         /// <summary>
+        /// 常见问题
+        /// </summary>
+        public string FAQs { get; set; }
+
+        public Category Category { get; set; }
+
+        public Brand Brand { get; set; }
+        public Store Store { get; set; }
+
+        public int SKUGID { get; set; }
+        
+        /// <summary>
         /// 商品描述
         /// </summary>
         [AllowHtml]
         public string Description { get; set; }
+         /// <summary>
+        /// 产品图片
+        /// </summary>
+        public List<ProductImage> ProductImages { get; set; }
 
+        public string ImgName { get; set; }
         /// <summary>
         /// 属性id列表
         /// </summary>
@@ -241,6 +278,8 @@ namespace BrnMall.Web.StoreAdmin.Models
         [StringLength(15, ErrorMessage = "货号长度不能大于15")]
         public string PSN { get; set; }
 
+        public int PID { get; set;}
+
         /// <summary>
         /// 品牌id
         /// </summary>
@@ -253,6 +292,35 @@ namespace BrnMall.Web.StoreAdmin.Models
         /// </summary>
         public string BrandName { get; set; }
 
+
+        /// <summary>
+        /// 品牌名称
+        /// </summary>
+        public string CategoryName { get; set; }
+        /// <summary>
+        /// 是否是推荐产品
+        /// </summary>
+        public bool IsRecommend { get; set; }
+        /// <summary>
+        /// 分类Id
+        /// </summary>
+        public int CateId { get; set; }
+        /// <summary>
+        /// 销售数量
+        /// </summary>
+        public int SaleCount { get; set; }
+        /// <summary>
+        /// 访问数量
+        /// </summary>
+        public int VisitCount { get; set; }
+        /// <summary>
+        /// 常见问题
+        /// </summary>
+        public string FAQs { get; set; }
+        /// <summary>
+        /// 官方说明
+        /// </summary>
+        public string OfficialGuarantee { get; set; }
         /// <summary>
         /// 店铺分类id
         /// </summary>
@@ -260,6 +328,9 @@ namespace BrnMall.Web.StoreAdmin.Models
         [DisplayName("店铺分类")]
         public int StoreCid { get; set; }
 
+        public Store Store { get; set; }
+
+        public Category Category { get; set; }
         /// <summary>
         /// 店铺配送模板id
         /// </summary>
@@ -267,12 +338,13 @@ namespace BrnMall.Web.StoreAdmin.Models
         [DisplayName("店铺配送模板")]
         public int StoreSTid { get; set; }
 
+        public Brand Brand { get; set; }
         /// <summary>
         /// 商品名称
         /// </summary>
         [Required(ErrorMessage = "名称不能为空")]
         [StringLength(100, ErrorMessage = "名称长度不能大于100")]
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// 商城价
@@ -501,6 +573,8 @@ namespace BrnMall.Web.StoreAdmin.Models
         /// 商品id
         /// </summary>
         public int Pid { get; set; }
+
+        public List<ProductImage> ProductImages { get; set; }
     }
 
     /// <summary>

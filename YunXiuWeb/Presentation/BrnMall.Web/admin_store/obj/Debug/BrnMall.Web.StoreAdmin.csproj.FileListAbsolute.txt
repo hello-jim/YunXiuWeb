@@ -22,8 +22,8 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAdmi
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.csprojResolveAssemblyReference.cache
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAdmin.dll
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAdmin.pdb
-D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.csprojResolveAssemblyReference.cache
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.dll
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\BrnMall.Web.StoreAdmin.pdb

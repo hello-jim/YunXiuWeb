@@ -3,7 +3,6 @@ using System.Data;
 using System.Collections.Generic;
 
 using BrnMall.Core;
-using YunXiu.Model;
 
 namespace BrnMall.Data
 {

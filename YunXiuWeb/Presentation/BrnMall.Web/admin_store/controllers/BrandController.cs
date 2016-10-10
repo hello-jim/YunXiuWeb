@@ -8,6 +8,10 @@ using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.StoreAdmin.Models;
+using YunXiu.Model;
+using Newtonsoft.Json;
+using YunXiu.Commom;
+using System.Collections.Generic;
 
 namespace BrnMall.Web.StoreAdmin.Controllers
 {
@@ -41,5 +45,6 @@ namespace BrnMall.Web.StoreAdmin.Controllers
             result.Append("]}");
             return Content(result.ToString());
         }
+ 
     }
 }

@@ -72,6 +72,8 @@ namespace BrnMall.Web.MallAdmin.Models
         public List<Brand> Brands { get; set; }
 
         public string Name { get; set; }
+
+        public bool IsHotBrand { get; set; }
     }
     public class BrandList {
         public int BrandID
