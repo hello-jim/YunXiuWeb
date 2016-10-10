@@ -1,17 +1,85 @@
 ﻿@{
     Layout = null;
 }
+@model List<YunXiu.Model.Permission>
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    权限
+<title>品牌列表</title>
+<link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css" />
+<script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+
+
+<h1 class="rightH1">
+    商城管理 &gt;&gt; 权限列表
+    <div class="right">
+        <a href="@Url.Action("AddPermission")" class="menuBT"><img src="/admin_mall/images/add.jpg" />添加</a>
+        <div class="clear"></div>
     </div>
-</body>
-</html>
+    <div class="clear"></div>
+</h1>
+
+
+<div class="dataListSearch">
+    <table height="32">
+        <tbody>
+            <tr>
+                <td width="35"><img id="searchImg" src="/admin_mall/images/search1.gif" /></td>
+                <td>
+                    权限名称：
+                </td>
+                <td width="130">
+                    <input name="搜索" type="text" />
+                    @*@Html.TextBox("Name", Model.Name, new { height = "18" })*@
+                </td>
+                <td>
+                    <input id="SearchBrand" name="SearchBrand" type="image" class="searchBut submit" src="/admin_mall/images/s.jpg" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="dataList">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th width="10" align="center"></th>
+                <th width="100" align="left">编号</th>
+                <th width="100">权限名称</th>
+                <th width="100">权限键值</th>
+                <th align="left">描述</th>
+                <th width="120" align="left">管理操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var row in Model)
+            {
+                <tr pname="@row.PName" pid="@row.PID" pKey="@row.PKey" describe="@row.Describe">
+                    <td align="center"></td>
+                    <td>@row.PID</td>
+                    <td>@row.PName</td>
+                    <td>@row.PKey</td>
+                    <td>@row.Describe</td>
+                    <td>
+                        @*@Html.ActionLink("[编辑]", "edit", new { brandId = row.RID }, new { @class = "editOperate" })
+                            @Html.ActionLink("[删除]", "del", new { brandId = row.RID }, new { @class = "deleteOperate" })*@
+                        <a href="javascript:void(0);" class="edit-permission">[编辑]</a>
+                        <a href="javascript:void(0);" class="del-permission">[删除]</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="dataListEdit">
+    @*<div class="page">
+            @Html.MallAdminPager(Model.PageModel)
+        </div>*@
+</div>
+
+
+<script src="/admin_mall/scripts/jquery.js"></script>
+<script src="/admin_mall/scripts/MallManage.js"></script>

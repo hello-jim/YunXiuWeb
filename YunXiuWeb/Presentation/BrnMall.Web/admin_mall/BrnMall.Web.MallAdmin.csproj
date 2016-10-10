@@ -178,7 +178,11 @@
     <None Include="views\malladmingroup\add.cshtml" />
     <None Include="views\malladmingroup\edit.cshtml" />
     <None Include="views\malladmingroup\list.cshtml" />
+    <None Include="views\mallmanage\AddPermission.cshtml" />
+    <None Include="views\mallmanage\AddRole.cshtml" />
     <None Include="views\mallmanage\Permission.cshtml" />
+    <None Include="views\mallmanage\RoleUpdate.cshtml" />
+    <None Include="views\mallmanage\UpdatePermission.cshtml" />
     <None Include="views\mallmanage\UserRole.cshtml" />
     <None Include="views\mallmanage\Role.cshtml" />
     <None Include="views\mallmanage\RolePermission.cshtml" />
@@ -342,12 +346,14 @@
     <Content Include="images\top_bg.jpg" />
     <Content Include="images\tree_close.gif" />
     <Content Include="images\tree_open.gif" />
+    <Content Include="scripts\brand.js" />
     <Content Include="scripts\excanvas.js" />
     <Content Include="scripts\jquery.flot.js" />
     <Content Include="scripts\jquery.flot.pie.js" />
     <Content Include="scripts\jquery.js" />
     <Content Include="scripts\jquery.validate.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\MallManage.js" />
     <Content Include="scripts\product.js" />
     <Content Include="scripts\region.js" />
     <Content Include="scripts\selectlist.js" />

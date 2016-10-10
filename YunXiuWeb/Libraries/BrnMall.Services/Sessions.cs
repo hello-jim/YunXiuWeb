@@ -158,5 +158,7 @@ namespace BrnMall.Services
         /// 安全中心验证邮箱动作
         /// </summary>
         public const string VALIDATEEMAIL = "validateEmail";
+
+        public const string USERINFO = "USERINFO";
     }
 }

@@ -103,7 +103,7 @@ namespace BrnMall.Services
         }
 
         /// <summary>
-        /// 设置用户
+        /// 设置用户(废弃)
         /// </summary>
         /// <param name="uid">用户id</param>
         /// <param name="password">密码</param>
@@ -128,6 +128,8 @@ namespace BrnMall.Services
 
             HttpContext.Current.Response.AppendCookie(cookie);
         }
+
+       
 
         /// <summary>
         /// 获得cookie

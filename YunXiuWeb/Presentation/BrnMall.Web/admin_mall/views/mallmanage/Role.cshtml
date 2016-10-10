@@ -4,22 +4,21 @@
 @model List<YunXiu.Model.Role>
 
 
-<title>品牌列表</title>
+<title>角色列表</title>
 <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css" />
 <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
 <script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
 
 
 <h1 class="rightH1">
-    品牌管理 &gt;&gt; 品牌列表
+    商城管理 &gt;&gt; 角色列表
     <div class="right">
-        <a href="@Url.Action("add")" class="menuBT"><img src="/admin_mall/images/add.jpg" />添加</a>
+        <a href="@Url.Action("Add")" class="menuBT"><img src="/admin_mall/images/add.jpg" />添加</a>
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
 </h1>
-@using (Html.BeginForm("list", "brand"))
-{
+
 
     <div class="dataListSearch">
         <table height="32">
@@ -27,7 +26,7 @@
                 <tr>
                     <td width="35"><img id="searchImg" src="/admin_mall/images/search1.gif" /></td>
                     <td>
-                        品牌名称：
+                        角色名称：
                     </td>
                     <td width="130">
                         <input name="搜索" type="text" />
@@ -47,8 +46,8 @@
                 <tr>
                     <th width="10" align="center"></th>
                     <th width="100" align="left">编号</th>
-                    <th align="left">角色名称</th>
-
+                    <th width="100">角色名称</th>
+                    <th align="left">描述</th>
                     <th width="120" align="left">管理操作</th>
                 </tr>
             </thead>
@@ -56,20 +55,20 @@
 
 
                 @foreach (var row in Model)
-                    {
-                    <tr>
+                {
+                    <tr rname="@row.RName" rid="@row.RID" describe="@row.Describe">
                         <td align="center"></td>
                         <td>@row.RID</td>
                         <td>@row.RName</td>
-
+                        <td>@row.Describe</td> 
                         <td>
-                            @Html.ActionLink("[编辑]", "edit", new { brandId = row.RID }, new { @class = "editOperate" })
-                            @Html.ActionLink("[删除]", "del", new { brandId = row.RID }, new { @class = "deleteOperate" })
+                            @*@Html.ActionLink("[编辑]", "edit", new { brandId = row.RID }, new { @class = "editOperate" })
+                            @Html.ActionLink("[删除]", "del", new { brandId = row.RID }, new { @class = "deleteOperate" })*@
+                            <a href="javascript:void(0);" class="edit-role">[编辑]</a>
+                            <a href="javascript:void(0);" class="del-role">[删除]</a>
                         </td>
                     </tr>
-                    }
-
-
+                }
             </tbody>
         </table>
     </div>
@@ -79,4 +78,6 @@
             </div>*@
     </div>
 
-}
+
+<script src="/admin_mall/scripts/jquery.js"></script>
+<script src="/admin_mall/scripts/MallManage.js"></script>

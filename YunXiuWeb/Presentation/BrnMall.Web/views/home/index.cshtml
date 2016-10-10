@@ -5,15 +5,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>@{@WorkContext.MallConfig.SiteTitle}</title>
+    @*<title>@{@WorkContext.MallConfig.SiteTitle}</title>
     @Html.Raw(WorkContext.MallConfig.SEOKeyword)
-    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)*@
 
 
     <script type="text/javascript">
-        uid = @WorkContext.Uid;
+        @*uid = @WorkContext.Uid;
         isGuestSC = @WorkContext.MallConfig.IsGuestSC;
-        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;*@
     </script>
 </head>
 <body>

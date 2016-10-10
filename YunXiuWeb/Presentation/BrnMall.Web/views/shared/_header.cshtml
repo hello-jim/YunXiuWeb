@@ -1,9 +1,14 @@
 ﻿@{Layout = null;}
+
+@{
+    var user = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+
+}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Home</title>
     <meta name="keywords" content="刺绣 采购站 云绣网 线辅材" />
     <meta name="description" content="一站式采购" />
@@ -83,7 +88,30 @@
     <!--top bar-->
     <div id="topbar">
         <div class="container">
-            <div class="col-xs-6 row">欢迎您来到“云绣采购站”<a href="/Account/Login">[登录]</a>&nbsp;<a>[注册]</a></div>
+            @{
+                if (user == null)
+                {
+                    <div class="col-xs-6 row">欢迎您来到“云绣采购站”<a href="/Account/Login"> [登录]</a></div>
+                }
+
+                else
+                {
+                    var storeLink = "";
+                    var mallLink = "";
+                    if (user.Permissions.Where(p => p.PKey == "STOREMANAGE").Count() > 0)
+                    {
+                        storeLink = "<a href='/storeadmin'>店铺管理</>";
+
+                    }
+                    if (user.Permissions.Where(p => p.PKey == "MALLMANAGE").Count() > 0)
+                    {
+                        mallLink = "<a href='/malladmin'>商城管理</>";
+
+                    }
+                    <div class="col-xs-6 row">欢迎您来到“云绣采购站” @mallLink&nbsp;@storeLink</div>
+
+                }
+            }
             <div class="topbarr row">
                 <ul>
                     <li class="talk">

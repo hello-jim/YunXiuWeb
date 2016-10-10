@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+@model YunXiu.Model.Permission
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <input type="hidden" name="pID" value="@Model.PID" />
+        权限名:<input type="text" name="pName" value="@Model.PName" /><br />
+        权限键<input type="text" name="pKey" value="@Model.PKey" /><br />
+        描述:<input type="text" name="describe" value="@Model.Describe" /><br />
+        <input type="button" value="提交" class="permission-edit-save" />
+    </div>
+</body>
+</html>
+
+<script src="/admin_mall/scripts/jquery.js"></script>
+<script src="/admin_mall/scripts/MallManage.js"></script>
+

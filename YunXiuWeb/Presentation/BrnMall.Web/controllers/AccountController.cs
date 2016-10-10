@@ -4,14 +4,15 @@ using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Configuration;
+using System.Web;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.Models;
 using YunXiu.Commom;
 using YunXiu.Model;
-using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace BrnMall.Web.Controllers
 {
@@ -98,97 +99,102 @@ namespace BrnMall.Web.Controllers
           
 
             //当以上验证全部通过时
-            PartUserInfo partUserInfo = null;
-            if (errorList.Length == 1)
-            {
-                if (ValidateHelper.IsEmail(accountName))//邮箱登录
-                {
-                    if (!BMAConfig.MallConfig.LoginType.Contains("2"))
-                    {
-                        errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "不能使用邮箱登录", "}");
-                    }
-                    else
-                    {
-                        partUserInfo = Users.GetPartUserByEmail(accountName);
-                        if (partUserInfo == null)
-                            errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "邮箱不存在", "}");
-                    }
-                }
-                else if (ValidateHelper.IsMobile(accountName))//手机登录
-                {
-                    if (!BMAConfig.MallConfig.LoginType.Contains("3"))
-                    {
-                        errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "不能使用手机登录", "}");
-                    }
-                    else
-                    {
-                        partUserInfo = Users.GetPartUserByMobile(accountName);
-                        if (partUserInfo == null)
-                            errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "手机不存在", "}");
-                    }
-                }
-                else //用户名登录
-                {
-                    if (!BMAConfig.MallConfig.LoginType.Contains("1"))
-                    {
-                        errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "不能使用用户名登录", "}");
-                    }
-                    else
-                    {
-                        partUserInfo = Users.GetPartUserByName(accountName);
-                        if (partUserInfo == null)
-                            errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "用户名不存在", "}");
-                    }
-                }
+            //PartUserInfo partUserInfo = null;
+            //if (errorList.Length == 1)
+            //{
+            //    if (ValidateHelper.IsEmail(accountName))//邮箱登录
+            //    {
+            //        if (!BMAConfig.MallConfig.LoginType.Contains("2"))
+            //        {
+            //            errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "不能使用邮箱登录", "}");
+            //        }
+            //        else
+            //        {
+            //            partUserInfo = Users.GetPartUserByEmail(accountName);
+            //            if (partUserInfo == null)
+            //                errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "邮箱不存在", "}");
+            //        }
+            //    }
+            //    else if (ValidateHelper.IsMobile(accountName))//手机登录
+            //    {
+            //        if (!BMAConfig.MallConfig.LoginType.Contains("3"))
+            //        {
+            //            errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "不能使用手机登录", "}");
+            //        }
+            //        else
+            //        {
+            //            partUserInfo = Users.GetPartUserByMobile(accountName);
+            //            if (partUserInfo == null)
+            //                errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "手机不存在", "}");
+            //        }
+            //    }
+            //    else //用户名登录
+            //    {
+            //        if (!BMAConfig.MallConfig.LoginType.Contains("1"))
+            //        {
+            //            errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "不能使用用户名登录", "}");
+            //        }
+            //        else
+            //        {
+            //            partUserInfo = Users.GetPartUserByName(accountName);
+            //            if (partUserInfo == null)
+            //                errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "用户名不存在", "}");
+            //        }
+            //    }
 
-                if (partUserInfo != null)
-                {
-                    if (Users.CreateUserPassword(password, partUserInfo.Salt) != partUserInfo.Password)//判断密码是否正确
-                    {
-                        LoginFailLogs.AddLoginFailTimes(WorkContext.IP, DateTime.Now);//增加登录失败次数
-                        errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "password", "密码不正确", "}");
-                    }
-                    else if (partUserInfo.UserRid == 1)//当用户等级是禁止访问等级时
-                    {
-                        if (partUserInfo.LiftBanTime > DateTime.Now)//达到解禁时间
-                        {
-                            UserRankInfo userRankInfo = BrnMall.Services.UserRanks.GetUserRankByCredits(partUserInfo.PayCredits);
-                            Users.UpdateUserRankByUid(partUserInfo.Uid, userRankInfo.UserRid);
-                            partUserInfo.UserRid = userRankInfo.UserRid;
-                        }
-                        else
-                        {
-                            errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "您的账号当前被锁定,不能访问", "}");
-                        }
-                    }
-                }
-            }
+            //    if (partUserInfo != null)
+            //    {
+            //        if (Users.CreateUserPassword(password, partUserInfo.Salt) != partUserInfo.Password)//判断密码是否正确
+            //        {
+            //            LoginFailLogs.AddLoginFailTimes(WorkContext.IP, DateTime.Now);//增加登录失败次数
+            //            errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "password", "密码不正确", "}");
+            //        }
+            //        else if (partUserInfo.UserRid == 1)//当用户等级是禁止访问等级时
+            //        {
+            //            if (partUserInfo.LiftBanTime > DateTime.Now)//达到解禁时间
+            //            {
+            //                UserRankInfo userRankInfo = BrnMall.Services.UserRanks.GetUserRankByCredits(partUserInfo.PayCredits);
+            //                Users.UpdateUserRankByUid(partUserInfo.Uid, userRankInfo.UserRid);
+            //                partUserInfo.UserRid = userRankInfo.UserRid;
+            //            }
+            //            else
+            //            {
+            //                errorList.AppendFormat("{0}\"key\":\"{1}\",\"msg\":\"{2}\"{3},", "{", "accountName", "您的账号当前被锁定,不能访问", "}");
+            //            }
+            //        }
+            //    }
+            //}
 
-            if (errorList.Length > 1)//验证失败时
+            //if (errorList.Length > 1)//验证失败时
+            //{
+            //    return AjaxResult("error", errorList.Remove(errorList.Length - 1, 1).Append("]").ToString(), true);
+            //}
+            //else//验证成功时
+            //{
+            //    //删除登录失败日志
+            //    LoginFailLogs.DeleteLoginFailLogByIP(WorkContext.IP);
+            //    //更新用户最后访问
+            //    Users.UpdateUserLastVisit(partUserInfo.Uid, DateTime.Now, WorkContext.IP, WorkContext.RegionId);
+            //    //更新购物车中用户id
+            //    Carts.UpdateCartUidBySid(partUserInfo.Uid, WorkContext.Sid);
+            //    //将用户信息写入cookie中
+            //    MallUtils.SetUserCookie(partUserInfo, (WorkContext.MallConfig.IsRemember == 1 && isRemember == 1) ? 30 : -1);
+
+            //    return AjaxResult("success", "登录成功");
+            //}
+            if (errorList.Length > 1)
             {
                 return AjaxResult("error", errorList.Remove(errorList.Length - 1, 1).Append("]").ToString(), true);
             }
-            else//验证成功时
-            {
-                //删除登录失败日志
-                LoginFailLogs.DeleteLoginFailLogByIP(WorkContext.IP);
-                //更新用户最后访问
-                Users.UpdateUserLastVisit(partUserInfo.Uid, DateTime.Now, WorkContext.IP, WorkContext.RegionId);
-                //更新购物车中用户id
-                Carts.UpdateCartUidBySid(partUserInfo.Uid, WorkContext.Sid);
-                //将用户信息写入cookie中
-                MallUtils.SetUserCookie(partUserInfo, (WorkContext.MallConfig.IsRemember == 1 && isRemember == 1) ? 30 : -1);
-
-                return AjaxResult("success", "登录成功");
-            }
-
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("account", accountName);
             dic.Add("pwd", password);
             var info = JsonConvert.DeserializeObject<LoginInfo>(CommomClass.HttpPost(string.Format("{0}/Account/Login", accountApi), JsonConvert.SerializeObject(dic)));
             if (info.LoginState == 1)
             {
-                return AjaxResult("success", "登录成功");
+                WebCommom.SetCookie("UID", info.User.UID.ToString(), 3);
+                Session[SessionKey.USERINFO] = info.User;//将用户信息保存到session          
+                return AjaxResult("success", "登录成功");             
             }
             else if (info.LoginState == 0)
             {

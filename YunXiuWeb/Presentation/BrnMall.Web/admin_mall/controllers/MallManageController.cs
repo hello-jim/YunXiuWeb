@@ -30,30 +30,97 @@ namespace BrnMall.Web.MallAdmin.Controllers
             return View(list);
         }
 
-        public ActionResult AddRole() 
+        [HttpGet]
+        public ActionResult AddRole()
         {
-            
+
             return View();
         }
 
-        
-       
         /// <summary>
         /// 添加角色
         /// </summary>
         /// <returns></returns>
-        public ActionResult AddRole(Role role)
+
+        public string AddRolePost()
         {
-            return View();
+
+            var result = "";
+            var rName = Convert.ToString(Request.Form["rName"]);
+            var describe = Convert.ToString(Request.Form["describe"]);
+            Role r = new YunXiu.Model.Role
+            {
+                RName = rName,
+                Describe = describe
+            };
+            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/AddRole", accountApi), JsonConvert.SerializeObject(r)));
+            if (isAdd)
+            {
+                result = "1";
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
+            //   return PromptView("添加成功");
+        }
+
+        /// <summary>
+        /// 删除角色
+        /// </summary>
+        /// <returns></returns>
+        public string DeleteRole()
+        {
+            var result = "";
+            var rID = Convert.ToInt32(Request.Form["rID"]);
+            var isDel = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/DeleteRole", accountApi), rID.ToString()));
+            if (isDel)
+            {
+                result = "1";
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
         }
 
         /// <summary>
         /// 修改角色
         /// </summary>
         /// <returns></returns>
-        public ActionResult UpdateRole()
+        [HttpGet]
+        public ActionResult RoleUpdate()
         {
-            return View();
+            Role role = new Role
+            {
+                RID = Convert.ToInt32(Request.Params["rID"]),
+                RName = Convert.ToString(Request.Params["rName"]),
+                Describe = Convert.ToString(Request.Params["describe"])
+            };
+            return View(role);
+        }
+
+        public string RoleUpdatePost()
+        {
+            var result = "";
+            Role role = new Role
+            {
+                RID = Convert.ToInt32(Request.Form["rID"]),
+                RName = Convert.ToString(Request.Form["rName"]),
+                Describe = Convert.ToString(Request.Form["Describe"])
+            };
+            var isEdit = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/UpdateRole", accountApi), JsonConvert.SerializeObject(role)));
+            if (isEdit)
+            {
+                result = "1";
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
         }
 
         /// <summary>
@@ -62,7 +129,29 @@ namespace BrnMall.Web.MallAdmin.Controllers
         /// <returns></returns>
         public ActionResult Permission()
         {
-            return View();
+            List<Permission> list = new List<Permission>();
+            list = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermission", accountApi), ""));
+            return View(list);
+        }
+
+        public string AddPermissionPost()
+        {
+            var result = "";
+            Permission p = new Permission
+            {
+                PName = Convert.ToString(Request.Form["pName"]),
+                Describe = Convert.ToString(Request.Form["describe"]),
+            };
+            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/AddPermission", accountApi), JsonConvert.SerializeObject(p)));
+            if (isAdd)
+            {
+                result = "1";
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
         }
 
         /// <summary>
@@ -74,10 +163,57 @@ namespace BrnMall.Web.MallAdmin.Controllers
             return View();
         }
 
+
+        public string DeletePermission()
+        {
+            var result = "";
+            var pID = Convert.ToInt32(Request.Form["pID"]);
+            var isDel = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/DeletePermission", accountApi), pID.ToString()));
+            if (isDel)
+            {
+                result = "1";
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
+        }
+
+        [HttpGet]
         public ActionResult UpdatePermission()
         {
-            return View();
+            Permission role = new Permission
+            {
+                PID = Convert.ToInt32(Request.Params["pID"]),
+                PName = Convert.ToString(Request.Params["pName"]),
+                PKey = Convert.ToString(Request.Params["pKey"]),
+                Describe = Convert.ToString(Request.Params["describe"])
+            };
+            return View(role);
         }
+
+        public string UpdatePermissionPost()
+        {
+            var result = "";
+            Permission p = new Permission
+            {
+                PID = Convert.ToInt32(Request.Form["pID"]),
+                PName = Convert.ToString(Request.Form["pName"]),
+                Describe = Convert.ToString(Request.Form["describe"])
+            };
+            var isEdit = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/UpdatePermission", accountApi), JsonConvert.SerializeObject(p)));
+            if (isEdit)
+            {
+                result = "1";
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
+        }
+
 
         /// <summary>
         /// 角色权限
@@ -88,12 +224,12 @@ namespace BrnMall.Web.MallAdmin.Controllers
             return View();
         }
 
-        public ActionResult UserRole() 
+        public ActionResult UserRole()
         {
             return View();
         }
 
-        public ActionResult UserPermission() 
+        public ActionResult UserPermission()
         {
             return View();
         }
@@ -102,10 +238,16 @@ namespace BrnMall.Web.MallAdmin.Controllers
         /// 添加角色权限
         /// </summary>
         /// <returns></returns>
-        public string AddRolePermission() 
+        public string AddRolePermission()
         {
             var result = "";
             return result;
+        }
+
+        private void Load()
+        {
+            ViewData["navList"] = AdminNavs.GetNavList();
+            ViewData["referer"] = MallUtils.GetMallAdminRefererCookie();
         }
 
     }

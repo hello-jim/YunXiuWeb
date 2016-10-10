@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+@model YunXiu.Model.Role
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <input type="hidden" name="rID" value="@Model.RID" />
+        角色名: <input type="text" name="rName" value="@Model.RName" /><br />
+        角色描述 <input type="text" name="describe" value="@Model.Describe" /><br />
+        <input type="button" value="提交" class="edit-save" />
+    </div>
+</body>
+</html>
+
+<script src="/admin_mall/scripts/jquery.js"></script>
+<script src="/admin_mall/scripts/MallManage.js"></script>

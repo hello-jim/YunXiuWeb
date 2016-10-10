@@ -56,7 +56,8 @@
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
     </Reference>
-    <Reference Include="YunXiu.Commom">
+    <Reference Include="YunXiu.Commom, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\YunXiu\YunXiu\YunXiu.Commom\bin\Debug\YunXiu.Commom.dll</HintPath>
     </Reference>
     <Reference Include="YunXiu.Model">

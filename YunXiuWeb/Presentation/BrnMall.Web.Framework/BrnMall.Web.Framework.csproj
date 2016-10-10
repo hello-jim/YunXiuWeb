@@ -41,6 +41,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
+    <Reference Include="YunXiu.Commom, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\YunXiu\YunXiu\YunXiu.Commom\bin\Debug\YunXiu.Commom.dll</HintPath>
+    </Reference>
+    <Reference Include="YunXiu.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\YunXiu\YunXiu\YunXiu.Model\bin\Debug\YunXiu.Model.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseAppController.cs" />
