@@ -30,12 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\lizishen\AppData\Roaming\Skype\My Skype Received Files\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -52,7 +54,7 @@
     </Reference>
     <Reference Include="YunXiu.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\YunXiu\YunXiu\YunXiu.Model\bin\Debug\YunXiu.Model.dll</HintPath>
+      <HintPath>..\..\..\..\..\YunXiu\YunXiu\YunXiu.Model\bin\Debug\YunXiu.Model.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +187,7 @@
     <Content Include="scripts\storeAdmin\decorate.js" />
   </ItemGroup>
   <ItemGroup>
+    <Fakes Include="Fakes\YunXiu.Model.fakes" />
     <None Include="fonts\bootstrap-wysiwyg\fontawesome-webfont.eot" />
     <None Include="fonts\bootstrap-wysiwyg\fontawesome-webfont.ttf" />
     <None Include="fonts\bootstrap-wysiwyg\fontawesome-webfont.woff" />
