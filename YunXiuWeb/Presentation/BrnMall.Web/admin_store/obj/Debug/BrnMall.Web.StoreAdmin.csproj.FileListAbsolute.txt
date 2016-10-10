@@ -64,3 +64,4 @@ D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\Fak
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\Fakes\yxm\o\f.csprojResolveAssemblyReference.cache
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\Fakes\yxm\o\YunXiu.Model.1.0.0.0.Fakes.dll
 D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\Fakes\yxm\o\YunXiu.Model.1.0.0.0.Fakes.pdb
+D:\Projdct_GIT\Mall\YunXiuWeb\Presentation\BrnMall.Web\admin_store\obj\Debug\Fakes\yxm\b\PanGu.dll

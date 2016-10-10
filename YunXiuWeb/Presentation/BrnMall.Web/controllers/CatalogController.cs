@@ -615,7 +615,6 @@ namespace BrnMall.Web.Controllers
                             ID = cTypeID
                         },
                         CContent = content
-
                     };
                     var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Product/AddConsultation"), JsonConvert.SerializeObject(consultation)));//是否添加成功
                     if (isAdd)

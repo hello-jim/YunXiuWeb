@@ -3,11 +3,13 @@ using System.Web;
 using System.Data;
 using System.Web.Mvc;
 using System.Collections.Generic;
-
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.MallAdmin.Models;
+using YunXiu.Model;
+using YunXiu.Commom;
+using Newtonsoft.Json;
 
 namespace BrnMall.Web.MallAdmin.Controllers
 {
@@ -21,41 +23,43 @@ namespace BrnMall.Web.MallAdmin.Controllers
         /// </summary>
         public ActionResult List(string userName, string email, string mobile, int userRid = 0, int mallAGid = 0, int pageNumber = 1, int pageSize = 15)
         {
-            string condition = AdminUsers.AdminGetUserListCondition(userName, email, mobile, userRid, mallAGid);
 
-            PageModel pageModel = new PageModel(pageSize, pageNumber, AdminUsers.AdminGetUserCount(condition));
+            var userList =JsonConvert.DeserializeObject<List<User>>(CommomClass.HttpPost(string.Format("{0}/Account/GetUser",accountApi),""));
+            //string condition = AdminUsers.AdminGetUserListCondition(userName, email, mobile, userRid, mallAGid);
 
-            List<SelectListItem> userRankList = new List<SelectListItem>();
-            userRankList.Add(new SelectListItem() { Text = "全部等级", Value = "0" });
-            foreach (UserRankInfo info in AdminUserRanks.GetUserRankList())
-            {
-                userRankList.Add(new SelectListItem() { Text = info.Title, Value = info.UserRid.ToString() });
-            }
+            //PageModel pageModel = new PageModel(pageSize, pageNumber, AdminUsers.AdminGetUserCount(condition));
 
-            List<SelectListItem> mallAdminGroupList = new List<SelectListItem>();
-            mallAdminGroupList.Add(new SelectListItem() { Text = "全部组", Value = "0" });
-            foreach (MallAdminGroupInfo info in MallAdminGroups.GetMallAdminGroupList())
-            {
-                mallAdminGroupList.Add(new SelectListItem() { Text = info.Title, Value = info.MallAGid.ToString() });
-            }
+            //List<SelectListItem> userRankList = new List<SelectListItem>();
+            //userRankList.Add(new SelectListItem() { Text = "全部等级", Value = "0" });
+            //foreach (UserRankInfo info in AdminUserRanks.GetUserRankList())
+            //{
+            //    userRankList.Add(new SelectListItem() { Text = info.Title, Value = info.UserRid.ToString() });
+            //}
 
-            UserListModel model = new UserListModel()
-            {
-                PageModel = pageModel,
-                UserList = AdminUsers.AdminGetUserList(pageModel.PageSize, pageModel.PageNumber, condition),
-                UserName = userName,
-                Email = email,
-                Mobile = mobile,
-                UserRid = userRid,
-                UserRankList = userRankList,
-                MallAGid = mallAGid,
-                MallAdminGroupList = mallAdminGroupList
-            };
+            //List<SelectListItem> mallAdminGroupList = new List<SelectListItem>();
+            //mallAdminGroupList.Add(new SelectListItem() { Text = "全部组", Value = "0" });
+            //foreach (MallAdminGroupInfo info in MallAdminGroups.GetMallAdminGroupList())
+            //{
+            //    mallAdminGroupList.Add(new SelectListItem() { Text = info.Title, Value = info.MallAGid.ToString() });
+            //}
 
-            MallUtils.SetAdminRefererCookie(string.Format("{0}?pageNumber={1}&pageSize={2}&userName={3}&email={4}&mobile={5}&userRid={6}&mallAGid={7}",
-                                                          Url.Action("list"), pageModel.PageNumber, pageModel.PageSize,
-                                                          userName, email, mobile, userRid, mallAGid));
-            return View(model);
+            //UserListModel model = new UserListModel()
+            //{
+            //    PageModel = pageModel,
+            //    UserList = AdminUsers.AdminGetUserList(pageModel.PageSize, pageModel.PageNumber, condition),
+            //    UserName = userName,
+            //    Email = email,
+            //    Mobile = mobile,
+            //    UserRid = userRid,
+            //    UserRankList = userRankList,
+            //    MallAGid = mallAGid,
+            //    MallAdminGroupList = mallAdminGroupList
+            //};
+
+            //MallUtils.SetAdminRefererCookie(string.Format("{0}?pageNumber={1}&pageSize={2}&userName={3}&email={4}&mobile={5}&userRid={6}&mallAGid={7}",
+            //                                              Url.Action("list"), pageModel.PageNumber, pageModel.PageSize,
+            //                                              userName, email, mobile, userRid, mallAGid));
+            return View(userList);
         }
 
         /// <summary>
@@ -112,7 +116,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
                     RankCredits = AdminUserRanks.GetUserRankById(model.UserRid).CreditsLower,
                     VerifyEmail = 0,
                     VerifyMobile = 0,
-                    LiftBanTime = UserRanks.IsBanUserRank(model.UserRid) ? DateTime.Now.AddDays(WorkContext.UserRankInfo.LimitDays) : new DateTime(1900, 1, 1),
+                    LiftBanTime = BrnMall.Services.UserRanks.IsBanUserRank(model.UserRid) ? DateTime.Now.AddDays(WorkContext.UserRankInfo.LimitDays) : new DateTime(1900, 1, 1),
                     LastVisitTime = DateTime.Now,
                     LastVisitIP = WorkContext.IP,
                     LastVisitRgId = WorkContext.RegionId,
@@ -141,32 +145,35 @@ namespace BrnMall.Web.MallAdmin.Controllers
         /// 编辑用户
         /// </summary>
         [HttpGet]
-        public ActionResult Edit(int uid = -1)
+        public ActionResult Edit()
         {
-            UserInfo userInfo = AdminUsers.GetUserById(uid);
-            if (userInfo == null)
-                return PromptView("用户不存在");
+            var uid = Request.QueryString["uid"];
+            var user =JsonConvert.DeserializeObject<User>(CommomClass.HttpPost(string.Format("{0}/Account/GetUserByID",accountApi), uid));
+            //var user = JsonConvert.DeserializeObject<User>(CommomClass.HttpPost(string.Format(""),""));
+            //UserInfo userInfo = AdminUsers.GetUserById(uid);
+            //if (userInfo == null)
+            //    return PromptView("用户不存在");
 
-            UserModel model = new UserModel();
-            model.UserName = userInfo.UserName;
-            model.Email = userInfo.Email;
-            model.Mobile = userInfo.Mobile;
-            model.UserRid = userInfo.UserRid;
-            model.MallAGid = userInfo.MallAGid;
-            model.NickName = userInfo.NickName;
-            model.Avatar = userInfo.Avatar;
-            model.PayCredits = userInfo.PayCredits;
-            model.Gender = userInfo.Gender;
-            model.RealName = userInfo.RealName;
-            model.Bday = userInfo.Bday;
-            model.IdCard = userInfo.IdCard;
-            model.RegionId = userInfo.RegionId;
-            model.Address = userInfo.Address;
-            model.Bio = userInfo.Bio;
+            //UserModel model = new UserModel();
+            //model.UserName = userInfo.UserName;
+            //model.Email = userInfo.Email;
+            //model.Mobile = userInfo.Mobile;
+            //model.UserRid = userInfo.UserRid;
+            //model.MallAGid = userInfo.MallAGid;
+            //model.NickName = userInfo.NickName;
+            //model.Avatar = userInfo.Avatar;
+            //model.PayCredits = userInfo.PayCredits;
+            //model.Gender = userInfo.Gender;
+            //model.RealName = userInfo.RealName;
+            //model.Bday = userInfo.Bday;
+            //model.IdCard = userInfo.IdCard;
+            //model.RegionId = userInfo.RegionId;
+            //model.Address = userInfo.Address;
+            //model.Bio = userInfo.Bio;
 
-            Load(model.RegionId);
+            //Load(model.RegionId);
 
-            return View(model);
+            return View(user);
         }
 
         /// <summary>
@@ -213,7 +220,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
                 userInfo.NickName = WebHelper.HtmlEncode(nickName);
                 userInfo.Avatar = model.Avatar == null ? "" : WebHelper.HtmlEncode(model.Avatar);
                 userInfo.PayCredits = model.PayCredits;
-                userInfo.LiftBanTime = UserRanks.IsBanUserRank(model.UserRid) ? DateTime.Now.AddDays(WorkContext.UserRankInfo.LimitDays) : new DateTime(1900, 1, 1);
+                userInfo.LiftBanTime = BrnMall.Services.UserRanks.IsBanUserRank(model.UserRid) ? DateTime.Now.AddDays(WorkContext.UserRankInfo.LimitDays) : new DateTime(1900, 1, 1);
                 userInfo.Gender = model.Gender;
                 userInfo.RealName = model.RealName == null ? "" : WebHelper.HtmlEncode(model.RealName);
                 userInfo.Bday = model.Bday ?? new DateTime(1970, 1, 1);
@@ -251,7 +258,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
             }
             ViewData["mallAdminGroupList"] = mallAdminGroupList;
 
-            RegionInfo regionInfo = Regions.GetRegionById(regionId);
+            RegionInfo regionInfo = BrnMall.Services.Regions.GetRegionById(regionId);
             if (regionInfo != null)
             {
                 ViewData["provinceId"] = regionInfo.ProvinceId;

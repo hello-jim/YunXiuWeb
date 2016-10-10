@@ -20,8 +20,7 @@ namespace BrnMall.Web.Controllers
     /// 账号控制器类
     /// </summary>
     public partial class AccountController : BaseWebController
-    {
-        string accountApi = ConfigurationManager.AppSettings["accountApi"];
+    {   
         /// <summary>
         /// 登录
         /// </summary>

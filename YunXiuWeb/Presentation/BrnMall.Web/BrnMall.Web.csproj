@@ -41,7 +41,7 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\lizishen\AppData\Roaming\Skype\My Skype Received Files\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\DLL\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -189,6 +189,7 @@
     <Content Include="components\webuploader\webuploader.js" />
     <Content Include="css\account.css" />
     <Content Include="css\base.css" />
+    <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\buy.css" />
     <Content Include="css\buyer1.css" />
@@ -215,6 +216,7 @@
     <Content Include="css\kefu1.css" />
     <Content Include="css\list.css" />
     <Content Include="css\list1.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\mall\comment.css" />
     <Content Include="css\mall\shoreinfo.css" />
     <Content Include="css\mall\shorepublic.css" />
@@ -312,6 +314,14 @@
     <Content Include="images\bot.png" />
     <Content Include="images\brand.jpg" />
     <Content Include="images\brand\41_17279_1.jpg" />
+    <Content Include="images\brand\42_2_2.jpg" />
+    <Content Include="images\brand\44_3_3.jpg" />
+    <Content Include="images\brand\45_17279_1.jpg" />
+    <Content Include="images\brand\46_17279_1.jpg" />
+    <Content Include="images\brand\47_17279_1.jpg" />
+    <Content Include="images\brand\48_17279_1.jpg" />
+    <Content Include="images\brand\49_17279_1.jpg" />
+    <Content Include="images\brand\50_17279_1.jpg" />
     <Content Include="images\brand\brand.jpg" />
     <Content Include="images\brand\b_1608171014475078865.png" />
     <Content Include="images\brand\b_1608171016409143730.png" />
@@ -401,8 +411,6 @@
     <Content Include="images\heng1.png" />
     <Content Include="images\heng2.png" />
     <Content Include="images\Horse86.png" />
-    <Content Include="images\hotbrand\b_1608171018177659126.png" />
-    <Content Include="images\hotbrand\b_1608171058335000847.png" />
     <Content Include="images\house1.jpg" />
     <Content Include="images\house2.jpg" />
     <Content Include="images\house3.jpg" />
@@ -440,6 +448,7 @@
     <Content Include="images\list16.png" />
     <Content Include="images\list32.png" />
     <Content Include="images\liststyle.png" />
+    <Content Include="images\login-bg.jpg" />
     <Content Include="images\loginAd.png" />
     <Content Include="images\bgW.jpg" />
     <Content Include="images\bottomBg.jpg" />
@@ -496,7 +505,23 @@
     <Content Include="images\pro2.png" />
     <Content Include="images\probg.jpg" />
     <Content Include="images\productImg\1.jpg" />
+    <Content Include="images\productImg\10.jpg" />
+    <Content Include="images\productImg\11.JPG" />
+    <Content Include="images\productImg\12.jpg" />
+    <Content Include="images\productImg\13.jpg" />
+    <Content Include="images\productImg\14.jpg" />
+    <Content Include="images\productImg\15.jpg" />
+    <Content Include="images\productImg\16.jpg" />
+    <Content Include="images\productImg\17.jpg" />
+    <Content Include="images\productImg\18.JPG" />
+    <Content Include="images\productImg\19.jpg" />
     <Content Include="images\productImg\2.jpg" />
+    <Content Include="images\productImg\20.jpg" />
+    <Content Include="images\productImg\21.JPG" />
+    <Content Include="images\productImg\22.jpg" />
+    <Content Include="images\productImg\23.jpg" />
+    <Content Include="images\productImg\24.jpg" />
+    <Content Include="images\productImg\25.JPG" />
     <Content Include="images\productImg\3.jpg" />
     <Content Include="images\productImg\4.jpg" />
     <Content Include="images\productImg\5.jpg" />
@@ -504,6 +529,9 @@
     <Content Include="images\productImg\5_2.jpg" />
     <Content Include="images\productImg\5_3.jpg" />
     <Content Include="images\productImg\6.jpg" />
+    <Content Include="images\productImg\7.jpg" />
+    <Content Include="images\productImg\8.jpg" />
+    <Content Include="images\productImg\9.jpg" />
     <Content Include="images\pro_down.png" />
     <Content Include="images\pro_left.png" />
     <Content Include="images\pu.png" />
@@ -574,6 +602,7 @@
     <Content Include="images\xin1.png" />
     <Content Include="images\x_2.jpg" />
     <Content Include="images\yunxiufont.png" />
+    <Content Include="images\yzm.jpg" />
     <Content Include="images\zheng.jpg" />
     <Content Include="images\zheng1.jpg" />
     <Content Include="images\zjbz.jpg" />
@@ -582,6 +611,7 @@
     <Content Include="images\zoom.png" />
     <Content Include="images\zoomloader.gif" />
     <Content Include="images\zpsd.jpg" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\buyerjs.js" />
     <Content Include="js\home.js" />
     <Content Include="js\issuejs.js" />
@@ -704,6 +734,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\YunXiuWeb.pubxml" />
     <Content Include="views\CommonProblem\Index.cshtml" />
     <Content Include="views\CommonProblem\TermsTrade.cshtml" />

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Configuration;
 using BrnMall.Core;
 using BrnMall.Services;
 
@@ -12,6 +12,8 @@ namespace BrnMall.Web.Framework
     /// </summary>
     public class BaseController : Controller
     {
+        public string productApi = ConfigurationManager.AppSettings["productApi"];
+        public string accountApi = ConfigurationManager.AppSettings["accountApi"];
         protected override void OnException(ExceptionContext filterContext)
         {
             Logs.Write(filterContext.Exception);

@@ -2,81 +2,91 @@
 @{
     Layout = null;
 }
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>用户登录-@{@WorkContext.MallConfig.SiteTitle}</title>
     @Html.Raw(WorkContext.MallConfig.SEOKeyword)
     @Html.Raw(WorkContext.MallConfig.SEODescription)
-    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
-    <link href="@{@WorkContext.CSSCDN}/css/account.css" rel="stylesheet" type="text/css" />
-    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
-    <script src="@{@WorkContext.ScriptCDN}/scripts/account.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        returnUrl = "@Model.ReturnUrl";
-        shadowName = "@Model.ShadowName";
-    </script>
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+
 </head>
-
 <body>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <header>
+        <div class="top">
+            <ul class="top-content">
+                <li><a href=""><img src="/images/logoh.png" /></a></li>
+                <li class="logo-title">云绣网</li>
+            </ul>
+        </div>
+    </header>
 
-<div id="loginTop" class="box">
-    <a href="/" class="left"><img src="@{@WorkContext.ImageCDN}/images/logo.png" width="186" height="42" /></a>
-    <h2>欢迎登录</h2>
-    <div class="clear"></div>
-</div>
+    <div class="mid-content">
+        <div class="bj">
+            <div class="login-box">
+                <div class="login-title">账号登录</div>
+                <div class="main-content">
+                    <form name="loginForm" action="">
+                        <div class="inputposition">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <input class="userName text input-style" type="text" name="@Model.ShadowName"  value="842736598@qq.com" />
+                            <p class="tsname" id="tsName">用户名不能为空</p>
+                        </div>
+                        <div class="inputposition">
+                            <span class="glyphicon glyphicon-lock"></span>
+                            <input  type="password" name="password" class="passWord text input-style" value="123456789" />
+                            <p class="tspwd" id="tsPwd">密码不能为空</p>
+                        </div>
+                        <div class="inputposition">
+                            <span class="glyphicon glyphicon-th"></span>
+                            <input type="text" name="verifyCode" autocomplete="off" class="YZM text left yz-style" /><img id="verifyImage" style="cursor:hand" title="点击刷新验证码" onclick="this.src='/tool/verifyimage?time=' + new Date()" src="/tool/verifyimage" height="34" class="left" />
 
+                            <p class="tsyzm" id="tsYzm">验证码不能为空</p>
+                        </div>
+                        <button type="button" class="btn btn-warning button-style" onclick="login()">登录</button>
+                        <div class="login-link">
+                            <a class="forget-pwd" href="">忘记密码?</a>
+                            <a class="regist" href="">注册账号</a>
+                        </div>
 
-<div class="box login">
-<a href="@Url.Action("register")" class="loginREG">免费注册</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<img src="@{@WorkContext.ImageCDN}/images/loginAd.png" width="461" height="355" class="left" />
+    <footer>
+        <p>
+            <a href="">商城简介</a>
+            <b>|</b>
+            <a href="">商城公告</a>
+            <b>|</b>
+            <a href="">招贤纳士</a>
+            <b>|</b>
+            <a href="">联系我们</a>
+            <b>|</b>
+            联系热线：0752-8888888
+        </p>
+        <p>Copyright©云绣网XXX.com. All Rights Reserved</p>
+    </footer>
 
-<div class="right">
-  <form name="loginForm" action="">
-
-  <dl>
-      <dt>邮箱/用户名/已验证手机</dt>
-      <dd><input type="text" name="@Model.ShadowName" class="userName text" value="842736598@qq.com"/></dd>
-  </dl>
-  
-  <dl>
-      <dt>密码</dt>
-      <dd><input type="password" name="password" class="passWord text" value="123456789"/></dd>
-  </dl>
-
-  @if (Model.IsVerifyCode)
-  { 
-  <dl>
-      <dt>验证码</dt>
-      <dd><input type="text" name="verifyCode" autocomplete="off" class="YZM text left" /><img id="verifyImage" style="cursor:hand" title="点击刷新验证码" onclick="this.src='/tool/verifyimage?time=' + new Date()" src="/tool/verifyimage" height="34" class="left" /><div class="clear"></div></dd>
-  </dl>
-  }
-  
-  <div class="loginBt">
-    @if (Model.IsRemember)
-    {
-        <label><input name="isRemember" type="checkbox" style="vertical-align:-2px; margin-right:3px;" value="1" />自动登录 &nbsp; &nbsp; </label>
-    }
-        <a href="@Url.Action("findpwd")">忘记密码?</a>
-        <a href="javascript:void(0)" class="redBT loginIn" onclick="login()">登 &nbsp; 陆</a>
-  </div>
-
-  <div class="openID">
-      <h4>使用合作网站账号登录：</h4>
-      @foreach (PluginInfo info in Model.OAuthPluginList)
-      {
-        IOAuthPlugin instance = (IOAuthPlugin)info.Instance;
-        <a href="@Url.Action(instance.LoginAction, instance.LoginController)">@info.FriendlyName</a> @:&nbsp;&nbsp;
-      }
-  </div>
-
-  </form>
-</div>
-<div class="clear"></div> 
-</div>
-
-@Html.Partial("_footer")
 </body>
+
 </html>
+<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script src="/scripts/account.js" type="text/javascript"></script>
+<script type="text/javascript">
+    returnUrl = "@Model.ReturnUrl";
+    shadowName = "@Model.ShadowName";
+</script>
+
+
+
+
