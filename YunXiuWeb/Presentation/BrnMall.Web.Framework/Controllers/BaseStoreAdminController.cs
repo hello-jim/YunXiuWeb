@@ -149,7 +149,7 @@ namespace BrnMall.Web.Framework
             }
 
             //如果当前用户没有登录
-            if (Session[SessionKey.USERINFO] == null)
+            if (SUserInfo == null)
             {
                 if (WorkContext.IsHttpAjax)
                     filterContext.Result = AjaxResult("404", "您访问的网址不存在");
@@ -167,8 +167,8 @@ namespace BrnMall.Web.Framework
             //        filterContext.Result = new RedirectResult("/");
             //    return;
             //}
-            var user = (YunXiu.Model.User)Session[SessionKey.USERINFO];
-            if (user.Permissions.Where(p => p.PKey == "STOREMANAGE").Count()<1)//当前用户不是店长
+           
+            if (SUserInfo.Permissions.Where(p => p.PKey == "STOREMANAGE").Count()<1)//当前用户不是店长
             {
                 if (WorkContext.IsHttpAjax)
                     filterContext.Result = AjaxResult("404", "您访问的网址不存在");

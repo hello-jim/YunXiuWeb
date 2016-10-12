@@ -2,9 +2,9 @@
     ViewBag.Title = "Index";
     Layout = null;
 }
-
+@model StoreHomeModel
 @Html.Partial("_header")
 
-商铺首页
+@Model.StoreHome.HomeHtml
 
 @Html.Partial("_footer")

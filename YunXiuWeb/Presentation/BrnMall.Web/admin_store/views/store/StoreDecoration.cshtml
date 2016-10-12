@@ -2,10 +2,10 @@
     ViewBag.Title = "店铺装修";
     Layout = null;
 }
-
+@model YunXiu.Model.StoreHome
 <link rel="stylesheet" type="text/css" href="/admin_store/css/normalize.css">
 <link rel="stylesheet" type="text/css" href="/admin_store/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/admin_store/css/dec.css">
+<link rel="stylesheet" type="text/css" href="/admin_store/css/dec.css?v=2">
 <link rel="stylesheet" type="text/css" href="/admin_store/css/dropzone.css" />
 <link href="/admin_store/scripts/bootstrap-wysiwyg/external/google-code-prettify/prettify.css" rel="stylesheet">
 <link href="/admin_store/css/bootstrap-wysiwyg/bootstrap-combined.no-icons.min.css" rel="stylesheet">
@@ -62,7 +62,10 @@
 </div>
 
 <div class="store_decoration_area">
-
+    @if (Model != null) 
+    {
+         @Model.HomeHtml
+    } 
 </div>
 
 
@@ -358,7 +361,7 @@
 <script src="/admin_store/scripts/bootstrap-wysiwyg/external/google-code-prettify/prettify.js"></script>
 <script src="/admin_store/scripts/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
 <script src="/admin_store/scripts/dropzone.js"></script>
-<script src="/admin_store/scripts/storeAdmin/decorate.js?v1"></script>
+<script src="/admin_store/scripts/storeAdmin/decorate.js?v=9"></script>
 
 
 

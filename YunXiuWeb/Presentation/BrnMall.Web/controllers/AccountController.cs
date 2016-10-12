@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Configuration;
 using System.Web;
+using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using BrnMall.Core;
@@ -188,6 +189,7 @@ namespace BrnMall.Web.Controllers
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("account", accountName);
             dic.Add("pwd", password);
+     
             var info = JsonConvert.DeserializeObject<LoginInfo>(CommomClass.HttpPost(string.Format("{0}/Account/Login", accountApi), JsonConvert.SerializeObject(dic)));
             if (info.LoginState == 1)
             {

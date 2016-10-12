@@ -24,7 +24,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         public ActionResult List(string userName, string email, string mobile, int userRid = 0, int mallAGid = 0, int pageNumber = 1, int pageSize = 15)
         {
 
-            var userList =JsonConvert.DeserializeObject<List<User>>(CommomClass.HttpPost(string.Format("{0}/Account/GetUser",accountApi),""));
+            var userList = JsonConvert.DeserializeObject<List<User>>(CommomClass.HttpPost(string.Format("{0}/Account/GetUser", accountApi), ""));
             //string condition = AdminUsers.AdminGetUserListCondition(userName, email, mobile, userRid, mallAGid);
 
             //PageModel pageModel = new PageModel(pageSize, pageNumber, AdminUsers.AdminGetUserCount(condition));
@@ -148,7 +148,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         public ActionResult Edit()
         {
             var uid = Request.QueryString["uid"];
-            var user =JsonConvert.DeserializeObject<User>(CommomClass.HttpPost(string.Format("{0}/Account/GetUserByID",accountApi), uid));
+            var user = JsonConvert.DeserializeObject<User>(CommomClass.HttpPost(string.Format("{0}/Account/GetUserByID", accountApi), uid));
             //var user = JsonConvert.DeserializeObject<User>(CommomClass.HttpPost(string.Format(""),""));
             //UserInfo userInfo = AdminUsers.GetUserById(uid);
             //if (userInfo == null)
@@ -238,6 +238,85 @@ namespace BrnMall.Web.MallAdmin.Controllers
 
             return View(model);
         }
+
+        /// <summary>
+        /// 获取用户角色
+        /// </summary>
+        /// <returns></returns>
+        public string GetRoleByUser()
+        {
+            var result = "";
+            var uID = Request.Form["uID"];
+            result = CommomClass.HttpPost(string.Format("{0}/Authority/GetRoleByUser", accountApi), uID);
+            return result;
+        }
+
+        /// <summary>
+        /// 获取用户权限
+        /// </summary>
+        /// <returns></returns>
+        public string GetPermissionByUser()
+        {
+            var result = "";
+            var uID = Request.Form["uID"];
+            result = CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissionByUser", accountApi), uID);
+            return result;
+        }
+
+        /// <summary>
+        /// 添加用户权限
+        /// </summary>
+        /// <returns></returns>
+        public string AddUserPermission()
+        {
+            var result = "-1";
+            List<int> list = new List<int>();
+            var uID = Request.Form["uID"] != null ? Convert.ToInt32(Request.Form["uID"]) : 0;
+            if (uID != 0)
+            {
+                list.Add(uID);
+            }
+            var pID = Request.Form["pID"] != null ? Convert.ToInt32(Request.Form["pID"]) : 0;
+            if (pID != 0)
+            {
+                list.Add(pID);
+            }
+            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/AddUserPermission", accountApi), JsonConvert.SerializeObject(list)));
+            if (isAdd)
+            {
+                result = "1";
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 删除用户权限
+        /// </summary>
+        /// <returns></returns>
+        public string DeleteUserPermission()
+        {
+            var result = "-1";
+            List<int> list = new List<int>();
+            var uID = Request.Form["uID"] != null ? Convert.ToInt32(Request.Form["uID"]) : 0;
+            if (uID != 0)
+            {
+                list.Add(uID);
+            }
+            var pID = Request.Form["pID"] != null ? Convert.ToInt32(Request.Form["pID"]) : 0;
+            if (pID != 0)
+            {
+                list.Add(pID);
+            }
+            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/DeleteUserPermission", accountApi), JsonConvert.SerializeObject(list)));
+            if (isAdd)
+            {
+                result = "1";
+            }
+            return result;
+        }
+
+
 
         private void Load(int regionId)
         {

@@ -28,7 +28,7 @@ namespace BrnMall.Web.Controllers
             StoreHomeModel model = new StoreHomeModel();
             try
             {
-                var sID = GetRouteInt("sID");//商铺ID
+                var sID = GetRouteInt("storeID");//商铺ID
                 var storeHome = JsonConvert.DeserializeObject<StoreHome>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreHome", accountApi), sID.ToString()));//获取商铺首页
                 var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), sID.ToString()));
                 model.StoreHome = storeHome;

@@ -156,7 +156,7 @@ namespace BrnMall.Web.Framework
             }
         
             //如果当前用户没有登录
-            if (Session[SessionKey.USERINFO]== null)
+            if (SUserInfo == null)
             {
                 if (WorkContext.IsHttpAjax)
                     filterContext.Result = AjaxResult("404", "您访问的网址不存在");

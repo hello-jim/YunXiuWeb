@@ -29,14 +29,10 @@ namespace BrnMall.Web.Controllers
                 return RedirectToAction("index", "home", new RouteValueDictionary { { "area", "mob" } });
 
             //商品
-            var data = CommomClass.HttpPost("http://192.168.9.32:8082/Product/GetProductByID", "5");
-            var product = JsonConvert.DeserializeObject<Product>(data);
+            
             //首页的数据需要在其视图文件中直接调用，所以此处不再需要视图模型
             HomeModel model = new HomeModel();
-            model.Pid = product.PID;
-            model.Name = product.Name;
-            model.ShopPrice = product.ShopPrice;
-            model.SaleCount = product.SaleCount;
+         
            
             var count = CommomClass.HttpPost("http://192.168.9.32:8082/Product/GetHotProduct", "6");
             var hotProduct = JsonConvert.DeserializeObject<List<Product>>(count);

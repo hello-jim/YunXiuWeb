@@ -321,10 +321,10 @@ namespace BrnMall.Web.Controllers
             //搜索
             //Searches.SearchMallProducts(20, page, word, cateId, brandId, filterPrice, attrValueIdList, onlyStock, sortColumn, sortDirection, ref categoryInfo, ref catePriceRangeList, ref cateAAndVList, ref categoryList, ref brandInfo, ref brandList, ref totalCount, ref productList);
             string[] arr = new string[] { word, page.ToString(), "20" };
-            var data = CommomClass.HttpPost(string.Format("{0}/Product/SearchProduct",productApi), JsonConvert.SerializeObject(arr));
+            var data = CommomClass.HttpPost(string.Format("{0}/Product/SearchProduct", productApi), JsonConvert.SerializeObject(arr));
             PageResult<Product> pageResult = JsonConvert.DeserializeObject<PageResult<Product>>(data);
             if (pageResult == null)
-               return PromptView(WorkContext.UrlReferrer, "您搜索的商品不存在");
+                return PromptView(WorkContext.UrlReferrer, "您搜索的商品不存在");
             //找出是否是同个类型的产品
             // List<int> sameCate = new List<int>();
             //foreach (var info in pageResult.ResultList) 
@@ -343,7 +343,7 @@ namespace BrnMall.Web.Controllers
             //else 
             //{
             //    //不是的话就按当前指定规则找出渲染分类
-                
+
             //}
 
             //当筛选属性和分类的筛选属性数目不对应时，重置筛选属性
@@ -597,9 +597,9 @@ namespace BrnMall.Web.Controllers
                 var cTypeID = Convert.ToInt32(Request.Form["typeID"]);
                 var content = Request.Form["content"].ToString();
                 var pID = Convert.ToInt32(Request.Form["pID"]);
-                var uID = 0;
-                if (uID != 0)
-                {
+             
+                if (SUserInfo != null)
+                {            
                     Consultation consultation = new Consultation
                     {
                         CProduct = new Product
@@ -608,7 +608,7 @@ namespace BrnMall.Web.Controllers
                         },
                         CreateUser = new User
                         {
-                            UID = uID
+                            UID = SUserInfo.UID
                         },
                         CType = new ConsultationType
                         {
@@ -645,11 +645,11 @@ namespace BrnMall.Web.Controllers
             try
             {
                 var content = Request.Form["content"];
-                var pID =Convert.ToInt32(Request.Form["pID"]);
-                var uID = 10;
+                var pID = Convert.ToInt32(Request.Form["pID"]);
+
                 var oID = Convert.ToInt32(Request.Form["oID"]);
                 var parent = Request.Form["parent"] != null ? Convert.ToInt32(Request.Form["parent"]) : 0;
-                if (uID != 0)//登录后才能评论
+                if (SUserInfo != null)//登录后才能评论
                 {
                     ProductReview review = new ProductReview
                     {
@@ -660,13 +660,13 @@ namespace BrnMall.Web.Controllers
                         },
                         RUser = new User
                         {
-                            UID = uID
+                            UID =  SUserInfo.UID
                         },
-                        ROrder = new Order 
+                        ROrder = new Order
                         {
-                            OID=oID
+                            OID = oID
                         },
-                        ReviewTime=DateTime.Now,
+                        ReviewTime = DateTime.Now,
                         Parent = parent
                     };
                     var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Product/AddProductReview", productApi), JsonConvert.SerializeObject(review)));

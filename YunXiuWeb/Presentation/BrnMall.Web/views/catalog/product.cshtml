@@ -349,7 +349,7 @@
                 </li>
 
                 <li>
-                    <a class="btn-shop store-fav btn-shopfav" href="javascript:void(0)" onclick="addStoreToFavorite(@Model.ProductInfo.Store.StoreID)">收藏店铺</a>
+                    <a class="btn-shop store-fav btn-shopfav" href="javascript:void(0)">收藏店铺</a>
                     <a href="@Url.Action("index", "store", new RouteValueDictionary { { "storeId", Model.ProductInfo.Store.StoreID } })" class="btn-enshop btn-shop">进入店铺</a>
                 </li>
             </ul>
@@ -677,11 +677,13 @@
 <input id="pID" type="hidden" value="@Model.ProductInfo.PID" />
 <input id="productReviewJson" type="hidden" value="" />
 <script src="/scripts/js_Purchase/base.js"></script>
+<script src="/scripts/common.js"></script>
 <script src="/scripts/js_Purchase/jquery.jqzoom.js"></script>
 <script src="/scripts/js_Purchase/ui-choose.js"></script>
 <script src="/scripts/js_Purchase/jquery.imagezoom.min.js"></script>
 <script src="/scripts/jQuery.artTxtCount.js"></script>
-<script src="/scripts/product.js"></script>
 <script src="/scripts/mall/comment.js"></script>
+<script src="/scripts/product.js"></script>
+
 
 @Html.Partial("_footer")

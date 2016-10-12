@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Configuration;
 using BrnMall.Core;
 using BrnMall.Services;
+using YunXiu.Model;
 
 namespace BrnMall.Web.Framework
 {
@@ -14,9 +15,18 @@ namespace BrnMall.Web.Framework
     {
         public string productApi = ConfigurationManager.AppSettings["productApi"];
         public string accountApi = ConfigurationManager.AppSettings["accountApi"];
+
+        public User SUserInfo = null;
         protected override void OnException(ExceptionContext filterContext)
         {
+          
             Logs.Write(filterContext.Exception);
+        }
+
+        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+            SUserInfo = (User)Session[SessionKey.USERINFO];
         }
 
         /// <summary>

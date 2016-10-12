@@ -3,10 +3,10 @@ if ($("#dropzone-upload").length == 1) {
     $("#dropzone-upload").dropzone({ url: "/", addRemoveLinks: true });
 }
 
+$(document).ready(function () {
 
-$(function () {
-    $("#sortable").sortable();
-
+    $(".store_decoration_area").sortable({ scroll: true, scrollSensitivity: 40, tolerance: 'pointer' });
+    $(".store_decoration_area").disableSelection();
 
     $('.edit-html').wysiwyg({ fileUploadError: showErrorAlert });
     window.prettyPrint && prettyPrint();
@@ -27,8 +27,9 @@ $(function () {
     $("#product-div").on('show.bs.modal', function (e) {
         var isEdid = $(e.relatedTarget).attr("isEdit");
         if (isEdid) {
-            $("#product-div .select-product-list").html($(e.relatedTarget).prev().html());
-            $("#product-div .select-product-list .goods-info").after("<a href='javascript:void(0);' class='ncbtn-mini product-list-delete'><i class='icon-ban-circle'></i>删除 </a>");
+            $("#product-div .select-product-list").html($(e.relatedTarget).prev().find("ul").html());
+            $("#product-div .select-product-list .goods-info").after("<a href='javascript:void(0);' class='ncbtn-mini product-select-list-delete'>删除 </a>");
+            BindProductListDeleteClick();
         } else {
             //不是新增编辑则清空内容
             $(".select-product-list").html("");
@@ -38,8 +39,8 @@ $(function () {
     $("#images-div").on('show.bs.modal', function (e) {
         var isEdid = $(e.relatedTarget).attr("isEdit");
         if (isEdid != undefined) {
-            $("#images-div").attr("edit","");
-            $("#dropzone-upload").hide();
+            $("#images-div").attr("edit", "");
+            $("#dropzone-upload .dz-preview").remove();
             $(".edit-img-div").html("");
             $(".edit-img-div").show();
             var images = $(e.relatedTarget).prev().prop("outerHTML");
@@ -62,6 +63,12 @@ $(function () {
         $("#dialog_select").hide();
     });
 
+    $(".modal").on("show.bs.modal", function (e) {
+        var index = $(e.relatedTarget).parents(".ncsc-decration-block").attr("bindex");
+        if (index != undefined) {
+            $("#edit-block-id").val(index);
+        }
+    });
 
     $(".edit-html-save").on("click", function () {
         var bIndex = $("#edit-block-id").val();
@@ -71,15 +78,22 @@ $(function () {
     });
 
     $(".store-home-save").on("click", function () {
-        var storeHomeHtml = escape($(".store_decoration_area").html());
-        $.post("/Home/AddStoreHome",
+        var storeHomeHtml = encodeURIComponent($(".store_decoration_area").html());
+        $.post("/storeAdmin/Store/UpdateStoreHome",
         {
             html: storeHomeHtml
         }, function (data) {
-            alert(data);
+            if (data == "1") {
+                alert("修改成功");
+            }
         });
     });
+
+    EditBlockEvent();
 });
+
+
+
 
 function initToolbarBootstrapBindings() {
     var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
@@ -130,10 +144,20 @@ $("i.block-add").on("click", function () {
     block += "<a class='block-delete' href='javascript:void(0);' data-block-id='122' title='删除该布局块'><i class='icon-trash'></i>删除布局块</a>"
     block += "</div>";
 
-    $(".store_decoration_area").sortable();
+    $(".store_decoration_area").sortable({ scroll: true, scrollSensitivity: 40, tolerance: 'pointer' });
     $(".store_decoration_area").disableSelection();
 
     $(".store_decoration_area").append(block);
+    EditBlockEvent();
+});
+
+// 编辑模块点击事件
+function EditBlockEvent() {
+    $(".editbc").unbind("click").on("click", function () {
+        var blockID = $(this).parents(".ncsc-decration-block").attr("bIndex");
+        $("#edit-block-id").val(blockID);
+        $("#dialog_select").css("display", "block");
+    });
 
     $(".ncsc-decration-block").unbind("mouseover").on("mouseover", function () {
         $(this).children(".block-delete").show();
@@ -141,25 +165,18 @@ $("i.block-add").on("click", function () {
     $(".ncsc-decration-block").unbind("mouseleave").on("mouseleave", (function () {
         $(this).children(".block-delete").hide();
     }));
+
     $(".block-delete").on("click", function () {
         $(this).parents(".ncsc-decration-block").remove();
     });
-    // 编辑模块点击事件
-    $(".editbc").unbind("click").on("click", function () {
-        var blockID = $(this).parents(".ncsc-decration-block").attr("bIndex");
-        $("#edit-block-id").val(blockID);
-        $("#dialog_select").css("display", "block");
-    });
-});
+}
 
 //店铺商品搜索
 $("#btn_module_goods_search").unbind("click").on("click", function () {
     var storeID = 1;
     var searchKey = "";
-    $.post("/Home/GetProductByStore",
-        {
-            storeID: storeID
-        },
+    $.post("/storeadmin/Store/GetStoreProduct",
+
         function (data) {
             var json = $.parseJSON(data);
             CreateProductListHtml(json);
@@ -169,7 +186,7 @@ $("#btn_module_goods_search").unbind("click").on("click", function () {
 
 $(".product-list-save").unbind("click").on("click", function () {
     var bIndex = $("#edit-block-id").val();
-    $("#product-div .select-product-list .product-list-delete").remove();
+    $("#product-div .select-product-list .product-select-list-delete").remove();
     $("div[bIndex=" + bIndex + "] .store-decoration-block-1-module").html($("#product-div .select-product-list").parent().html());
     $("div[bIndex=" + bIndex + "]").attr("editType", "editPruduct");
     $("div[bIndex=" + bIndex + "] .ncsc-decration-block-content .editbc").unbind("click").attr({ "data-toggle": "modal", "data-target": "#product-div", "isEdit": "1" });
@@ -179,27 +196,24 @@ $(".product-list-save").unbind("click").on("click", function () {
 $(".save-images").unbind("click").on("click", function () {
     var imagesHtml = "";
     var bIndex = $("#edit-block-id").val();
-    var edit=$("#images-div").attr("edit");
-    if (edit) {
+    var edit = $("#images-div").attr("edit");
+    if (edit != undefined) {
         imagesHtml = $(".edit-img-div").find("img");
+        var newImg = $("#dropzone-upload .dz-success .dz-image img");
+        for (var i = 0; i < newImg.length; i++) {
+            imagesHtml.push(newImg[i]);
+        }     
     } else {
         var uSuccesImages = $("#dropzone-upload .dz-success");//上传成功图片
         for (var i = 0; i < uSuccesImages.length; i++) {
             imagesHtml += $(uSuccesImages[i]).find(".dz-image").html();
         }
     }
- 
+
     $("div[bIndex=" + bIndex + "] .store-decoration-block-1-module").html(imagesHtml);
     $("div[bIndex=" + bIndex + "]").attr("editType", "editImages");
     $("div[bIndex=" + bIndex + "] .ncsc-decration-block-content .editbc").unbind("click").attr({ "data-toggle": "modal", "data-target": "#images-div", "isEdit": "1" }).removeClass("editbc");
 });
-
-// 删除按钮点击事件
-$("a.delete").click(function () {
-    $(this).parents(".ncsc-decration-block").css("display", "none");
-});
-
-
 
 $("i.slide").click(function () {
     $("#dialog_select").css("display", "none");
@@ -236,12 +250,12 @@ function SortBlockIndex(a, b) {
 function CreateProductListHtml(products) {
     var html = "";
     for (var i = 0; i < products.length; i++) {
-        html += "<li>";
+        html += "<li pID='" + products[i].PID + "' pName='" + products[i].Name + "' imgName='" + products[i].ImgName + "'>";
         html += "<div class='goods-thumb'>";
-        html += "<a href='' title='" + products[i].Name + "'><img src='images/kefu.png'> </a>";
+        html += "<a href='' title='" + products[i].Name + "'><img src='/images/productImg/" + products[i].ImgName + "'> </a>";
         html += "</div>";
         html += "<dl class='goods-info'><dt>  <a href='' title='" + products[i].Name + "' pID='" + products[i].PID + "'>" + products[i].Name + "</a></dt><dd>" + products[i].ShopPrice + "</dd></dl>";
-        html += "<a class='ncbtn-mini product-list-add' href='javascript:void(0);'><i class='icon-ban-circle'></i>添加 </a>";
+        html += "<a class='ncbtn-mini product-list-add' href='javascript:void(0);'>添加 </a>";
         html += "</li>";
     }
     $("#product-list").html(html);
@@ -251,16 +265,21 @@ function CreateProductListHtml(products) {
 function BindProductListAddClick() {
     $(".product-list-add").unbind("click").on("click", function () {
         var li = $(this).parents("li");
-        $(li).find(".ncbtn-mini").addClass("product-list-delete").removeClass("product-list-add").html("删除");
-        $(li).appendTo("#product-div .select-product-list");
-        BindProductListDeleteClick();
+        if ($("#product-div .select-product-list li[pid=" + $(li).attr("pid") + "]").length == 0) {
+            var liHtml = "";
+            liHtml += "<li pid=" + $(li).attr("pID") + ">";
+            liHtml += "<div class='goods-thumb'><a href='' title='" + $(li).attr("pName") + "'><img src='/images/productImg/" + $(li).attr("imgName") + "'> </a></div>";
+            liHtml += "<dl class='goods-info'><dt>  <a href='' title='" + $(li).attr("pName") + "' pid='" + $(li).attr("pID") + "'>" + $(li).attr("pName") + "</a></dt><dd>0</dd></dl>";
+            liHtml += "<a href='javascript:void(0);' class='ncbtn-mini product-select-list-delete'>删除 </a>";
+            liHtml += "</li>";
+
+            $("#product-div .select-product-list").append(liHtml);
+            BindProductListDeleteClick();
+        }
     });
 }
-
 function BindProductListDeleteClick() {
-    $(".product-list-delete").unbind("click").on("click", function () {
-        $(this).addClass("product-list-add").removeClass("product-list-delete").html("添加");
-        $(this).parents("li").appendTo("#product-list");
-        BindProductListAddClick();
+    $(".product-select-list-delete").unbind("click").on("click", function () {
+        $(this).parents("li").remove();
     });
 }

@@ -111,6 +111,7 @@
     <Compile Include="models\ProductModel.cs" />
     <Compile Include="models\ProductReviewModel.cs" />
     <Compile Include="models\PromotionModel.cs" />
+    <Compile Include="models\RoleModel.cs" />
     <Compile Include="models\SetModel.cs" />
     <Compile Include="models\ShipCompanyModel.cs" />
     <Compile Include="models\StatModel.cs" />
@@ -183,9 +184,7 @@
     <None Include="views\mallmanage\Permission.cshtml" />
     <None Include="views\mallmanage\RoleUpdate.cshtml" />
     <None Include="views\mallmanage\UpdatePermission.cshtml" />
-    <None Include="views\mallmanage\UserRole.cshtml" />
     <None Include="views\mallmanage\Role.cshtml" />
-    <None Include="views\mallmanage\RolePermission.cshtml" />
     <None Include="views\mallmanage\UserPermission.cshtml" />
     <None Include="views\nav\add.cshtml" />
     <None Include="views\nav\edit.cshtml" />

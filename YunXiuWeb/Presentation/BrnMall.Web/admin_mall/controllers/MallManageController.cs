@@ -11,6 +11,7 @@ using BrnMall.Web.MallAdmin.Models;
 using YunXiu.Model;
 using YunXiu.Commom;
 using Newtonsoft.Json;
+using BrnMall.Web.MallAdmin.models;
 
 namespace BrnMall.Web.MallAdmin.Controllers
 {
@@ -93,13 +94,19 @@ namespace BrnMall.Web.MallAdmin.Controllers
         [HttpGet]
         public ActionResult RoleUpdate()
         {
-            Role role = new Role
+            RoleModel model = new RoleModel();
+            var rID = Convert.ToInt32(Request.Params["rID"]);
+            var pList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions",accountApi), rID.ToString()));
+            var ownPList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissionByRole", accountApi), rID.ToString()));
+            model.Role = new Role
             {
-                RID = Convert.ToInt32(Request.Params["rID"]),
+                RID = rID,
                 RName = Convert.ToString(Request.Params["rName"]),
                 Describe = Convert.ToString(Request.Params["describe"])
             };
-            return View(role);
+            model.Permissions = pList;
+            model.OwnPermissions = ownPList;
+            return View(model);
         }
 
         public string RoleUpdatePost()
@@ -130,7 +137,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         public ActionResult Permission()
         {
             List<Permission> list = new List<Permission>();
-            list = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermission", accountApi), ""));
+            list = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions", accountApi), ""));
             return View(list);
         }
 
@@ -240,7 +247,50 @@ namespace BrnMall.Web.MallAdmin.Controllers
         /// <returns></returns>
         public string AddRolePermission()
         {
-            var result = "";
+            var result = "-1";
+            List<int> list = new List<int>();
+            var rID = Request.Form["rID"] != null ? Convert.ToInt32(Request.Form["rID"]) : 0;
+            if (rID != 0)
+            {
+                list.Add(rID);
+            }
+            var pID = Request.Form["pID"] != null ? Convert.ToInt32(Request.Form["pID"]) : 0;
+            if (pID != 0)
+            {
+                list.Add(pID);
+            }
+            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/AddRolePermission", accountApi), JsonConvert.SerializeObject(list)));
+            if (isAdd)
+            {
+                result = "1";
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 删除角色权限
+        /// </summary>
+        /// <returns></returns>
+        public string DeleteRolePermission()
+        {
+            var result = "-1";
+            List<int> list = new List<int>();
+            var rID = Request.Form["rID"] != null ? Convert.ToInt32(Request.Form["rID"]) : 0;
+            if (rID != 0)
+            {
+                list.Add(rID);
+            }
+            var pID = Request.Form["pID"] != null ? Convert.ToInt32(Request.Form["pID"]) : 0;
+            if (pID != 0)
+            {
+                list.Add(pID);
+            }
+            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/DeleteRolePermission", accountApi), JsonConvert.SerializeObject(list)));
+            if (isAdd)
+            {
+                result = "1";
+            }
             return result;
         }
 

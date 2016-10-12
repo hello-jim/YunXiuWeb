@@ -3,11 +3,13 @@ using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using System.Collections.Generic;
-
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.StoreAdmin.Models;
+using YunXiu.Model;
+using YunXiu.Commom;
+using Newtonsoft.Json;
 
 namespace BrnMall.Web.StoreAdmin.Controllers
 {
@@ -93,7 +95,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
             }
             ViewData["themeList"] = themeList;
 
-            RegionInfo regionInfo = Regions.GetRegionById(regionId);
+            RegionInfo regionInfo = BrnMall.Services.Regions.GetRegionById(regionId);
             if (regionInfo != null)
             {
                 ViewData["provinceId"] = regionInfo.ProvinceId;
@@ -539,20 +541,64 @@ namespace BrnMall.Web.StoreAdmin.Controllers
             return PromptView("店铺配送费用删除成功");
         }
 
-
-        public ActionResult StoreDecoration() 
-        {         
-            return View();
+        /// <summary>
+        /// 店铺装修
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult StoreDecoration()
+        {
+            var storeHome = JsonConvert.DeserializeObject<StoreHome>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreHome", accountApi), SUserInfo.UStore.StoreID.ToString()));
+            return View(storeHome);
         }
 
-        public string UpdateStoreHome() 
+        /// <summary>
+        /// 修改商铺首页
+        /// </summary>
+        /// <returns></returns>
+        public string UpdateStoreHome()
         {
-            return "";
+            var result = "";
+        
+            var home = Request.Params["html"];
+            var storeHome = new StoreHome
+            {
+                HomeHtml = home,
+                Store = new Store
+                {
+                    StoreID = SUserInfo.UStore.StoreID
+                }
+            };
+
+            var isUpdate = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Store/UpdateStoreHome", accountApi), JsonConvert.SerializeObject(storeHome)));
+            if (isUpdate)
+                result = "1";
+            else
+                result = "-1";
+
+            return result;
+        }
+
+        /// <summary>
+        /// 获取商品产品
+        /// </summary>
+        /// <returns></returns>
+        public string GetStoreProduct()
+        {
+            var products = "";
+            try
+            {
+                products = CommomClass.HttpPost(string.Format("{0}/Product/GetProductByStore", productApi), SUserInfo.UStore.StoreID.ToString());
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return products;
         }
 
         private void LoadStoreShipFee(int regionId)
         {
-            RegionInfo regionInfo = Regions.GetRegionById(regionId);
+            RegionInfo regionInfo = BrnMall.Services.Regions.GetRegionById(regionId);
             if (regionInfo != null)
             {
                 if (regionInfo.Layer == 1)

@@ -198,7 +198,7 @@ namespace BrnMall.Web.Controllers
                 return AjaxResult("error", errorList.Remove(errorList.Length - 1, 1).Append("]").ToString(), true);
             }
 
-               
+
         }
 
         #endregion
@@ -766,7 +766,7 @@ namespace BrnMall.Web.Controllers
         public ActionResult OrderInfo()
         {
 
-         
+
             int oid = WebHelper.GetQueryInt("oid");
             OrderInfo orderInfo = Orders.GetOrderByOid(oid);
             if (orderInfo == null || orderInfo.Uid != WorkContext.Uid)
@@ -1689,7 +1689,7 @@ namespace BrnMall.Web.Controllers
             base.OnAuthorization(filterContext);
 
             //不允许游客访问
-            if (Session[SessionKey.USERINFO]==null)
+            if (SUserInfo == null)
             {
                 if (WorkContext.IsHttpAjax)//如果为ajax请求
                     filterContext.Result = Content("nologin");
@@ -1708,14 +1708,14 @@ namespace BrnMall.Web.Controllers
             try
             {
                 var storeID = Convert.ToInt32(Request.Form["storeID"]);//店铺ID
-                var uID = 0;//用户ID
-                if (uID != 0)
+               
+                if (SUserInfo != null)
                 {
                     FavoriteStore fStore = new FavoriteStore
                     {
                         User = new User
                         {
-                            UID = uID
+                            UID = SUserInfo.UID
                         },
                         Store = new Store
                         {
@@ -1743,10 +1743,9 @@ namespace BrnMall.Web.Controllers
         public string AddProductToShoppingCart()
         {
             var result = "0";
-            var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID
-            var uID = 0;//用户ID
+            var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID       
             var number = Convert.ToInt32(Request.Form["buyCount"]);//数量
-            if (uID != 0)
+            if (SUserInfo != null)
             {
                 ShoppingCart cart = new ShoppingCart
                 {
@@ -1756,7 +1755,7 @@ namespace BrnMall.Web.Controllers
                     },
                     User = new User
                     {
-                        UID = uID
+                        UID = SUserInfo.UID
                     },
                     Number = number
                 };
@@ -1782,9 +1781,8 @@ namespace BrnMall.Web.Controllers
         {
             var result = "0";//0为失败
             var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID
-            var uID = 0;//用户ID
             //检查是否登录
-            if (uID != 0)//登录之后才能收藏 
+            if (SUserInfo != null)//登录之后才能收藏 
             {
                 FavoriteProduct fp = new FavoriteProduct();
                 fp.FProduct = new Product
@@ -1793,7 +1791,7 @@ namespace BrnMall.Web.Controllers
                 };
                 fp.FUser = new User
                 {
-                    UID = uID
+                    UID = SUserInfo.UID
                 };
                 var data = CommomClass.HttpPost(string.Format("{0}/Account/AddFavoriteProduct", accountApi), JsonConvert.SerializeObject(fp));
                 if (JsonConvert.DeserializeObject<bool>(data))

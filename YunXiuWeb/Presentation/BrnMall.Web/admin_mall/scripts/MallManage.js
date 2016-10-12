@@ -112,7 +112,7 @@
         var pName = $(tr).attr("pName");
         var pKey = $(tr).attr("pKey");
         var describe = $(tr).attr("describe");
-        window.parent.frames[2].location.href = "/malladmin/MallManage/UpdatePermission?pID=" + pID + "&pName=" + pName + "&pKey="+pKey+"&describe=" + describe
+        window.parent.frames[2].location.href = "/malladmin/MallManage/UpdatePermission?pID=" + pID + "&pName=" + pName + "&pKey=" + pKey + "&describe=" + describe
     });
 
 
@@ -138,5 +138,28 @@
                     alert("修改失败");
                 }
             });
+    });
+
+    $(".permission-select").on("click", function () {
+        var action = "";
+        if ($(this).is(':checked')) {
+            action = "AddRolePermission";
+        } else {
+            action = "DeleteRolePermission";
+        }
+        var body = $(this).parents("body");
+        var rID = $(body).find("input[name='rID']").val();
+        var pID = $(this).val();
+        $.post("/MallManage/" + action,
+            {
+                rID: rID,
+                pID: pID
+            },
+            function (data) {
+                if (data == "-1") {
+                    alert("修改失败");
+                }
+            });
+
     });
 });
