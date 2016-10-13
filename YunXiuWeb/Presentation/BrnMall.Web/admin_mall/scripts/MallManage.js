@@ -160,6 +160,50 @@
                     alert("修改失败");
                 }
             });
+    });
+
+    $(".user-permission-select").on("click", function () {
+        var action = "";
+        if ($(this).is(':checked')) {
+            action = "AddUserPermission";
+        } else {
+            action = "DeleteUserPermission";
+        }
+        var body = $(this).parents("body");
+        var uID = $(body).find("input[name='uID']").val();
+        var pID = $(this).val();
+        $.post("/User/" + action,
+            {
+                uID: uID,
+                pID: pID
+            },
+            function (data) {
+                if (data == "-1") {
+                    alert("修改失败");
+                }
+            });
+    });
+
+    $(".user-role-select").on("click", function () {
+        var action = "";
+        if ($(this).is(':checked')) {
+            action = "AddUserRole";
+        } else {
+            action = "DeleteUserRole";
+        }
+        var body = $(this).parents("body");
+        var uID = $(body).find("input[name='uID']").val();
+        var rID = $(this).val();
+        $.post("/User/" + action,
+            {
+                uID: uID,
+                rID: rID
+            },
+            function (data) {
+                if (data == "-1") {
+                    alert("修改失败");
+                }
+            });
 
     });
 });

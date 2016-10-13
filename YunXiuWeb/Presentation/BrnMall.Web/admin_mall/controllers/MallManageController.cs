@@ -27,7 +27,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         [HttpGet]
         public ActionResult Role()
         {
-            List<Role> list = JsonConvert.DeserializeObject<List<Role>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetRole", accountApi), ""));
+            List<Role> list = JsonConvert.DeserializeObject<List<Role>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetRoles", accountApi), ""));
             return View(list);
         }
 
@@ -96,7 +96,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         {
             RoleModel model = new RoleModel();
             var rID = Convert.ToInt32(Request.Params["rID"]);
-            var pList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions",accountApi), rID.ToString()));
+            var pList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions",accountApi), ""));
             var ownPList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissionByRole", accountApi), rID.ToString()));
             model.Role = new Role
             {

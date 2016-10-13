@@ -119,6 +119,7 @@
     <Compile Include="models\StoreModel.cs" />
     <Compile Include="models\StoreRankModel.cs" />
     <Compile Include="models\TopicModel.cs" />
+    <Compile Include="models\UserEditModel.cs" />
     <Compile Include="models\UserModel.cs" />
     <Compile Include="models\UserRankModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

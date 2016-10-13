@@ -1069,6 +1069,12 @@
         <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.RProductSetProduct">
             <summary>设置 ConsultationReply.set_RProduct(Product value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.RUserGet">
+            <summary>设置 ConsultationReply.get_RUser() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.RUserSetUser">
+            <summary>设置 ConsultationReply.set_RUser(User value) 的 填充码</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
         </member>
@@ -1095,6 +1101,12 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances.RProductSetProduct">
             <summary>设置 ConsultationReply.set_RProduct(Product value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances.RUserGet">
+            <summary>设置 ConsultationReply.get_RUser() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimConsultationReply.AllInstances.RUserSetUser">
+            <summary>设置 ConsultationReply.set_RUser(User value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimConsultationResult">
             <summary>YunXiu.Model.ConsultationResult 的填充码类型</summary>
@@ -4663,8 +4675,8 @@
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.CityGet">
             <summary>设置 ReceiptAddress.get_City() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.CitySetInt32">
-            <summary>设置 ReceiptAddress.set_City(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.CitySetString">
+            <summary>设置 ReceiptAddress.set_City(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.ConsigneeNameGet">
             <summary>设置 ReceiptAddress.get_ConsigneeName() 的 填充码</summary>
@@ -4684,8 +4696,8 @@
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.DistrictGet">
             <summary>设置 ReceiptAddress.get_District() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.DistrictSetInt32">
-            <summary>设置 ReceiptAddress.set_District(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.DistrictSetString">
+            <summary>设置 ReceiptAddress.set_District(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.IDGet">
             <summary>设置 ReceiptAddress.get_ID() 的 填充码</summary>
@@ -4702,20 +4714,20 @@
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.ProvinceGet">
             <summary>设置 ReceiptAddress.get_Province() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.ProvinceSetInt32">
-            <summary>设置 ReceiptAddress.set_Province(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.ProvinceSetString">
+            <summary>设置 ReceiptAddress.set_Province(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.RegionGet">
             <summary>设置 ReceiptAddress.get_Region() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.RegionSetInt32">
-            <summary>设置 ReceiptAddress.set_Region(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.RegionSetString">
+            <summary>设置 ReceiptAddress.set_Region(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.StreetGet">
             <summary>设置 ReceiptAddress.get_Street() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.StreetSetInt32">
-            <summary>设置 ReceiptAddress.set_Street(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.StreetSetString">
+            <summary>设置 ReceiptAddress.set_Street(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.UserGet">
             <summary>设置 ReceiptAddress.get_User() 的 填充码</summary>
@@ -4741,8 +4753,8 @@
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.CityGet">
             <summary>设置 ReceiptAddress.get_City() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.CitySetInt32">
-            <summary>设置 ReceiptAddress.set_City(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.CitySetString">
+            <summary>设置 ReceiptAddress.set_City(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.ConsigneeNameGet">
             <summary>设置 ReceiptAddress.get_ConsigneeName() 的 填充码</summary>
@@ -4759,8 +4771,8 @@
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.DistrictGet">
             <summary>设置 ReceiptAddress.get_District() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.DistrictSetInt32">
-            <summary>设置 ReceiptAddress.set_District(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.DistrictSetString">
+            <summary>设置 ReceiptAddress.set_District(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.IDGet">
             <summary>设置 ReceiptAddress.get_ID() 的 填充码</summary>
@@ -4777,20 +4789,20 @@
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.ProvinceGet">
             <summary>设置 ReceiptAddress.get_Province() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.ProvinceSetInt32">
-            <summary>设置 ReceiptAddress.set_Province(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.ProvinceSetString">
+            <summary>设置 ReceiptAddress.set_Province(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.RegionGet">
             <summary>设置 ReceiptAddress.get_Region() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.RegionSetInt32">
-            <summary>设置 ReceiptAddress.set_Region(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.RegionSetString">
+            <summary>设置 ReceiptAddress.set_Region(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.StreetGet">
             <summary>设置 ReceiptAddress.get_Street() 的 填充码</summary>
         </member>
-        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.StreetSetInt32">
-            <summary>设置 ReceiptAddress.set_Street(Int32 value) 的 填充码</summary>
+        <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.StreetSetString">
+            <summary>设置 ReceiptAddress.set_Street(String value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimReceiptAddress.AllInstances.UserGet">
             <summary>设置 ReceiptAddress.get_User() 的 填充码</summary>
@@ -10213,6 +10225,12 @@
         <member name="P:YunXiu.Model.Fakes.ShimUser.RankCreditsSetInt32">
             <summary>设置 User.set_RankCredits(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.RolesGet">
+            <summary>设置 User.get_Roles() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.RolesSetListOfRole">
+            <summary>设置 User.set_Roles(List`1&lt;Role&gt; value) 的 填充码</summary>
+        </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.SaltGet">
             <summary>设置 User.get_Salt() 的 填充码</summary>
         </member>
@@ -10287,6 +10305,12 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.RankCreditsSetInt32">
             <summary>设置 User.set_RankCredits(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.RolesGet">
+            <summary>设置 User.get_Roles() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.RolesSetListOfRole">
+            <summary>设置 User.set_Roles(List`1&lt;Role&gt; value) 的 填充码</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimUser.AllInstances.SaltGet">
             <summary>设置 User.get_Salt() 的 填充码</summary>

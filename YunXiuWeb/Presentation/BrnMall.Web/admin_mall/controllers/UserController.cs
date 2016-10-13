@@ -10,6 +10,7 @@ using BrnMall.Web.MallAdmin.Models;
 using YunXiu.Model;
 using YunXiu.Commom;
 using Newtonsoft.Json;
+using BrnMall.Web.MallAdmin.models;
 
 namespace BrnMall.Web.MallAdmin.Controllers
 {
@@ -147,8 +148,14 @@ namespace BrnMall.Web.MallAdmin.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
+            UserEditModel model = new UserEditModel();
             var uid = Request.QueryString["uid"];
             var user = JsonConvert.DeserializeObject<User>(CommomClass.HttpPost(string.Format("{0}/Account/GetUserByID", accountApi), uid));
+            var pList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions", accountApi), ""));
+            var rList = JsonConvert.DeserializeObject<List<Role>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetRoles", accountApi), ""));
+            model.User = user;
+            model.Permissions = pList;
+            model.Roles = rList;
             //var user = JsonConvert.DeserializeObject<User>(CommomClass.HttpPost(string.Format(""),""));
             //UserInfo userInfo = AdminUsers.GetUserById(uid);
             //if (userInfo == null)
@@ -170,10 +177,9 @@ namespace BrnMall.Web.MallAdmin.Controllers
             //model.RegionId = userInfo.RegionId;
             //model.Address = userInfo.Address;
             //model.Bio = userInfo.Bio;
-
             //Load(model.RegionId);
 
-            return View(user);
+            return View(model);
         }
 
         /// <summary>
@@ -308,7 +314,33 @@ namespace BrnMall.Web.MallAdmin.Controllers
             {
                 list.Add(pID);
             }
-            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/DeleteUserPermission", accountApi), JsonConvert.SerializeObject(list)));
+            var isDel = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/DeleteUserPermission", accountApi), JsonConvert.SerializeObject(list)));
+            if (isDel)
+            {
+                result = "1";
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 添加用户角色
+        /// </summary>
+        /// <returns></returns>
+        public string AddUserRole()
+        {
+            var result = "";
+            List<int> list = new List<int>();
+            var uID = Request.Form["uID"] != null ? Convert.ToInt32(Request.Form["uID"]) : 0;
+            if (uID != 0)
+            {
+                list.Add(uID);
+            }
+            var rID = Request.Form["rID"] != null ? Convert.ToInt32(Request.Form["rID"]) : 0;
+            if (rID != 0)
+            {
+                list.Add(rID);
+            }
+            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/AddUserRole", accountApi), JsonConvert.SerializeObject(list)));
             if (isAdd)
             {
                 result = "1";
@@ -316,7 +348,27 @@ namespace BrnMall.Web.MallAdmin.Controllers
             return result;
         }
 
-
+        public string DeleteUserRole()
+        {
+            var result = "";
+            List<int> list = new List<int>();
+            var uID = Request.Form["uID"] != null ? Convert.ToInt32(Request.Form["uID"]) : 0;
+            if (uID != 0)
+            {
+                list.Add(uID);
+            }
+            var rID = Request.Form["rID"] != null ? Convert.ToInt32(Request.Form["rID"]) : 0;
+            if (rID != 0)
+            {
+                list.Add(rID);
+            }
+            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/DeleteUserRole", accountApi), JsonConvert.SerializeObject(list)));
+            if (isAdd)
+            {
+                result = "1";
+            }
+            return result;
+        }
 
         private void Load(int regionId)
         {
