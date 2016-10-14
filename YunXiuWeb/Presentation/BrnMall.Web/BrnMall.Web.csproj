@@ -213,6 +213,8 @@
     <Content Include="css\issuelist1.css" />
     <Content Include="css\issuelist2.css" />
     <Content Include="css\issuestyle.css" />
+    <Content Include="css\jquery-ui.min.css" />
+    <Content Include="js\jquery-ui.min.js" />
     <Content Include="css\kefu1.css" />
     <Content Include="css\list.css" />
     <Content Include="css\list1.css" />

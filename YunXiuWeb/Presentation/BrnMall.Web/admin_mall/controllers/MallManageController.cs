@@ -96,7 +96,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         {
             RoleModel model = new RoleModel();
             var rID = Convert.ToInt32(Request.Params["rID"]);
-            var pList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions",accountApi), ""));
+            var pList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions", accountApi), ""));
             var ownPList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissionByRole", accountApi), rID.ToString()));
             model.Role = new Role
             {
@@ -130,97 +130,6 @@ namespace BrnMall.Web.MallAdmin.Controllers
             return result;
         }
 
-        /// <summary>
-        /// 权限
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Permission()
-        {
-            List<Permission> list = new List<Permission>();
-            list = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions", accountApi), ""));
-            return View(list);
-        }
-
-        public string AddPermissionPost()
-        {
-            var result = "";
-            Permission p = new Permission
-            {
-                PName = Convert.ToString(Request.Form["pName"]),
-                Describe = Convert.ToString(Request.Form["describe"]),
-            };
-            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/AddPermission", accountApi), JsonConvert.SerializeObject(p)));
-            if (isAdd)
-            {
-                result = "1";
-            }
-            else
-            {
-                result = "-1";
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// 添加权限
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult AddPermission()
-        {
-            return View();
-        }
-
-
-        public string DeletePermission()
-        {
-            var result = "";
-            var pID = Convert.ToInt32(Request.Form["pID"]);
-            var isDel = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/DeletePermission", accountApi), pID.ToString()));
-            if (isDel)
-            {
-                result = "1";
-            }
-            else
-            {
-                result = "-1";
-            }
-            return result;
-        }
-
-        [HttpGet]
-        public ActionResult UpdatePermission()
-        {
-            Permission role = new Permission
-            {
-                PID = Convert.ToInt32(Request.Params["pID"]),
-                PName = Convert.ToString(Request.Params["pName"]),
-                PKey = Convert.ToString(Request.Params["pKey"]),
-                Describe = Convert.ToString(Request.Params["describe"])
-            };
-            return View(role);
-        }
-
-        public string UpdatePermissionPost()
-        {
-            var result = "";
-            Permission p = new Permission
-            {
-                PID = Convert.ToInt32(Request.Form["pID"]),
-                PName = Convert.ToString(Request.Form["pName"]),
-                Describe = Convert.ToString(Request.Form["describe"])
-            };
-            var isEdit = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/UpdatePermission", accountApi), JsonConvert.SerializeObject(p)));
-            if (isEdit)
-            {
-                result = "1";
-            }
-            else
-            {
-                result = "-1";
-            }
-            return result;
-        }
-
 
         /// <summary>
         /// 角色权限
@@ -231,15 +140,6 @@ namespace BrnMall.Web.MallAdmin.Controllers
             return View();
         }
 
-        public ActionResult UserRole()
-        {
-            return View();
-        }
-
-        public ActionResult UserPermission()
-        {
-            return View();
-        }
 
         /// <summary>
         /// 添加角色权限
@@ -268,6 +168,11 @@ namespace BrnMall.Web.MallAdmin.Controllers
         }
 
 
+        public ActionResult UserRole()
+        {
+            return View();
+        }
+
         /// <summary>
         /// 删除角色权限
         /// </summary>
@@ -291,6 +196,128 @@ namespace BrnMall.Web.MallAdmin.Controllers
             {
                 result = "1";
             }
+            return result;
+        }
+
+        /// <summary>
+        /// 权限
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Permission()
+        {
+            List<Permission> list = new List<Permission>();
+            list = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions", accountApi), ""));
+            return View(list);
+        }
+
+
+        /// <summary>
+        /// 添加权限
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddPermission()
+        {
+            var pType = JsonConvert.DeserializeObject<List<PermissionType>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissionType", accountApi), ""));
+            return View(pType);
+        }
+        public string AddPermissionPost()
+        {
+            var result = "";
+
+            Permission p = new Permission
+            {
+                PName = Convert.ToString(Request.Form["pName"]),
+                PKey = Convert.ToString(Request.Form["PKey"]),
+                Describe = Convert.ToString(Request.Form["describe"]),
+                PType = new PermissionType
+                {
+                    TID = Convert.ToInt32(Request.Form["tID"])
+                }
+            };
+            var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/AddPermission", accountApi), JsonConvert.SerializeObject(p)));
+            if (isAdd)
+            {
+                result = "1";
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
+        }
+
+        public string DeletePermission()
+        {
+            var result = "";
+            var pID = Convert.ToInt32(Request.Form["pID"]);
+            var isDel = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/DeletePermission", accountApi), pID.ToString()));
+            if (isDel)
+            {
+                result = "1";
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
+        }
+
+        [HttpGet]
+        public ActionResult UpdatePermission()
+        {
+            var pType = JsonConvert.DeserializeObject<List<PermissionType>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissionType", accountApi), ""));
+            Permission p = new Permission
+            {
+                PID = Convert.ToInt32(Request.Params["pID"]),
+                PName = Convert.ToString(Request.Params["pName"]),
+                PKey = Convert.ToString(Request.Params["pKey"]),
+                PType=new PermissionType
+                {
+                TID=Convert.ToInt32(Request.Params["tID"])
+                },
+                Describe = Convert.ToString(Request.Params["describe"])
+            };
+            EditPermissionModel model = new EditPermissionModel();
+            model.TypeList = pType;
+            model.Permission = p;
+            return View(model);
+        }
+
+        public string UpdatePermissionPost()
+        {
+            var result = "";
+            Permission p = new Permission
+            {
+                PID = Convert.ToInt32(Request.Form["pID"]),
+                PName = Convert.ToString(Request.Form["pName"]),
+                PKey = Convert.ToString(Request.Form["pKey"]),
+                PType=new PermissionType 
+                {
+                    TID = Convert.ToInt32(Request.Form["tID"])
+                },
+                Describe = Convert.ToString(Request.Form["describe"])
+            };
+            var isEdit = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Authority/UpdatePermission", accountApi), JsonConvert.SerializeObject(p)));
+            if (isEdit)
+            {
+                result = "1";
+            }
+            else
+            {
+                result = "-1";
+            }
+            return result;
+        }
+
+        public ActionResult UserPermission()
+        {
+            return View();
+        }
+
+        public string GetUserPermission()
+        {
+            var uID = Request.Form["uID"];
+            var result = CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissionByUser", accountApi), uID);
             return result;
         }
 

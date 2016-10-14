@@ -1760,7 +1760,7 @@ namespace BrnMall.Web.Controllers
                     Number = number
                 };
 
-                var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/Account/AddProductToShoppingCart", accountApi), JsonConvert.SerializeObject(cart)));
+                var isAdd = Convert.ToBoolean(CommomClass.HttpPost(string.Format("{0}/UserInfo/AddProductToShoppingCart", accountApi), JsonConvert.SerializeObject(cart)));
                 if (isAdd)
                 {
                     result = "1";
@@ -1793,7 +1793,7 @@ namespace BrnMall.Web.Controllers
                 {
                     UID = SUserInfo.UID
                 };
-                var data = CommomClass.HttpPost(string.Format("{0}/Account/AddFavoriteProduct", accountApi), JsonConvert.SerializeObject(fp));
+                var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/AddFavoriteProduct", accountApi), JsonConvert.SerializeObject(fp));
                 if (JsonConvert.DeserializeObject<bool>(data))
                 {
                     result = "1";//1为添加成功

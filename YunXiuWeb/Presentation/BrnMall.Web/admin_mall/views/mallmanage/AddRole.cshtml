@@ -8,16 +8,41 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css" />
 </head>
 <body>
-    <div>
-      
-            角色名: <input type="text" name="RName" /><br />
-            描述:<input type="text" name="Describe" /><br />
-            <input type="button" class="add-role" value="提交" />          
+    <h1 class="rightH1">
+        商城管理 &gt;&gt; 添加角色
+        <div class="right">
+            @*<a href="@Html.Raw(ViewData["referer"].ToString())" class="menuBT"><img src="/admin_mall/images/goback.jpg" />返回列表</a>
+                <div class="clear"></div>*@
+        </div>
+        <div class="clear"></div>
+    </h1>
+
+    <div class="addTable">
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td width="86px" align="right"> 角色名 ：</td>
+                    <td><input type="text" name="RName" /></td>
+                </tr>
+                <tr>
+                    <td width="86px" align="right">角色描述 ：</td>
+                    <td><textarea name="Describe"></textarea></td>
+                </tr>
+             
+                <tr>
+                    <td width="86px" align="right"></td>
+                    <td><input type="button" class="add-role" value="提交" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br /><br />
 
     </div>
 </body>
 </html>
 <script src="/admin_mall/scripts/jquery.js"></script>
-<script src="/admin_mall/scripts/MallManage.js"></script>
+<script src="/admin_mall/scripts/MallManage.js?v2=2"></script>

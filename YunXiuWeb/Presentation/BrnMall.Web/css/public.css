@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 /* CSS Document */
 *{ 
     font-size:12px; 
@@ -6,14 +6,14 @@
 	margin:0;
 	padding:0;
   }
+a:link,a:visited,a:hover,a:active{text-decoration:none;}
  .bg-white{background:#fff;}
 a { text-decoration:none;color:#222;outline:none;cursor:pointer;}
 table { border-collapse:collapse;}
 select {outline:none;}
-a:hover {color:#cca809;}
+a:hover {color:#296ecc;}
 a.sumbtn {border:1px solid #0078ff; background:#0069e0; display:inline-block;height:35px;;width:150px;color:#fff; text-align:center;font-size:18px;}
 img{border:0;}
-.topart {background:#fff;}
 button[type="button"],input[type="button"] {outline:none; cursor:pointer;}
 input[type="text"] {outline:none;}
 ul li { list-style:none;}
@@ -22,10 +22,10 @@ ul li { list-style:none;}
 .font16 { font-size:16px;}
 .font14 { font-size:14px;}
 .colored {color:#cc3728;}
-.colororange {color:#f60;}
+.colororange {color:#ff5017;}
 .colorgreen {color:#549628;}
 .colorpink {color:#f4316b;}
-.colorblue {color:#0078ff;}
+.colorblue {color:#0061c4;}
 a.colorblue:hover {color:#66adff;}
 .coloryellow {color:#cca809;}
 .bgblue {background:#0078ff;}
@@ -79,21 +79,28 @@ fieldset[disabled] .btn {
           box-shadow: none;
   opacity: .65;
 }
+.btn-blue {background:#296ecd;color:#fff !important;}
+.btn-blue:hover {background:#114c9d;color:#fff !important;}
 
 .center-x{margin:0 auto;width:1200px;}
 /***top bar**/
 #topbar { background:#e5e5e5;height:30px;line-height:30px;}
 .topbarl {display:inline-block;}
 .topbarr {float:right;}
-.topbarr li {/*padding:0 12px;*/ text-align:center;width:84px; float:left;}
-.topbarr li.talk {width:60px;}
-.topbarr li.menu:after { content:url(../images/topd.png);}
-.topbarr li.menu:hover,.topbarr li.talk:hover{color:#cca809; background:#fff;border:solid #ddd; border-width:0 1px;}
+.topbarr li,.topl li {/*padding:0 12px;*/ text-align:center;width:84px; float:left;}
+ li.talk {width:60px;text-align:center;}
+ li.menu:after { content:url(../images/topd.png);}
+ li.menu:hover, li.talk:hover{color:#cca809; background:#fff;border:solid #ddd; border-width:0 1px;}
 dl.sub-menu {background:#fff; text-align:left; min-width:60px;padding:0 12px; border:solid #ddd; border-width:0 1px 1px 1px;z-index:99;}
+dl.sub-menu dd,.sub-menu dd,.sub-menu dl {margin-bottom:0; z-index:9999;}
 dl.sub-menu dd a {color:#000;}
 dl.sub-menu dd a:hover {color:#296ecc;}
 .sub-menu {position:absolute; display:none;}
-.topbarr li.menu:hover .sub-menu,.topbarr li.talk:hover .sub-menu {display:block;}
+.topbarr li.menu:hover .sub-menu,.topbarr li.talk:hover .sub-menu,.topl li.menu:hover .sub-menu {display:block;}
+li.talk:hover .sub-menu {display:block;}
+.sub-menu dd a {color:#000;}
+.sub-menu dl{padding:1% 8.2%;}
+.sub-menu dd a:hover {color:#296ecc;}
 /***end top bar**/
 
 /**header***/
@@ -150,7 +157,6 @@ button.searchbtn {width:80px;height:32px;background:#296ecc;color:#fff;font-size
 	background:rgba(25,33,66,0.75);
 	z-index:99;
 	height:427px;
-    display:none;
 	}
 .sub-cata ul{
 	width:200px;
@@ -183,8 +189,8 @@ i.factory-ico {background:url(../images/factory.png) no-repeat center;}
 /****end navbar******/
 /***footer***/
 #footer{border-top:6px solid #0078ff;padding-top:30px;margin-top:15px;height:140px;background:#fff;}
-ul.f-tip{width:16.6%; float:left;}
-ul.f-tip li {text-align:center;line-height:22px;}
+ul.f-tip{width:16.6%; float:left;padding-left: 60px;}
+ul.f-tip li {text-align:left;line-height:22px;}
 ul.f-tip li a {color:#999;}
 .footer a {color:#000;}
 ul.f-tip li a:hover,.footer a:hover {color:#296ecc;}
@@ -221,20 +227,24 @@ header {
 	}
 .footbot ul {
     margin: 0 auto;
-    width: 91%;
+    width: 96%;
 }
 /*.footbot ul li {float:left;width:140px;height:80px; line-height:90px;}*/	
 .footbot ul li {
     float: left;
+    /*width: 180px;*/
     height: 80px;
-    margin-top: 20px;
+    line-height: 90px;
+    text-align: center;
 }
 .footbot {
-    background: #0061c4;
+    background: #ffffff;
     clear: both;
     display: block;
     height: 90px;
     width: 100%;
 }
-.footsec {margin-top:30px;}
-.footer{margin-top:40px;height:80px;clear:both;text-align:center;}
+.footsec {margin-top:20px;}
+.footer{margin-top:20px;height:80px;clear:both;text-align:center;}
+.footer p{margin-bottom:3px;}
+.footer-contact p{color:#999;padding-left:5%;}

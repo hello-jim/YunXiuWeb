@@ -92,11 +92,9 @@ function addProductToFavorite(pid) {
             pID: pid
         },
         function (data) {
-            if (data == "1") {
-                alert("添加成功");
-            } else {
-                alert("添加失败")
-            }
+            if (data == "nologin") {
+                location.href = "/Account/Login";
+            } 
         });
 }
 
@@ -117,7 +115,9 @@ function addStoreToFavorite(storeId) {
             sID: storeId
         },
         function (data) {
-
+            if (data == "nologin") {
+                location.href = "/Account/Login";
+            }
         });
 }
 
@@ -139,11 +139,9 @@ function addProductToCart(pid, buyCount) {
         buyCount: buyCount
     },
     function (data) {
-        if (data == "1") {
-            alert("添加成功");
-        } else {
-            alert("添加失败");
-        }
+        if (data == "nologin") {
+            location.href = "/Account/Login";
+        } 
     });
 }
 

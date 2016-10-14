@@ -1,20 +1,59 @@
 ﻿@{
     Layout = null;
 }
-
+@model List<YunXiu.Model.PermissionType>
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css" />
 </head>
 <body>
-    <div>
-        权限名称<input type="text" name="pName" /><br />
-        权限键  <input type="text" name="pKey" /><br />
-        权限描述<input type="text" name="describe" /><br />
-        <input type="button" value="提交" class="add-permission" />
+
+
+    <h1 class="rightH1">
+        商城管理 &gt;&gt; 添加权限
+        <div class="right">
+            @*<a href="@Html.Raw(ViewData["referer"].ToString())" class="menuBT"><img src="/admin_mall/images/goback.jpg" />返回列表</a>
+                <div class="clear"></div>*@
+        </div>
+        <div class="clear"></div>
+    </h1>
+
+    <div class="addTable">
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td width="86px" align="right">  权限名称 ：</td>
+                    <td><input type="text" name="pName" /></td>
+                </tr>
+                <tr>
+                    <td width="86px" align="right">权限键 ：</td>
+                    <td> <input type="text" name="pKey" /></td>
+                </tr>
+                <tr>
+                    <td width="86px" align="right">权限类型 ：</td>
+                    <td>
+                        <select name="pTypeID">
+                            @foreach (var type in Model)
+                            {
+                                <option value="@type.TID">@type.TName</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="86px" align="right">权限描述 ：</td>
+                    <td><textarea name="describe"></textarea></td>
+                </tr>
+                <tr>
+                    <td width="86px" align="right"></td>
+                    <td><input type="button" value="提交" class="add-permission" /></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

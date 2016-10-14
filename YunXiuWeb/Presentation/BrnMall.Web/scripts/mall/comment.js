@@ -26,17 +26,17 @@ function CreateProductReview(json, index, count) {
         var html = "<div class='box-conten row' >";
         html += "<div class='right-conten col-md-2'>";
         html += "<div class='star star" + nList[i].Star + "'></div>";
-        html += "<div class='day-item'>下单3天后评论</div>";
-        html += "<div class='time-item'>2016-09-01 11:51</div>";
-       // html += "<div class='feature'>";
-       // html += "<ul><li>"+nList[i].RProduct.Name+"</li></ul>";
-       // html += "</div>";
+        html += "<div class='day-item'>下单" + GetDifferDay(nList[i].ROrder.CreateDate, nList[i].ReviewTime) + "天后评论</div>";
+        html += "<div class='time-item'>" + nList[i].ReviewTime + "</div>";
+        // html += "<div class='feature'>";
+        // html += "<ul><li>"+nList[i].RProduct.Name+"</li></ul>";
+        // html += "</div>";
         html += "</div>";
 
         ///评论
         html += "  <div class='mid-conten col-md-7 clearfix'>";
         html += "<div class='comment'>";
-        html += "<span>" + nList[i].RUser.TFUser.client_name + "</span>:";
+        // html += "<span>" + nList[i].RUser.TFUser.client_name + "</span>:";
         html += nList[i].RContent;
         html += "</div>";
         html += "<div class='otherFeature'></div>";
@@ -58,8 +58,8 @@ function CreateProductReview(json, index, count) {
         //客户信息
         html += "<div class='left-conten col-md-3'>";
         html += "<div class='user-item'>";
-        html += "<img src='images/b56.gif'>";
-        html += "<span class='username'>"+nList[i].RUser.UID+"</span>";
+        // html += "<img src='images/b56.gif'>";
+        html += "<span class='username'>" + nList[i].RUser.TFUser.client_name + "</span>";
         html += "</div>";
         html += "<div class='type-item'>";
         html += "<span class='vip-level'></span>";
@@ -103,12 +103,11 @@ function CreateProductReview(json, index, count) {
                 oID: oID
             },
             function (data) {
-                if (data == "") {
-                    alert("评论成功");
-                } else if (data == "-1") {
-                    alert("评论失败");
+                if (data == "-1") {
+                    location.href = "/Account/Login";
+                  
                 } else {
-                    alert("请登录");
+                    alert("评论失败");
                 }
             })
     });
@@ -170,7 +169,7 @@ function GetReplyList(json, pID) {
             html += "</div>";
             html += "<div class='reply-textarea txtarea clearfix reply_input'>";
             html += "<div class='inner'>";
-            html += "<textarea class='reply-input' rID=" + nList[j].RID + "></textarea>";
+            html += "<textarea class='reply-input' rID=" + nList[j].RID + " oID=" + nList[j].ROrder.OID + "></textarea>";
             html += "<div class='operate-box'>";
             html += "<span></span>";
             html += "<a href='javascript:void(0);' class='reply-submit'>提交</a>";
@@ -204,6 +203,13 @@ function GetParentReview(reviews, parent) {
     return fList[0];
 }
 
+function GetDifferDay(startDate, endDate) {
+    var dt1 = new Date(startDate);
+    var dt2 = new Date(endDate);
+    var time = dt2.getTime() - dt1.getTime();
+    var day = parseInt(time / (1000 * 60 * 60 * 24));
+    return day;
+}
 
 
 

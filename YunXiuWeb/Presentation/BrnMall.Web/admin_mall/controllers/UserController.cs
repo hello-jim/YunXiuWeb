@@ -151,9 +151,11 @@ namespace BrnMall.Web.MallAdmin.Controllers
             UserEditModel model = new UserEditModel();
             var uid = Request.QueryString["uid"];
             var user = JsonConvert.DeserializeObject<User>(CommomClass.HttpPost(string.Format("{0}/Account/GetUserByID", accountApi), uid));
+            var pType = JsonConvert.DeserializeObject<List<PermissionType>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissionType", accountApi), ""));
             var pList = JsonConvert.DeserializeObject<List<Permission>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetPermissions", accountApi), ""));
             var rList = JsonConvert.DeserializeObject<List<Role>>(CommomClass.HttpPost(string.Format("{0}/Authority/GetRoles", accountApi), ""));
             model.User = user;
+            model.TypeList = pType;
             model.Permissions = pList;
             model.Roles = rList;
             //var user = JsonConvert.DeserializeObject<User>(CommomClass.HttpPost(string.Format(""),""));

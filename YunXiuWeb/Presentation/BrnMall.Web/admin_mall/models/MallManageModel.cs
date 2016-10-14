@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace BrnMall.Web.MallAdmin.models
 {
-    public class UserEditModel
+    public class MallManageModel
     {
-        public YunXiu.Model.User User { get; set; }
 
-        public List<YunXiu.Model.Permission> Permissions { get; set; }
+    }
 
-        public List<YunXiu.Model.Role> Roles { get; set; }
-
+    public class EditPermissionModel
+    {
+        public YunXiu.Model.Permission Permission { get; set; }
         public List<YunXiu.Model.PermissionType> TypeList { get; set; }
     }
 }

@@ -1,25 +1,71 @@
 ﻿@{
     Layout = null;
 }
-@model YunXiu.Model.Permission
+@model BrnMall.Web.MallAdmin.models.EditPermissionModel
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css" />
 </head>
 <body>
-    <div>
-        <input type="hidden" name="pID" value="@Model.PID" />
-        权限名:<input type="text" name="pName" value="@Model.PName" /><br />
-        权限键<input type="text" name="pKey" value="@Model.PKey" /><br />
-        描述:<input type="text" name="describe" value="@Model.Describe" /><br />
-        <input type="button" value="提交" class="permission-edit-save" />
+    <h1 class="rightH1">
+        商城管理 &gt;&gt; 修改权限
+        <div class="right">
+            @*<a href="@Html.Raw(ViewData["referer"].ToString())" class="menuBT"><img src="/admin_mall/images/goback.jpg" />返回列表</a>
+                <div class="clear"></div>*@
+        </div>
+        <div class="clear"></div>
+    </h1>
+
+    <div class="addTable">
+
+        <input type="hidden" name="pID" value="@Model.Permission.PID" />
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td width="86px" align="right">  权限名 ：</td>
+                    <td><input type="text" name="pName" value="@Model.Permission.PName" /></td>
+                </tr>
+                <tr>
+                    <td width="86px" align="right">权限键 ：</td>
+                    <td> <input type="text" name="pKey" value="@Model.Permission.PKey" /></td>
+                </tr>
+                <tr>
+                    <td width="86px" align="right">权限类型 ：</td>
+                    <td>
+                        <select name="pTypeID">
+                            @foreach (var type in Model.TypeList)
+                            {
+                                if (type.TID == Model.Permission.PType.TID)
+                                {
+                                     <option value="@type.TID" selected>@type.TName</option>
+                                }
+                                else
+                                { 
+                                    <option value="@type.TID" >@type.TName</option>
+                                }
+                               
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="86px" align="right">权限描述 ：</td>
+                    <td><textarea name="describe">@Model.Permission.Describe</textarea></td>
+                </tr>
+                <tr>
+                    <td width="86px" align="right"></td>
+                    <td><input type="button" value="提交" class="permission-edit-save" /></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
 
 <script src="/admin_mall/scripts/jquery.js"></script>
-<script src="/admin_mall/scripts/MallManage.js"></script>
+<script src="/admin_mall/scripts/MallManage.js?v=2"></script>
 

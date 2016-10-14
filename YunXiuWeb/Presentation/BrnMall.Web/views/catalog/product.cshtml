@@ -299,7 +299,7 @@
 
             <div class="btn-group">
                 <a class="buy-btn bgyellow" onclick="directBuyProduct(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">立即购买</a>
-                <a class="buy-btn to-cart cart-btn" onclick="addProductToCart(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">加入购物车</a>
+                <a class="buy-btn to-cart cart-btn" >加入购物车</a>
                 <a class="fav-btn" onclick="addProductToFavorite(@Model.ProductInfo.PID)"></a>
             </div>
 
@@ -311,7 +311,7 @@
         <div class="detail-rshop">
             <ul class="shopbar">
                 <li style="text-align:center">
-                    <img src="@{@WorkContext.ImageCDN}/upload/store/@Model.ProductInfo.Store.StoreID/logo/thumb100_100/@Model.ProductInfo.Store.Logo" style="margin-top:30px" />
+                    <img src="/images/storeImg/@Model.ProductInfo.Store.Logo" style="margin-top:30px" />
                 </li>
                 <li>
                     <h1>
@@ -677,12 +677,12 @@
 <input id="pID" type="hidden" value="@Model.ProductInfo.PID" />
 <input id="productReviewJson" type="hidden" value="" />
 <script src="/scripts/js_Purchase/base.js"></script>
-<script src="/scripts/common.js"></script>
+<script src="/scripts/common.js?v=2"></script>
 <script src="/scripts/js_Purchase/jquery.jqzoom.js"></script>
 <script src="/scripts/js_Purchase/ui-choose.js"></script>
 <script src="/scripts/js_Purchase/jquery.imagezoom.min.js"></script>
 <script src="/scripts/jQuery.artTxtCount.js"></script>
-<script src="/scripts/mall/comment.js"></script>
+<script src="/scripts/mall/comment.js?v=2"></script>
 <script src="/scripts/product.js"></script>
 
 

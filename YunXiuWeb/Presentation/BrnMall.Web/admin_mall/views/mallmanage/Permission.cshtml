@@ -57,7 +57,7 @@
 
             @foreach (var row in Model)
             {
-                <tr pname="@row.PName" pid="@row.PID" pKey="@row.PKey" describe="@row.Describe">
+                <tr pname="@row.PName" pid="@row.PID" pKey="@row.PKey" tID="@row.PType.TID" describe="@row.Describe">
                     <td align="center"></td>
                     <td>@row.PID</td>
                     <td>@row.PName</td>

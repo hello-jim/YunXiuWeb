@@ -2473,6 +2473,12 @@
         <member name="P:YunXiu.Model.Fakes.ShimPermission.PNameSetString">
             <summary>设置 Permission.set_PName(String value) 的 填充码</summary>
         </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.PTypeGet">
+            <summary>设置 Permission.get_PType() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.PTypeSetPermissionType">
+            <summary>设置 Permission.set_PType(PermissionType value) 的 填充码</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.ShimPermission.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
         </member>
@@ -2499,6 +2505,60 @@
         </member>
         <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.PNameSetString">
             <summary>设置 Permission.set_PName(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.PTypeGet">
+            <summary>设置 Permission.get_PType() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermission.AllInstances.PTypeSetPermissionType">
+            <summary>设置 Permission.set_PType(PermissionType value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimPermissionType">
+            <summary>YunXiu.Model.PermissionType 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimPermissionType.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimPermissionType.#ctor(YunXiu.Model.PermissionType)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimPermissionType.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimPermissionType.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.Constructor">
+            <summary>设置 PermissionType.PermissionType() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.TIDGet">
+            <summary>设置 PermissionType.get_TID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.TIDSetInt32">
+            <summary>设置 PermissionType.set_TID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.TNameGet">
+            <summary>设置 PermissionType.get_TName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.TNameSetString">
+            <summary>设置 PermissionType.set_TName(String value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimPermissionType.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.AllInstances.TIDGet">
+            <summary>设置 PermissionType.get_TID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.AllInstances.TIDSetInt32">
+            <summary>设置 PermissionType.set_TID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.AllInstances.TNameGet">
+            <summary>设置 PermissionType.get_TName() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimPermissionType.AllInstances.TNameSetString">
+            <summary>设置 PermissionType.set_TName(String value) 的 填充码</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.ShimProduct">
             <summary>YunXiu.Model.Product 的填充码类型</summary>
@@ -11354,6 +11414,24 @@
             <summary>获取或设置实例行为。</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.StubPermission.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.StubPermissionType">
+            <summary>YunXiu.Model.PermissionType 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubPermissionType.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubPermissionType.InitializeStub">
+            <summary>初始化 type StubPermissionType 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubPermissionType.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubPermissionType.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubPermissionType.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.StubProduct">

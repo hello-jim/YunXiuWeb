@@ -103,6 +103,7 @@
     <Compile Include="models\HomeModel.cs" />
     <Compile Include="models\LogModel.cs" />
     <Compile Include="models\MallAdminGroupModel.cs" />
+    <Compile Include="models\MallManageModel.cs" />
     <Compile Include="models\NavModel.cs" />
     <Compile Include="models\NewsModel.cs" />
     <Compile Include="models\OrderModel.cs" />

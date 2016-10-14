@@ -2,7 +2,7 @@
     $(".add-role").on("click", function () {
         var body = $(this).parents("body");
         var rName = $(body).find("input[name='RName']").val();
-        var describe = $(body).find("input[name='Describe']").val();
+        var describe = $(body).find("textarea[name='Describe']").val();
         $.post("/MallManage/AddRolePost",
             {
                 rName: rName,
@@ -49,7 +49,7 @@
         var body = $(this).parents("body");
         var rID = $(body).find("input[name='rID']").val();
         var rName = $(body).find("input[name='rName']").val();
-        var describe = $(body).find("input[name='describe']").val();
+        var describe = $(body).find("textarea[name='describe']").val();
 
         $.post("/MallManage/RoleUpdatePost",
             {
@@ -72,11 +72,13 @@
         var body = $(this).parents("body");
         var pName = $(body).find("input[name='pName']").val();
         var pKey = $(body).find("input[name='pKey']").val();
-        var describe = $(body).find("input[name='describe']").val();
+        var describe = $(body).find("textarea[name='describe']").val();
+        var tID = $(body).find("select").val();
         $.post("/MallManage/AddPermissionPost",
             {
                 pName: pName,
                 pKey: pKey,
+                tID:tID,
                 describe: describe
             },
             function (data) {
@@ -111,8 +113,9 @@
         var pID = $(tr).attr("pID");
         var pName = $(tr).attr("pName");
         var pKey = $(tr).attr("pKey");
+        var tID = $(tr).attr("tID");
         var describe = $(tr).attr("describe");
-        window.parent.frames[2].location.href = "/malladmin/MallManage/UpdatePermission?pID=" + pID + "&pName=" + pName + "&pKey=" + pKey + "&describe=" + describe
+        window.parent.frames[2].location.href = "/malladmin/MallManage/UpdatePermission?pID=" + pID + "&pName=" + pName + "&pKey=" + pKey + "&tID="+tID+"&describe=" + describe
     });
 
 
@@ -121,13 +124,15 @@
         var pID = $(body).find("input[name='pID']").val();
         var pName = $(body).find("input[name='pName']").val();
         var pKey = $(body).find("input[name='pName']").val();
-        var describe = $(body).find("input[name='describe']").val();
+        var tID = $(body).find("select").val();
+        var describe = $(body).find("textarea[name='describe']").val();
 
         $.post("/MallManage/UpdatePermissionPost",
             {
                 pID: pID,
                 pName: pName,
                 pKey: pKey,
+                tID:tID,
                 describe: describe
             },
             function (data) {
