@@ -121,6 +121,19 @@
                 </td>
             </tr>
             <tr>
+                <td align="right">
+                    商品店铺：
+                </td>
+                <td>
+                    <div class="selectBt">
+                        <input type="button" value="@Model.StoreName" onclick="openStoreSelectLayer(this)" />
+                        <input type="hidden" class="StoreId" id="StoreId" name="StoreId" value="@Model.StoreID" />
+                        <input type="hidden" class="StoreName" id="StoreName" name="StoreName" value="@Model.StoreName" />
+                    </div>
+                    @Html.ValidationMessageFor(x => x.StoreID)
+                </td>
+            </tr>
+            @*<tr>
                 <td width="76px;" align="right">
                     店铺分类：
                 </td>
@@ -131,7 +144,7 @@
                     配送模板：
                 </td>
                 <td>@Html.DropDownListFor(x => x.StoreSTid, ViewData["storeShipTemplateList"] as List<SelectListItem>) @Html.ValidationMessageFor(x => x.StoreSTid)</td>
-            </tr>
+            </tr>*@
             <tr>
                 <td align="right">
                     成本价：

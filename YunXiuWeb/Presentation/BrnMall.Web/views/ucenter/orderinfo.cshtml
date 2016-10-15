@@ -24,7 +24,15 @@
 <body>
 @Html.Partial("_header")
 
+    <style>
+        a:link {
+            text-decoration: none;
+        }
 
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
 <div class="breadcrumb box">
     <strong>会员中心</strong>
     <span>&nbsp;&gt;&nbsp;<a href="@Url.Action("orderlist")">订单中心</a>&nbsp;&gt;&nbsp;<a href="@Url.Action("orderinfo", new RouteValueDictionary { { "oid", Model.OrderInfo.Oid } })">订单：@Model.OrderInfo.OSN</a></span>

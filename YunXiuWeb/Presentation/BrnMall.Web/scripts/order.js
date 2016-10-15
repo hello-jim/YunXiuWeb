@@ -42,7 +42,10 @@ function addShipAddress() {
     var phone = addShipAddressForm.elements["phone"].value;
     var email = addShipAddressForm.elements["email"].value;
     var zipcode = addShipAddressForm.elements["zipcode"].value;
-    var regionId = $(addShipAddressForm.elements["regionId"]).find("option:selected").val();
+    var provinceId = addShipAddressForm.elements["provinced"].value;
+    var cityId = addShipAddressForm.elements["city"].value;
+    var regionId = addShipAddressForm.elements["region"].value;
+    //var regionId = $(addShipAddressForm.elements["regionId"]).find("option:selected").val();
     var address = addShipAddressForm.elements["address"].value;
     var isDefault = addShipAddressForm.elements["isDefault"] == undefined ? 0 : addShipAddressForm.elements["isDefault"].checked ? 1 : 0;
 
@@ -51,7 +54,7 @@ function addShipAddress() {
     }
 
     $.post("/ucenter/addshipaddress",
-            { 'alias': alias, 'consignee': consignee, 'mobile': mobile, 'phone': phone, 'email': email, 'zipcode': zipcode, 'regionId': regionId, 'address': address, 'isDefault': isDefault },
+            { 'alias': alias, 'consignee': consignee, 'mobile': mobile, 'phone': phone, 'email': email, 'zipcode': zipcode, 'provinced': provinced, 'city': city, 'region': region, 'regionId': regionId, 'address': address, 'isDefault': isDefault },
             addShipAddressResponse)
 }
 

@@ -12,9 +12,11 @@ using BrnMall.Web.MallAdmin.Models;
 using YunXiu.Model;
 using YunXiu.Commom;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace BrnMall.Web.MallAdmin.Controllers
 {
+   
     /// <summary>
     /// 商城后台品牌控制器类
     /// </summary>
@@ -30,7 +32,8 @@ namespace BrnMall.Web.MallAdmin.Controllers
 
         public ActionResult List()
         {
-            var brandData = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/GetBrand", "");
+            string productApi = ConfigurationManager.AppSettings["productApi"].ToString();
+            var brandData = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrand", productApi), "");
             var brandCount = JsonConvert.DeserializeObject<List<Brand>>(brandData);
             BrandList model = new BrandList();
             model.Brands = brandCount;
@@ -95,7 +98,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
                     }
                 };
 
-                var data = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/AddBrand", JsonConvert.SerializeObject(brand));
+                var data = CommomClass.HttpPost(string.Format("{0}/Brand/AddBrand", productApi), JsonConvert.SerializeObject(brand));
                 var path = Server.MapPath("/images/brand");
                 string dataname = Convert.ToString(data);
                 string filename = dataname + "_" + f.FileName;
@@ -118,7 +121,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         public ActionResult Edit(int BrandId)
         {
             //BrandInfo brandInfo = AdminBrands.GetBrandById(brandId);
-            var data = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/GetBrandByID", JsonConvert.SerializeObject(BrandId));
+            var data = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrandByID", productApi), JsonConvert.SerializeObject(BrandId));
             var brandData = JsonConvert.DeserializeObject<Brand>(data);
 
             if (brandData == null)
@@ -152,7 +155,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
             var logo = f.FileName;
             if (logo != "")
             {
-                var data1 = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/GetBrandByID", JsonConvert.SerializeObject(model.BrandID));
+                var data1 = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrandByID", productApi), JsonConvert.SerializeObject(model.BrandID));
                 var brandData = JsonConvert.DeserializeObject<Brand>(data1);
 
                 Brand brandList = new Brand()
@@ -168,7 +171,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
                     }
                 };
 
-                var updateBrand = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/UpdateBrand", JsonConvert.SerializeObject(brandList));
+                var updateBrand = CommomClass.HttpPost(string.Format("{0}/Brand/UpdateBrand", productApi), JsonConvert.SerializeObject(brandList));
                 //var OleLogo = oldLogo;
                 var path = Server.MapPath("/images/brand");
                 var delpath = Server.MapPath("/images/brand");
@@ -189,7 +192,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var data1 = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/GetBrandByID", JsonConvert.SerializeObject(model.BrandID));
+                    var data1 = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrandByID", productApi), JsonConvert.SerializeObject(model.BrandID));
                     var brandData = JsonConvert.DeserializeObject<Brand>(data1);
                     string str = brandData.Logo.TrimEnd();
                     Brand brandList = new Brand()
@@ -205,7 +208,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
 
                     };
 
-                    var updateBrand = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/UpdateBrand", JsonConvert.SerializeObject(brandList));
+                    var updateBrand = CommomClass.HttpPost(string.Format("{0}/Brand/UpdateBrand", productApi), JsonConvert.SerializeObject(brandList));
                     //var OleLogo = oldLogo;
                     return PromptView("更改成功");
                 }
@@ -225,7 +228,7 @@ namespace BrnMall.Web.MallAdmin.Controllers
         /// </summary>
         public ActionResult Del(int BrandId)
         {
-            var delBrand = CommomClass.HttpPost("http://192.168.9.32:8082/Brand/DeleteBrand", JsonConvert.SerializeObject(BrandId));
+            var delBrand = CommomClass.HttpPost(string.Format("{0}/Brand/DeleteBrand", productApi), JsonConvert.SerializeObject(BrandId));
             return PromptView("删除成功");
         }
 

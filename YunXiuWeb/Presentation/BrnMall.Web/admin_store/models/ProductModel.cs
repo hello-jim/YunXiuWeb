@@ -226,6 +226,7 @@ namespace BrnMall.Web.StoreAdmin.Models
         public Brand Brand { get; set; }
         public Store Store { get; set; }
 
+        public int StoreID { get; set; }
         public int SKUGID { get; set; }
         
         /// <summary>
@@ -329,7 +330,9 @@ namespace BrnMall.Web.StoreAdmin.Models
         public int StoreCid { get; set; }
 
         public Store Store { get; set; }
+        public int StoreID { get; set; }
 
+        public string StoreName { get; set; }
         public Category Category { get; set; }
         /// <summary>
         /// 店铺配送模板id

@@ -89,7 +89,7 @@
                     @{var products = @Model.Product;}
                     @foreach (var row in products)
 {
-    <tr name="@row.Name" psn="@row.Psn.TrimEnd()" pid="@row.PID" sort="@row.Sort" cateid="@row.Category.CateId" catename="@row.Category.Name" brandid="@row.Brand.BrandID" brandname="@row.Brand.Name" ishot="@row.IsHot" skugid="@row.SkuGID" shopprice="@row.ShopPrice" marketprice="@row.MarketPrice" costprice="@row.CostPrice" state="@row.State" isbest="@row.IsBest" isnew="@row.IsNew" isrecommend="@row.IsRecommend" weight="@row.Weight" description="@row.Description" office="@row.OfficialGuarantee" faqs="@row.FAQs" imgname ="@row.ImgName">
+    <tr name="@row.Name" psn="@row.Psn.TrimEnd()" pid="@row.PID" sort="@row.Sort" storename = "@row.Store.Name" storeid= "@row.Store.StoreID" cateid="@row.Category.CateId" catename="@row.Category.Name" brandid="@row.Brand.BrandID" brandname="@row.Brand.Name" ishot="@row.IsHot" skugid="@row.SkuGID" shopprice="@row.ShopPrice" marketprice="@row.MarketPrice" costprice="@row.CostPrice" state="@row.State" isbest="@row.IsBest" isnew="@row.IsNew" isrecommend="@row.IsRecommend" weight="@row.Weight" description="@row.Description" office="@row.OfficialGuarantee" faqs="@row.FAQs" imgname ="@row.ImgName">
         <td align="center"><input type="checkbox" value="@row.PID" selectitem="true" name="pidList" /></td>
         <td>@row.PID</td>
         <td><a href="@Url.Action("product", "catalog", new { pid = row.PID, area = "" })" target="_blank">@row.Name</a></td>
@@ -149,7 +149,7 @@
             @Html.ActionLink("[图片]", "productimagelist", new { pid = row.PID }, new { @class = "editOperate" })|
             @Html.ActionLink("[关联商品]", "relateproductlist", new { pid = row.PID }, new { @class = "editOperate" })|
             <a href="#" class="outsaletag editOperate" url="@Url.Action("outsaleproduct", new { pidList = row.PID })">[下架]</a>|
-            @Html.ActionLink("[编辑]", "editproduct", new { name = @row.Name, psn = @row.Psn.TrimEnd(), pid = @row.PID, cateid = @row.Category.CateId, brandid = @row.Brand.BrandID, brandname=@row.Brand.Name, ishot = @row.IsHot, skugid = @row.SkuGID, shopprice = @row.ShopPrice, marketprice = @row.MarketPrice, costprice = @row.CostPrice, state = @row.State, isbest = @row.IsBest, isnew = @row.IsNew, isrecommend = @row.IsRecommend, sort = @row.Sort, weight = @row.Weight, description = @row.Description, office = @row.OfficialGuarantee, faqs = @row.FAQs}, new { @class = "editOperate" })|
+            @Html.ActionLink("[编辑]", "editproduct", new { name = @row.Name, psn = @row.Psn.TrimEnd(),storename = @row.Store.Name, storeid=@row.Store.StoreID, pid = @row.PID, cateid = @row.Category.CateId, brandid = @row.Brand.BrandID, brandname=@row.Brand.Name, ishot = @row.IsHot, skugid = @row.SkuGID, shopprice = @row.ShopPrice, marketprice = @row.MarketPrice, costprice = @row.CostPrice, state = @row.State, isbest = @row.IsBest, isnew = @row.IsNew, isrecommend = @row.IsRecommend, sort = @row.Sort, weight = @row.Weight, description = @row.Description, office = @row.OfficialGuarantee, faqs = @row.FAQs}, new { @class = "editOperate" })|
             @Html.ActionLink("[删除]", "delProduct", new { PID = row.PID, imgname = @row.ImgName }, new { @class = "deleteOperate" })
         </td>
     </tr>

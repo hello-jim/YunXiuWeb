@@ -21,6 +21,8 @@ namespace BrnMall.Web.Models
         /// 用户等级信息
         /// </summary>
         public UserRankInfo UserRankInfo { get; set; }
+
+     
     }
 
     /// <summary>
@@ -97,6 +99,8 @@ namespace BrnMall.Web.Models
         /// 订单状态
         /// </summary>
         public int OrderState { get; set; }
+
+        public List<Order> Orders { get; set; } 
     }
 
     /// <summary>
@@ -139,6 +143,23 @@ namespace BrnMall.Web.Models
         /// 商品名称
         /// </summary>
         public string ProductName { get; set; }
+
+        public List<Product> FavoriteProducts { get; set; }
+
+        /// <summary>
+        /// 收藏ID
+        /// </summary>
+        public int FID { get; set; }
+
+        /// <summary>
+        /// 收藏商品
+        /// </summary>
+        public Product FProduct { get; set; }
+
+        /// <summary>
+        /// 收藏用户 
+        /// </summary>
+        public User FUser { get; set; }
     }
 
     /// <summary>
@@ -154,6 +175,8 @@ namespace BrnMall.Web.Models
         /// 店铺列表
         /// </summary>
         public DataTable StoreList { get; set; }
+
+        public List<FavoriteStore> FavoriteStore { get; set; }
     }
 
     /// <summary>
@@ -169,6 +192,54 @@ namespace BrnMall.Web.Models
         /// 配送地址数量
         /// </summary>
         public int ShipAddressCount { get; set; }
+
+        public List<ReceiptAddress> ReceiptAddressInfo { get; set; }
+
+        public int ID { get; set; }
+        /// <summary>
+        /// 用户
+        /// </summary>
+        public User User { get; set; }
+        /// <summary>
+        /// 地址
+        /// </summary>
+        public string Addr { get; set; }
+        /// <summary>
+        /// 邮编
+        /// </summary>
+        public string ZipCode { get; set; }
+        /// <summary>
+        /// 联系人名字
+        /// </summary>
+        public string ConsigneeName { get; set; }
+        /// <summary>
+        /// 联系人电话
+        /// </summary>
+        public string ConsigneePhone { get; set; }
+        /// <summary>
+        /// 区域
+        /// </summary>
+        public string Region { get; set; }
+        /// <summary>
+        /// 省份
+        /// </summary>
+        public string Province { get; set; }
+        /// <summary>
+        /// 城市
+        /// </summary>
+        public string City { get; set; }
+        /// <summary>
+        /// 城区
+        /// </summary>
+        public string District { get; set; }
+        /// <summary>
+        /// 街道
+        /// </summary>
+        public string Street { get; set; }
+        /// <summary>
+        /// 是否为默认收货地址
+        /// </summary>
+        public bool IsDefault { get; set; }
     }
 
     /// <summary>
@@ -218,6 +289,17 @@ namespace BrnMall.Web.Models
         /// 商品咨询列表
         /// </summary>
         public List<ProductConsultInfo> ProductConsultList { get; set; }
+
+        public List<Consultation> Consultations { get; set; }
+      
+        public Product Product { get; set; }
+
+        public string CContent { get; set; }
+        public Product CProduct { get; set; }
+
+        public User CreateUser { get; set; }
+        public ConsultationType CType { get; set; }
+        public int ID { get; set; }
     }
 
     /// <summary>
@@ -252,6 +334,8 @@ namespace BrnMall.Web.Models
         /// 商品评价列表
         /// </summary>
         public List<ProductReviewInfo> ProductReviewList { get; set; }
+
+        public List<ProductReview> ProductReviewLists { get; set; }
     }
 
     /// <summary>
@@ -332,5 +416,34 @@ namespace BrnMall.Web.Models
         /// 用户收藏商品
         /// </summary>
         public List<FavoriteProduct> FProducts { get; set; }
+
+        public List<Product> FavoriteProduct { get; set; }
+    }
+
+    public class UserShoppingCartModel {
+
+        public List<ShoppingCart> ShoppingCarts { get; set; }
+        /// <summary>
+        /// ID
+        /// </summary>
+        public int SID { get; set; }
+
+        /// <summary>
+        /// 商品
+        /// </summary>
+        public Product Product { get; set; }
+
+        /// <summary>
+        /// 数量
+        /// </summary>
+        public int Number { get; set; }
+
+        /// <summary>
+        /// 用户
+        /// </summary>
+        public User User { get; set; }
+    
+    
+    
     }
 }

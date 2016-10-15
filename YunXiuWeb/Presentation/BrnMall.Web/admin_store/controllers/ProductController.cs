@@ -12,6 +12,7 @@ using YunXiu.Model;
 using YunXiu.Commom;
 using Newtonsoft.Json;
 using System.IO;
+using System.Configuration;
 namespace BrnMall.Web.StoreAdmin.Controllers
 {
     /// <summary>
@@ -19,6 +20,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
     /// </summary>
     public partial class ProductController : BaseStoreAdminController
     {
+        string productApi = ConfigurationManager.AppSettings["productApi"].ToString();
         /// <summary>
         /// 在售商品列表
         /// </summary>
@@ -67,7 +69,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         //}
         public ActionResult OnSaleProductList()
         {
-            var productData = CommomClass.HttpPost("http://192.168.9.32:8082/Product/GetProductByStore", "1");
+            var productData = CommomClass.HttpPost(string.Format("{0}/Product/GetProductByStore", productApi), "1");
             var productCount = JsonConvert.DeserializeObject<List<Product>>(productData);
             ProductListModel model = new ProductListModel();
             
@@ -200,8 +202,17 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         [HttpGet]
         public ActionResult AddProduct()
         {
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            AddProductModel model = new AddProductModel
+            {
+                Store = new Store{
+                   StoreID=name.UStore.StoreID,
+                   Name = name.UStore.Name,
+                },
+           
+            };
+
             //HttpContext.Current.Session["TFUser"].ToString();
-            AddProductModel model = new AddProductModel();
             LoadStore();
             string backUrl = MallUtils.GetStoreAdminRefererCookie();
             if (backUrl.Length == 0 || backUrl == "/storeadmin/home/storeruninfo")
@@ -238,10 +249,10 @@ namespace BrnMall.Web.StoreAdmin.Controllers
                     },
                     Store = new Store
                     {
-                        StoreID = WorkContext.StoreId,
+                        StoreID = model.StoreID,
                     },
                  
-                    StoreStID = model.StoreSTid,
+                    //StoreStID = model.StoreSTid,
                     SkuGID= 0,
                     Name = model.ProductName,
                     ShopPrice = model.ShopPrice,
@@ -262,7 +273,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
                     FAQs = model.FAQs,
                     //AddTime = DateTime.Now,
                 };
-                var data = CommomClass.HttpPost("http://192.168.9.32:8082/Product/AddProduct", JsonConvert.SerializeObject(productInfo));
+                var data = CommomClass.HttpPost(string.Format("{0}/Product/AddProduct", productApi), JsonConvert.SerializeObject(productInfo));
                 if (data == "false")
                 {
                     return PromptView("普通商品添加失败");
@@ -360,12 +371,13 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         //    ViewData["referer"] = MallUtils.GetStoreAdminRefererCookie();
         //    return View(model);
         //}
-        public ActionResult EditProduct(EditProductModel model)
+        public ActionResult EditProduct(EditProductModel model,string storename)
         {
-            var data = CommomClass.HttpPost("http://192.168.9.32:8082/Category/GetCategoryByID", JsonConvert.SerializeObject(model.CateId));
+            var data = CommomClass.HttpPost(string.Format("{0}/Category/GetCategoryByID", productApi), JsonConvert.SerializeObject(model.CateId));
             var categoryData = JsonConvert.DeserializeObject<Category>(data);
             string str = categoryData.Name.TrimEnd();
             model.CategoryName = str;
+            model.StoreName = storename;
             LoadStore();
             ViewData["referer"] = MallUtils.GetStoreAdminRefererCookie();
             return View(model);
@@ -382,8 +394,8 @@ namespace BrnMall.Web.StoreAdmin.Controllers
             //if (productInfo.StoreId != WorkContext.StoreId)
             //    return PromptView("不能操作其它店铺的商品");
 
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 
                 Product editProduct = new Product(){
                 PID = model.PID,
@@ -398,10 +410,10 @@ namespace BrnMall.Web.StoreAdmin.Controllers
                 },
                 Store = new Store
                 {
-                    StoreID = WorkContext.StoreId,
+                    StoreID = model.StoreID,
                 },
                  
-                StoreStID = model.StoreSTid,
+                //StoreStID = model.StoreSTid,
                 SkuGID = 0,
                 Name = model.Name,
                 ShopPrice = model.ShopPrice,
@@ -414,14 +426,14 @@ namespace BrnMall.Web.StoreAdmin.Controllers
                 IsRecommend = Convert.ToBoolean(model.IsRecommend == true ? 1 : 0),
                 Sort = model.DisplayOrder,
                 Weight = model.Weight,
-                SaleCount = model.SaleCount,
-                VisitCount = model.VisitCount,
+                //SaleCount = model.SaleCount,
+                //VisitCount = model.VisitCount,
                 Description = model.Description ?? "",
                 OfficialGuarantee = model.OfficialGuarantee,
                 FAQs = model.FAQs,
                 
                 };
-                var data = CommomClass.HttpPost("http://192.168.9.32:8082/Product/UpdateProduct", JsonConvert.SerializeObject(editProduct));
+                var data = CommomClass.HttpPost(string.Format("{0}/Product/UpdateProduct", productApi), JsonConvert.SerializeObject(editProduct));
                 if (data == "true")
                 {
                     return PromptView("商品修改成功");
@@ -430,8 +442,8 @@ namespace BrnMall.Web.StoreAdmin.Controllers
                     return PromptView("商品修改失败");
                 }
               
-            }
-            LoadStore();
+            //}
+            //LoadStore();
             ViewData["referer"] = MallUtils.GetStoreAdminRefererCookie();
             return View(model);
         }
@@ -630,18 +642,23 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         /// </summary>
         public ActionResult DelProduct(int PID,string imgname)
         {
-            var data = CommomClass.HttpPost("http://192.168.9.32:8082/Product/DeleteProduct", JsonConvert.SerializeObject(PID));
-            if (data == "true")
-            {
-                string name = imgname.Substring(0, imgname.Length - 4);
-                var deltproductimages = CommomClass.HttpPost("http://192.168.9.32:8082/Product/DeleteProductImg", JsonConvert.SerializeObject(name));
-                var delpath = Server.MapPath("/images/productImg");
-                var oldLogo = imgname;
-                delpath = Path.Combine(delpath, oldLogo);
-                if (System.IO.File.Exists(delpath))
+                var productimages = CommomClass.HttpPost(string.Format("{0}/Product/GetProductImages", productApi), JsonConvert.SerializeObject(PID));
+                var productImageData = JsonConvert.DeserializeObject<List<ProductImage>>(productimages);
+                foreach (var row in productImageData)
                 {
-                    System.IO.File.Delete(delpath);
+                    var pimgid = row.PImgID;
+                    var delpath = Server.MapPath("/images/productImg");
+                    string name = imgname.Remove(0, imgname.Length - 4);
+                    var oldLogo = pimgid + name;
+                    delpath = Path.Combine(delpath, oldLogo);
+                    if (System.IO.File.Exists(delpath))
+                    {
+                        System.IO.File.Delete(delpath);
+                    }
                 }
+                var data = CommomClass.HttpPost(string.Format("{0}/Product/DeleteProduct", productApi), JsonConvert.SerializeObject(PID));
+                if (data == "true")
+                {
                 return PromptView("商品删除成功");
             }
             else {
@@ -867,7 +884,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         /// </summary>
         public ActionResult ProductImageList(int pid = -1)
         {
-            var productImageData = CommomClass.HttpPost("http://192.168.9.32:8082/Product/GetProductImages", JsonConvert.SerializeObject(pid));
+            var productImageData = CommomClass.HttpPost(string.Format("{0}/Product/GetProductImages", productApi), JsonConvert.SerializeObject(pid));
             var productImage = JsonConvert.DeserializeObject<List<ProductImage>>(productImageData);
             ProductImageListModel model = new ProductImageListModel();
             model.ProductImages = productImage;
@@ -887,7 +904,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
                 string imgName = name.Substring(name.Length - 4);
                 ProductImage productImageInfo = new ProductImage
                 {
-                    //DisplayOrder = displayOrder,
+                    DisplayOrder = displayOrder,
                     //IsMain = isMain,
                     Product = new Product
                     {
@@ -896,7 +913,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
                     ImgName = imgName,
                     
                 };
-                var productImage = CommomClass.HttpPost("http://192.168.9.32:8082/Product/AddProductImage", JsonConvert.SerializeObject(productImageInfo));
+                var productImage = CommomClass.HttpPost(string.Format("{0}/Product/AddProductImage", productApi), JsonConvert.SerializeObject(productImageInfo));
                 var path = Server.MapPath("/images/productImg");
                 string dataname = Convert.ToString(productImage);
                 string filename = dataname + imgName;
@@ -908,11 +925,19 @@ namespace BrnMall.Web.StoreAdmin.Controllers
         /// <summary>
         /// 删除商品图片
         /// </summary>
-        public ActionResult DelProductImage(int pImgId = -1)
+        public ActionResult DelProductImage(int pImgId,string imgName)
         {
-            var deltproductimages = CommomClass.HttpPost("http://192.168.9.32:8082/Product/DeleteProductImg", JsonConvert.SerializeObject(pImgId));
+            var deltproductimages = CommomClass.HttpPost(string.Format("{0}/Product/DeleteProductImg", productApi), JsonConvert.SerializeObject(pImgId));
             if (deltproductimages == "true")
             {
+                string pImgID = Convert.ToString(pImgId);
+                string name = pImgID + imgName;
+                var delpath = Server.MapPath("/images/productImg");
+                delpath = Path.Combine(delpath, name);
+                if (System.IO.File.Exists(delpath))
+                {
+                    System.IO.File.Delete(delpath);
+                }
                 return PromptView("商品图片删除成功");
             }
             else {
@@ -929,7 +954,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
             dic["imgID"] = pimgid;
             dic["imgName"] = ImgName;
             dic["pID"] = Convert.ToString(pid);
-            var productMainImage = CommomClass.HttpPost("http://192.168.9.32:8082/Product/SetProductMainImage", JsonConvert.SerializeObject(dic));
+            var productMainImage = CommomClass.HttpPost(string.Format("{0}/Product/SetProductMainImage", productApi), JsonConvert.SerializeObject(dic));
             return PromptView("主图设置成功"); ;
         }
 

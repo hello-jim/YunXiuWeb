@@ -22,14 +22,28 @@ namespace BrnMall.Web.Controllers
     {
         string accountApi = ConfigurationManager.AppSettings["accountApi"];
         public ActionResult Index()
-        {
-            return View();
+        {   //订单
+            string OrderApi = ConfigurationManager.AppSettings["OrderApi"].ToString();
+            string productApi = ConfigurationManager.AppSettings["productApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            var data = CommomClass.HttpPost(string.Format("{0}/Order/GetOrdersByUser", OrderApi), JsonConvert.SerializeObject(name.UID));
+            var orderByUser = JsonConvert.DeserializeObject<List<Order>>(data);
+  
+            ////收藏商品
+            var favoriteProducData = CommomClass.HttpPost(string.Format("{0}/UserInfo/GetFavoriteProduct", accountApi), JsonConvert.SerializeObject(name.UID));
+            var getFavoriteProduct = JsonConvert.DeserializeObject<List<Product>>(favoriteProducData);
+            UserCenterModel model = new UserCenterModel();
+            model.Orders = orderByUser;
+            model.FavoriteProduct = getFavoriteProduct;            
+
+            return View(model);
         }
 
         public ActionResult UIndex()
         {
             return View();
         }
+       
         #region 用户信息
 
         /// <summary>
@@ -37,6 +51,7 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult UserInfo()
         {
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
             UserInfoModel model = new UserInfoModel();
 
             model.UserInfo = Users.GetUserById(WorkContext.Uid);
@@ -730,33 +745,15 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult OrderList()
         {
+            string OrderApi = ConfigurationManager.AppSettings["OrderApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            var data = CommomClass.HttpPost(string.Format("{0}/Order/GetOrdersByUser", OrderApi), JsonConvert.SerializeObject(name.UID));
+            var orderByUser = JsonConvert.DeserializeObject<List<Order>>(data);
 
-            int page = WebHelper.GetQueryInt("page");
-            string startAddTime = WebHelper.GetQueryString("startAddTime");
-            string endAddTime = WebHelper.GetQueryString("endAddTime");
-            int orderState = WebHelper.GetQueryInt("orderState");
-
-            PageModel pageModel = new PageModel(7, page, Orders.GetUserOrderCount(WorkContext.Uid, startAddTime, endAddTime, orderState));
-
-            DataTable orderList = Orders.GetUserOrderList(WorkContext.Uid, pageModel.PageSize, pageModel.PageNumber, startAddTime, endAddTime, orderState);
-            StringBuilder oidList = new StringBuilder();
-            foreach (DataRow row in orderList.Rows)
+            OrderListModel model = new OrderListModel() 
             {
-                oidList.AppendFormat("{0},", row["oid"]);
-            }
-            if (oidList.Length > 0)
-                oidList.Remove(oidList.Length - 1, 1);
-
-            OrderListModel model = new OrderListModel()
-            {
-                PageModel = pageModel,
-                OrderList = orderList,
-                OrderProductList = Orders.GetOrderProductList(oidList.ToString()),
-                StartAddTime = startAddTime,
-                EndAddTime = endAddTime,
-                OrderState = orderState
+                Orders = orderByUser,   
             };
-
             return View(model);
         }
 
@@ -851,17 +848,13 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult FavoriteProductList()
         {
-            int page = WebHelper.GetQueryInt("page");//当前页数
-            string storeName = WebHelper.GetQueryString("storeName").Trim();//店铺名称
-            string productName = WebHelper.GetQueryString("productName").Trim();//商品名称
-
-            PageModel pageModel = new PageModel(10, page, (storeName.Length > 0 || productName.Length > 0) ? FavoriteProducts.GetFavoriteProductCount(WorkContext.Uid, storeName, productName) : FavoriteProducts.GetFavoriteProductCount(WorkContext.Uid));
-
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/GetFavoriteProduct", accountApi), JsonConvert.SerializeObject(name.UID));
+            var getFavoriteProduct = JsonConvert.DeserializeObject<List<Product>>(data);
             FavoriteProductListModel model = new FavoriteProductListModel()
             {
-                ProductList = (storeName.Length > 0 || productName.Length > 0) ? FavoriteProducts.GetFavoriteProductList(pageModel.PageSize, pageModel.PageNumber, WorkContext.Uid, storeName, productName) : FavoriteProducts.GetFavoriteProductList(pageModel.PageSize, pageModel.PageNumber, WorkContext.Uid),
-                PageModel = pageModel,
-                ProductName = productName
+                FavoriteProducts = getFavoriteProduct,
             };
 
             return View(model);
@@ -921,14 +914,14 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult FavoriteStoreList()
         {
-            int page = WebHelper.GetQueryInt("page");//当前页数
-
-            PageModel pageModel = new PageModel(10, page, FavoriteStores.GetFavoriteStoreCount(WorkContext.Uid));
-
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/GetFavoriteStore", accountApi), JsonConvert.SerializeObject(name.UID));
+            var getFavoriteStore = JsonConvert.DeserializeObject<List<FavoriteStore>>(data);
             FavoriteStoreListModel model = new FavoriteStoreListModel()
             {
-                StoreList = FavoriteStores.GetFavoriteStoreList(pageModel.PageSize, pageModel.PageNumber, WorkContext.Uid),
-                PageModel = pageModel
+                FavoriteStore = getFavoriteStore,
+                
             };
 
             return View(model);
@@ -1008,10 +1001,15 @@ namespace BrnMall.Web.Controllers
         /// <returns></returns>
         public ActionResult ShipAddressList()
         {
-            ShipAddressListModel model = new ShipAddressListModel();
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
 
-            model.ShipAddressList = ShipAddresses.GetFullShipAddressList(WorkContext.Uid);
-            model.ShipAddressCount = model.ShipAddressList.Count;
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/GetReceiptAddress", accountApi), JsonConvert.SerializeObject(name.UID));
+            var getReceiptAddress = JsonConvert.DeserializeObject<List<ReceiptAddress>>(data);
+            ShipAddressListModel model = new ShipAddressListModel();
+            model.ReceiptAddressInfo = getReceiptAddress;
+            //model.ShipAddressList = ShipAddresses.GetFullShipAddressList(WorkContext.Uid);
+            //model.ShipAddressCount = model.ShipAddressList.Count;
 
             return View(model);
         }
@@ -1032,92 +1030,97 @@ namespace BrnMall.Web.Controllers
 
             return AjaxResult("success", sb.ToString(), true);
         }
+        public ActionResult Edditshipaddress(ShipAddressListModel model)
+        {
 
+            return View(model);
+        }
         /// <summary>
         /// 添加配送地址
         /// </summary>
-        public ActionResult AddShipAddress()
+        public ActionResult AddShipAddress(ShipAddressListModel model)
         {
-            int regionId = WebHelper.GetFormInt("regionId");
-            string alias = WebHelper.GetFormString("alias");
-            string consignee = WebHelper.GetFormString("consignee");
-            string mobile = WebHelper.GetFormString("mobile");
-            string phone = WebHelper.GetFormString("phone");
-            string email = WebHelper.GetFormString("email");
-            string zipcode = WebHelper.GetFormString("zipcode");
-            string address = WebHelper.GetFormString("address");
-            int isDefault = WebHelper.GetFormInt("isDefault");
-
-            string verifyResult = VerifyShipAddress(regionId, alias, consignee, mobile, phone, email, zipcode, address);
-
-            if (verifyResult.Length == 0)
+            string strprovince = Request.Form["SelectProvince"];
+            string strcity = Request.Form["SelectCity"];
+            string strarea = Request.Form["SelectDistrict"];
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+        
+            ReceiptAddress receiptAddresslist = new ReceiptAddress
             {
-                //检查配送地址数量是否达到系统所允许的最大值
-                int shipAddressCount = ShipAddresses.GetShipAddressCount(WorkContext.Uid);
-                if (shipAddressCount >= WorkContext.MallConfig.MaxShipAddress)
-                    return AjaxResult("full", "配送地址的数量已经达到系统所允许的最大值");
+                User = new User
+                {
+                    UID = name.UID,
+                },
+           
+            ConsigneeName =model.ConsigneeName,
+            ConsigneePhone=model.ConsigneePhone,
+            Addr =model.Addr,
+            ZipCode = model.ZipCode,
+            Region = model.Region,
+            IsDefault =model.IsDefault,
+            Province = strprovince,
+            City = strcity,
+            District = strarea,
+            Street = model.Street,
 
-                ShipAddressInfo shipAddressInfo = new ShipAddressInfo();
-                shipAddressInfo.Uid = WorkContext.Uid;
-                shipAddressInfo.RegionId = regionId;
-                shipAddressInfo.IsDefault = isDefault == 0 ? 0 : 1;
-                shipAddressInfo.Alias = WebHelper.HtmlEncode(alias);
-                shipAddressInfo.Consignee = WebHelper.HtmlEncode(consignee);
-                shipAddressInfo.Mobile = mobile;
-                shipAddressInfo.Phone = phone;
-                shipAddressInfo.Email = email;
-                shipAddressInfo.ZipCode = zipcode;
-                shipAddressInfo.Address = WebHelper.HtmlEncode(address);
-                int saId = ShipAddresses.CreateShipAddress(shipAddressInfo);
-                return AjaxResult("success", saId.ToString());
-            }
-            else
-            {
-                return AjaxResult("error", verifyResult, true);
-            }
+            };
+            
+            
+             var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/AddReceiptAddress", accountApi), JsonConvert.SerializeObject(receiptAddresslist));
+             if (data == "true")//添加成功
+                 return RedirectToAction("ShipAddressList");
+             else//添加失败
+                 return View("ShipAddressList");
+         
+           
         }
 
         /// <summary>
         /// 编辑配送地址
         /// </summary>
-        public ActionResult EditShipAddress()
+        public ActionResult EditShipAddress(ShipAddressListModel model)
         {
-            int saId = WebHelper.GetQueryInt("saId");
-            int regionId = WebHelper.GetFormInt("regionId");
-            string alias = WebHelper.GetFormString("alias");
-            string consignee = WebHelper.GetFormString("consignee");
-            string mobile = WebHelper.GetFormString("mobile");
-            string phone = WebHelper.GetFormString("phone");
-            string email = WebHelper.GetFormString("email");
-            string zipcode = WebHelper.GetFormString("zipcode");
-            string address = WebHelper.GetFormString("address");
-            int isDefault = WebHelper.GetFormInt("isDefault");
-
-            string verifyResult = VerifyShipAddress(regionId, alias, consignee, mobile, phone, email, zipcode, address);
-            if (verifyResult.Length == 0)
+           
+            string strprovince = Request.Form["SelectProvince"];
+            string strcity = Request.Form["SelectCity"];
+            string strarea = Request.Form["SelectDistrict"];
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+          
+            ReceiptAddress editreceiptAddress = new ReceiptAddress
             {
-                ShipAddressInfo shipAddressInfo = ShipAddresses.GetShipAddressBySAId(saId, WorkContext.Uid);
-                //检查地址
-                if (shipAddressInfo == null)
-                    return AjaxResult("noexist", "配送地址不存在");
+                User = new User
+                {
+                    UID = name.UID,
+                },
+                ID=model.ID,
+                ConsigneeName = model.ConsigneeName,
+                ConsigneePhone = model.ConsigneePhone,
+                Addr = model.Addr,
+                ZipCode = model.ZipCode,
+                Region = model.Region,
+                IsDefault = model.IsDefault,
+                Province = strprovince,
+                City = strcity,
+                District = strarea,
+                Street = model.Street,
 
-                shipAddressInfo.Uid = WorkContext.Uid;
-                shipAddressInfo.RegionId = regionId;
-                shipAddressInfo.IsDefault = isDefault == 0 ? 0 : 1;
-                shipAddressInfo.Alias = WebHelper.HtmlEncode(alias);
-                shipAddressInfo.Consignee = WebHelper.HtmlEncode(consignee);
-                shipAddressInfo.Mobile = mobile;
-                shipAddressInfo.Phone = phone;
-                shipAddressInfo.Email = email;
-                shipAddressInfo.ZipCode = zipcode;
-                shipAddressInfo.Address = WebHelper.HtmlEncode(address);
-                ShipAddresses.UpdateShipAddress(shipAddressInfo);
-                return AjaxResult("success", "编辑成功");
-            }
-            else
-            {
-                return AjaxResult("error", verifyResult, true);
-            }
+            };
+
+
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/UpdateReceiptAddress", accountApi), JsonConvert.SerializeObject(editreceiptAddress));
+            if (data == "true")
+            //修改成功
+                return RedirectToAction("ShipAddressList");
+            
+            else//修改失败
+            
+                //Response.Write("<script>alert('修改失败!');</script>");
+                //return RedirectToAction("ShipAddressList");
+                return AjaxResult("error", "修改失败");
+            
+            
         }
 
         /// <summary>
@@ -1125,12 +1128,23 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult DelShipAddress()
         {
-            int saId = WebHelper.GetQueryInt("saId");
-            bool result = ShipAddresses.DeleteShipAddress(saId, WorkContext.Uid);
-            if (result)//删除成功
-                return AjaxResult("success", saId.ToString());
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            int id = WebHelper.GetQueryInt("saId");
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/DeleteReceiptAddress", accountApi), JsonConvert.SerializeObject(id));
+            //bool result = ShipAddresses.DeleteShipAddress(saId, WorkContext.Uid);
+            //if (result)//删除成功
+            //    return AjaxResult("success", saId.ToString());
+            //else//删除失败
+            if (data=="true")
+            {//删除成功
+                return AjaxResult("success", "删除成功");
+            }
+                
             else//删除失败
+            {
                 return AjaxResult("error", "删除失败");
+            }
         }
 
         /// <summary>
@@ -1138,10 +1152,18 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult SetDefaultShipAddress()
         {
-            int saId = WebHelper.GetQueryInt("saId");
-            bool result = ShipAddresses.UpdateShipAddressIsDefault(saId, WorkContext.Uid, 1);
-            if (result)//设置成功
-                return AjaxResult("success", saId.ToString());
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            int id = WebHelper.GetQueryInt("saId");
+            List<int> list = new List<int>();
+            list.Add(name.UID);
+            list.Add(id);
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/SetDefaultAddr", accountApi), JsonConvert.SerializeObject(list));
+            //int saId = WebHelper.GetQueryInt("saId");
+            //bool result = ShipAddresses.UpdateShipAddressIsDefault(saId, WorkContext.Uid, 1);
+
+            if (data=="true")//设置成功
+                return AjaxResult("success", "设置成功");
             else//设置失败
                 return AjaxResult("error", "设置失败");
         }
@@ -1291,15 +1313,15 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult ProductConsultList()
         {
-            int page = WebHelper.GetQueryInt("page");
-
-            PageModel pageModel = new PageModel(10, page, BrnMall.Services.ProductConsults.GetUserProductConsultCount(WorkContext.Uid));
-            UserProductConsultListModel model = new UserProductConsultListModel()
-            {
-                PageModel = pageModel,
-                ProductConsultList = BrnMall.Services.ProductConsults.GetUserProductConsultList(WorkContext.Uid, pageModel.PageSize, pageModel.PageNumber)
-            };
-
+            //int page = WebHelper.GetQueryInt("page");
+            string productApi = ConfigurationManager.AppSettings["productApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            var data = CommomClass.HttpPost(string.Format("{0}/Product/GetConsultationByUser", productApi), JsonConvert.SerializeObject(name.UID));
+            var getConsultationByUser = JsonConvert.DeserializeObject<ConsultationResult>(data);
+            var Consultation = getConsultationByUser.ConsultationList;
+            UserProductConsultListModel model = new UserProductConsultListModel();
+            model.Consultations = Consultation;
+           
             return View(model);
         }
 
@@ -1455,13 +1477,13 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult ProductReviewList()
         {
-            int page = WebHelper.GetQueryInt("page", 1);
-
-            PageModel pageModel = new PageModel(10, page, ProductReviews.GetUserProductReviewCount(WorkContext.Uid));
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/GetProductReviewByUser", accountApi), JsonConvert.SerializeObject(name.UID));
+            var productReview = JsonConvert.DeserializeObject<List<ProductReview>>(data);
             UserProductReviewListModel model = new UserProductReviewListModel()
             {
-                PageModel = pageModel,
-                ProductReviewList = ProductReviews.GetUserProductReviewList(WorkContext.Uid, pageModel.PageSize, pageModel.PageNumber)
+                ProductReviewLists = productReview,
             };
 
             return View(model);
@@ -1684,6 +1706,44 @@ namespace BrnMall.Web.Controllers
 
         #endregion
 
+        #region 购物车
+        /// <summary>
+        /// 我的购物车
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ShoppingCart()
+        {
+            //int page = WebHelper.GetQueryInt("page");
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/GetShoppingCartByUserID", accountApi), JsonConvert.SerializeObject(name.UID));
+            var getShoppingCartinfo = JsonConvert.DeserializeObject<List<ShoppingCart>>(data);
+            
+
+            UserShoppingCartModel model = new UserShoppingCartModel();
+            model.ShoppingCarts = getShoppingCartinfo;
+            
+          
+            return View(model);
+        }
+        /// <summary>
+        /// 删除购物车
+        /// </summary>
+        /// <param name="PID"></param>
+        /// <returns></returns>
+        public ActionResult DeletShoppingCart(int PID)
+        {
+            //int page = WebHelper.GetQueryInt("page");
+            string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            List<int> listint = new List<int>();
+            listint.Add(name.UID);
+            listint.Add(PID);
+
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/DeleteShoppingCartProduct", accountApi), JsonConvert.SerializeObject(listint));
+            return RedirectToAction("ShoppingCart");
+        }
+        #endregion
         protected sealed override void OnAuthorization(AuthorizationContext filterContext)
         {
             base.OnAuthorization(filterContext);
@@ -1780,6 +1840,8 @@ namespace BrnMall.Web.Controllers
         /// <returns></returns>
         public string AddProductToFavorite()
         {
+
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
             var result = "0";//0为失败
             var pID = Convert.ToInt32(Request.Form["pID"]);//商品ID
             var uID = 0;//用户ID

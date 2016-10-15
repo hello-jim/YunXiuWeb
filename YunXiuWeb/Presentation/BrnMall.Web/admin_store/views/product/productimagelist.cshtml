@@ -150,7 +150,7 @@
                             <input type="text" url="@Url.Action("changeproductimagedisplayorder", new { pImgId = info.PImgID })" value="@info.DisplayOrder" class="sortinput unselectedsortinput" />
                         </td>
                         <td>
-                        <a href="#" url="@Url.Action("delproductimage", new { pImgId = info.PImgID })" class = "ajaxdeleteOperate" }>[删除]</a>
+                        <a href="#" url="@Url.Action("delproductimage", new { pImgId = info.PImgID ,imgName = info.ImgName})" class = "ajaxdeleteOperate" }>[删除]</a>
                             @Html.ActionLink("[设置为主图]", "setproductmianImage", new { pid = @Model.Pid, pimgid = info.PImgID, imgName = info.ImgName })
                         </td>
                     </tr>

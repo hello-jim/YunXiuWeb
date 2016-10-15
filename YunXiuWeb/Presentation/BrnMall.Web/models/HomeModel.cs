@@ -32,7 +32,7 @@ namespace BrnMall.Web.Models
         public List<Brand> GetBrandByCategoryOne { get; set; }
         public List<Category> GetCategorys { get; set; }
         public List<Category> GetCategoryByID { get; set; }
-        public List<Banner> GetBanner { get; set; }
+       
 
         
     }
