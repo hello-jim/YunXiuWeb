@@ -32,6 +32,9 @@
         a:hover {
             text-decoration: none;
         }
+        .sub-cata {
+            display: none;
+        }
     </style>
 <div class="bigBox" id="member">
     <div class="center-x">
@@ -66,7 +69,7 @@
                         <th>商品图片</th>
                         <th valign="bottom">咨询商品</th>
                         <th>咨询</th>
-                        <th>操作</th>
+                        @*<th>操作</th>*@
                     </tr>
                 </thead>
                 <tbody>
@@ -81,8 +84,8 @@
                             <div>@info.CContent</div>
                         </td>
                         <td>
-                            @Html.ActionLink("修改", "editproductreview", new { PID = @info.ID }, new { @class = "editOperate" })
-                            @Html.ActionLink("删除", "deletproductreview", new { PID = @info.ID }, new { @class = "editOperate" })
+                            @*@Html.ActionLink("修改", "editproductreview", new { PID = @info.ID }, new { @class = "editOperate" })
+                            @Html.ActionLink("删除", "deletproductreview", new { PID = @info.ID }, new { @class = "editOperate" })*@
                         </td>
                     </tr>
                     }

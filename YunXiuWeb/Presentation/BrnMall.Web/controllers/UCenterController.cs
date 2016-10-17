@@ -1038,91 +1038,101 @@ namespace BrnMall.Web.Controllers
         /// <summary>
         /// 添加配送地址
         /// </summary>
-        public ActionResult AddShipAddress(ShipAddressListModel model)
+        public ActionResult AddAddress()
         {
-            string strprovince = Request.Form["SelectProvince"];
-            string strcity = Request.Form["SelectCity"];
-            string strarea = Request.Form["SelectDistrict"];
             string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
             var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
-        
+            string ConsigneeName = WebHelper.GetFormString("ConsigneeName");
+            string ConsigneePhone = WebHelper.GetFormString("ConsigneePhone");
+            string Addr = WebHelper.GetFormString("Addr");
+            string ZipCode = WebHelper.GetFormString("ZipCode");
+            string Region = WebHelper.GetFormString("Region");
+            string strprovince = WebHelper.GetFormString("SelectProvince");
+            string strcity = WebHelper.GetFormString("SelectCity");
+            string strarea = WebHelper.GetFormString("SelectDistrict");
+            string Street = WebHelper.GetFormString("Street");
             ReceiptAddress receiptAddresslist = new ReceiptAddress
             {
                 User = new User
                 {
                     UID = name.UID,
                 },
-           
-            ConsigneeName =model.ConsigneeName,
-            ConsigneePhone=model.ConsigneePhone,
-            Addr =model.Addr,
-            ZipCode = model.ZipCode,
-            Region = model.Region,
-            IsDefault =model.IsDefault,
-            Province = strprovince,
-            City = strcity,
-            District = strarea,
-            Street = model.Street,
+
+                ConsigneeName = ConsigneeName,
+                ConsigneePhone = ConsigneePhone,
+                Addr = Addr,
+                ZipCode = ZipCode,
+                Region = Region,
+                IsDefault = false,
+                Province = strprovince,
+                City = strcity,
+                District = strarea,
+                Street = Street,
 
             };
-            
-            
-             var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/AddReceiptAddress", accountApi), JsonConvert.SerializeObject(receiptAddresslist));
-             if (data == "true")//添加成功
-                 return RedirectToAction("ShipAddressList");
-             else//添加失败
-                 return View("ShipAddressList");
-         
-           
+
+
+            var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/AddReceiptAddress", accountApi), JsonConvert.SerializeObject(receiptAddresslist));
+            if (data == "true")
+            {
+                return AjaxResult("success", "添加成功");
+            }
+            else
+            {
+                return AjaxResult("error", "添加失败");
+            }
         }
 
         /// <summary>
         /// 编辑配送地址
         /// </summary>
-        public ActionResult EditShipAddress(ShipAddressListModel model)
+        public ActionResult EditAddress()
         {
-           
-            string strprovince = Request.Form["SelectProvince"];
-            string strcity = Request.Form["SelectCity"];
-            string strarea = Request.Form["SelectDistrict"];
             string accountApi = ConfigurationManager.AppSettings["accountApi"].ToString();
             var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
-          
+            int ID = WebHelper.GetFormInt("ID");
+            string ConsigneeName = WebHelper.GetFormString("ConsigneeName");
+            string ConsigneePhone = WebHelper.GetFormString("ConsigneePhone");
+            string Addr = WebHelper.GetFormString("Addr");
+            string ZipCode = WebHelper.GetFormString("ZipCode");
+            string Region = WebHelper.GetFormString("Region");
+            string strprovince = WebHelper.GetFormString("SelectProvince");
+            string strcity = WebHelper.GetFormString("SelectCity");
+            string strarea = WebHelper.GetFormString("SelectDistrict");
+            string Street = WebHelper.GetFormString("Street");
+
             ReceiptAddress editreceiptAddress = new ReceiptAddress
             {
                 User = new User
                 {
                     UID = name.UID,
                 },
-                ID=model.ID,
-                ConsigneeName = model.ConsigneeName,
-                ConsigneePhone = model.ConsigneePhone,
-                Addr = model.Addr,
-                ZipCode = model.ZipCode,
-                Region = model.Region,
-                IsDefault = model.IsDefault,
+                ID = ID,
+                ConsigneeName = ConsigneeName,
+                ConsigneePhone = ConsigneePhone,
+                Addr = Addr,
+                ZipCode = ZipCode,
+                Region = Region,
+                IsDefault = false,
                 Province = strprovince,
                 City = strcity,
                 District = strarea,
-                Street = model.Street,
+                Street = Street,
 
             };
 
 
             var data = CommomClass.HttpPost(string.Format("{0}/UserInfo/UpdateReceiptAddress", accountApi), JsonConvert.SerializeObject(editreceiptAddress));
             if (data == "true")
-            //修改成功
-                return RedirectToAction("ShipAddressList");
-            
+                //修改成功
+                return AjaxResult("success", "添加成功");
+
             else//修改失败
-            
+
                 //Response.Write("<script>alert('修改失败!');</script>");
                 //return RedirectToAction("ShipAddressList");
                 return AjaxResult("error", "修改失败");
-            
-            
         }
-
         /// <summary>
         /// 删除配送地址
         /// </summary>

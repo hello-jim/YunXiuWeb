@@ -32,6 +32,9 @@
         a:hover {
             text-decoration: none;
         }
+    .sub-cata {
+        display: none;
+    }
     </style>
 <div class="bigBox" id="member">
     <div class="center-x">
@@ -68,7 +71,7 @@
                         <th width="150px" align="left">评价时间</th>
                         <th width="150px" align="left">星星数</th>
                         <th width="150px" align="left">评价内容</th>
-                        <th width="150px" align="left">操作</th>
+                        @*<th width="150px" align="left">操作</th>*@
                     </tr>
                 </thead>
                 <tbody>
@@ -87,8 +90,8 @@
                             <td>@info.Star</td>
                             <td>@info.RContent</td>
                             <td>
-                                @Html.ActionLink("修改", "editproductreview", new { PID = @info.RID }, new { @class = "editOperate" })
-                                @Html.ActionLink("删除", "deletproductreview", new { PID = @info.RID }, new { @class = "editOperate" })
+                                @*@Html.ActionLink("修改", "editproductreview", new { PID = @info.RID }, new { @class = "editOperate" })
+                                @Html.ActionLink("删除", "deletproductreview", new { PID = @info.RID }, new { @class = "editOperate" })*@
                             </td>
                         </tr>
                     }
