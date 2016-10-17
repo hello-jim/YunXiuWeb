@@ -30,11 +30,8 @@ namespace BrnMall.Web.Controllers
            
             //判断请求是否来自移动设备，如果是则重定向到移动主题
             if (WebHelper.GetQueryInt("m") != 1 && WebHelper.IsMobile())
-<<<<<<< .mine
                 return RedirectToAction("index", "home", new RouteValueDictionary { { "area", "mob" } });
-=======
-            return RedirectToAction("index", "home", new RouteValueDictionary { { "area", "mob" } });
->>>>>>> .theirs
+
              //首页的数据需要在其视图文件中直接调用，所以此处不再需要视图模型
             HomeModel model = new HomeModel();
             var count = CommomClass.HttpPost(string.Format("{0}/Product/GetHotProduct", productApi), "6");
@@ -61,8 +58,8 @@ namespace BrnMall.Web.Controllers
             var categoryProductOn = JsonConvert.DeserializeObject<List<Product>>(getProductByCategoryDataOne);
             model.GetProductByCategoryOne = categoryProductOn;
 
-            var cateCoryData = CommomClass.HttpPost(string.Format("{0}/Category/GetCategoryByID", productApi), "2");
-            var Category = JsonConvert.DeserializeObject<Category>(cateCoryData);
+            //var cateCoryData = CommomClass.HttpPost(string.Format("{0}/Category/GetCategoryByID", productApi), "2");
+            //var Category = JsonConvert.DeserializeObject<Category>(cateCoryData);
             //品牌
             var brandData = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrandByID", productApi), "36");
             var brand = JsonConvert.DeserializeObject<Brand>(brandData);
