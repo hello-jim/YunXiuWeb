@@ -11,7 +11,12 @@ a{
 	text-decoration: none;
 	color: #000;
 }
-a:link,a:visited,a:hover,a:active{text-decoration:none;}
+a:hover{
+	text-decoration: none;
+}
+a:link{
+	text-decoration: none;
+}
 .clearfix { 
 	*zoom: 1;
 } 
@@ -146,17 +151,15 @@ li.talk:hover .sub-menu {
     width: 96%;
 }
 .footbot ul li {
-    float: left;
-    /*width: 180px;*/
+	text-align: center;
     height: 80px;
     line-height: 90px;
-    text-align: center;
 }
 .footsec{
-	margin-top:10px;
+	margin-top:30px;
 }
 ul.f-tip{
-	width:16.66%; 
+	width:20%; 
 	float:left;
 	padding-left: 60px;
 }
@@ -180,7 +183,7 @@ ul.f-tip li.f-title{
 	line-height:35px;
 }
 .footer{
-	/*margin-top:40px;*/
+	margin-top:10px;
 	height:80px;
 	clear:both;
 	text-align:center;

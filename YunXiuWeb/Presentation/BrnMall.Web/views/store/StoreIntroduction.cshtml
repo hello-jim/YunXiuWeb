@@ -20,39 +20,20 @@
 </head>
 <body>
 
+    <!-- 顶部导航栏 -->
     <div id="topbar">
         <div class="container">
             <div class="col-xs-6 row">
-                <span class="fl">欢迎您,</span><!--<a>[登录]</a>&nbsp;<a>[注册]</a>-->
+                <span class="fl">欢迎您,</span><a>[登录]</a>&nbsp;<a>[注册]</a>
                 <ul class="fl topl">
-                    <li class="talk">
-                        消息<i style="background:url(images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
-                        <dl class="sub-menu">
-                            <dd><a>待处理订单</a></dd>
-                            <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
-                            <dd><a>通知</a></dd>
-                        </dl>
-                    </li>
-                    <li class="menu">
-                        我的云绣
-                        <div class="sub-menu bg-white" style="z-index:9999; width:200px;border:1px solid #ddd;border-top:0;">
-                            <dl class="fl">
-                                <dt><a>我是买家</a></dt>
-                                <dd><a>发布采购</a></dd>
-                                <dd><a>发布招标</a></dd>
-                                <dd><a>我的优惠券</a></dd>
-                                <dd><a>我的采购单</a></dd>
-                                <dd><a>我的留言</a></dd>
-                            </dl>
-                            <dl class="fl">
-                                <dt><a>我是卖家</a></dt>
-                                <dd><a>管理旺铺</a></dd>
-                                <dd><a>已卖出的商品</a></dd>
-                                <dd><a>管理供应商品</a></dd>
-                                <dd><a>我的商机</a></dd>
-                            </dl>
-                        </div>
-                    </li>
+                    <!-- <li class="talk">
+                       消息<i style="background:url(images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
+                       <dl class="sub-menu">
+                          <dd><a>待处理订单</a></dd>
+                          <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
+                          <dd><a>通知</a></dd>
+                       </dl>
+                    </li> -->
                 </ul>
 
             </div>
@@ -74,78 +55,71 @@
                         </dl>
                     </li>
                     <li class="menu">
-                        云绣服务
+                        我的云绣
                         <dl class="sub-menu">
-                            <dd><a>标王服务</a></dd>
-                            <dd><a>黄金展位</a></dd>
-                            <dd><a>会员服务</a></dd>
-                            <dd><a>商贸通</a></dd>
+                            <dd><a>我的购物车</a></dd>
+                            <dd><a>我的历史订单</a></dd>
                         </dl>
                     </li>
                     <li class="menu">
-                        诚信商家
+                        卖家中心
                         <dl class="sub-menu">
+                            <dd><a>我要开店</a></dd>
                             <dd><a>商家权益</a></dd>
                             <dd><a>招商标准</a></dd>
-                            <dd><a>收费标准</a></dd>
-                            <dd><a>入驻开店</a></dd>
+                            <dd><a>标王服务</a></dd>
+                            <dd><a>买卖通</a></dd>
                         </dl>
                     </li>
                     <li class="menu">
                         客服中心
-                        <dl class="sub-menu">
-                            <dd><a>买家帮助</a></dd>
-                            <dd><a>卖家帮助</a></dd>
-                            <dd><a>在线咨询</a></dd>
-                            <dd><a>常见问答</a></dd>
-                            <dd><a>二维码</a></dd>
-                        </dl>
+                        <div class="sub-menu bg-white" style="z-index:9999; width:150px;border:1px solid #ddd;border-top:0;">
+                            <dl class="fl">
+                                <dt><a>买家</a></dt>
+                                <dd><a>买家帮助</a></dd>
+                                <dd><a>在线咨询</a></dd>
+                                <dd><a>常见问题</a></dd>
+                            </dl>
+                            <dl class="fl" style="border-left:1px dotted #ddd;">
+                                <dt><a>卖家</a></dt>
+                                <dd><a>卖家帮助</a></dd>
+                                <dd><a>在线咨询</a></dd>
+                                <dd><a>常见问题</a></dd>
+                            </dl>
+                        </div>
                     </li>
-                    <li class="menu">
-                        网站导航
-                        <dl class="sub-menu">
-                            <dd><a>云绣ERP</a></dd>
-                            <dd><a>娴婷一账通</a></dd>
-                            <dd><a>云绣网</a></dd>
-                        </dl>
-                    </li>
+                    <!-- <li  class="menu">
+                       网站导航
+                       <dl class="sub-menu">
+                          <dd><a>云绣ERP</a></dd>
+                          <dd><a>娴婷一账通</a></dd>
+                          <dd><a>云绣网</a></dd>
+                       </dl>
+                    </li> -->
 
                 </ul>
             </div>
         </div>
     </div>
 
-    <header class="container">
-        <div class="row">
-            <div class="logopart col-md-4" style="margin-top: -20px;">
-                <!--<a href="###" class="logo"></a>-->
-                <h2><img src="images/logo.png" alt="云绣网" /><span style="margin-left:15px; margin-top: 20px;"><img src="images/slogan.png" alt="刺绣行业一站式采购" /></span></h2>
-            </div>
-
-            <div class="search-part col-md-6">
-                <ul class="tab-search">
-                    <li class="selected"><a>全部</a></li>
-                    <li><a>线辅材</a></li>
-                    <li><a>供应商</a></li>
-                </ul>
-                <div class="clear">
-                    <input class="search-text" type="text" autocomplete="off" />
-                    <button type="button" class="searchbtn">搜索</button>
-                </div>
-                <div class="hotwords">
-                    <a href="###" target="_blank" class="hot">绣花机</a>
-                    <a href="###" target="_blank">绣针</a>
-                    <a href="###" target="_blank">机夹</a>
-                    <a href="###" target="_blank">机架</a>
-                    <a href="###" target="_blank">零配件</a>
-                </div>
-            </div>
-
-            <div class="cart-part col-md-2">
-                <h2><a href="###" target="_blank">我的购物车<b>3</b></a></h2>
-            </div>
+    <!-- 页面头部 -->
+    <div class="header clearfix">
+        <div class="container">
+            <ul class="header-item header-l">
+                <li>
+                    <a href=""><img src="/images/logo.png" alt="云绣网 刺绣行业一站式采购"></a>
+                </li>
+                <li><p>云绣服务</p></li>
+            </ul>
+            <p class="header-item header-r">
+                <a href="">首页</a>
+                <b>|</b>
+                <a href="">云绣服务</a>
+                <b>|</b>
+                <a href="">客服中心</a>
+            </p>
         </div>
-    </header>
+    </div>
 
     <div class="store-header">
         <div class="store-container">
