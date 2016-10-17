@@ -40,8 +40,17 @@ function openAddShipAddressBlock() {
 }
 
 //打开编辑配送地址层
+//function openEditShipAddressBlock(saId) {
+//    $.get("/ucenter/shipaddressinfo?saId=" + saId, openEditShipAddressBlockResponse)
+//}
 function openEditShipAddressBlock(saId) {
-    $.get("/ucenter/shipaddressinfo?saId=" + saId, openEditShipAddressBlockResponse)
+    
+    //$("#editShipAddressBut").hide();
+    //$("#shipedditressBlock").show();
+    window.location.href = "edditshipaddress?param='+saId";
+   
+    //var edditform = document.forms["edditform"];
+    //edditform.elements["ID"].value = saId;
 }
 
 //处理打开编辑配送地址层的反馈信息
@@ -102,25 +111,107 @@ function closeShipAddressBlock() {
 }
 
 //验证配送地址
-function verifyShipAddress(alias, consignee, mobile, phone, regionId, address) {
-    if (alias == "") {
-        alert("请填写昵称");
-        return false;
-    }
-    if (consignee == "") {
+$(function(){
+    $("form :input.required").each(function(){
+        var $required = $("<strong class='high'> *</strong>"); //创建元素
+        $(this).parent().append($required); //然后将它追加到文档中
+    });
+    //文本框失去焦点后
+    $('form :input').blur(function(){
+        var $parent = $(this).parent();
+        $parent.find(".formtips").remove();
+        //判断收货人
+        if( $(this).is('#ConsigneeName') ){
+            if( this.value=="" ){
+                var errorMsg = '收货人不能为空.';
+                $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+            }else{
+                var okMsg = '输入正确.';
+                $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+            }
+        }
+        //判断区域是否为空
+        if( $(this).is('#Region') ){
+            if( this.value==""){
+                var errorMsg = '区域不能为空.';
+                $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+            }else{
+                var okMsg = '输入正确.';
+                $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+            }
+        }
+        if ($(this).is('#Street')) {
+            if (this.value == "") {
+                var errorMsg = '街道不能为空.';
+                $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
+            } else {
+                var okMsg = '输入正确.';
+                $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
+            }
+        }
+        if ($(this).is('#Addr')) {
+            if (this.value == "") {
+                var errorMsg = '地址不能为空.';
+                $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
+            } else {
+                var okMsg = '输入正确.';
+                $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
+            }
+        }
+        if ($(this).is('#ConsigneePhone')) {
+            if (this.value == "") {
+                var errorMsg = '电话码不能为空.';
+                $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
+            } else {
+                var okMsg = '输入正确.';
+                $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
+            }
+        }
+        if ($(this).is('#ZipCode')) {
+            if (this.value == "") {
+                var errorMsg = '邮政编码不能为空.';
+                $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
+            } else {
+                var okMsg = '输入正确.';
+                $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
+            }
+        }
+       
+    }).keyup(function(){
+        $(this).triggerHandler("blur");
+    }).focus(function(){
+        $(this).triggerHandler("blur");
+    });//end blur
+})
+function verifyShipAddress() {
+    var ConsigneeName = $("#ConsigneeName").attr("value")
+    var Region = $("#Region").attr("value")
+    var Street = $("#Street").attr("value")
+    var Addr = $("#Addr").attr("value")
+    var ZipCode = $("#ZipCode").attr("value")
+    var ConsigneePhone = $("#ConsigneePhone").attr("value")
+    if (ConsigneeName == "") {
         alert("请填写收货人");
         return false;
     }
-    if (mobile == "" && phone == "") {
-        alert("手机号和固定电话必须填写一项");
+    if (Region == "") {
+        alert("请填写区域");
         return false;
     }
-    if (parseInt(regionId) < 1) {
-        alert("请选择区域");
+    if (Street == "") {
+        alert("街道不能为空");
         return false;
     }
-    if (address == "") {
-        alert("请填写详细地址");
+    if (Addr =="") {
+        alert("详细地址不能为空");
+        return false;
+    }
+    if (ZipCode == "") {
+        alert("邮政编码不能为空");
+        return false;
+    }
+    if (ConsigneePhone == "") {
+        alert("电话号码不能为空");
         return false;
     }
     return true;
@@ -128,7 +219,7 @@ function verifyShipAddress(alias, consignee, mobile, phone, regionId, address) {
 
 //添加配送地址
 function addShipAddress() {
-    var shipAddressForm = document.forms["shipAddressForm"];
+    var shipAddressForm = document.forms["addform"];
 
     var alias = shipAddressForm.elements["alias"].value;
     var consignee = shipAddressForm.elements["consignee"].value;
@@ -165,35 +256,13 @@ function addShipAddressResponse(data) {
             msg += result.content[i].msg + "\n";
         }
         alert(msg)
+        window.location.reload();
     }
 }
 
 //编辑配送地址
 function editShipAddress() {
-    var shipAddressForm = document.forms["shipAddressForm"];
-
-    var saId = shipAddressForm.elements["saId"].value;
-    var alias = shipAddressForm.elements["alias"].value;
-    var consignee = shipAddressForm.elements["consignee"].value;
-    var mobile = shipAddressForm.elements["mobile"].value;
-    var phone = shipAddressForm.elements["phone"].value;
-    var email = shipAddressForm.elements["email"].value;
-    var zipcode = shipAddressForm.elements["zipcode"].value;
-    var regionId = $(shipAddressForm.elements["regionId"]).find("option:selected").val();
-    var address = shipAddressForm.elements["address"].value;
-    var isDefault = shipAddressForm.elements["isDefault"].checked == true ? 1 : 0;
-
-    if (saId < 1) {
-        alert("请选择配送地址");
-        return;
-    }
-    if (!verifyShipAddress(alias, consignee, mobile, phone, regionId, address)) {
-        return;
-    }
-
-    $.post("/ucenter/editshipaddress?saId=" + saId,
-            { 'alias': alias, 'consignee': consignee, 'mobile': mobile, 'phone': phone, 'email': email, 'zipcode': zipcode, 'regionId': regionId, 'address': address, 'isDefault': isDefault },
-            editShipAddressResponse)
+    $.post("/ucenter/editshipaddress" ,editShipAddressResponse)
 }
 
 //处理编辑配送地址的反馈信息
@@ -212,6 +281,7 @@ function editShipAddressResponse(data) {
             msg += result.content[i].msg + "\n";
         }
         alert(msg)
+        window.location.reload();
     }
 }
 
@@ -226,6 +296,7 @@ function delShipAddressResponse(data) {
     if (result.state == "success") {
         $("#shipAddress" + result.content).remove();
         alert("删除成功");
+        window.location.reload();
     }
     else {
         alert(result.content);
@@ -329,3 +400,4 @@ function editUserResponse(data) {
         alert(msg)
     }
 }
+

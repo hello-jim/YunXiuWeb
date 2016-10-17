@@ -133,32 +133,20 @@
                     </div>
                     @Html.ValidationMessageFor(x => x.StoreId)
                 </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    店铺分类：
-                </td>
-                <td>
-                    <select id="StoreCid" name="StoreCid" disabled="disabled">
-                        <option value="-1" selected="selected">选择店铺分类</option>
-                    </select>
-                    <input type="hidden" value="@Model.StoreCid" id="hiddenStoreCid" />
-                    @Html.ValidationMessageFor(x => x.StoreCid)
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    配送模板：
-                </td>
-                <td>
-                    <select id="StoreSTid" name="StoreSTid" disabled="disabled">
-                        <option value="-1" selected="selected">选择配送模板</option>
-                    </select>
-                    <input type="hidden" value="@Model.StoreSTid" id="hiddenStoreSTid" />
-                    @Html.ValidationMessageFor(x => x.StoreSTid)
-                </td>
-            </tr>
-            <tr>
+            @*</tr>
+                <tr>
+                    <td width="76px;" align="right">
+                        店铺分类：
+                    </td>
+                    <td>@Html.DropDownListFor(x => x.StoreCid, ViewData["storeClassList"] as List<SelectListItem>) @Html.ValidationMessageFor(x => x.StoreCid)</td>
+                </tr>
+                <tr>
+                    <td width="76px;" align="right">
+                        配送模板：
+                    </td>
+                    <td>@Html.DropDownListFor(x => x.StoreSTid, ViewData["storeShipTemplateList"] as List<SelectListItem>) @Html.ValidationMessageFor(x => x.StoreSTid)</td>
+                </tr>
+            <tr>*@
                 <td align="right">
                     成本价：
                 </td>

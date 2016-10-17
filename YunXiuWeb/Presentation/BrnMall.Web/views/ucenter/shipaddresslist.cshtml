@@ -9,138 +9,151 @@
     <title>收货地址-@{@WorkContext.MallConfig.SiteTitle}</title>
     @Html.Raw(WorkContext.MallConfig.SEOKeyword)
     @Html.Raw(WorkContext.MallConfig.SEODescription)
-    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    @*<link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />*@
     <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+
+    <link href="@{@WorkContext.CSSCDN}/css/header.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/public.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/zzsc.css" rel="stylesheet" type="text/css" />
     <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
     <script src="@{@WorkContext.ScriptCDN}/scripts/region.js" type="text/javascript"></script>
     <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
     <script src="@{@WorkContext.ScriptCDN}/scripts/ucenter.user.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/js/Ctry/select.js" type="text/javascript"></script>
+    <link href="@{@WorkContext.ScriptCDN}/css/Css_Purchase/buttom.css" rel="stylesheet" />
+    <link href="@{@WorkContext.ScriptCDN}/css/Css_Purchase/percenter.css" rel="stylesheet" />
     <script type="text/javascript">
         uid = @WorkContext.Uid;
         isGuestSC = @WorkContext.MallConfig.IsGuestSC;
         scSubmitType = @WorkContext.MallConfig.SCSubmitType;
     </script>
+  
 </head>
 
 <body>
 @Html.Partial("_header")
-
-<div class="bigBox" id="member">
-<div class="box">
-@Html.Partial("_menu")
-<div id="memberR">
-<div class="SHtitle"><a href="javascript:openAddShipAddressBlock()" class="greenBT">新增收获地址</a> &nbsp; 您已创建<b>@Model.ShipAddressCount</b> 个收货地址，最多可创建<b>@WorkContext.MallConfig.MaxShipAddress</b>个</div>
-
-    @foreach (FullShipAddressInfo info in Model.ShipAddressList)
-    {
-    <div class="SHadress" id="shipAddress@{@info.SAId}">
-        <h4>@info.Alias<div class="SHedit">
-            @if (info.IsDefault == 0)
-            {
-            <a href="javascript:void(0)" onclick="setDefaultShipAddress(@info.SAId,this)" id="" class="grayBT">设为默认</a>
-            }
-            else
-            {
-            <a href="javascript:void(0)" onclick="setDefaultShipAddress(@info.SAId,this)" id="defaultShipAddress" style=" display:none;" class="grayBT">设为默认</a>
-            }
-            <a href="javascript:void(0)" onclick="openEditShipAddressBlock(@info.SAId)" class="grayBT">编辑</a>&nbsp;
-            <a href="javascript:void(0)" onclick="delShipAddress(@info.SAId)" class="grayBT">删除</a>
-        </div></h4>
-        <ul>
-            <li><b>收货人：</b><em>@info.Consignee</em><div class="clear"></div></li>
-            <li><b>所在地区：</b><em>@info.ProvinceName@info.CityName@info.CountyName</em><div class="clear"></div></li>
-            <li><b>地址：</b><em>@info.Address</em><div class="clear"></div></li>
-            <li><b>手机：</b><em>@info.Mobile</em><div class="clear"></div></li>
-            <li><b>固定电话：</b><em>@info.Phone</em><div class="clear"></div></li>
-            <li><b>电子邮箱：</b><em>@info.Email</em><div class="clear"></div></li>
-        </ul>
-    </div>
-    }
-
-<div id="shipAddressBlock" style=" display:none;">
-    <form name="shipAddressForm" action="">
-        <input type="hidden" name="saId" value=""/> 
-        <div class="SHtable">
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-          <tr><th><em>*</em>别名：</th></tr>
-          <tr><td><input type="text" name="alias" value="" class="text" maxlength="15" style="width:200px" /></td></tr>
-
-          <tr><th><em>*</em>收货人：</th></tr>
-          <tr><td><input type="text" name="consignee" value="" class="text" maxlength="15" style="width:200px" /></td></tr>
-
-          <tr><th><em>*</em>所在地区：</th></tr>
-          <tr>
-            <td>
-                <select id="provinceId" name="provinceId">
-                <option selected="selected" value="-1">请选择</option>
-                </select>
-                <select id="cityId" name="cityId">
-                <option selected="selected" value="-1">请选择</option>
-                </select>
-                <select id="regionId" name="regionId">
-                <option selected="selected" value="-1">请选择</option>
-                </select>
-            </td>
-          </tr>
-  
-          <tr><th><em>*</em>详细地址：</th></tr>
-          <tr><td><input type="text" name="address" value="" class="text" style="width:480px" /></td></tr>
-
-          <tr><th><em>*</em>手机号：</th></tr>
-          <tr><td><input type="text" name="mobile" value="" class="text" maxlength="15" style="width:200px" />&nbsp;&nbsp;或固定电话<input type="text" name="phone" value="" class="text" maxlength="15" style="width:200px" /></td></tr>
-
-          <tr><th>电子邮箱：</th></tr>
-          <tr><td><input type="text" name="email" value="" class="text" maxlength="15" style="width:200px" /></td></tr>
-
-          <tr><th>邮政编码：</th></tr>
-          <tr><td><input type="text" name="zipcode" value="" class="text" maxlength="15" style="width:200px" /></td></tr>
-
-          <tr><th>默认地址：</th></tr>
-          <tr><td><input type="checkbox" name="isDefault" checked="checked"/></td></tr>
-  
-          <tr>
-            <td height="80">
-            <a href="javascript:addShipAddress()" id="addShipAddressBut" style=" display:none;" class="greenBT" style=" padding:3px 20px;font-size:16px;">新增</a>
-            <a href="javascript:editShipAddress()" id="editShipAddressBut" style=" display:none;" class="greenBT" style=" padding:3px 20px;font-size:16px;">编辑</a>
-            </td>
-          </tr>
-        </table>
-        </div>
-    </form>
-    <script type="text/javascript">
-        //绑定省列表的改变事件
-        $("#provinceId").change(function(){
-            var selectedProvinceId = $(this).find("option:selected").val();
-            if (selectedProvinceId > 0) {
-                $("#regionId").html("<option value='-1'>请选择</option>");
-                bindCityList(selectedProvinceId, document.getElementById("cityId"));
-            }
-        })
-
-        //绑定市列表的改变事件
-        $("#cityId").change(function(){
-            var selectedCityId = $(this).find("option:selected").val();
-            if (selectedCityId > 0) {
-                bindCityList(selectedCityId, document.getElementById("regionId"));
-            }
-        })
-
-        //绑定省列表
-        bindProvinceList(document.getElementById("provinceId"), provinceId);
-
-        if (cityId > 0) {
-            bindCityList(provinceId, document.getElementById("cityId"), cityId);
-            bindCountyList(cityId, document.getElementById("regionId"), countyId);
+    <style>
+        a:link {
+            text-decoration: none;
         }
-</script>
-</div>
 
- </div>
+        a:hover {
+            text-decoration: none;
+            color: #ffffff;
+        }
+    </style>
+<div class="bigBox" id="member">
+    <div class="center-x">
+        @Html.Partial("_menu")
+        <div id="memberR" >
+            <div class="SHtitle"><a href="javascript:openAddShipAddressBlock()" class="myButton1">新增收获地址</a> @*&nbsp; 您已创建<b>@Model.ShipAddressCount</b> 个收货地址，最多可创建<b>@WorkContext.MallConfig.MaxShipAddress</b>个*@</div>
 
-<div class="clear"></div>
-</div>
-<div class="clear"></div>
-</div>
+            @foreach (var info in @Model.ReceiptAddressInfo)
+            {
+                
+                <div class="SHadress" id="shipAddress@{@info.ID}">
+
+                    @if (Convert.ToInt32(@info.IsDefault) == 0)
+{
+    <a href="javascript:void(0)" onclick="setDefaultShipAddress(@info.ID,this)" id="" class="myButton">设为默认</a>
+                        
+}
+                    else
+                    {
+                        <a href="javascript:void(0)" onclick="setDefaultShipAddress(@info.ID,this)" id="defaultShipAddress" style=" display:none;" class="myButton">设为默认</a>
+                    }
+                    @Html.ActionLink("编辑", "edditshipaddress", new { ID = @info.ID, ConsigneeName = @info.ConsigneeName, ConsigneePhone = @info.ConsigneePhone, Province = @info.Province, City = @info.City, Region = @info.Region, Street = @info.Street, ZipCode = @info.ZipCode, Addr = @info.Addr, District = @info.District, IsDefault = @info.IsDefault }, new { @class = "myButton" })
+                    <a href="javascript:void(0)" onclick="delShipAddress(@info.ID)" class="myButton">删除</a>
+
+                    <ul>
+                        <li><b>收货人：</b><em>@info.ConsigneeName</em><div class="clear"></div></li>
+                        <li><b>区域：</b><em>@info.Region</em><div class="clear"></div></li>
+                        <li><b>所在地区：</b><em>@info.Province@info.City@info.District</em><div class="clear"></div></li>
+                        <li><b>街道：</b><em>@info.Street</em><div class="clear"></div></li>
+                        <li><b>详细地址：</b><em>@info.Addr</em><div class="clear"></div></li>
+                        <li><b>手机：</b><em>@info.ConsigneePhone</em><div class="clear"></div></li>
+                        <li><b>邮政编码：</b><em>@info.ZipCode</em><div class="clear"></div></li>
+                    </ul>
+                </div>
+            }
+            @* 添加页面 *@
+            <div id="shipAddressBlock" style=" display:none;">
+                <form id="addform" method="post" enctype="multipart/form-data" action="/ucenter/addshipaddress">
+                    <div class="addTable">
+                        <table width="100%">
+                            <tr>
+                                <td width="76px" align="right">收货人：</td>
+                                <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(x => x.ConsigneeName, new { @style = "height:25px", @class = "input required", size = "35" })@Html.ValidationMessageFor(x => x.ConsigneeName)</td>
+                            </tr>
+                            <tr>
+                                <td align="right">所在区域：</td>
+                                <td style="padding-top:5px;padding-bottom:5px">
+                                    @Html.TextBoxFor(x => x.Region, new { @style = "height:25px", @class = "input required", size = "35" })@Html.ValidationMessageFor(x => x.Region)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">所在地区：</td>
+                                <td style="padding-top:5px;padding-bottom:5px">
+                                    省：<select id="SelectProvince" name="SelectProvince"></select> &nbsp;
+                                    市：<select id="SelectCity" name="SelectCity"></select>&nbsp;
+                                    区：<select id="SelectDistrict" name="SelectDistrict"></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">街道：</td>
+                                <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(x => x.Street, new { @style = "height:25px", @class = "input text required", size = "35" })@Html.ValidationMessageFor(x => x.Street)</td>
+                            </tr>
+                            <tr>
+                                <td align="right">详细地址：</td>
+                                <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(x => x.Addr, new { @style = "height:25px", @class = "input text required", size = "35"})@Html.ValidationMessageFor(x => x.Addr)</td>
+                            </tr>
+
+                            <tr>
+                                <td align="right">手机号：</td>
+                                <td style="padding-top:5px;padding-bottom:5px">
+                                    @Html.TextBoxFor(x => x.ConsigneePhone, new { @style = "height:25px", @class = "input text required", size = "35"})@Html.ValidationMessageFor(x => x.ConsigneePhone)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    邮政编码：
+                                </td>
+                                <td style="padding-top:5px;padding-bottom:5px">
+                                    @Html.TextBoxFor(x => x.ZipCode, new { @style = "height:25px", @class = "input text required", size = "35" })@Html.ValidationMessageFor(x => x.ZipCode)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right">&nbsp;</td>
+                                <td>
+                                    <a class="addBt" id="sumbitBut"><img src="/admin_mall/images/submit.jpg" /></a>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $("#sumbitBut").click(function () {
+                                                $("form:first").submit();
+                                                return false;
+                                            })
+                                        });
+                                    </script>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+          
+
+        </div>
+
+        <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
 
 
 @Html.Partial("_footer")

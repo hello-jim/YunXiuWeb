@@ -1,0 +1,136 @@
+﻿@model BrnMall.Web.Models.ShipAddressListModel
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>收货地址-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    @*<link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />*@
+    <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+
+    <link href="@{@WorkContext.CSSCDN}/css/header.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/public.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/zzsc.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/region.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/ucenter.user.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/js/Ctry/select.js" type="text/javascript"></script>
+    <link href="@{@WorkContext.ScriptCDN}/css/Css_Purchase/buttom.css" rel="stylesheet" />
+    <link href="@{@WorkContext.ScriptCDN}/css/Css_Purchase/percenter.css" rel="stylesheet" />
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+    </script>
+</head>
+
+<body>
+    @Html.Partial("_header")
+    <style>
+        a:link {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
+    <div class="bigBox" id="member">
+        <div class="center-x">
+            @Html.Partial("_menu")
+            @* 编辑页面 *@
+            <div id="memberR">
+                <div id="shipedditressBlock">
+                    <form id="edditform" method="post" enctype="multipart/form-data" action="/ucenter/editshipaddress">
+                        <div class="addTable">
+                            <table width="100%">
+                                <tr>
+                                    <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(model => model.ID, new { @style = "height:25px", @type = "hidden", @class = "input", size = "35" })@Html.ValidationMessageFor(model => model.ID)</td>
+                                </tr>
+                                <tr>
+                                    <td width="76px" align="right">收货人：</td>
+                                    <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(model => model.ConsigneeName, new { @style = "height:25px", @class = "input", size = "35" })@Html.ValidationMessageFor(model => model.ConsigneeName)</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">所在区域：</td>
+                                    <td style="padding-top:5px;padding-bottom:5px">
+                                        @Html.TextBoxFor(model => model.Region, new { @style = "height:25px", @class = "input", size = "35" })@Html.ValidationMessageFor(model => model.Region)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">所在地区：</td>
+                                    <td style="padding-top:5px;padding-bottom:5px">
+                                        省：<select id="SelectProvince" name="SelectProvince"></select> &nbsp;
+                                        市：<select id="SelectCity" name="SelectCity"></select>&nbsp;
+                                        区：<select id="SelectDistrict" name="SelectDistrict"></select>
+                                        @*@Html.TextBoxFor(x => x.Province, new { @style = "height:25px", @class = "input", size = "20" })@Html.ValidationMessageFor(x => x.Province)<span>省</span>
+                                        @Html.TextBoxFor(x => x.City, new { @style = "height:25px", @class = "input", size = "20" })@Html.ValidationMessageFor(x => x.City)<span>市</span>
+                                        @Html.TextBoxFor(x => x.District, new { @style = "height:25px", @class = "input", size = "20" })@Html.ValidationMessageFor(x => x.District)<span>区</span>
+                                        @Html.TextBoxFor(x => x.Street, new { @style = "height:25px", @class = "input", size = "20" })@Html.ValidationMessageFor(x => x.Street)<span>街道</span>*@
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">街道：</td>
+                                    <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(model => model.Street, new { @style = "height:25px", @class = "input text", size = "35" })@Html.ValidationMessageFor(model => model.Street)</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">详细地址：</td>
+                                    <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(model => model.Addr, new { @style = "height:25px", @class = "input text", size = "35" })@Html.ValidationMessageFor(model => model.Addr)</td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">手机号：</td>
+                                    <td style="padding-top:5px;padding-bottom:5px">
+                                        @Html.TextBoxFor(model => model.ConsigneePhone, new { @style = "height:25px", @class = "input text", size = "35" })@Html.ValidationMessageFor(model => model.ConsigneePhone)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        邮政编码：
+                                    </td>
+                                    <td style="padding-top:5px;padding-bottom:5px">
+                                        @Html.TextBoxFor(model => model.ZipCode, new { @style = "height:25px", @class = "input text", size = "35" })@Html.ValidationMessageFor(model => model.ZipCode)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">&nbsp;</td>
+                                    <td>
+                                        <a href="" class="addBt" id="sumbitBut11"><img src="/admin_mall/images/submit.jpg" /></a>
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                $("#sumbitBut11").click(function () {
+                                                    $("#edditform").submit();
+                                                  
+                                                    return false;
+                                                })
+                                            });
+                                        </script>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    @Html.Partial("_footer")
+</body>
+</html>
+
