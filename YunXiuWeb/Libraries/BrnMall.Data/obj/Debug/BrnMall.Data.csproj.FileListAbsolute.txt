@@ -53,3 +53,11 @@ D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\BrnMall.Cor
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.csprojResolveAssemblyReference.cache
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.dll
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.pdb
+D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\BrnMall.Data.dll
+D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\BrnMall.Data.pdb
+D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\BrnMall.Core.dll
+D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\Newtonsoft.Json.dll
+D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\bin\Debug\BrnMall.Core.pdb
+D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.csprojResolveAssemblyReference.cache
+D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.dll
+D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Data\obj\Debug\BrnMall.Data.pdb
