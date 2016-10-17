@@ -9,16 +9,25 @@
     <title>确认订单-@{@WorkContext.MallConfig.SiteTitle}</title>
     @Html.Raw(WorkContext.MallConfig.SEOKeyword)
     @Html.Raw(WorkContext.MallConfig.SEODescription)
-    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
-    <link href="@{@WorkContext.CSSCDN}/css/buy.css" rel="stylesheet" type="text/css" />
+    @*<link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />*@
+    @*<link href="@{@WorkContext.CSSCDN}/css/buy.css" rel="stylesheet" type="text/css" />*@
     <script type="text/javascript" src="@{@WorkContext.ScriptCDN}/scripts/jquery.js"></script>
     <script type="text/javascript" src="@{@WorkContext.ScriptCDN}/scripts/common.js"></script>
     <script type="text/javascript" src="@{@WorkContext.ScriptCDN}/scripts/order.js"></script>
     <script type="text/javascript" src="@{@WorkContext.ScriptCDN}/scripts/region.js"></script>
+    <style type="text/css">
+        .sub-cata {
+            display: none;
+        }
+
+        .catalog:hover .sub-cata {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
-
+    @Html.Partial("_header")
 <div id="headerBar" class="bigBox">
 <div class="box">
 欢迎访问 @WorkContext.MallConfig.MallName

@@ -298,7 +298,7 @@
 
 
             <div class="btn-group">
-                <a class="buy-btn bgyellow" onclick="directBuyProduct(@Model.ProductInfo.PID, document.getElementById('buyCount').value)">立即购买</a>
+                <a class="buy-btn bgyellow" onclick="directBuyProduct(@Model.ProductInfo.PID, document.getElementById('buyCount').value)" href="/order/confirmorder?selectedCartItemKeyList=0_93">立即购买</a>
                 <a class="buy-btn to-cart cart-btn" >加入购物车</a>
                 <a class="fav-btn" onclick="addProductToFavorite(@Model.ProductInfo.PID)"></a>
             </div>

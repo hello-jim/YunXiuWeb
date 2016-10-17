@@ -1428,8 +1428,9 @@ namespace BrnMall.Web.Controllers
         {
             base.OnAuthorization(filterContext);
 
+            
             //不允许游客访问
-            if (WorkContext.Uid < 1)
+            if (SUserInfo==null)
             {
                 if (WorkContext.IsHttpAjax)//如果为ajax请求
                     filterContext.Result = AjaxResult("nologin", "请先登录");
