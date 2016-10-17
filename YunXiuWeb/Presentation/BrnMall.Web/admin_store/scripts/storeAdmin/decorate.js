@@ -4,7 +4,13 @@ if ($("#dropzone-upload").length == 1) {
 }
 
 $(document).ready(function () {
-
+    $(".goods-info dt a").each(function () {
+        var maxwidth = 27;
+        if ($(this).text().length > maxwidth) {
+            $(this).text($(this).text().substring(0, maxwidth));
+            $(this).html($(this).html() + '…');
+        }
+    });
     $(".store_decoration_area").sortable({ scroll: true, scrollSensitivity: 40, tolerance: 'pointer' });
     $(".store_decoration_area").disableSelection();
 
@@ -28,7 +34,7 @@ $(document).ready(function () {
         var isEdid = $(e.relatedTarget).attr("isEdit");
         if (isEdid) {
             $("#product-div .select-product-list").html($(e.relatedTarget).prev().find("ul").html());
-            $("#product-div .select-product-list .goods-info").after("<a href='javascript:void(0);' class='ncbtn-mini product-select-list-delete'>删除 </a>");
+            $("#product-div .select-product-list .goods-info").after("<a href='javascript:void(0);' class='ncbtn-mini product-select-list-delete'><i class='icon-remove'></i></a>");
             BindProductListDeleteClick();
         } else {
             //不是新增编辑则清空内容
@@ -45,7 +51,7 @@ $(document).ready(function () {
             $(".edit-img-div").show();
             var images = $(e.relatedTarget).prev().prop("outerHTML");
             $(".edit-img-div").html(images);
-            $(".edit-img-div").find("img").after("<a href='javascript:void(0);' class='edit-img-delete'>删除图片</a>");
+            $(".edit-img-div").find(".pic_in").after("<a href='javascript:void(0);' class='edit-img-delete'><i class='fa fa-times'></i></a>");
             $(".edit-img-delete").on("click", function () {
                 $(this).prev().remove();
                 $(this).remove();
@@ -133,15 +139,26 @@ function showErrorAlert(reason, detail) {
 
 
 //添加块
-$("i.block-add").on("click", function () {
+$("a.block-add").on("click", function () {
+    cname = $(this).children("i").attr("class");
+    var btitle = "模块内容";
+    if (cname == "images-div") {
+        btitle = "图片/轮播图模块";
+    } else if (cname == "product-div") {
+        btitle = "商品模块";
+    } else { btitle = "自定义编辑模块"; };
+
     var maxIndex = parseInt(GetMaxBlockIndex());
     var block = "";
-    block += "<div id='block-" + (maxIndex + 1) + "' class='ncsc-decration-block store-decoration-block-1 tip' bIndex='" + (maxIndex + 1) + "'>";
+    block += "<div id='block-" + (maxIndex + 1) + "' class='ncsc-decration-block container no-padding tip' bIndex='" + (maxIndex + 1) + "'>";
     block += "<div class='ncsc-decration-block-content store-decoration-block-1-content'>";
-    block += "<div class='store-decoration-block-1-module' nctype='store_decoration_block_module'></div>"
-    block += "<a class='edit editbc' nctype='btn_edit_module' href='javascript:void(0);'><i class='icon-edit'></i>编辑模块 </a>";
+    block += "<div class='header_edit'>"+ btitle +"</div> "
+    block += "<div class='store-decoration-block-1-module' nctype='store_decoration_block_module'>"
+    block += "</div>"
+    block += "<a class='edit editbc' nctype='btn_edit_module' href='javascript:void(0);'data-toggle='modal' data-target='#" + cname + "' isedit='1'><i class='icon-edit'></i></a>";
     block += "</div>";
-    block += "<a class='block-delete' href='javascript:void(0);' data-block-id='122' title='删除该布局块'><i class='icon-trash'></i>删除布局块</a>"
+    block += "<a class='block-delete' href='javascript:void(0);' data-block-id='122' title='删除该布局块'><i class='icon-trash'></i></a>"
+    //block += "<a class='block-move' href='javascript:void(0);' title='移动'><i class='icon-move'></i></a>"
     block += "</div>";
 
     $(".store_decoration_area").sortable({ scroll: true, scrollSensitivity: 40, tolerance: 'pointer' });
@@ -156,15 +173,15 @@ function EditBlockEvent() {
     $(".editbc").unbind("click").on("click", function () {
         var blockID = $(this).parents(".ncsc-decration-block").attr("bIndex");
         $("#edit-block-id").val(blockID);
-        $("#dialog_select").css("display", "block");
+        //$("#dialog_select").css("display", "block");
     });
 
-    $(".ncsc-decration-block").unbind("mouseover").on("mouseover", function () {
-        $(this).children(".block-delete").show();
-    });
-    $(".ncsc-decration-block").unbind("mouseleave").on("mouseleave", (function () {
-        $(this).children(".block-delete").hide();
-    }));
+    //$(".ncsc-decration-block").unbind("mouseover").on("mouseover", function () {
+    //    $(this).children(".block-move").show();
+    //});
+    //$(".ncsc-decration-block").unbind("mouseleave").on("mouseleave", (function () {
+    //    $(this).children(".block-move").hide();
+    //}));
 
     $(".block-delete").on("click", function () {
         $(this).parents(".ncsc-decration-block").remove();
@@ -198,15 +215,25 @@ $(".save-images").unbind("click").on("click", function () {
     var bIndex = $("#edit-block-id").val();
     var edit = $("#images-div").attr("edit");
     if (edit != undefined) {
-        imagesHtml = $(".edit-img-div").find("img");
-        var newImg = $("#dropzone-upload .dz-success .dz-image img");
+        var picEdit = $(".edit-img-div .store-decoration-block-1-module .pic_in");
+        for (var i = 0; i < picEdit.length; i++) {
+            imagesHtml += "<div class='pic_in'>";
+            imagesHtml += $(picEdit[i]).html();
+            imagesHtml += "</div>";
+        }
+        var newImg = $("#dropzone-upload .dz-success .dz-image");
         for (var i = 0; i < newImg.length; i++) {
-            imagesHtml.push(newImg[i]);
+            imagesHtml += "<div class='pic_in'><h1>";
+            //imagesHtml.push(newImg[i]);
+            imagesHtml += $(newImg[i]).html();
+            imagesHtml += "</h1></div>";
         }     
     } else {
-        var uSuccesImages = $("#dropzone-upload .dz-success");//上传成功图片
+        var uSuccesImages = $("#dropzone-upload .dz-success .dz-image");//上传成功图片
         for (var i = 0; i < uSuccesImages.length; i++) {
-            imagesHtml += $(uSuccesImages[i]).find(".dz-image").html();
+            imagesHtml += "<div class='pic_in'><h1>";
+            imagesHtml += $(uSuccesImages[i]).html();
+            imagesHtml += "</h1></div>";
         }
     }
 
@@ -251,16 +278,21 @@ function CreateProductListHtml(products) {
     var html = "";
     for (var i = 0; i < products.length; i++) {
         html += "<li pID='" + products[i].PID + "' pName='" + products[i].Name + "' imgName='" + products[i].ImgName + "'>";
-        html += "<div class='goods-thumb'>";
+        html += "<h1>";
         html += "<a href='' title='" + products[i].Name + "'><img src='/images/productImg/" + products[i].ImgName + "'> </a>";
-        html += "</div>";
+        html += "</h1>";
         html += "<dl class='goods-info'><dt>  <a href='' title='" + products[i].Name + "' pID='" + products[i].PID + "'>" + products[i].Name + "</a></dt><dd>" + products[i].ShopPrice + "</dd></dl>";
-        html += "<a class='ncbtn-mini product-list-add' href='javascript:void(0);'>添加 </a>";
+        html += "<a class='ncbtn-mini product-list-add' href='javascript:void(0);'><i class='icon-ok'></i></a>";
         html += "</li>";
     }
     $("#product-list").html(html);
     BindProductListAddClick();
 }
+
+$("#product-list li").click(function () {
+    BindProductListAddClick();
+    //$(".product-list-add").click();
+})
 
 function BindProductListAddClick() {
     $(".product-list-add").unbind("click").on("click", function () {
@@ -268,9 +300,9 @@ function BindProductListAddClick() {
         if ($("#product-div .select-product-list li[pid=" + $(li).attr("pid") + "]").length == 0) {
             var liHtml = "";
             liHtml += "<li pid=" + $(li).attr("pID") + ">";
-            liHtml += "<div class='goods-thumb'><a href='' title='" + $(li).attr("pName") + "'><img src='/images/productImg/" + $(li).attr("imgName") + "'> </a></div>";
+            liHtml += "<h1><a href='' title='" + $(li).attr("pName") + "'><img src='/images/productImg/" + $(li).attr("imgName") + "'> </a></h1>";
             liHtml += "<dl class='goods-info'><dt>  <a href='' title='" + $(li).attr("pName") + "' pid='" + $(li).attr("pID") + "'>" + $(li).attr("pName") + "</a></dt><dd>0</dd></dl>";
-            liHtml += "<a href='javascript:void(0);' class='ncbtn-mini product-select-list-delete'>删除 </a>";
+            liHtml += "<a href='javascript:void(0);' class='ncbtn-mini product-select-list-delete'><i class='icon-remove'></i></a>";
             liHtml += "</li>";
 
             $("#product-div .select-product-list").append(liHtml);
@@ -283,3 +315,5 @@ function BindProductListDeleteClick() {
         $(this).parents("li").remove();
     });
 }
+
+

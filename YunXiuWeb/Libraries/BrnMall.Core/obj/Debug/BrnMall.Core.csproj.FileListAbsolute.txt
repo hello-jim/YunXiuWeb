@@ -17,12 +17,6 @@ C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.dl
 C:\Users\zm\Desktop\aaa\BrnMall\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.pdb
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\BrnMall.Core.dll
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\BrnMall.Core.pdb
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\Dapper.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\Lucene.Net.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\PanGu.HighLight.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\PanGu.Lucene.Analyzer.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\PanGu.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\Newtonsoft.Json.dll
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\YunXiu.Commom.pdb
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\YunXiu.Model.pdb
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.csprojResolveAssemblyReference.cache

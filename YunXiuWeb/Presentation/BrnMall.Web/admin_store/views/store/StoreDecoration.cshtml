@@ -16,49 +16,62 @@
 
 
 <div class="decorate">
-    <div class="title">
-        <i class="icon"></i>
-        <h3>店铺装修选项</h3>
-        <h5>店铺首页模板设计操作</h5>
+    <div class="container">
+        <div class="title">
+            <i class="icon"></i>
+            <h3>店铺装修选项</h3>
+            <h5>店铺首页模板设计操作</h5>
+        </div>
+
+        <ul class="menu">
+            
+            @*<li>
+                    <a class="head" href="javascript:void(0);">
+                        <i></i>
+                        编辑头部
+                    </a>
+                </li>*@
+            <li>
+                <a href="javascript:void(0);" class="block-add">
+                    <i class="images-div"></i>
+                    图片/轮播图
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="block-add">
+                    <i class="product-div"></i>
+                    商品模块
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="block-add">
+                    <i class="edit-html-div"></i>
+                    自定义编辑
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="background">
+                    <i></i>
+                    编辑背景
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="preview">
+                    <i></i>
+                    设计预览
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="store-home-save cexit">
+                    <i class=""></i>
+                    保存退出
+                </a>
+            </li>
+        </ul>
     </div>
-
-    <ul class="menu">
-        <li>
-            <a href="javascript:void(0);">
-                <i class="background"></i>
-                编辑背景
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);">
-                <i class="head"></i>
-                编辑头部
-            </a>
-        </li>
-        <li>
-            <a >
-                <i class="block-add"></i>
-                添加局部块
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);">
-                <i class="preview"></i>
-                设计预览
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="store-home-save">
-                <i class="cexit"></i>
-                完成退出
-            </a>
-        </li>
-    </ul>
-
-    <div class="tips">
-        下方区域为1180像素宽度即时编辑区域；“添加布局块”后选择模块类型进行详细设置；“设计预览”可查看生成后效果；内容将实时保存，设置完成后直接选择“完成退出”。
-    </div>
-
+</div>
+<div class="tips container">
+    下方区域为即时编辑区域；点击选择图片/商品/自定义模块可添加相应模块；“设计预览”可查看生成后效果；内容将实时保存，设置完成后直接选择“完成退出”。
 </div>
 
 <div class="store_decoration_area">
@@ -151,7 +164,10 @@
             <span class="dialog_title">
                 <span class="dialog_title_icon">选择模块</span>
             </span>
-            <span class="dialog_close_button">X</span>
+            @*<span class="dialog_close_button">&times;</span>*@
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
         </h3>
 
         <div class="dialog_content" style="position: relative;">
@@ -225,14 +241,14 @@
 
 <!--商品编辑模块-->
 <div class="modal fade modal-div" id="product-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    模态框（Modal）标题
+                    商品编辑
                 </h4>
             </div>
             <div class="modal-body">
@@ -244,13 +260,13 @@
                         </ul>
                     </div>
                     <h4 class="mt10">店铺在售商品选择</h4>
-                    <div id="decorationGoods" class="ps-container" style="overflow:auto;">
+                    <div id="decorationGoods" class="ps-container">
                         <ul class="goods-list select-product-list"></ul>
                     </div>
                     <div class="decoration-search-goods">
                         <div class="search-bar">
                             输入商品关键字：
-                            <input id="txt_goods_search_keyword" type="text" class="text w200 vm" name="">
+                            <input id="txt_goods_search_keyword" type="text" class="text search-input" name="">
                             <a id="btn_module_goods_search" class="ncbtn" href="javascript:void(0);">搜索</a>
                             <span class="ml10 orange">小提示： 留空搜索显示店铺全部在售商品，每页显示10个。</span>
                         </div>
@@ -280,7 +296,7 @@
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+                <h4 class="modal-title" id="myModalLabel">自定义编辑器</h4>
             </div>
             <div class="modal-body">
                 <div class="btn-toolbar" data-role="editor-toolbar" data-target=".edit-html">
@@ -323,7 +339,7 @@
                         <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
                     </div>
 
-                    <div class="btn-group">
+                    <div class="btn-group" style="width:43px;">
                         <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
                         <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
                     </div>

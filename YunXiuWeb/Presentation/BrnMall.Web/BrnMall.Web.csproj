@@ -41,7 +41,7 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\DLL\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -445,6 +445,7 @@
     <Content Include="images\iconfont-jiantou.png" />
     <Content Include="images\iconfont-person.png" />
     <Content Include="images\iconfont-shape.png" />
+    <Content Include="images\ncsc_bg_img.png" />
     <Content Include="images\icon_clubs.gif" />
     <Content Include="images\idea1.jpg" />
     <Content Include="images\ideapic.png" />

@@ -113,11 +113,6 @@ D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\Newtonsoft.Json
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\System.Web.Mvc.dll
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\System.Web.WebPages.dll
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Data.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\Dapper.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\Lucene.Net.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\PanGu.HighLight.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\PanGu.Lucene.Analyzer.dll
-D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\PanGu.dll
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Core.pdb
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Services.pdb
 D:\Product\Mall\YunXiuWeb\YunXiuWeb\Presentation\BrnMall.Web\bin\BrnMall.Web.Framework.pdb
