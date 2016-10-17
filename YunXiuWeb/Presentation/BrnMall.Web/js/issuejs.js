@@ -1,6 +1,6 @@
 // 常见问题分类导航栏效果
 $(function(){
-	$(".coll_body").eq(0).show();
+	//$(".coll_body").eq(0).show();
 	$(".Collapsing").click(function(){
 		$(this).toggleClass("current").siblings('.Collapsing').removeClass("current");//切换图标
 		$(this).next(".coll_body").slideToggle(500).siblings(".coll_body").slideUp(500);

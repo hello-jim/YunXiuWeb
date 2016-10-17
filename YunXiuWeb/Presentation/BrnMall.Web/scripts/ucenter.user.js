@@ -126,7 +126,7 @@ $(function(){
                 var errorMsg = '收货人不能为空.';
                 $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
             }else{
-                var okMsg = '输入正确.';
+                var okMsg = '';
                 $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
             }
         }
@@ -136,7 +136,7 @@ $(function(){
                 var errorMsg = '区域不能为空.';
                 $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
             }else{
-                var okMsg = '输入正确.';
+                var okMsg = '';
                 $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
             }
         }
@@ -145,7 +145,7 @@ $(function(){
                 var errorMsg = '街道不能为空.';
                 $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
             } else {
-                var okMsg = '输入正确.';
+                var okMsg = '';
                 $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
             }
         }
@@ -154,7 +154,7 @@ $(function(){
                 var errorMsg = '地址不能为空.';
                 $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
             } else {
-                var okMsg = '输入正确.';
+                var okMsg = '';
                 $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
             }
         }
@@ -163,7 +163,7 @@ $(function(){
                 var errorMsg = '电话码不能为空.';
                 $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
             } else {
-                var okMsg = '输入正确.';
+                var okMsg = '';
                 $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
             }
         }
@@ -172,7 +172,7 @@ $(function(){
                 var errorMsg = '邮政编码不能为空.';
                 $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
             } else {
-                var okMsg = '输入正确.';
+                var okMsg = '';
                 $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
             }
         }
@@ -183,13 +183,21 @@ $(function(){
         $(this).triggerHandler("blur");
     });//end blur
 })
+
+//验证添加配送地址
 function verifyShipAddress() {
-    var ConsigneeName = $("#ConsigneeName").attr("value")
-    var Region = $("#Region").attr("value")
-    var Street = $("#Street").attr("value")
-    var Addr = $("#Addr").attr("value")
-    var ZipCode = $("#ZipCode").attr("value")
-    var ConsigneePhone = $("#ConsigneePhone").attr("value")
+    var shipAddressForm = document.forms["addform"];
+
+    var ConsigneeName = shipAddressForm.elements["ConsigneeName"].value;
+    var ConsigneePhone = shipAddressForm.elements["ConsigneePhone"].value;
+    var Addr = shipAddressForm.elements["Addr"].value;
+    var ZipCode = shipAddressForm.elements["ZipCode"].value;
+    var Region = shipAddressForm.elements["Region"].value;
+    var SelectProvince = shipAddressForm.elements["SelectProvince"].value;
+    var SelectCity = shipAddressForm.elements["SelectCity"].value;
+    var SelectDistrict = shipAddressForm.elements["SelectDistrict"].value;
+    //var regionId = $(shipAddressForm.elements["regionId"]).find("option:selected").val();
+    var Street = shipAddressForm.elements["Street"].value;
     if (ConsigneeName == "") {
         alert("请填写收货人");
         return false;
@@ -202,60 +210,122 @@ function verifyShipAddress() {
         alert("街道不能为空");
         return false;
     }
-    if (Addr =="") {
+    if (Addr == "") {
         alert("详细地址不能为空");
-        return false;
-    }
-    if (ZipCode == "") {
-        alert("邮政编码不能为空");
         return false;
     }
     if (ConsigneePhone == "") {
         alert("电话号码不能为空");
         return false;
     }
+    if (ZipCode == "") {
+        alert("邮政编码不能为空");
+        return false;
+    }
+ 
     return true;
 }
+//验证修改配送地址
+function verifyeditShipAddress() {
+    var shipAddressForm = document.forms["edditform"];
 
+    var ConsigneeName = shipAddressForm.elements["ConsigneeName"].value;
+    var ConsigneePhone = shipAddressForm.elements["ConsigneePhone"].value;
+    var Addr = shipAddressForm.elements["Addr"].value;
+    var ZipCode = shipAddressForm.elements["ZipCode"].value;
+    var Region = shipAddressForm.elements["Region"].value;
+    var SelectProvince = shipAddressForm.elements["SelectProvince"].value;
+    var SelectCity = shipAddressForm.elements["SelectCity"].value;
+    var SelectDistrict = shipAddressForm.elements["SelectDistrict"].value;
+    //var regionId = $(shipAddressForm.elements["regionId"]).find("option:selected").val();
+    var Street = shipAddressForm.elements["Street"].value;
+    if (ConsigneeName == "") {
+        alert("请填写收货人");
+        return false;
+    }
+    if (Region == "") {
+        alert("请填写区域");
+        return false;
+    }
+    if (Street == "") {
+        alert("街道不能为空");
+        return false;
+    }
+    if (Addr == "") {
+        alert("详细地址不能为空");
+        return false;
+    }
+    if (ConsigneePhone == "") {
+        alert("电话号码不能为空");
+        return false;
+    }
+    if (ZipCode == "") {
+        alert("邮政编码不能为空");
+        return false;
+    }
+
+    return true;
+}
 //添加配送地址
-function addShipAddress() {
+function addAddress() {
     var shipAddressForm = document.forms["addform"];
 
-    var alias = shipAddressForm.elements["alias"].value;
-    var consignee = shipAddressForm.elements["consignee"].value;
-    var mobile = shipAddressForm.elements["mobile"].value;
-    var phone = shipAddressForm.elements["phone"].value;
-    var email = shipAddressForm.elements["email"].value;
-    var zipcode = shipAddressForm.elements["zipcode"].value;
-    var regionId = $(shipAddressForm.elements["regionId"]).find("option:selected").val();
-    var address = shipAddressForm.elements["address"].value;
-    var isDefault = shipAddressForm.elements["isDefault"].checked == true ? 1 : 0;
+    var ConsigneeName = shipAddressForm.elements["ConsigneeName"].value;
+    var ConsigneePhone = shipAddressForm.elements["ConsigneePhone"].value;
+    var Addr = shipAddressForm.elements["Addr"].value;
+    var ZipCode = shipAddressForm.elements["ZipCode"].value;
+    var Region = shipAddressForm.elements["Region"].value;
+    var SelectProvince = shipAddressForm.elements["SelectProvince"].value;
+    var SelectCity = shipAddressForm.elements["SelectCity"].value;
+    var SelectDistrict = shipAddressForm.elements["SelectDistrict"].value;
+    //var regionId = $(shipAddressForm.elements["regionId"]).find("option:selected").val();
+    var Street = shipAddressForm.elements["Street"].value;
 
-    if (!verifyShipAddress(alias, consignee, mobile, phone, regionId, address)) {
+
+    if (!verifyShipAddress(ConsigneeName, ConsigneePhone, Addr, ZipCode, Region, Street)) {
         return;
     }
 
-    $.post("/ucenter/addshipaddress",
-            { 'alias': alias, 'consignee': consignee, 'mobile': mobile, 'phone': phone, 'email': email, 'zipcode': zipcode, 'regionId': regionId, 'address': address, 'isDefault': isDefault },
+    $.post("/ucenter/addaddress",
+            { 'ConsigneeName': ConsigneeName, 'ConsigneePhone': ConsigneePhone, 'Addr': Addr, 'ZipCode': ZipCode, 'Region': Region, 'SelectProvince': SelectProvince, 'SelectCity': SelectCity, 'SelectDistrict': SelectDistrict, 'Street': Street },
             addShipAddressResponse)
 }
+//修改配送地址
+function editAddress() {
+    var shipAddressForm = document.forms["edditform"];
+    var ID = shipAddressForm.elements["ID"].value;
+    var ConsigneeName = shipAddressForm.elements["ConsigneeName"].value;
+    var ConsigneePhone = shipAddressForm.elements["ConsigneePhone"].value;
+    var Addr = shipAddressForm.elements["Addr"].value;
+    var ZipCode = shipAddressForm.elements["ZipCode"].value;
+    var Region = shipAddressForm.elements["Region"].value;
+    var SelectProvince = shipAddressForm.elements["SelectProvince"].value;
+    var SelectCity = shipAddressForm.elements["SelectCity"].value;
+    var SelectDistrict = shipAddressForm.elements["SelectDistrict"].value;
+    //var regionId = $(shipAddressForm.elements["regionId"]).find("option:selected").val();
+    var Street = shipAddressForm.elements["Street"].value;
 
+
+    if (!verifyeditShipAddress(ConsigneeName, ConsigneePhone, Addr, ZipCode, Region, Street)) {
+        return;
+    }
+
+    $.post("/ucenter/editAddress",
+            { "ID":ID,'ConsigneeName': ConsigneeName, 'ConsigneePhone': ConsigneePhone, 'Addr': Addr, 'ZipCode': ZipCode, 'Region': Region, 'SelectProvince': SelectProvince, 'SelectCity': SelectCity, 'SelectDistrict': SelectDistrict, 'Street': Street },
+            editShipAddressResponse)
+}
 //处理添加配送地址的反馈信息
 function addShipAddressResponse(data) {
     var result = eval("(" + data + ")");
     if (result.state == "success") {
-        closeShipAddressBlock();
-        window.location.href = "/ucenter/shipaddresslist";
+        alert("添加成功");
+        window.location.reload();
     }
     else if (result.state == "full") {
         alert("配送地址的数量已经达到系统所允许的最大值")
     }
     else if (result.state == "error") {
-        var msg = "";
-        for (var i = 0; i < result.content.length; i++) {
-            msg += result.content[i].msg + "\n";
-        }
-        alert(msg)
+        alert("添加失败");
         window.location.reload();
     }
 }
@@ -269,18 +339,16 @@ function editShipAddress() {
 function editShipAddressResponse(data) {
     var result = eval("(" + data + ")");
     if (result.state == "success") {
-        closeShipAddressBlock();
+        //closeShipAddressBlock();
+        //window.location.href = "/ucenter/shipaddresslist";
+        alert("修改成功");
         window.location.href = "/ucenter/shipaddresslist";
     }
     else if (result.state == "noexist") {
         alert("配送地址不存在");
     }
     else if (result.state == "error") {
-        var msg = "";
-        for (var i = 0; i < result.content.length; i++) {
-            msg += result.content[i].msg + "\n";
-        }
-        alert(msg)
+        alert("修改失败");
         window.location.reload();
     }
 }

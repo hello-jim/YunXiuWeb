@@ -32,6 +32,9 @@
         a:hover {
             text-decoration: none;
         }
+    .sub-cata {
+        display: none;
+    }
     </style>
 <div class="bigBox" id="member">
 <div class="center-x">
@@ -85,7 +88,7 @@
               <th valign="bottom">商品名</th>
             <th>价格</th>
               <th>重量</th>
-            <th>操作</th>
+            @*<th>操作</th>*@
             </tr>
         </thead>
         <tbody>
@@ -106,7 +109,7 @@
                 </td>
                 <td>@row.ShopPrice<br /></td>
                <td>@row.Weight<br /></td>
-                <td><a href="javascript:delFavoriteProduct(@row.PID)">删除</a></td>
+                @*<td><a href="javascript:delFavoriteProduct(@row.PID)">删除</a></td>*@
             </tr>
             }
         </tbody>

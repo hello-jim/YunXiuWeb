@@ -42,6 +42,9 @@
             text-decoration: none;
             color: #ffffff;
         }
+        .sub-cata {
+            display: none;
+        }
     </style>
 <div class="bigBox" id="member">
     <div class="center-x">
@@ -84,12 +87,12 @@
                         <table width="100%">
                             <tr>
                                 <td width="76px" align="right">收货人：</td>
-                                <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(x => x.ConsigneeName, new { @style = "height:25px", @class = "input required", size = "35" })@Html.ValidationMessageFor(x => x.ConsigneeName)</td>
+                                <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(x => x.ConsigneeName, new { @style = "height:25px", @class = "input required", size = "35" })</td>
                             </tr>
                             <tr>
                                 <td align="right">所在区域：</td>
                                 <td style="padding-top:5px;padding-bottom:5px">
-                                    @Html.TextBoxFor(x => x.Region, new { @style = "height:25px", @class = "input required", size = "35" })@Html.ValidationMessageFor(x => x.Region)
+                                    @Html.TextBoxFor(x => x.Region, new { @style = "height:25px", @class = "input required", size = "35" })
                                 </td>
                             </tr>
                             <tr>
@@ -102,17 +105,17 @@
                             </tr>
                             <tr>
                                 <td align="right">街道：</td>
-                                <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(x => x.Street, new { @style = "height:25px", @class = "input text required", size = "35" })@Html.ValidationMessageFor(x => x.Street)</td>
+                                <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(x => x.Street, new { @style = "height:25px", @class = "input text required", size = "35" })</td>
                             </tr>
                             <tr>
                                 <td align="right">详细地址：</td>
-                                <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(x => x.Addr, new { @style = "height:25px", @class = "input text required", size = "35"})@Html.ValidationMessageFor(x => x.Addr)</td>
+                                <td style="padding-top:5px;padding-bottom:5px">@Html.TextBoxFor(x => x.Addr, new { @style = "height:25px", @class = "input text required", size = "35"})</td>
                             </tr>
 
                             <tr>
                                 <td align="right">手机号：</td>
                                 <td style="padding-top:5px;padding-bottom:5px">
-                                    @Html.TextBoxFor(x => x.ConsigneePhone, new { @style = "height:25px", @class = "input text required", size = "35"})@Html.ValidationMessageFor(x => x.ConsigneePhone)
+                                    @Html.TextBoxFor(x => x.ConsigneePhone, new { @style = "height:25px", @class = "input text required", size = "35"})
                                 </td>
                             </tr>
                             <tr>
@@ -120,22 +123,23 @@
                                     邮政编码：
                                 </td>
                                 <td style="padding-top:5px;padding-bottom:5px">
-                                    @Html.TextBoxFor(x => x.ZipCode, new { @style = "height:25px", @class = "input text required", size = "35" })@Html.ValidationMessageFor(x => x.ZipCode)
+                                    @Html.TextBoxFor(x => x.ZipCode, new { @style = "height:25px", @class = "input text required", size = "35" })
                                 </td>
                             </tr>
 
                             <tr>
                                 <td align="right">&nbsp;</td>
                                 <td>
-                                    <a class="addBt" id="sumbitBut"><img src="/admin_mall/images/submit.jpg" /></a>
-                                    <script type="text/javascript">
+                                    @*<a href="javascript:addShipAddress()" id="addShipAddressBut" style=" display:none;" class="greenBT" style=" padding:3px 20px;font-size:16px;">新增</a>*@
+                                    <a class="addBt" href="javascript:addAddress()" id="addShipAddressBut"><img src="/admin_mall/images/submit.jpg" /></a>
+                                    @*<script type="text/javascript">
                                         $(function () {
                                             $("#sumbitBut").click(function () {
                                                 $("form:first").submit();
                                                 return false;
                                             })
                                         });
-                                    </script>
+                                    </script>*@
                                 </td>
                             </tr>
                             <tr>

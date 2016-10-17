@@ -49,3 +49,6 @@ D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\BrnMall.Cor
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\BrnMall.Core.pdb
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.dll
 D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\YunXiu.Commom.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\bin\Debug\YunXiu.Model.pdb
+D:\Project\Mall\YunXiuWeb\YunXiuWeb\Libraries\BrnMall.Core\obj\Debug\BrnMall.Core.csprojResolveAssemblyReference.cache
