@@ -61,15 +61,21 @@
 	display: block;
 	margin: 0 auto;
 }
-
+.question-conten .question{
+	display: none;
+}
+.question-conten .question:first-child{
+	display: block;
+}
 .question-list1{
 	float: left;
 	margin-left: 30px;
 	margin-top: 20px;
+	width: 320px;
 }
 .question-list2{
 	float: left;
-	margin-left: 120px;
+	width: 320px;
 	margin-top: 20px;
 }
 .question-list1 li,.question-list2 li{

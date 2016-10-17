@@ -31,6 +31,9 @@
 	line-height: 20px;
 	text-align: justify;
 }
+.icontenx p img{
+	max-width: 670px;
+}
 .icontenx p span{
 	color: #000;
 }
@@ -44,8 +47,17 @@
 	padding-left: 48px;
 }
 .color-red{
-	color: red;
+	color: red !important;
 }
+.fblod{
+	font-weight: bold;
+}
+/*不需要展开的标题*/
+.litemtitle1{
+	font-size: 14px;
+	margin-top: 20px;
+}
+/*需要展开的标题*/
 .litemtitle{
 	font-size: 14px;
 	cursor: pointer;
@@ -69,4 +81,45 @@
 }
 .litem-conten:nth-child(n){
 	padding-left: 16px;
+}
+
+/*表格样式*/
+.tabstyle th,.tabstyle td{
+	padding: 6px 8px;
+	border: solid #6ab4fd;
+	border-width: 1px 0 0 1px;
+	text-align: center;
+	line-height: 18px;
+}
+.tabstyle{
+	border: solid #6ab4fd;
+	border-width: 0 1px 1px 0;
+}
+
+/*standard导航样式*/
+.standard-list{
+
+}
+.standard-list .standard-item{
+	width: 70px;
+	height: 30px;
+	margin-right: 0px;
+	background: #efefef;
+	float: left;
+	text-align: center;
+	font-size: 14px;
+	line-height: 30px;
+	cursor: pointer;
+}
+.standard-list .standard-item:hover{
+	background-color: #2fa8e1 !important;
+}
+.standard-current{
+	background-color: #2fa8e1 !important;
+}
+.standard-table{
+	display: none;
+}
+.icontenw .standard-table:first-child{
+	display: block;
 }
