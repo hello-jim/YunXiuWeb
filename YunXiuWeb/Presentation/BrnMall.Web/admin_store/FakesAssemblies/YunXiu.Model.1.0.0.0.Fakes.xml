@@ -6640,6 +6640,78 @@
         <member name="P:YunXiu.Model.Fakes.ShimStoreBanners.AllInstances.displayorderSetInt32">
             <summary>设置 StoreBanners.set_displayorder(Int32 value) 的 填充码</summary>
         </member>
+        <member name="T:YunXiu.Model.Fakes.ShimStoreDynamics">
+            <summary>YunXiu.Model.StoreDynamics 的填充码类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimStoreDynamics.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimStoreDynamics.#ctor(YunXiu.Model.StoreDynamics)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimStoreDynamics.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.ShimStoreDynamics.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.Constructor">
+            <summary>设置 StoreDynamics.StoreDynamics() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.DContentGet">
+            <summary>设置 StoreDynamics.get_DContent() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.DContentSetString">
+            <summary>设置 StoreDynamics.set_DContent(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.DIDGet">
+            <summary>设置 StoreDynamics.get_DID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.DIDSetInt32">
+            <summary>设置 StoreDynamics.set_DID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.StoreGet">
+            <summary>设置 StoreDynamics.get_Store() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.StoreSetStore">
+            <summary>设置 StoreDynamics.set_Store(Store value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.TitleGet">
+            <summary>设置 StoreDynamics.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.TitleSetString">
+            <summary>设置 StoreDynamics.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.ShimStoreDynamics.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.AllInstances.DContentGet">
+            <summary>设置 StoreDynamics.get_DContent() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.AllInstances.DContentSetString">
+            <summary>设置 StoreDynamics.set_DContent(String value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.AllInstances.DIDGet">
+            <summary>设置 StoreDynamics.get_DID() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.AllInstances.DIDSetInt32">
+            <summary>设置 StoreDynamics.set_DID(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.AllInstances.StoreGet">
+            <summary>设置 StoreDynamics.get_Store() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.AllInstances.StoreSetStore">
+            <summary>设置 StoreDynamics.set_Store(Store value) 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.AllInstances.TitleGet">
+            <summary>设置 StoreDynamics.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.ShimStoreDynamics.AllInstances.TitleSetString">
+            <summary>设置 StoreDynamics.set_Title(String value) 的 填充码</summary>
+        </member>
         <member name="T:YunXiu.Model.Fakes.ShimStoreHome">
             <summary>YunXiu.Model.StoreHome 的填充码类型</summary>
         </member>
@@ -12008,6 +12080,24 @@
             <summary>获取或设置实例行为。</summary>
         </member>
         <member name="P:YunXiu.Model.Fakes.StubStoreBanners.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:YunXiu.Model.Fakes.StubStoreDynamics">
+            <summary>YunXiu.Model.StoreDynamics 的存根类型</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubStoreDynamics.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:YunXiu.Model.Fakes.StubStoreDynamics.InitializeStub">
+            <summary>初始化 type StubStoreDynamics 的新实例</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubStoreDynamics.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubStoreDynamics.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:YunXiu.Model.Fakes.StubStoreDynamics.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:YunXiu.Model.Fakes.StubStoreHome">

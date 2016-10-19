@@ -108,5 +108,45 @@ namespace BrnMall.Web.Framework
 
         public string MallCopyright = BMAVersion.MALL_COPYRIGHT;//商城版权
 
+        /// <summary>
+        /// 支付配置
+        /// </summary>
+        public Dictionary<string, Dictionary<string,string>> PayConf { get; set; }
+
+        /// <summary>
+        /// 获取支付配置
+        /// </summary>
+        /// <param name="payName"></param>
+        /// <returns></returns>
+        public Dictionary<string,string> GetPayConf(string payName) 
+        {
+            Dictionary<string, string> dic = null;
+            if (PayConf.ContainsKey(payName)) 
+            {
+                dic = PayConf[payName];
+            }
+            return dic;
+        }
+
+        /// <summary>
+        /// 获取支付配置值
+        /// </summary>
+        /// <param name="payName"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string GetPayConfVal(string payName, string key)
+        {
+            var val = "";
+            if (PayConf.ContainsKey(payName))
+            {
+                var dic = PayConf[key];
+               if (dic.ContainsKey(key)) 
+               {
+                   val = dic[key];
+               }
+            }
+            return val;
+        }
+
     }
 }

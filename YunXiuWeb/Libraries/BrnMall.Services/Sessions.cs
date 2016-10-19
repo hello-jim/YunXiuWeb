@@ -159,6 +159,11 @@ namespace BrnMall.Services
         /// </summary>
         public const string VALIDATEEMAIL = "validateEmail";
 
+        /// <summary>
+        /// 用户信息
+        /// </summary>
         public const string USERINFO = "USERINFO";
+
+        public const string USERORDERINFO = "USERORDERINFO";
     }
 }

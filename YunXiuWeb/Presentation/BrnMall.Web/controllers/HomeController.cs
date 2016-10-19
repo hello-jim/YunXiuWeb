@@ -61,9 +61,9 @@ namespace BrnMall.Web.Controllers
             //var cateCoryData = CommomClass.HttpPost(string.Format("{0}/Category/GetCategoryByID", productApi), "2");
             //var Category = JsonConvert.DeserializeObject<Category>(cateCoryData);
             //品牌
-            var brandData = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrandByID", productApi), "36");
-            var brand = JsonConvert.DeserializeObject<Brand>(brandData);
-            model.Logo = brand.Logo;
+            //var brandData = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrandByID", productApi), "36");
+            //var brand = JsonConvert.DeserializeObject<Brand>(brandData);
+            //model.Logo = brand.Logo;
             //获取品牌
             var getbrand = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrand", productApi), "18");
             var getBrandData = JsonConvert.DeserializeObject<List<Brand>>(getbrand);

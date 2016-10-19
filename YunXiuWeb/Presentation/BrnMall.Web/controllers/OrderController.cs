@@ -4,11 +4,17 @@ using System.Data;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Collections.Generic;
-
+using System.Web;
+using System.Linq;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
 using BrnMall.Web.Models;
+using YunXiu.Commom;
+using YunXiu.Model;
+using Newtonsoft.Json;
+using YunXiu.Commom.Pay.Alipay;
+using System.Collections.Specialized;
 
 namespace BrnMall.Web.Controllers
 {
@@ -24,62 +30,92 @@ namespace BrnMall.Web.Controllers
         /// </summary>
         public ActionResult ConfirmOrder()
         {
-            //选中的购物车项键列表
-            string selectedCartItemKeyList = WebHelper.GetRequestString("selectedCartItemKeyList");
-            //配送地址id
-            int saId = WebHelper.GetFormInt("saId");
-            //支付方式
-            int payMode = WebHelper.GetFormInt("payMode");
+            ////选中的购物车项键列表
+            //string selectedCartItemKeyList = WebHelper.GetRequestString("selectedCartItemKeyList");
+            ////配送地址id
+            //int saId = WebHelper.GetFormInt("saId");
+            ////支付方式
+            //int payMode = WebHelper.GetFormInt("payMode");
 
-            //订单商品列表
-            List<OrderProductInfo> orderProductList = Carts.GetCartProductList(WorkContext.Uid);
-            if (orderProductList.Count < 1)
-                return PromptView("购物车中没有商品，请先添加商品");
+            ////订单商品列表
+            //List<OrderProductInfo> orderProductList = Carts.GetCartProductList(WorkContext.Uid);
+            //if (orderProductList.Count < 1)
+            //    return PromptView("购物车中没有商品，请先添加商品");
 
-            //店铺购物车列表
-            List<StoreCartInfo> storeCartList = Carts.TidyMallOrderProductList(StringHelper.SplitString(selectedCartItemKeyList), orderProductList);
-            if (Carts.SumMallCartOrderProductCount(storeCartList) < 1)
-                return PromptView("请先选择购物车商品");
+            ////店铺购物车列表
+            //List<StoreCartInfo> storeCartList = Carts.TidyMallOrderProductList(StringHelper.SplitString(selectedCartItemKeyList), orderProductList);
+            //if (Carts.SumMallCartOrderProductCount(storeCartList) < 1)
+            //    return PromptView("请先选择购物车商品");
 
+            //ConfirmOrderModel model = new ConfirmOrderModel();
+
+            //model.SelectedCartItemKeyList = selectedCartItemKeyList;
+            //model.PayMode = payMode;
+
+            //if (saId > 0)
+            //    model.DefaultFullShipAddressInfo = ShipAddresses.GetFullShipAddressBySAId(saId, WorkContext.Uid);
+            //if (model.DefaultFullShipAddressInfo == null)
+            //    model.DefaultFullShipAddressInfo = ShipAddresses.GetDefaultFullShipAddress(WorkContext.Uid);
+
+            //model.PayCreditName = Credits.PayCreditName;
+            //model.UserPayCredits = WorkContext.PartUserInfo.PayCredits;
+            //model.MaxUsePayCredits = Credits.GetOrderMaxUsePayCredits(WorkContext.PartUserInfo.PayCredits);
+
+            //List<StoreOrder> storeOrderList = new List<StoreOrder>();
+            //foreach (StoreCartInfo item in storeCartList)
+            //{
+            //    StoreOrder storeOrder = new StoreOrder();
+            //    storeOrder.StoreCartInfo = item;
+            //    storeOrder.ProductAmount = Carts.SumOrderProductAmount(item.SelectedOrderProductList);
+            //    storeOrder.FullCut = Carts.SumFullCut(item);
+            //    storeOrder.ShipFee = model.DefaultFullShipAddressInfo != null ? Orders.GetShipFee(model.DefaultFullShipAddressInfo.ProvinceId, model.DefaultFullShipAddressInfo.CityId, item.SelectedOrderProductList) : 0;
+            //    storeOrder.TotalCount = Carts.SumOrderProductCount(item.SelectedOrderProductList);
+            //    storeOrder.TotalWeight = Carts.SumOrderProductWeight(item.SelectedOrderProductList);
+            //    storeOrderList.Add(storeOrder);
+
+            //    model.AllShipFee += storeOrder.ShipFee;
+            //    model.AllFullCut += storeOrder.FullCut;
+            //    model.AllProductAmount += storeOrder.ProductAmount;
+            //    model.AllTotalCount += storeOrder.TotalCount;
+            //    model.AllTotalWeight += storeOrder.TotalWeight;
+            //}
+            //model.StoreOrderList = storeOrderList;
+
+            //model.AllOrderAmount = model.AllProductAmount - model.AllFullCut + model.AllShipFee;
+
+            //model.IsVerifyCode = CommonHelper.IsInArray(WorkContext.PageKey, WorkContext.MallConfig.VerifyPages);
+
+            // return View(model);
             ConfirmOrderModel model = new ConfirmOrderModel();
+            var cOrder = JsonConvert.DeserializeObject<List<COrderPost>>(HttpUtility.UrlDecode(Request.Params["cOrder"]));//确认产品
+            List<int> idList = new List<int>();
+            cOrder.ForEach(o => idList.Add(o.PID));
+            var products = JsonConvert.DeserializeObject<List<Product>>(CommomClass.HttpPost(string.Format("{0}/Product/GetProductsByID", productApi), JsonConvert.SerializeObject(idList)));
 
-            model.SelectedCartItemKeyList = selectedCartItemKeyList;
-            model.PayMode = payMode;
-
-            if (saId > 0)
-                model.DefaultFullShipAddressInfo = ShipAddresses.GetFullShipAddressBySAId(saId, WorkContext.Uid);
-            if (model.DefaultFullShipAddressInfo == null)
-                model.DefaultFullShipAddressInfo = ShipAddresses.GetDefaultFullShipAddress(WorkContext.Uid);
-
-            model.PayCreditName = Credits.PayCreditName;
-            model.UserPayCredits = WorkContext.PartUserInfo.PayCredits;
-            model.MaxUsePayCredits = Credits.GetOrderMaxUsePayCredits(WorkContext.PartUserInfo.PayCredits);
-
-            List<StoreOrder> storeOrderList = new List<StoreOrder>();
-            foreach (StoreCartInfo item in storeCartList)
+            for (int i = 0; i < cOrder.Count; i++)
             {
-                StoreOrder storeOrder = new StoreOrder();
-                storeOrder.StoreCartInfo = item;
-                storeOrder.ProductAmount = Carts.SumOrderProductAmount(item.SelectedOrderProductList);
-                storeOrder.FullCut = Carts.SumFullCut(item);
-                storeOrder.ShipFee = model.DefaultFullShipAddressInfo != null ? Orders.GetShipFee(model.DefaultFullShipAddressInfo.ProvinceId, model.DefaultFullShipAddressInfo.CityId, item.SelectedOrderProductList) : 0;
-                storeOrder.TotalCount = Carts.SumOrderProductCount(item.SelectedOrderProductList);
-                storeOrder.TotalWeight = Carts.SumOrderProductWeight(item.SelectedOrderProductList);
-                storeOrderList.Add(storeOrder);
-
-                model.AllShipFee += storeOrder.ShipFee;
-                model.AllFullCut += storeOrder.FullCut;
-                model.AllProductAmount += storeOrder.ProductAmount;
-                model.AllTotalCount += storeOrder.TotalCount;
-                model.AllTotalWeight += storeOrder.TotalWeight;
+                Order o = new Order
+                {
+                    BuyNumber = cOrder[i].BuyCount,
+                    BuyProduct = products.Where(p => p.PID == cOrder[i].PID).FirstOrDefault(),
+                };
+                model.Orders.Add(o);
             }
-            model.StoreOrderList = storeOrderList;
 
-            model.AllOrderAmount = model.AllProductAmount - model.AllFullCut + model.AllShipFee;
-
-            model.IsVerifyCode = CommonHelper.IsInArray(WorkContext.PageKey, WorkContext.MallConfig.VerifyPages);
-
+            Session[SessionKey.USERORDERINFO] = model.Orders;
             return View(model);
+        }
+
+        public void ConfirmOrderSubmit()
+        {
+            var cText = Security.AESDecrypt(JsonConvert.SerializeObject(Session[SessionKey.USERORDERINFO]), orderAESKey);
+            var resCText = CommomClass.HttpPost(string.Format("{0}/Order/CreateOrder", orderApi), cText);
+            var orders = JsonConvert.DeserializeObject<Dictionary<Order, bool>>(resCText);
+            if (orders.Where(o => o.Value == false).Count() < 1)
+            {
+
+                Response.Redirect("/Order/Pay");
+            }
         }
 
         /// <summary>
@@ -1424,13 +1460,168 @@ namespace BrnMall.Web.Controllers
             return View(model);
         }
 
+        public string Pay()
+        {
+            var from = "";
+            var orders = (List<Order>)Session[SessionKey.USERORDERINFO];
+            decimal payAmount = 0;
+            orders.ForEach(o => payAmount += o.BuyUnitPrice);
+            PayOrder pay = new PayOrder
+            {
+                Orders = orders,
+                BuyUser = new User
+                {
+                    UID = SUserInfo.UID
+                },
+                PayAmount = payAmount
+
+            };
+            var cText = Security.AESEncrypt(JsonConvert.SerializeObject(pay), orderAESKey);
+            var resCText = CommomClass.HttpPost(string.Format("{0}/Order/CreateOrder", orderApi), cText);
+            var resPay =JsonConvert.DeserializeObject<PayOrder>(Security.AESDecrypt(resCText, orderAESKey));
+
+
+            Config.service = WorkContext.GetPayConfVal("Alipay", "service");
+            Config.partner = WorkContext.GetPayConfVal("Alipay", "partner");
+            Config.seller_id = WorkContext.GetPayConfVal("Alipay", "seller_id");
+            Config.input_charset = WorkContext.GetPayConfVal("Alipay", "input_charset");
+            Config.payment_type = WorkContext.GetPayConfVal("Alipay", "payment_type");
+            Config.notify_url = WorkContext.GetPayConfVal("Alipay", "notify_url");
+            Config.return_url = WorkContext.GetPayConfVal("Alipay", "return_url");
+            Config.anti_phishing_key = WorkContext.GetPayConfVal("Alipay", "anti_phishing_key");
+            Config.exter_invoke_ip = WorkContext.GetPayConfVal("Alipay", "exter_invoke_ip");
+
+         
+            //把请求参数打包成数组
+            SortedDictionary<string, string> sParaTemp = new SortedDictionary<string, string>();
+            sParaTemp.Add("service", Config.service);
+            sParaTemp.Add("partner", Config.partner);
+            sParaTemp.Add("seller_id", Config.seller_id);
+            sParaTemp.Add("_input_charset", Config.input_charset.ToLower());
+            sParaTemp.Add("payment_type", Config.payment_type);
+            sParaTemp.Add("notify_url", Config.notify_url);
+            sParaTemp.Add("return_url", Config.return_url);
+            sParaTemp.Add("anti_phishing_key", Config.anti_phishing_key);
+            sParaTemp.Add("exter_invoke_ip", Config.exter_invoke_ip);
+            sParaTemp.Add("out_trade_no", resPay.ID.ToString());
+            sParaTemp.Add("subject", "Test");
+            sParaTemp.Add("total_fee", pay.PayAmount.ToString());
+            sParaTemp.Add("body", "");
+
+            //建立请求
+            from = YunXiu.Commom.Pay.Alipay.Submit.BuildRequest(sParaTemp, "get", "确认");
+            return from;
+        }
+
+
+        public ActionResult Return()
+        {
+            SortedDictionary<string, string> sPara = GetRequestPost();
+
+            if (sPara.Count > 0)//判断是否有带返回参数
+            {
+                YunXiu.Commom.Pay.Alipay.Notify aliNotify = new YunXiu.Commom.Pay.Alipay.Notify();
+                bool verifyResult = aliNotify.Verify(sPara, Request.Form["notify_id"], Request.Form["sign"]);
+
+                if (verifyResult)//验证成功
+                {
+                    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    //请在这里加上商户的业务逻辑程序代码
+
+
+                    //——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
+                    //获取支付宝的通知返回参数，可参考技术文档中服务器异步通知参数列表
+
+                    //商户订单号
+
+                    string out_trade_no = Request.Form["out_trade_no"];
+
+                    //支付宝交易号
+
+                    string trade_no = Request.Form["trade_no"];
+
+                    //交易状态
+                    string trade_status = Request.Form["trade_status"];
+
+
+                    if (Request.Form["trade_status"] == "TRADE_FINISHED")
+                    {
+                        //判断该笔订单是否在商户网站中已经做过处理
+                        //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+                        //请务必判断请求时的total_fee、seller_id与通知时获取的total_fee、seller_id为一致的
+                        //如果有做过处理，不执行商户的业务程序
+
+                        //注意：
+                        //退款日期超过可退款期限后（如三个月可退款），支付宝系统发送该交易状态通知
+                    }
+                    else if (Request.Form["trade_status"] == "TRADE_SUCCESS")
+                    {
+                        //判断该笔订单是否在商户网站中已经做过处理
+                        //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+                        //请务必判断请求时的total_fee、seller_id与通知时获取的total_fee、seller_id为一致的
+                        //如果有做过处理，不执行商户的业务程序
+
+                        //注意：
+                        //付款完成后，支付宝系统发送该交易状态通知
+                    }
+                    else
+                    {
+                    }
+
+                    //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
+
+                    Response.Write("success");  //请不要修改或删除
+
+                    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                }
+                else//验证失败
+                {
+                    Response.Write("fail");
+                }
+            }
+            else
+            {
+                Response.Write("无通知参数");
+            }
+
+            return View();
+        }
+
+        public ActionResult Notify()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 获取支付宝POST过来通知消息，并以“参数名=参数值”的形式组成数组
+        /// </summary>
+        /// <returns>request回来的信息组成的数组</returns>
+        private SortedDictionary<string, string> GetRequestPost()
+        {
+            int i = 0;
+            SortedDictionary<string, string> sArray = new SortedDictionary<string, string>();
+            NameValueCollection coll;
+            //Load Form variables into NameValueCollection variable.
+            coll = Request.Form;
+
+            // Get names of all forms into a string array.
+            String[] requestItem = coll.AllKeys;
+
+            for (i = 0; i < requestItem.Length; i++)
+            {
+                sArray.Add(requestItem[i], Request.Form[requestItem[i]]);
+            }
+
+            return sArray;
+        }
+
         protected sealed override void OnAuthorization(AuthorizationContext filterContext)
         {
             base.OnAuthorization(filterContext);
 
-            
+
             //不允许游客访问
-            if (SUserInfo==null)
+            if (SUserInfo == null)
             {
                 if (WorkContext.IsHttpAjax)//如果为ajax请求
                     filterContext.Result = AjaxResult("nologin", "请先登录");

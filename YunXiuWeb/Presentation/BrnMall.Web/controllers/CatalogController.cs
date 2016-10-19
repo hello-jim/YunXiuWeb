@@ -116,6 +116,7 @@ namespace BrnMall.Web.Controllers
             //    Asyn.UpdateBrowseHistory(WorkContext.Uid, pid);
             ////更新商品统计
             //Asyn.UpdateProductStat(pid, WorkContext.RegionId);
+           
 
             return View(model);
         }

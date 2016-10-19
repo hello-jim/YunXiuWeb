@@ -72,7 +72,7 @@
 <dl class="orderItme">
 <dt>收货人信息<a href="javascript:getShipAddressList()" class="shrSelectBt">[修改]</a></dt>
 <dd class="showOrder" id="shipAddressShowBlock">
-    @if (Model.DefaultFullShipAddressInfo != null)
+    @*@if (Model.DefaultFullShipAddressInfo != null)
     {
     <p> @Model.DefaultFullShipAddressInfo.Consignee @Model.DefaultFullShipAddressInfo.Mobile </p>
     <p> @Model.DefaultFullShipAddressInfo.ProvinceName @Model.DefaultFullShipAddressInfo.CityName @Model.DefaultFullShipAddressInfo.CountyName @Model.DefaultFullShipAddressInfo.Address </p>
@@ -80,7 +80,7 @@
     else
     { 
        <text><p>您还没有配送地址，请先添加。<a href="javascript:void(0)" onclick="getShipAddressList()">点击添加</a><p></text>
-    }
+    }*@
 </dd>
 <dd class="shrSelect" id="shipAddressListBlock"></dd>
 <form name="addShipAddressForm" action="">
@@ -147,14 +147,14 @@
 
 <dl class="orderItme">
 <dt>支付方式<a href="javascript:void(0)" onclick="showPayModeList()" class="shrSelectBt">[修改]</a></dt>
-@if(Model.PayMode == 0)
+@*@if(Model.PayMode == 0)
 {
     <dd class="showOrder" id="payModeShowBlock"><p>货到付款</p></dd>
 }
 else
 {
     <dd class="showOrder" id="payModeShowBlock"><p>在线付款</p></dd>
-}
+}*@
 <dd class="zffs" id="payModeListBlock" style=" display:none;">
 <ul class="zffsList">
         <li><label><b><input type="radio" class="radio" name="payModeItem" onclick="selectPayMode(0)" />货到付款</b><i>货到付款</i></label></li>
@@ -175,7 +175,7 @@ else
     <li class="numberT">数量</li>
 </ul>
 </div>
-    @foreach (StoreOrder storeOrder in Model.StoreOrderList)
+    @*@foreach (StoreOrder storeOrder in Model.StoreOrderList)
     {
     <div class="buyItme">
     <h2><label>@storeOrder.StoreCartInfo.StoreInfo.Name</label></h2>
@@ -378,17 +378,17 @@ else
     }
 
     </div>
-    }
+    }*@
     <div style="border-top:1px solid #ddd;"></div>
 </dd>
 
 <dd>
 <div class="orderSum">
 <ul>
-<li><em>@Model.AllTotalCount 件商品，总商品金额：</em><b>￥@Model.AllProductAmount</b></li>
-<li><em>运费：</em><b>￥@Model.AllShipFee</b></li>
-<li><em>返现：</em><b>￥@Model.AllFullCut</b></li>
-<li><em>应付总额：</em><b>￥@Model.AllOrderAmount</b></li>
+<li><em>@*@Model.AllTotalCoun*@t 件商品，总商品金额：</em><b>￥@*@Model.AllProductAmount*@</b></li>
+<li><em>运费：</em><b>￥@*@Model.AllShipFee*@</b></li>
+<li><em>返现：</em><b>￥@*@Model.AllFullCut*@</b></li>
+<li><em>应付总额：</em><b>￥@*@Model.AllOrderAmount*@</b></li>
 </ul>
 <div class="clear"></div>
 </div>
@@ -421,11 +421,11 @@ else
 </div>
 
 <div class="itme">
-<h3><a href="javascript:;" onclick="openPayCredit(this)">使用 @Model.PayCreditName</a></h3>
+<h3><a href="javascript:;" onclick="openPayCredit(this)">使用 @*@Model.PayCreditName*@</a></h3>
 <div class="sumCon" id="payCreditSumCon">
 <div class="itmeCon">
-<p>本次使用 <input type="text" class="text" size="10" id="payCreditCount" name="payCreditCount" onblur="verifyPayCredit(@Model.UserPayCredits, @Model.MaxUsePayCredits )" />个 @Model.PayCreditName</p>
-<p>您有 @Model.PayCreditName<strong style="color:000;">@Model.UserPayCredits</strong>个，本次可用<strong style="color:#ff6600">@Model.MaxUsePayCredits</strong>个</p>
+<p>本次使用 <input type="text" class="text" size="10" id="payCreditCount" name="payCreditCount"  />个 @*@Model.PayCreditName*@</p>
+<p>您有 @*@Model.PayCreditName*@<strong style="color:000;">@*@Model.UserPayCredits*@</strong>个，本次可用<strong style="color:#ff6600">@*@Model.MaxUsePayCredits*@</strong>个</p>
 </div>
 </div>
 <script type="text/javascript">
@@ -464,15 +464,11 @@ else
 </div>
 </div>
 
-    @if (Model.IsVerifyCode)
-    { 
-    <div style="float:right; margin-top:14px;"><input type="text" name="verifyCode" id="verifyCode" autocomplete="off" style=" padding:6px 0px;"/></div>
-    <div style="float:right; margin-top:18px;"><img id="verifyImage" style="cursor:hand;" height="24" title="点击刷新验证码" onclick="this.src='/tool/verifyimage?time=' + new Date()" src="/tool/verifyimage" /></div>
-    }
-    <input type="hidden" id="allFullCut" value="@Model.AllFullCut" />
+ 
+    @*<input type="hidden" id="allFullCut" value="@Model.AllFullCut" />*@
     <form action="@Url.Action("confirmorder")" method="post" id="confirmOrderForm">
-        <input type="hidden" name="selectedCartItemKeyList" id="selectedCartItemKeyList" value="@Model.SelectedCartItemKeyList" />
-        @if (Model.DefaultFullShipAddressInfo != null)
+        @*<input type="hidden" name="selectedCartItemKeyList" id="selectedCartItemKeyList" value="@Model.SelectedCartItemKeyList" />*@
+        @*@if (Model.DefaultFullShipAddressInfo != null)
         {
         <input type="hidden" value="@Model.DefaultFullShipAddressInfo.SAId" name="saId" id="saId" />
         }
@@ -480,9 +476,9 @@ else
         { 
         <input type="hidden" value="0" name="saId" id="saId" />
         }
-        <input type="hidden" value="@Model.PayMode" name="payMode" id="payMode" />
+        <input type="hidden" value="@Model.PayMode" name="payMode" id="payMode" />*@
     </form>
-<div class="buySumBt borDDD" style="border-top:0px;">总计（不含运费）： <b>¥@Model.AllOrderAmount</b><a href="javascript:submitOrder()" class="redBT">去结算</a> </div></div>
+<div class="buySumBt borDDD" style="border-top:0px;">总计（不含运费）： <b>¥@*@Model.AllOrderAmount*@</b><a href="javascript:submitOrder()" class="redBT">去结算</a> </div></div>
 
     <script type="text/javascript">
         //绑定省列表的改变事件

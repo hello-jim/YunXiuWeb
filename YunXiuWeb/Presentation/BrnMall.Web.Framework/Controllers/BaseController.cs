@@ -15,6 +15,8 @@ namespace BrnMall.Web.Framework
     {
         public string productApi = ConfigurationManager.AppSettings["productApi"];
         public string accountApi = ConfigurationManager.AppSettings["accountApi"];
+        public string orderApi = ConfigurationManager.AppSettings["orderApi"];
+        public string orderAESKey = ConfigurationManager.AppSettings["orderAESKey"];
 
         public User SUserInfo = null;
         protected override void OnException(ExceptionContext filterContext)

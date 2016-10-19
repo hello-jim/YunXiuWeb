@@ -3,9 +3,9 @@ using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Collections.Generic;
-
 using BrnMall.Core;
 using BrnMall.Services;
+using YunXiu.Commom;
 
 namespace BrnMall.Web.Framework
 {
@@ -28,6 +28,9 @@ namespace BrnMall.Web.Framework
             WorkContext.RegionId = WorkContext.RegionInfo.RegionId;
             WorkContext.Url = WebHelper.GetUrl();
             WorkContext.UrlReferrer = WebHelper.GetUrlReferrer();
+
+            WorkContext.PayConf = CommomClass.CreateDictionaries(Server.MapPath("/App_Data/PayConf.xml"), "/Payments/Pay");
+           
 
             //获得用户唯一标示符sid
             WorkContext.Sid = MallUtils.GetSidCookie();

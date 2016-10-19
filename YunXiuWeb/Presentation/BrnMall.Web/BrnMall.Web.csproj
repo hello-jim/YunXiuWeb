@@ -39,11 +39,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\DLL\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -69,6 +71,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="controllers\AccountController.cs" />
+    <Compile Include="controllers\PayController.cs" />
     <Compile Include="controllers\CartController.cs" />
     <Compile Include="controllers\CatalogController.cs" />
     <Compile Include="controllers\CommonProblemController.cs" />
@@ -101,6 +104,7 @@
     <Content Include="App_Data\pangu\dictionaries\Stopword.txt" />
     <Content Include="App_Data\pangu\dictionaries\Synonym.txt" />
     <Content Include="App_Data\pangu\dictionaries\Wildcard.txt" />
+    <Content Include="App_Data\PayConf.xml" />
     <Content Include="App_Data\upload.config" />
     <None Include="App_Data\pangu\pangu.config" />
     <Content Include="cache\category\selectlist.htm" />
@@ -224,15 +228,25 @@
     <Content Include="images\atop880.jpg" />
     <Content Include="images\b4738448.jpg" />
     <Content Include="images\b8017216.jpg" />
+    <Content Include="images\brand\51_17279_1.jpg" />
     <Content Include="images\btopimg1.jpg" />
     <Content Include="images\footericon1.png" />
     <Content Include="images\footericon2.png" />
     <Content Include="images\footericon3.png" />
     <Content Include="images\footericon4.png" />
     <Content Include="images\greenbg.png" />
+    <Content Include="images\productImg\26.jpg" />
+    <Content Include="images\productImg\27.jpg" />
+    <Content Include="images\productImg\35.jpg" />
+    <Content Include="images\productImg\43.JPG" />
+    <Content Include="images\productImg\44.jpg" />
+    <Content Include="images\productImg\45.jpg" />
+    <Content Include="images\productImg\46.jpg" />
+    <Content Include="images\productImg\47.jpg" />
     <Content Include="images\qxdd1.png" />
     <Content Include="images\qxdd2.png" />
     <Content Include="images\qxdd3.png" />
+    <Content Include="images\storeImg\1.jpg" />
     <Content Include="images\xgdd.png" />
     <Content Include="images\xqdd.png" />
     <Content Include="js\jquery-ui.min.js" />
@@ -535,7 +549,6 @@
     <Content Include="images\productImg\13.jpg" />
     <Content Include="images\productImg\14.jpg" />
     <Content Include="images\productImg\15.jpg" />
-    <Content Include="images\productImg\16.jpg" />
     <Content Include="images\productImg\17.jpg" />
     <Content Include="images\productImg\18.JPG" />
     <Content Include="images\productImg\19.jpg" />
@@ -546,7 +559,6 @@
     <Content Include="images\productImg\23.jpg" />
     <Content Include="images\productImg\24.jpg" />
     <Content Include="images\productImg\25.JPG" />
-    <Content Include="images\productImg\3.jpg" />
     <Content Include="images\productImg\4.jpg" />
     <Content Include="images\productImg\5.jpg" />
     <Content Include="images\productImg\5_1.jpg" />
@@ -818,7 +830,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\txtlogs\" />
-    <Folder Include="images\storeImg\" />
     <Folder Include="plugins\bin\" />
     <Folder Include="upload\adv\" />
     <Folder Include="upload\brand\" />

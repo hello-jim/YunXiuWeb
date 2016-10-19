@@ -18,7 +18,7 @@
 </head>
 <body>
     @Html.Partial("_header")
-    <link href="@{@WorkContext.CSSCDN}/css/home.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/home.css?v=2" rel="stylesheet" type="text/css" />
     <div class="announce container">
         <div class="ann_con" style="">
             <div class="signinfo">
@@ -80,7 +80,7 @@
         </div>
 
     </div>
-    <div style="padding-bottom:30px;">
+    <div style="background: #f4f4f4; padding-bottom: 30px;">
         <div class="container">
             <div class="picScroll-left row">
                 <div class="hd">
@@ -177,179 +177,420 @@
         </div>
 
         <!--cloth floor-->
+
         <div class="cloth-floor clear container">
             <div class="row">
                 <div class="floorT themered">
-                    <h2 class="font16">@Model.CategoryName</h2>
+                    <h2 class="font16">1F刺绣线辅材</h2>
+                    <p>
+                        <span>品类全</span>
+                        <span>实力强</span>
+                        <span>品质好</span>
+                        <span>款式新</span>
+                    </p>
                 </div>
-                <div class="floorCon bg-white">
-                    <div class="a_con">
+                <div class="floorCon clear">
+                    <div class="a_con bg-white">
                         <div class="a_con_top">
-                            <img src="images/pei2.png" />
+                            <img src="images/atop880.jpg" /><!--<a class="booking bgred font18">查看更多</a>-->
                         </div>
                         <div class="a_con_bot">
-                            @{ var OnebrandByCategory = @Model.GetBrandByCategory;
-                            }
-
-
-                            @foreach (var oneBrandByCategoryInfo in OnebrandByCategory)
-                            {
-                                <ul class="col-sm-6">
-                                    <li><a>@oneBrandByCategoryInfo.Name</a></li>
-                                </ul>}
-
+                            <ul class="col-sm-6">
+                                <li><a>涤纶</a></li>
+                                <li><a>维纶</a></li>
+                                <li><a>直销</a></li>
+                                <li><a>特价</a></li>
+                            </ul>
+                            <ul class="col-sm-6">
+                                <li><a>缝纫线</a></li>
+                                <li><a>绣花线</a></li>
+                                <li><a>水溶纱线</a></li>
+                                <li><a>冰丝手工线</a></li>
+                            </ul>
                         </div>
-                        <ul class="huodong col-sm-12">
-                            <li><a>格罗茨针></a></li>
-                            <li><a>格罗茨针格罗茨格罗茨></a></li>
+                        <ul class="huodong">
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
                         </ul>
                     </div>
                     <div class="b_con">
+                        <div class="b_con_top">
+                            <img src="images/btopimg1.jpg" />
+                        </div>
                         <ul>
-                            @{var CategorysProduc = @Model.GetProductByCategory;
-                            }
-                            @foreach (var CategorysProducInfo in CategorysProduc)
-                            {
-                                <li>
-                                    <h1>
-                                        <a href="###" target="_blank">
-                                            @{
-                                //string img = Convert.ToString(@CategorysProducInfo.ImgID);
-                                //string imgName = img + ".jpg";
-                                            }
-                                            <img class="fl" src="@{@WorkContext.ImageCDN}/images/productImg/@CategorysProducInfo.ImgName" />
-                                        </a>
-                                    </h1>
-                                    <p>@CategorysProducInfo.Name</p>
-                                    <b class="colorgreen">@CategorysProducInfo.ShopPrice</b>
-                                </li>
-                            }
-
-                        </ul>
-                    </div>
-                    <div class="c_con">
-                        <ul>
-
-                            <li><h5>热门品牌</h5></li>
-                            @{
-                                var hotBrand = @Model.HotBrand;
-                            }
-                            @foreach (var hotBrandinfo in hotBrand)
-                            {
-                                <li><h1><a><img src="@{@WorkContext.ImageCDN}/images/brand/@hotBrandinfo.Logo" /></a></h1></li>
-                            }
+                            <li>
+                                <h1>
+                                    <a href="###" target="_blank">
+                                        <img src="images/132.jpg" />
+                                    </a>
+                                </h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1>
+                                    <a href="###" target="_blank">
+                                        <img src="images/132.jpg" />
+                                    </a>
+                                </h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1><a href="###" target="_blank"><img src="images/pic.png" /></a></h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1><a href="###" target="_blank"><img src="images/pic1.png" /></a></h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-
         <div class="mac-floor clear container">
-
             <div class="row">
-
-                <div class="floorT themered">
-                    <h2 class="font16">@Model.CategoryNameOne</h2>
+                <div class="floorT themered clear">
+                    <h2 class="font16">2F刺绣线辅材</h2>
+                    <p>
+                        <span>专业</span>
+                        <span>品质</span>
+                        <span>信誉</span>
+                    </p>
                 </div>
-
-                <div class="floorCon bg-white">
-                    <div class="a_con">
+                <div class="floorCon clear">
+                    <div class="a_con bg-white">
                         <div class="a_con_top">
-                            <img src="images/pei2.png" />
+                            <img src="images/7277494.jpg" /><!--<a class="booking bgred font18">查看更多</a>-->
                         </div>
-
                         <div class="a_con_bot">
-                            @{ var brandByCategory = @Model.GetBrandByCategoryOne;
-                            }
-
-                            @foreach (var brandByCategoryInfo in brandByCategory)
-                            {
-                                <ul class="col-sm-6">
-
-                                    <li><a>@brandByCategoryInfo.Name</a></li>
-
-                                </ul>
-                            }
+                            <ul class="col-sm-6">
+                                <li><a>涤纶</a></li>
+                                <li><a>维纶</a></li>
+                                <li><a>直销</a></li>
+                                <li><a>特价</a></li>
+                            </ul>
+                            <ul class="col-sm-6">
+                                <li><a>缝纫线</a></li>
+                                <li><a>绣花线</a></li>
+                                <li><a>水溶纱线</a></li>
+                                <li><a>冰丝手工线</a></li>
+                            </ul>
                         </div>
-                        <ul class="huodong col-sm-12">
-                            <li><a>格罗茨针></a></li>
-                            <li><a>格罗茨针格罗茨格罗茨></a></li>
+                        <ul class="huodong">
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
                         </ul>
                     </div>
-
                     <div class="b_con">
+                        <div class="b_con_top">
+                            <img src="images/860053_s.jpg" />
+                        </div>
                         <ul>
-                            @{var CategorysProducOne = @Model.GetProductByCategoryOne;
-                            }
-                            @foreach (var CategorysProducInfoOne in CategorysProducOne)
-                            {
-                                <li>
-                                    <h1>
-                                        <a href="###" target="_blank">
-                                            @{
-                                //string img = Convert.ToString(@CategorysProducInfoOne.ImgID);
-                                //string imgName = img + ".jpg";
-                                            }
-                                            <img class="fl" src="@{@WorkContext.ImageCDN}/images/productImg/@CategorysProducInfoOne.ImgName" />
-                                        </a>
-                                    </h1>
-                                    <p>@CategorysProducInfoOne.Name</p>
-                                    <b class="colorgreen">@CategorysProducInfoOne.ShopPrice</b>
-                                </li>
-                            }
-
-                            @*<li>
-                                    <h1>
-                                        <a href="###" target="_blank">
-                                            <img src="images/pei2.png" />
-                                        </a>
-                                    </h1>
-                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                    <b class="colorgreen">￥88800</b><s>89000</s>
-                                </li>
-                                <li>
-                                    <h1><a href="###" target="_blank"><img src="images/pei3.png" /></a></h1>
-                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                    <b class="colorgreen">￥64</b><s>89</s>
-                                </li>
-                                <li>
-                                    <h1><a href="###" target="_blank"><img src="images/pei1.png" /></a></h1>
-                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                    <b class="colorgreen">￥64</b><s>89</s>
-                                </li>
-                                <li>
-                                    <h1><a href="###" target="_blank"><img src="images/17279_1.jpg" /></a></h1>
-                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                    <b class="colorgreen">￥64</b><s>89</s>
-                                </li>
-                                <li>
-                                    <h1><a href="###" target="_blank"><img src="images/pei4.png" /></a></h1>
-                                    <p>小女孩背景原创  TKP541545464  手绘系列  编带发</p>
-                                    <b class="colorgreen">￥64</b><s>89</s>
-                                </li>*@
-                        </ul>
-                    </div>
-
-                    <div class="c_con">
-                        <ul>
-                            <li><h5>热门品牌</h5></li>
-                            @{
-                                var hotBrand2 = @Model.HotBrand;
-                            }
-
-                            @foreach (var hotBrandinfo2 in hotBrand2)
-                            {
-                                <li><h1><a><img src="@{@WorkContext.ImageCDN}/images/brand/@hotBrandinfo2.Logo" /></a></h1></li>
-                            }
+                            <li>
+                                <h1>
+                                    <a href="###" target="_blank">
+                                        <img src="images/pei1.png" />
+                                    </a>
+                                </h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1>
+                                    <a href="###" target="_blank">
+                                        <img src="images/pei2.png" />
+                                    </a>
+                                </h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1><a href="###" target="_blank"><img src="images/pei3.png" /></a></h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1><a href="###" target="_blank"><img src="images/pei1.png" /></a></h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-
         </div>
+        <div class="part-floor clear container">
+            <div class="row">
+                <div class="floorT themered">
+                    <h2 class="font16">3F机器零配件</h2>
+                    <p>
+                        <span>品种齐全</span>
+                        <span>质优价廉</span>
+                        <span>批发零售</span>
+                        <span>量多从优</span>
+                    </p>
+                </div>
+                <div class="floorCon clear">
+                    <div class="a_con bg-white">
+                        <div class="a_con_top">
+                            <img src="images/9785735.jpg" /><!--<a class="booking bgred font18">查看更多</a>-->
+                        </div>
+                        <div class="a_con_bot">
+                            <ul class="col-sm-6">
+                                <li><a>涤纶</a></li>
+                                <li><a>维纶</a></li>
+                                <li><a>直销</a></li>
+                                <li><a>特价</a></li>
+                            </ul>
+                            <ul class="col-sm-6">
+                                <li><a>缝纫线</a></li>
+                                <li><a>绣花线</a></li>
+                                <li><a>水溶纱线</a></li>
+                                <li><a>冰丝手工线</a></li>
+                            </ul>
+                        </div>
+                        <ul class="huodong">
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                        </ul>
+                    </div>
+                    <div class="b_con">
+                        <div class="b_con_top">
+                            <img src="images/860054_s.jpg" />
+                        </div>
+                        <ul>
+                            <li>
+                                <h1>
+                                    <a href="###" target="_blank">
+                                        <img src="images/132.jpg" />
+                                    </a>
+                                </h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1>
+                                    <a href="###" target="_blank">
+                                        <img src="images/132.jpg" />
+                                    </a>
+                                </h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1><a href="###" target="_blank"><img src="images/pic.png" /></a></h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1><a href="###" target="_blank"><img src="images/pic1.png" /></a></h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="other-floor clear container">
+            <div class="row">
+                <div class="floorT themered clear">
+                    <h2 class="font16">2F刺绣线辅材</h2>
+                    <p>
+                        <span>品种齐全</span>
+                        <span>质优价廉</span>
+                        <span>批发零售</span>
+                        <span>量多从优</span>
+                    </p>
+                </div>
+                <div class="floorCon clear">
+                    <div class="a_con bg-white">
+                        <div class="a_con_top">
+                            <img src="images/9504388.jpg" /><!--<a class="booking bgred font18">查看更多</a>-->
+                        </div>
+                        <div class="a_con_bot">
+                            <ul class="col-sm-6">
+                                <li><a>涤纶</a></li>
+                                <li><a>维纶</a></li>
+                                <li><a>直销</a></li>
+                                <li><a>特价</a></li>
+                            </ul>
+                            <ul class="col-sm-6">
+                                <li><a>缝纫线</a></li>
+                                <li><a>绣花线</a></li>
+                                <li><a>水溶纱线</a></li>
+                                <li><a>冰丝手工线</a></li>
+                            </ul>
+                        </div>
+                        <ul class="huodong">
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                            <li><a><img src="images/tiandao.png" /></a></li>
+                        </ul>
+                    </div>
+                    <div class="b_con">
+                        <div class="b_con_top">
+                            <img src="images/860056_s.jpg" />
+                        </div>
+                        <ul>
+                            <li>
+                                <h1>
+                                    <a href="###" target="_blank">
+                                        <img src="images/pei1.png" />
+                                    </a>
+                                </h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1>
+                                    <a href="###" target="_blank">
+                                        <img src="images/pei2.png" />
+                                    </a>
+                                </h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1><a href="###" target="_blank"><img src="images/pei3.png" /></a></h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h1><a href="###" target="_blank"><img src="images/pei1.png" /></a></h1>
+                                <p>
+                                    <span class="price colororange">￥88</span>
+                                    <span class="sale">已售：12345</span>
+                                </p>
+                                <p>缝纫线（X620）KIEJGB</p>
+                                <p class="bot">
+                                    <span class="comment">评价：2345</span>
+                                    <span class="collect">收藏：6789</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 

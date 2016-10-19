@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using BrnMall.Core;
+using YunXiu.Model;
 
 namespace BrnMall.Web.Models
 {
@@ -10,69 +10,90 @@ namespace BrnMall.Web.Models
     /// </summary>
     public class ConfirmOrderModel
     {
-        /// <summary>
-        /// 选中的购物车项键列表
-        /// </summary>
-        public string SelectedCartItemKeyList { get; set; }
 
-        /// <summary>
-        /// 支付方式(0代表货到付款,1代表在线支付)
-        /// </summary>
-        public int PayMode { get; set; }
+        public ConfirmOrderModel() 
+        {
+            Orders = new List<Order>();
+        }
+        ///// <summary>
+        ///// 选中的购物车项键列表
+        ///// </summary>
+        //public string SelectedCartItemKeyList { get; set; }
 
-        /// <summary>
-        /// 默认完整用户配送地址
-        /// </summary>
-        public FullShipAddressInfo DefaultFullShipAddressInfo { get; set; }
+        ///// <summary>
+        ///// 支付方式(0代表货到付款,1代表在线支付)
+        ///// </summary>
+        //public int PayMode { get; set; }
 
-        /// <summary>
-        /// 店铺订单列表
-        /// </summary>
-        public List<StoreOrder> StoreOrderList { get; set; }
+        ///// <summary>
+        ///// 默认完整用户配送地址
+        ///// </summary>
+        //public FullShipAddressInfo DefaultFullShipAddressInfo { get; set; }
 
-        /// <summary>
-        /// 支付积分名称
-        /// </summary>
-        public string PayCreditName { get; set; }
-        /// <summary>
-        /// 用户支付积分
-        /// </summary>
-        public int UserPayCredits { get; set; }
-        /// <summary>
-        /// 最大使用支付积分
-        /// </summary>
-        public int MaxUsePayCredits { get; set; }
+        ///// <summary>
+        ///// 店铺订单列表
+        ///// </summary>
+        //public List<StoreOrder> StoreOrderList { get; set; }
 
-        /// <summary>
-        /// 全部配送费用
-        /// </summary>
-        public int AllShipFee { get; set; }
-        /// <summary>
-        /// 全部满减
-        /// </summary>
-        public int AllFullCut { get; set; }
-        /// <summary>
-        /// 全部商品合计
-        /// </summary>
-        public decimal AllProductAmount { get; set; }
-        /// <summary>
-        /// 全部订单合计
-        /// </summary>
-        public decimal AllOrderAmount { get; set; }
+        ///// <summary>
+        ///// 支付积分名称
+        ///// </summary>
+        //public string PayCreditName { get; set; }
+        ///// <summary>
+        ///// 用户支付积分
+        ///// </summary>
+        //public int UserPayCredits { get; set; }
+        ///// <summary>
+        ///// 最大使用支付积分
+        ///// </summary>
+        //public int MaxUsePayCredits { get; set; }
 
-        /// <summary>
-        /// 全部商品总数量
-        /// </summary>
-        public int AllTotalCount { get; set; }
-        /// <summary>
-        /// 全部商品总重量
-        /// </summary>
-        public int AllTotalWeight { get; set; }
+        ///// <summary>
+        ///// 全部配送费用
+        ///// </summary>
+        //public int AllShipFee { get; set; }
+        ///// <summary>
+        ///// 全部满减
+        ///// </summary>
+        //public int AllFullCut { get; set; }
+        ///// <summary>
+        ///// 全部商品合计
+        ///// </summary>
+        //public decimal AllProductAmount { get; set; }
+        ///// <summary>
+        ///// 全部订单合计
+        ///// </summary>
+        //public decimal AllOrderAmount { get; set; }
 
-        /// <summary>
-        /// 是否显示验证码
-        /// </summary>
-        public bool IsVerifyCode { get; set; }
+        ///// <summary>
+        ///// 全部商品总数量
+        ///// </summary>
+        //public int AllTotalCount { get; set; }
+        ///// <summary>
+        ///// 全部商品总重量
+        ///// </summary>
+        //public int AllTotalWeight { get; set; }
+
+        ///// <summary>
+        ///// 是否显示验证码
+        ///// </summary>
+        //public bool IsVerifyCode { get; set; }
+
+
+        public List<Order> Orders { get; set; }
+
+
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class COrderPost
+    {
+        public int PID { get; set; }
+
+        public int BuyCount { get; set; }
     }
 
     /// <summary>
