@@ -1,9 +1,335 @@
-﻿@{
+﻿@model BrnMall.Web.Models.SupplyProductModel
+@{
     ViewBag.Title = "SupplyProduct";
+    Layout = null;
 }
 
-@Html.Partial("_header")
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/public.css">
+<link rel="stylesheet" type="text/css" href="/css/shorepublic.css">
+<link rel="stylesheet" type="text/css" href="/css/storeproduct.css">
+<div id="topbar">
+    <div class="container">
+        <div class="col-xs-6 row">
+            <span class="fl">欢迎您,</span><!--<a>[登录]</a>&nbsp;<a>[注册]</a>-->
+            <ul class="fl topl">
+                <li class="talk">
+                    消息<i style="background:url(/images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
+                    <dl class="sub-menu">
+                        <dd><a>待处理订单</a></dd>
+                        <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
+                        <dd><a>通知</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    我的云绣
+                    <div class="sub-menu bg-white" style="z-index:9999; width:200px;border:1px solid #ddd;border-top:0;">
+                        <dl class="fl">
+                            <dt><a>我是买家</a></dt>
+                            <dd><a>发布采购</a></dd>
+                            <dd><a>发布招标</a></dd>
+                            <dd><a>我的优惠券</a></dd>
+                            <dd><a>我的采购单</a></dd>
+                            <dd><a>我的留言</a></dd>
+                        </dl>
+                        <dl class="fl">
+                            <dt><a>我是卖家</a></dt>
+                            <dd><a>管理旺铺</a></dd>
+                            <dd><a>已卖出的商品</a></dd>
+                            <dd><a>管理供应商品</a></dd>
+                            <dd><a>我的商机</a></dd>
+                        </dl>
+                    </div>
+                </li>
+            </ul>
 
-供应商品
+        </div>
+        <div class="topbarr row">
+            <ul>
+                <!--<li class="talk">
+                   消息<i style="background:url(images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
+                   <dl class="sub-menu">
+                      <dd><a>待处理订单</a></dd>
+                      <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
+                      <dd><a>通知</a></dd>
+                   </dl>
+                </li>-->
+                <li class="menu">
+                    我的收藏
+                    <dl class="sub-menu">  
+                        <dd><a>收藏的商品</a></dd>
+                        <dd><a>收藏的供应商</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    云绣服务
+                    <dl class="sub-menu">
+                        <dd><a>标王服务</a></dd>
+                        <dd><a>黄金展位</a></dd>
+                        <dd><a>会员服务</a></dd>
+                        <dd><a>商贸通</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    诚信商家
+                    <dl class="sub-menu">
+                        <dd><a>商家权益</a></dd>
+                        <dd><a>招商标准</a></dd>
+                        <dd><a>收费标准</a></dd>
+                        <dd><a>入驻开店</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    客服中心
+                    <dl class="sub-menu">
+                        <dd><a>买家帮助</a></dd>
+                        <dd><a>卖家帮助</a></dd>
+                        <dd><a>在线咨询</a></dd>
+                        <dd><a>常见问答</a></dd>
+                        <dd><a>二维码</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    网站导航
+                    <dl class="sub-menu">
+                        <dd><a>云绣ERP</a></dd>
+                        <dd><a>娴婷一账通</a></dd>
+                        <dd><a>云绣网</a></dd>
+                    </dl>
+                </li>
 
+            </ul>
+        </div>
+    </div>
+</div>
+
+<header class="container">
+    <div class="row">
+        <div class="logopart col-md-4" style="margin-top: -20px;">
+            <!--<a href="###" class="logo"></a>-->
+            <h2><img src="/images/logo.png" alt="云绣网" /><span style="margin-left:15px; margin-top: 20px;"><img src="/images/slogan.png" alt="刺绣行业一站式采购" /></span></h2>
+        </div>
+
+        <div class="search-part col-md-6">
+            <ul class="tab-search">
+                <li class="selected"><a>全部</a></li>
+                <li><a>线辅材</a></li>
+                <li><a>供应商</a></li>
+            </ul>
+            <div class="clear">
+                <input class="search-text" type="text" autocomplete="off" />
+                <button type="button" class="searchbtn">搜索</button>
+            </div>
+            <div class="hotwords">
+                <a href="###" target="_blank" class="hot">绣花机</a>
+                <a href="###" target="_blank">绣针</a>
+                <a href="###" target="_blank">机夹</a>
+                <a href="###" target="_blank">机架</a>
+                <a href="###" target="_blank">零配件</a>
+            </div>
+        </div>
+
+        <div class="cart-part col-md-2">
+            <h2><a href="###" target="_blank">我的购物车<b>3</b></a></h2>
+        </div>
+    </div>
+</header>
+<div class="store-header">
+    <div class="store-container">
+        <img src="/images/tiandao.png">
+        <span>神州田岛</span>
+    </div>
+</div>
+<div class="store-nav clearfix">
+    <div class="store-container">
+        <ul>
+            <li><a href="@Url.Action("index", "store", new RouteValueDictionary { { "storeId", Model.StoreInfo.StoreID } })">公司首页</a></li>
+            <li class="store-nav-active"><a href="@Url.Action("supplyproduct", "store", new { sid = @Model.StoreInfo.StoreID})">供应产品</a></li>
+            <li><a href="@Url.Action("storeintroduction", "store", new { sid = @Model.StoreInfo.StoreID})">公司介绍</a></li>
+            <li><a href="@Url.Action("storenews", "store", new { sid = @Model.StoreInfo.StoreID})">旺铺动态</a></li>
+            <li><a href="@Url.Action("storealbum", "store", new { sid = @Model.StoreInfo.StoreID})">公司相册</a></li>
+        </ul>
+    </div>
+</div>
+<div class="main-body">
+    <div class="product-container clearfix">
+        <!-- <div class="right-conten">
+            <div class="store-brief">
+                <div class="brief-header">
+                    <h4>神州田岛</h4>
+                    <p>买卖通会员</p>
+                </div>
+                <div class="brief-conten">
+
+                </div>
+            </div>
+        </div>
+        <div class="main-conten">
+
+        </div> -->
+        <div class="sort-header">
+            <div class="sort-row sort-title">
+                <span class="choice">产品列表</span>
+            </div>
+            <div class="sort-row clearfix">
+                <span class="choice">所有分类</span>
+                <ul class="sort-list">
+                    <li><a href="">刺绣机器<span>(6)</span></a></li>
+                    <li><a href="">线材<span>(12)</span></a></li>
+                    <li><a href="">零配件<span>(18)</span></a></li>
+                    <li><a href="">刺绣机器<span>(6)</span></a></li>
+                </ul>
+            </div>
+            <div class="sort-row clearfix">
+                <span class="choice">品牌分类</span>
+                <ul class="sort-list">
+                    <li><a href="">田岛<span>(24)</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sort-order">
+            <ul>
+                <li class="sorts"><a href="">综合排序</a></li>
+                <li class="sorts"><a href="">销量</a></li>
+                <li class="sorts"><a href="">价格</a></li>
+                <li class="sorts"><a href="">收藏</a></li>
+            </ul>
+            <div class="page">
+                <span>共16个商品</span>
+                <span>第1/1页</span>
+                <a href="javascript:;">上一页</a>
+                <a href="javascript:;">下一页</a>
+            </div>
+        </div>
+
+        <div class="product-list">
+            <ul id="product-list">
+                @foreach (var info in Model.Products) 
+                { 
+                   <li>
+                    <h1><a href=""><img src="/images/productImg/@info.ImgName"></a></h1>
+                    <div class="info">
+                        <span> @info.Name</span>
+                        <b>￥@info.ShopPrice</b>
+                        <button>加入购物车</button>
+                    </div>
+                   </li>
+                }
+                @*<li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...单头电脑刺绣机</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                        <button>加入购物车</button>
+                    </div>
+                </li>*@
+
+            </ul>
+        </div>
+
+        <div id="product-nav"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/laypage.js"></script>
+
+<script type="text/javascript">
+        /*	var data = [
+
+            ];*/
+
+        var nums = 5; //每页出现的数量
+        var pages = Math.ceil(data.length / nums); //得到总页数
+
+        var thisDate = function (curr) {
+            //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
+            var str = '', last = curr * nums - 1;
+            last = last >= data.length ? (data.length - 1) : last;
+            for (var i = (curr * nums - nums) ; i <= last; i++) {
+                str += '<li>' + data[i] + '</li>';
+            }
+            return str;
+        };
+
+        laypage({
+            cont: 'product-nav',
+            pages: pages,
+            jump: function (obj) {
+                document.getElementById('product-list').innerHTML = thisDate(obj.curr);
+            }
+        });
+    </script>
 @Html.Partial("_footer")

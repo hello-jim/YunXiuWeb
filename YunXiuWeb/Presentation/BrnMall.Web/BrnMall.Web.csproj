@@ -41,7 +41,7 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\DLL\Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:\Users\lizishen\AppData\Roaming\Skype\My Skype Received Files\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -63,7 +63,7 @@
     </Reference>
     <Reference Include="YunXiu.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\YunXiu\YunXiu\YunXiu.Model\bin\Debug\YunXiu.Model.dll</HintPath>
+      <HintPath>..\..\..\..\..\YunXiu\YunXiu\YunXiu.Model\bin\Debug\YunXiu.Model.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +214,11 @@
     <Content Include="css\issuelist2.css" />
     <Content Include="css\issuestyle.css" />
     <Content Include="css\jquery-ui.min.css" />
+    <Content Include="css\shorealbum.css" />
+    <Content Include="css\shorehome.css" />
+    <Content Include="css\shorenews.css" />
+    <Content Include="css\shorepublic.css" />
+    <Content Include="css\storeproduct.css" />
     <Content Include="images\7228010.jpg" />
     <Content Include="images\7277494.jpg" />
     <Content Include="images\860053_s.jpg" />
@@ -221,6 +226,8 @@
     <Content Include="images\860056_s.jpg" />
     <Content Include="images\9504388.jpg" />
     <Content Include="images\9785735.jpg" />
+    <Content Include="images\about.png" />
+    <Content Include="images\album.png" />
     <Content Include="images\atop880.jpg" />
     <Content Include="images\b4738448.jpg" />
     <Content Include="images\b8017216.jpg" />
@@ -230,11 +237,18 @@
     <Content Include="images\footericon3.png" />
     <Content Include="images\footericon4.png" />
     <Content Include="images\greenbg.png" />
+    <Content Include="images\picimg1.png" />
     <Content Include="images\qxdd1.png" />
     <Content Include="images\qxdd2.png" />
     <Content Include="images\qxdd3.png" />
+    <Content Include="images\shopimg.png" />
+    <Content Include="images\shoucang1.png" />
+    <Content Include="images\shoucang2.png" />
+    <Content Include="images\tel2.png" />
     <Content Include="images\xgdd.png" />
     <Content Include="images\xqdd.png" />
+    <Content Include="images\zan.png" />
+    <Content Include="images\zhengshupic.jpg" />
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="css\kefu1.css" />
     <Content Include="css\list.css" />
@@ -645,7 +659,9 @@
     <Content Include="js\jquery.SuperSlide.2.1.1.js" />
     <Content Include="js\jquery.waypoints.min.js" />
     <Content Include="js\kefujs.js" />
+    <Content Include="js\laypage.js" />
     <Content Include="js\sellerjs.js" />
+    <Content Include="js\storehome.js" />
     <Content Include="robots.txt" />
     <Content Include="scripts\account.js" />
     <Content Include="scripts\common.js" />
@@ -814,6 +830,7 @@
     <Content Include="views\CommonProblem\QSYZ.cshtml" />
     <Content Include="views\CommonProblem\SDPJ.cshtml" />
     <Content Include="views\CommonProblem\PHOME.cshtml" />
+    <Content Include="views\store\StoreNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\txtlogs\" />

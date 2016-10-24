@@ -1,0 +1,62 @@
+﻿@model BrnMall.Web.StoreAdmin.Models.DynamicsModel
+           
+@section header{
+    <title>添加店铺动态</title>
+<link type="text/css" rel="stylesheet" href="/admin_store/css/site.css" />
+<script type="text/javascript" src="/admin_store/scripts/jquery.js"></script>
+<script type="text/javascript" src="/admin_store/scripts/showlist.js"></script>
+<link rel="stylesheet" type="text/css" href="/components/jbox/Skins/Default/jbox.css" />
+<script type="text/javascript" src="/components/jbox/jquery.jBox-2.3.min.js"></script>
+  }
+
+</script>
+
+
+
+@section body{
+<form action="/storeadmin/store/editdynamics" method="post" id="form1" enctype="multipart/form-data" novalidate="novalidate">
+    <div class="dataList">
+        <table width="100%">
+            <tr>
+                <td></td>
+                <td>
+                    @Html.TextBoxFor(model => @Model.DID, new { @type = "hidden", @class = "input", size = "70" })
+                    @Html.ValidationMessageFor(model => @Model.DID)
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    标题:
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => @Model.Title, new { @class = "input", size = "70" })
+                    @Html.ValidationMessageFor(model => @Model.Title)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a style=" position: absolute;top: 30px;">内容:</a>
+                </td>
+                <td>
+                    
+                    <textarea rows="20" cols="50" name="DContent" id="DContent">@Model.DContent</textarea>@Html.ValidationMessageFor(model => model.DContent)
+                    
+                 
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    &nbsp;
+                </td>
+                <td>
+                    <a href="" class="addBt submit">
+                        <img src="/admin_store/images/submit.jpg" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+
+}

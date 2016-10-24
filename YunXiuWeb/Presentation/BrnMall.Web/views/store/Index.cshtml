@@ -3,8 +3,315 @@
     Layout = null;
 }
 @model StoreHomeModel
-@Html.Partial("_header")
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/public.css">
+<link rel="stylesheet" type="text/css" href="/css/shorehome.css">
+<link rel="stylesheet" type="text/css" href="/css/shorepublic.css">
+@*@Html.Partial("_header")*@
 
-@Model.StoreHome.HomeHtml
+<div id="topbar">
+    <div class="container">
+        <div class="col-xs-6 row">
+            <span class="fl">欢迎您,</span><!--<a>[登录]</a>&nbsp;<a>[注册]</a>-->
+            <ul class="fl topl">
+                <li class="talk">
+                    消息<i style="background:url(/images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
+                    <dl class="sub-menu">
+                        <dd><a>待处理订单</a></dd>
+                        <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
+                        <dd><a>通知</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    我的云绣
+                    <div class="sub-menu bg-white" style="z-index:9999; width:200px;border:1px solid #ddd;border-top:0;">
+                        <dl class="fl">
+                            <dt><a>我是买家</a></dt>
+                            <dd><a>发布采购</a></dd>
+                            <dd><a>发布招标</a></dd>
+                            <dd><a>我的优惠券</a></dd>
+                            <dd><a>我的采购单</a></dd>
+                            <dd><a>我的留言</a></dd>
+                        </dl>
+                        <dl class="fl">
+                            <dt><a>我是卖家</a></dt>
+                            <dd><a>管理旺铺</a></dd>
+                            <dd><a>已卖出的商品</a></dd>
+                            <dd><a>管理供应商品</a></dd>
+                            <dd><a>我的商机</a></dd>
+                        </dl>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="topbarr row">
+            <ul>
+                <!--<li class="talk">
+                   消息<i style="background:url(images/talk.png) no-repeat; display:inline-block;width:16px;height:24px; margin-left:3px;vertical-align:bottom;"></i>
+                   <dl class="sub-menu">
+                      <dd><a>待处理订单</a></dd>
+                      <dd><a>降价商品<span class="coloryellow">10</span></a></dd>
+                      <dd><a>通知</a></dd>
+                   </dl>
+                </li>-->
+                <li class="menu">
+                    我的收藏
+                    <dl class="sub-menu">
+                        <dd><a>收藏的商品</a></dd>
+                        <dd><a>收藏的供应商</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    云绣服务
+                    <dl class="sub-menu">
+                        <dd><a>标王服务</a></dd>
+                        <dd><a>黄金展位</a></dd>
+                        <dd><a>会员服务</a></dd>
+                        <dd><a>商贸通</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    诚信商家
+                    <dl class="sub-menu">
+                        <dd><a>商家权益</a></dd>
+                        <dd><a>招商标准</a></dd>
+                        <dd><a>收费标准</a></dd>
+                        <dd><a>入驻开店</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    客服中心
+                    <dl class="sub-menu">
+                        <dd><a>买家帮助</a></dd>
+                        <dd><a>卖家帮助</a></dd>
+                        <dd><a>在线咨询</a></dd>
+                        <dd><a>常见问答</a></dd>
+                        <dd><a>二维码</a></dd>
+                    </dl>
+                </li>
+                <li class="menu">
+                    网站导航
+                    <dl class="sub-menu">
+                        <dd><a>云绣ERP</a></dd>
+                        <dd><a>娴婷一账通</a></dd>
+                        <dd><a>云绣网</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<header class="container">
+    <div class="row">
+        <div class="logopart col-md-4" style="margin-top: -20px;">
+            <!--<a href="###" class="logo"></a>-->
+            <h2><img src="/images/logo.png" alt="云绣网" /><span style="margin-left:15px; margin-top: 20px;"><img src="/images/slogan.png" alt="刺绣行业一站式采购" /></span></h2>
+        </div>
+
+        <div class="search-part col-md-6">
+            <ul class="tab-search">
+                <li class="selected"><a>全部</a></li>
+                <li><a>线辅材</a></li>
+                <li><a>供应商</a></li>
+            </ul>
+            <div class="clear">
+                <input class="search-text" type="text" autocomplete="off" />
+                <button type="button" class="searchbtn">搜索</button>
+            </div>
+            <div class="hotwords">
+                <a href="###" target="_blank" class="hot">绣花机</a>
+                <a href="###" target="_blank">绣针</a>
+                <a href="###" target="_blank">机夹</a>
+                <a href="###" target="_blank">机架</a>
+                <a href="###" target="_blank">零配件</a>
+            </div>
+        </div>
+
+        <div class="cart-part col-md-2">
+            <h2><a href="###" target="_blank">我的购物车<b>3</b></a></h2>
+        </div>
+    </div>
+</header>
+
+<div class="store-header">
+    <div class="store-container">
+        <img src="/images/tiandao.png">
+        <span>神州田岛</span>
+    </div>
+</div>
+
+<div class="store-nav clearfix">
+    <div class="store-container">
+        <ul>
+            <li class="store-nav-active"><a href="@Url.Action("index", "store", new RouteValueDictionary { { "storeId", Model.StoreInfo.StoreID } })">公司首页</a></li>
+            <li><a href="@Url.Action("supplyproduct", "store", new { sid = @Model.StoreInfo.StoreID})">供应产品</a></li>
+            <li><a href="@Url.Action("storeintroduction", "store", new { sid = @Model.StoreInfo.StoreID})">公司介绍</a></li>
+            <li><a href="@Url.Action("storenews", "store", new { sid = @Model.StoreInfo.StoreID})">旺铺动态</a></li>
+            <li><a href="@Url.Action("storealbum", "store", new { sid = @Model.StoreInfo.StoreID})">公司相册</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="store-banner">
+</div>
+
+<div class="store-list clearfix">
+    <div class="store-container">
+        <div class="left-nav">
+            <h3 class="nav-current"><a href="javascript:void(0);" class="item1">公司信息</a></h3>
+            <h3><a href="javascript:void(0);" class="item2">公司动态</a></h3>
+            <h3><a href="javascript:void(0);" class="item3">联系我们</a></h3>
+            <h3><a href="javascript:void(0);" class="shoucang item4">收藏店铺</a></h3>
+        </div>
+
+        <div class="right-conten">
+            <div class="contenbox">
+                <div class="contentop clearfix">
+                    <h1>
+                        <img src="/images/storeImg/@Model.StoreInfo.Logo">
+                        <span>@Model.StoreInfo.Name</span>
+                    </h1>
+                    <div class="topinfo">
+                        <p><span style="color: red; margin-right: 30px;">买卖通会员</span>所在地区：广东惠州</p>
+                        <p>主营产品：XXXXX XXXX</p>
+                    </div>
+                </div>
+                <div class="conteninfo">
+                    <p>这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述</p>
+                </div>
+            </div>
+            <div class="contenbox">
+                <div class="contentop clearfix">
+                    <h1>
+                        <img src="/images/storeImg/@Model.StoreInfo.Logo">
+                        <span>@Model.StoreInfo.Name</span>
+                    </h1>
+                    <div class="topinfo">
+                        <p><span style="color: red; margin-right: 30px;">买卖通会员</span>所在地区：广东惠州</p>
+                        <p>主营产品：XXXXX XXXX</p>
+                    </div>
+                </div>
+                <div class="conteninfo">
+                    <ul class="infolist">
+                        <li><label>在线客服：</label><a href="">售前客服<img src="/images/headimg.png"></a><a href="">售后客服<img src="/images/headimg.png"></a></li>
+                        <li><label>公司地址：</label><span>广东省惠州市惠城区仲恺大道惠环段168</span></li>
+                        <li><label>联系电话：</label><span>@Model.StoreInfo.Mobile</span><span>@Model.StoreInfo.Phone</span></li>
+                        <li><label>邮政编码：</label><span>516000</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contenbox">
+                <ul class="discount-list clearfix">
+                    <li><span>2016-9-30</span><a href="">国庆放假期间的发货安排</a></li>
+                    <li><span>2016-11-1</span><a href="">双十一优惠大攻略，聚惠来袭！</a></li>
+                    <li><span>2016-11-1</span><a href="">双十一优惠大攻略，聚惠来袭！</a></li>
+                    <li><span>2016-11-1</span><a href="">双十一优惠大攻略，聚惠来袭！</a></li>
+                    <li><span>2016-11-1</span><a href="">双十一优惠大攻略，聚惠来袭！</a></li>
+                    <li><span>2016-11-1</span><a href="">双十一优惠大攻略，聚惠来袭！</a></li>
+                    <button>查看更多</button>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hotshop">
+    <div class="store-container">
+        <p>
+            <span>热销商品</span>
+        </p>
+        <div class="shoplist">
+            <ul>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="newshop">
+    <div class="store-container">
+        <p><span>最新供应</span></p>
+        <div class="shoplist">
+            <ul>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+                <li>
+                    <h1><a href=""><img src="/images/shopimg.png"></a></h1>
+                    <div class="info">
+                        <span> TIIP 单头电脑刺绣机 ARES-...</span>
+                        <b>￥60000</b>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/storehome.js"></script>
 
 @Html.Partial("_footer")

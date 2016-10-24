@@ -1,0 +1,64 @@
+﻿@model BrnMall.Web.StoreAdmin.Models.DynamicsModel
+@section header{
+    <title>在售商品</title>
+    <link type="text/css" rel="stylesheet" href="/admin_store/css/site.css"/>
+    <script type="text/javascript" src="/admin_store/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_store/scripts/showlist.js"></script>
+    <link rel="stylesheet" type="text/css"  href="/components/jbox/Skins/Default/jbox.css"/>
+    <script type="text/javascript" src="/components/jbox/jquery.jBox-2.3.min.js"></script>
+    <script type="text/javascript">
+        productPageType = 2;
+    </script>
+}
+@section body{
+<h1 class="rightH1">
+    店铺动态 &gt;&gt; 店铺动态
+    <div class="right">
+        <a href="@Url.Action("adddynamicslist")" class="menuBT">
+            <img src="/admin_store/images/add.jpg" />添加商品
+        </a>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+</h1>
+        <div class="dataList">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <th width="40" align="center"><input type="checkbox" id="allSelect" /></th>
+                        <th width="50" align="left">编号</th>
+                        <th width="200" align="center">标题</th>
+                        <th width="800" align="center">内容</th>
+                        <th align="center">操作</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+@foreach (var info in Model.Dynamics)
+{
+    <tr did="@info.DID" title="@info.Title" dcontent="@info.DContent">
+        <td align="center"><input type="checkbox" value="" selectitem="true" name="pidList" /></td>
+        <td>@info.DID</td>
+        <td align="center"><a>@info.Title</a></td>
+        <td align="center"><a>@info.DContent</a></td>
+        <td align="center">
+            @Html.ActionLink("[编辑]", "editDynamicslist", new { did = @info.DID, title = @info.Title, dcontent = @info.DContent }, new { @class = "editOperate" })|
+            @Html.ActionLink("[删除]", "delDynamicslist",new{ did = @info.DID }, new { @class = "deleteOperate" })
+        </td>
+    </tr>
+}
+
+                </tbody>
+            </table>
+        </div>
+        <div class="dataListEdit">
+@*<a href="javascript:void(0)" outSaleUrl="@Url.Action("outsaleproduct")" class="batch batchOutSale">批量下架</a>
+<a href="javascript:void(0)" recycleUrl="@Url.Action("recycleproduct")" class="batch batchRecycle">批量删除</a>*@
+            @*<div class="page">
+                @Html.StoreAdminPager(Model.PageModel)
+            </div>*@
+        </div>
+    @*}*@
+}

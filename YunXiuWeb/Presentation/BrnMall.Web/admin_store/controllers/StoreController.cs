@@ -388,11 +388,117 @@ namespace BrnMall.Web.StoreAdmin.Controllers
             AddStoreAdminLog("删除店铺配送模板", "删除店铺配送模板,店铺配送模板ID为:" + storeSTid);
             return PromptView("店铺配送模板删除成功");
         }
+        public ActionResult Dynamicslist()
+        {
+          var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+          var storeDynamics = JsonConvert.DeserializeObject<List<StoreDynamics>>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreDynamics", accountApi), JsonConvert.SerializeObject(name.UStore.StoreID)));
+          DynamicsModel model = new DynamicsModel
+          {
+              Dynamics = storeDynamics,
+          };
+            return View(model);
+        }
 
 
+        /// <summary>
+        /// 添加店铺动态
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult AddDynamicsList()
+        {
+            return View();
+        }
+
+   
+        [HttpPost]
+        public ActionResult AddDynamics(DynamicsModel model)
+        {
+           
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            StoreDynamics dynamicsinfo = new StoreDynamics
+            {
+
+                Store = new Store
+                {
+                StoreID = name.UStore.StoreID,
+                },
+                Title = model.Title,
+                DContent = model.DContent,
+                CreateUser = new User
+                {
+                    UID=name.UID,
+                },
+            
+            };
+            var storeDynamics = CommomClass.HttpPost(string.Format("{0}/Store/AddStoreDynamics", accountApi), JsonConvert.SerializeObject(dynamicsinfo));
+            if (storeDynamics == "true")
+            {
+                return PromptView("添加成功");
+            }
+            else {
+                return PromptView("添加失败");
+            }
+        }
 
 
+        /// <summary>
+        /// 更新店铺动态
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult editDynamicsList(DynamicsModel model)
+        {
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult editDynamics(DynamicsModel model)
+        {
 
+            var name = (YunXiu.Model.User)Session[SessionKey.USERINFO];
+            StoreDynamics dynamicsinfo = new StoreDynamics
+            {
+                Store = new Store
+                {
+                    StoreID = name.UStore.StoreID
+                },
+                Title = model.Title,
+                DContent = model.DContent,
+                LastUpdateUser = new User
+                {
+                    UID = name.UID,
+                },
+                DID = model.DID,
+            };
+            var updatestoreDynamics = CommomClass.HttpPost(string.Format("{0}/Store/UpdateStoreDynamics", accountApi), JsonConvert.SerializeObject(dynamicsinfo));
+            if (updatestoreDynamics == "true")
+            {
+                return PromptView("修改成功");
+            }
+            else
+            {
+                return PromptView("修改失败");
+            }
+        }
+       /// <summary>
+       ///删除动态
+       /// </summary>
+       /// <param name="did"></param>
+       /// <returns></returns>
+        public ActionResult DelDynamicslist(int did)
+        {
+            var deletestoreDynamics = CommomClass.HttpPost(string.Format("{0}/Store/DeleteStoreDynamics", accountApi), JsonConvert.SerializeObject(did));
+            if (deletestoreDynamics == "true")
+            {
+                return PromptView("删除成功");
+            }
+            else
+            {
+                return PromptView("删除失败");
+            }
+        }
         /// <summary>
         /// 店铺配送费用列表
         /// </summary>
@@ -487,7 +593,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
             LoadStoreShipFee(model.RegionId);
             return View(model);
         }
-
+        
         /// <summary>
         /// 编辑店铺配送费用
         /// </summary>
@@ -620,5 +726,7 @@ namespace BrnMall.Web.StoreAdmin.Controllers
 
             ViewData["referer"] = MallUtils.GetMallAdminRefererCookie();
         }
+
+        
     }
 }

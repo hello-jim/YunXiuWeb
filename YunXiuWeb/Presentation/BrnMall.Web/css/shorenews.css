@@ -1,0 +1,49 @@
+.news-container{
+	width: 1000px;
+	position: relative;
+	padding-top: 20px;
+	margin: 0 auto;
+}
+.conten-left{
+	width: 230px;
+	float: left;
+	margin-right: 10px;
+}
+.conten-right{
+	float: right;
+	width: 760px;
+}
+
+/*右边公司动态*/
+.store-news{
+	border:1px solid #ddd;
+}
+.store-news h4.title{
+	height: 34px;
+	line-height: 34px;
+	font-size: 16px;
+	background-color: #a4a4a1;
+	color: #fff;
+	padding-left: 20px;
+	margin:0;
+}
+.store-news .news-contain{
+	padding: 20px 34px;
+	background-color: #fff;
+}
+.news-list li{
+	margin-top: 10px;
+	padding-bottom: 3px;
+	border-bottom: 1px dotted #ccc;
+}
+.news-list li a{
+	margin-left: 12px;
+}
+.news-list li a:hover{
+	text-decoration: none;
+	color: #0275d8;
+}
+.news-list li span{
+	float: right;
+	margin-right: 12px;
+}

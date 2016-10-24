@@ -61,7 +61,7 @@ namespace BrnMall.Web.Controllers
             //var cateCoryData = CommomClass.HttpPost(string.Format("{0}/Category/GetCategoryByID", productApi), "2");
             //var Category = JsonConvert.DeserializeObject<Category>(cateCoryData);
             //品牌
-            var brandData = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrandByID", productApi), "36");
+            var brandData = CommomClass.HttpPost(string.Format("{0}/Brand/GetBrandByID", productApi), "38");
             var brand = JsonConvert.DeserializeObject<Brand>(brandData);
             model.Logo = brand.Logo;
             //获取品牌
@@ -73,7 +73,7 @@ namespace BrnMall.Web.Controllers
             var showBrand = JsonConvert.DeserializeObject<List<Brand>>(brandCount);
             model.ShowDynamicBran = showBrand;
             //热门品牌
-            var hotBrandCount = CommomClass.HttpPost(string.Format("{0}/Brand/GetHotBrand", productApi), "7");
+            var hotBrandCount = CommomClass.HttpPost(string.Format("{0}/Brand/GetHotBrand", productApi), "36");
             var hotBrand = JsonConvert.DeserializeObject<List<Brand>>(hotBrandCount);
             model.HotBrand = hotBrand;
             //根据类目38获取品牌

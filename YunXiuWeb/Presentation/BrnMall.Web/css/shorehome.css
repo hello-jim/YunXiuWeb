@@ -1,0 +1,210 @@
+.store-banner{
+	width: 100%;
+	height: 320px;
+	background: url(../images/1.jpg) center center no-repeat;
+	background-size: cover;
+}
+
+/*标签页-介绍、推荐、联系、收藏*/
+.store-list{
+	padding-top: 50px;
+	width: 100%;
+	background-color: #f7f7f7;
+}
+.store-list .left-nav{
+	width: 210px;
+	margin-right: 20px;
+	float: left;
+}
+.store-list .left-nav h3{
+	width: 210px;
+	height: 54px;
+	line-height: 54px;
+	margin: 0px 0 10px;
+	background-color: #4498d2;
+	text-align: center;
+}
+.store-list .left-nav a.item1{
+	background: url(../images/about.png) right center no-repeat;
+}
+.store-list .left-nav a.item2{
+	background: url(../images/zan.png) right center no-repeat;
+}
+.store-list .left-nav a.item3{
+	background: url(../images/tel2.png) right center no-repeat;
+}
+.store-list .left-nav a.item4{
+	background: url(../images/shoucang1.png) right center no-repeat;
+}
+.shouchangitem{
+	background: url(../images/shoucang2.png) right center no-repeat !important;
+}
+.nav-current{
+	background-color: #077cce !important;
+}
+.store-list .left-nav h3 a{
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	padding-right: 34px;
+	/*background: url(../images/about.png) right center no-repeat;*/
+}
+.left-nav a:link,.left-nav a:visited,.left-nav a:hover,.left-nav a:active{
+	text-decoration: none;
+}
+.store-list .right-conten{
+	width: 770px;
+	height: 246px;
+	border-width: 6px 0px 0px 0px;
+	border-style: solid;
+	border-color: #077cce #ddd #ddd #ddd;
+	background-color: #fff;
+	float: left;
+}
+.store-list .right-conten .contenbox{
+	width: 90%;
+	margin: 0 auto;
+	display: none;
+}
+.right-conten .contenbox:first-child{
+	display: block;	
+}
+.contenbox .contentop{
+	border-bottom: 1px dashed #666;
+}
+.contenbox .contentop h1 img{
+	width: 80px;
+	height: 57px;
+}
+.contenbox .contentop h1{
+	float: left;
+}
+.contenbox .contentop .topinfo{
+	float: left;
+	margin: 30px 90px 0;
+}
+.contenbox .contentop h1 span{
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 20px;
+	color: #666;
+	vertical-align: bottom;
+}
+.contenbox .conteninfo{
+	margin-top: 10px;
+}
+.contenbox .conteninfo p{
+	text-indent: 24px;
+}
+.contenbox .conteninfo .infolist{
+	margin-left: 36px;
+}
+.contenbox .conteninfo .infolist li{
+	line-height: 24px;
+}
+.infolist li span,.infolist li a{
+	margin-right: 16px;
+}
+.contenbox .discount-list{
+	padding: 20px 40px 0;
+}
+.contenbox .discount-list li{
+	padding:0 12px 4px;
+	border-bottom: 1px dotted #ddd;
+	margin-bottom: 8px;
+}
+.contenbox .discount-list li a:hover{
+	text-decoration: none;
+	color: #0275d8;
+}
+.contenbox .discount-list li span{
+	float: right;
+}
+.contenbox button{
+	background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 24px;
+    width: 70px;
+	float: right;
+	margin-right: 10px;
+}
+
+.hotshop{
+	width: 100%;
+	height: 370px;
+	padding-top: 50px;
+	background-color: #f7f7f7;
+}
+.hotshop p{
+	border-bottom: 2px solid #ddd;
+}
+.hotshop p span{
+	padding: 2px 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+.newshop{
+	width: 100%;
+	height: 370px;
+	padding-top: 50px;
+	background-color: #f7f7f7;
+}
+.newshop p{
+	border-bottom: 2px solid #ddd;
+}
+.newshop p span{
+	padding-left: 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+.shoplist ul li{
+	float: left;
+    width: 188px;
+    height: 290px;
+
+}
+.shoplist ul li:not(:last-child){
+    margin-right: 15px;	
+}
+.shoplist ul li h1 {
+    width: 186px;
+    height: 186px;
+    display: table;
+    background: #fff;
+    margin-bottom: 0px; 
+}
+.shoplist ul li h1 a {
+    width: 186px;
+    height: 186px;
+    display: table-cell;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    text-align: center;
+}
+.shoplist ul li h1 a img {
+    max-width: 186px;
+    max-height: 186px;
+}
+.shoplist ul li .info{
+	width: 186px;
+	line-height: 20px;
+    border: solid #ddd;
+    border-width: 0 1px 1px 1px;
+    height: auto;
+    padding: 3px 5px 8px 5px;
+    background: #f7f7f7;
+}
+.shoplist ul li .info span {
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+.shoplist ul li .info b{
+	color: #ebb600;
+}

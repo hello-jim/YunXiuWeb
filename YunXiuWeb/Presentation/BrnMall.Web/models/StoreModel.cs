@@ -137,6 +137,18 @@ namespace BrnMall.Web.Models
         /// 店铺相册
         /// </summary>
         public List<StoreImg> StoreImages { get; set; }
-    }
 
+        public List<Product> Products { get; set; }
+
+    }
+    /// <summary>
+    /// 店铺动态信息类
+    /// </summary>
+    public class StoreNewsModel 
+    {
+        public Store StoreInfo { get; set; }
+        public List<StoreDynamics> StoreDynamics { get; set; }
+
+        public List<Product> Products { get; set; }
+    }
 }

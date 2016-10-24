@@ -35,6 +35,7 @@ namespace BrnMall.Web
                             "store/{storeId}.html",
                             new { controller = "store", action = "index" },
                             new[] { "BrnMall.Web.Controllers" });
+         
             //店铺分类路由
             routes.MapRoute("storeclass",
                             "storeclass/{storeId}-{storeCid}-{startPrice}-{endPrice}-{sortColumn}-{sortDirection}-{page}.html",

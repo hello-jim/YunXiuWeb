@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using BrnMall.Core;
 using BrnMall.Services;
 using BrnMall.Web.Framework;
+using YunXiu.Model;
 
 namespace BrnMall.Web.StoreAdmin.Models
 {
@@ -253,5 +254,27 @@ namespace BrnMall.Web.StoreAdmin.Models
         [Range(0, int.MaxValue, ErrorMessage = "加价不能为负数")]
         [DisplayName("加价")]
         public int AddFee { get; set; }
+    }
+
+    public class DynamicsModel 
+    {
+        public List<StoreDynamics> Dynamics { get; set; }
+
+        public string Title { get; set; }
+
+        public Store Store { get; set; }
+
+        public DateTime CreatTime { get; set; }
+        public string DContent { get; set; }
+
+        public int DID { get; set; }
+
+        public User User { get; set; }
+
+        public int CreateUserID { get; set; }
+
+        public int LastUpdateUserID { get; set; }
+
+        public User CreateUser { get; set; }
     }
 }

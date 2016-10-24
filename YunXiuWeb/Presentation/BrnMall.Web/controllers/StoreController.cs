@@ -31,7 +31,13 @@ namespace BrnMall.Web.Controllers
                 var sID = GetRouteInt("storeID");//商铺ID
                 var storeHome = JsonConvert.DeserializeObject<StoreHome>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreHome", accountApi), sID.ToString()));//获取商铺首页
                 var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), sID.ToString()));
+                Store list = new Store
+                {
+                    StorerID=sID,
+                };
                 model.StoreHome = storeHome;
+                model.StoreInfo = storeInfo;
+                model.StoreInfo.StoreID = list.StorerID;
             }
             catch (Exception ex)
             {
@@ -166,16 +172,21 @@ namespace BrnMall.Web.Controllers
         /// 供应商品
         /// </summary>
         /// <returns></returns>
-        public ActionResult SupplyProduct()
+        public ActionResult SupplyProduct(int sid)
         {
             SupplyProductModel model = new SupplyProductModel();
             try
             {
-                var sID = 0;
-                var products = JsonConvert.DeserializeObject<List<Product>>(CommomClass.HttpPost(string.Format("{0}/Product/GetProductByStore", productApi), sID.ToString()));
-                var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), sID.ToString()));
+                var Sid = sid;
+                var products = JsonConvert.DeserializeObject<List<Product>>(CommomClass.HttpPost(string.Format("{0}/Product/GetProductByStore", productApi), Sid.ToString()));
+                var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), Sid.ToString()));
+                Store list = new Store
+                {
+                    StorerID = Sid,
+                };
                 model.Products = products;
                 model.StoreInfo = storeInfo;
+                model.StoreInfo.StoreID = list.StorerID;
             }
             catch (Exception ex)
             {
@@ -189,16 +200,21 @@ namespace BrnMall.Web.Controllers
         /// 公司介绍
         /// </summary>
         /// <returns></returns>
-        public ActionResult StoreIntroduction()
+        public ActionResult StoreIntroduction(int sid)
         {
             StoreIntroductionModel model = new StoreIntroductionModel();
             try
             {
-                var sID = 0;
-                var certificateList = JsonConvert.DeserializeObject<List<Certificate>>(CommomClass.HttpPost(string.Format("{0}/Store/GetCertificate",accountApi), sID.ToString()));//公司证件
-                var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), sID.ToString()));
+                var Sid = sid;
+                var certificateList = JsonConvert.DeserializeObject<List<Certificate>>(CommomClass.HttpPost(string.Format("{0}/Store/GetCertificate", accountApi), Sid.ToString()));//公司证件
+                var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), Sid.ToString()));
+                Store list = new Store
+                {
+                    StorerID = Sid,
+                };
                 model.CertificateList = certificateList;
                 model.StoreInfo = storeInfo;
+                model.StoreInfo.StoreID = list.StorerID;
             }
             catch (Exception ex)
             {
@@ -211,15 +227,25 @@ namespace BrnMall.Web.Controllers
         /// 公司相册
         /// </summary>
         /// <returns></returns>
-        public ActionResult StoreAlbum()
+        public ActionResult StoreAlbum(int sid)
         {
             StoreAlbumModel model = new StoreAlbumModel();
-            var sID = 0;
-            var storeImages = JsonConvert.DeserializeObject<List<StoreImg>>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreImg", accountApi), sID.ToString()));//相片
-            var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), sID.ToString()));
+            var Sid = sid;
+            var storeImages = JsonConvert.DeserializeObject<List<StoreImg>>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreImg", accountApi), Sid.ToString()));//相片
+            var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), Sid.ToString()));
+            var products = JsonConvert.DeserializeObject<List<Product>>(CommomClass.HttpPost(string.Format("{0}/Product/GetProductByStore", productApi), Sid.ToString()));
+            Store list = new Store
+            {
+                StorerID = Sid,
+            };
+            model.StoreImages = storeImages;
+            model.StoreInfo = storeInfo;
+            model.Products = products;
+            model.StoreInfo.StoreID = list.StorerID;
             return View(model);
         }
 
+       
         protected sealed override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
@@ -228,7 +254,6 @@ namespace BrnMall.Web.Controllers
             WorkContext.StoreId = GetRouteInt("storeId");
             if (WorkContext.StoreId < 1)
                 WorkContext.StoreId = WebHelper.GetQueryInt("storeId");
-
             //店铺信息
             WorkContext.StoreInfo = Stores.GetStoreById(WorkContext.StoreId);
         }
@@ -243,7 +268,23 @@ namespace BrnMall.Web.Controllers
         {
             return View();
         }
-
+        public ActionResult StoreNews(int sid) 
+        {
+            var SID = sid;
+            var storeDynamics = JsonConvert.DeserializeObject<List<StoreDynamics>>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreDynamics", accountApi), SID.ToString()));
+            var products = JsonConvert.DeserializeObject<List<Product>>(CommomClass.HttpPost(string.Format("{0}/Product/GetProductByStore", productApi), SID.ToString()));
+            var storeInfo = JsonConvert.DeserializeObject<Store>(CommomClass.HttpPost(string.Format("{0}/Store/GetStoreByID", accountApi), SID.ToString()));
+            StoreNewsModel model = new StoreNewsModel();
+            Store list = new Store
+            {
+                StorerID = SID,
+            };
+            model.StoreDynamics = storeDynamics;
+            model.Products = products;
+            model.StoreInfo = storeInfo;
+            model.StoreInfo.StoreID = list.StorerID;
+            return View(model);
+        }
         //protected sealed override void OnAuthorization(AuthorizationContext filterContext)
         //{
         //    base.OnAuthorization(filterContext);
