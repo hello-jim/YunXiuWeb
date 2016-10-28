@@ -1478,38 +1478,45 @@ namespace BrnMall.Web.Controllers
             };
             var cText = Security.AESEncrypt(JsonConvert.SerializeObject(pay), orderAESKey);
             var resCText = CommomClass.HttpPost(string.Format("{0}/Order/CreateOrder", orderApi), cText);
-            var resPay =JsonConvert.DeserializeObject<PayOrder>(Security.AESDecrypt(resCText, orderAESKey));
+            var resPay = JsonConvert.DeserializeObject<PayOrder>(Security.AESDecrypt(resCText, orderAESKey));
+
+            if (resPay.ID != 0)
+            {
+                Config.service = WorkContext.GetPayConfVal("Alipay", "service");
+                Config.partner = WorkContext.GetPayConfVal("Alipay", "partner");
+                Config.seller_id = WorkContext.GetPayConfVal("Alipay", "seller_id");
+                Config.input_charset = WorkContext.GetPayConfVal("Alipay", "input_charset");
+                Config.payment_type = WorkContext.GetPayConfVal("Alipay", "payment_type");
+                Config.notify_url = WorkContext.GetPayConfVal("Alipay", "notify_url");
+                Config.return_url = WorkContext.GetPayConfVal("Alipay", "return_url");
+                Config.anti_phishing_key = WorkContext.GetPayConfVal("Alipay", "anti_phishing_key");
+                Config.exter_invoke_ip = WorkContext.GetPayConfVal("Alipay", "exter_invoke_ip");
 
 
-            Config.service = WorkContext.GetPayConfVal("Alipay", "service");
-            Config.partner = WorkContext.GetPayConfVal("Alipay", "partner");
-            Config.seller_id = WorkContext.GetPayConfVal("Alipay", "seller_id");
-            Config.input_charset = WorkContext.GetPayConfVal("Alipay", "input_charset");
-            Config.payment_type = WorkContext.GetPayConfVal("Alipay", "payment_type");
-            Config.notify_url = WorkContext.GetPayConfVal("Alipay", "notify_url");
-            Config.return_url = WorkContext.GetPayConfVal("Alipay", "return_url");
-            Config.anti_phishing_key = WorkContext.GetPayConfVal("Alipay", "anti_phishing_key");
-            Config.exter_invoke_ip = WorkContext.GetPayConfVal("Alipay", "exter_invoke_ip");
+                //把请求参数打包成数组
+                SortedDictionary<string, string> sParaTemp = new SortedDictionary<string, string>();
+                sParaTemp.Add("service", Config.service);
+                sParaTemp.Add("partner", Config.partner);
+                sParaTemp.Add("seller_id", Config.seller_id);
+                sParaTemp.Add("_input_charset", Config.input_charset.ToLower());
+                sParaTemp.Add("payment_type", Config.payment_type);
+                sParaTemp.Add("notify_url", Config.notify_url);
+                sParaTemp.Add("return_url", Config.return_url);
+                sParaTemp.Add("anti_phishing_key", Config.anti_phishing_key);
+                sParaTemp.Add("exter_invoke_ip", Config.exter_invoke_ip);
+                sParaTemp.Add("out_trade_no", resPay.ID.ToString());
+                sParaTemp.Add("subject", "Test");
+                sParaTemp.Add("total_fee", pay.PayAmount.ToString());
+                sParaTemp.Add("body", "");
 
-         
-            //把请求参数打包成数组
-            SortedDictionary<string, string> sParaTemp = new SortedDictionary<string, string>();
-            sParaTemp.Add("service", Config.service);
-            sParaTemp.Add("partner", Config.partner);
-            sParaTemp.Add("seller_id", Config.seller_id);
-            sParaTemp.Add("_input_charset", Config.input_charset.ToLower());
-            sParaTemp.Add("payment_type", Config.payment_type);
-            sParaTemp.Add("notify_url", Config.notify_url);
-            sParaTemp.Add("return_url", Config.return_url);
-            sParaTemp.Add("anti_phishing_key", Config.anti_phishing_key);
-            sParaTemp.Add("exter_invoke_ip", Config.exter_invoke_ip);
-            sParaTemp.Add("out_trade_no", resPay.ID.ToString());
-            sParaTemp.Add("subject", "Test");
-            sParaTemp.Add("total_fee", pay.PayAmount.ToString());
-            sParaTemp.Add("body", "");
+                //建立请求
+                from = YunXiu.Commom.Pay.Alipay.Submit.BuildRequest(sParaTemp, "get", "确认");
+            }
+            else
+            {
+                //创建支付订单失败跳转
+            }
 
-            //建立请求
-            from = YunXiu.Commom.Pay.Alipay.Submit.BuildRequest(sParaTemp, "get", "确认");
             return from;
         }
 
@@ -1525,6 +1532,8 @@ namespace BrnMall.Web.Controllers
 
                 if (verifyResult)//验证成功
                 {
+
+
                     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     //请在这里加上商户的业务逻辑程序代码
 
@@ -1566,7 +1575,17 @@ namespace BrnMall.Web.Controllers
                     }
                     else
                     {
+                        PayOrder pay = new PayOrder
+                        {
+                            ID = Convert.ToInt32(out_trade_no),
+                            PayOrderNo = trade_no,
+                            TradeStatus = trade_status
+                        };
+
+                      var cText=  Security.AESEncrypt(JsonConvert.SerializeObject(pay),orderAESKey);
+                      var result = CommomClass.HttpPost(string.Format("{0}/Order/UpdatePayOrder", orderApi), cText);
                     }
+
 
                     //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
 
@@ -1586,6 +1605,8 @@ namespace BrnMall.Web.Controllers
 
             return View();
         }
+
+
 
         public ActionResult Notify()
         {
